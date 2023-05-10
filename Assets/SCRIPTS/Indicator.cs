@@ -41,6 +41,8 @@ public class Indicator : MonoBehaviour
     private Color finalColor;
     public float colorRatio = 10;
 
+    public Color32 deselectionColor;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,6 +69,8 @@ public class Indicator : MonoBehaviour
         finalColor = initialColor;
         finalColor.a = 0.5f;
 
+        deselectionColor = new Color32(79, 74, 74, 255);
+
         Debug.Log(initialColor);
     }
 
@@ -77,10 +81,10 @@ public class Indicator : MonoBehaviour
             ChangeShadowScale();
         }
 
-        if(renderer.material.color != targetColor)
+        /*if(renderer.material.color != targetColor)
         {
             ChangeAlpha();
-        }
+        }*/
     }
 
     public void OnMouseOver()
@@ -167,12 +171,12 @@ public class Indicator : MonoBehaviour
 
     public void FadeOut()
     {
-        targetColor = finalColor;
+        renderer.material.color = deselectionColor;
     }
 
     public void FadeIn()
     {
-        targetColor = initialColor;
+        renderer.material.color = initialColor;
     }
 
     public Vector3 NewScale(int v)
