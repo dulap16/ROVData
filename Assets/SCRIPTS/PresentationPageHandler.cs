@@ -7,10 +7,13 @@ public class PresentationPageHandler : MonoBehaviour
 {
     // CONTROLS THE PRESENTATION PART OF THE APP
 
-    public GameObject valuePage;
-    public GameObject UI;
+    public ValuePageHandler valuePage;
     private Vector3 initialPos;
     private Vector3 hiddenPos;
+
+    public GameObject UI;
+    private Vector3 uiinit;
+    private Vector3 uifinal;
 
     public bool shown = false;
 
@@ -30,6 +33,9 @@ public class PresentationPageHandler : MonoBehaviour
         initialPos = transform.localPosition;
         hiddenPos = new Vector3(500, 0, 0);
 
+        uiinit = UI.transform.localPosition;
+        uifinal = new Vector3(500, 0, 0);
+
         Hide();
 
         initMapPos = map.anchoredPosition;
@@ -47,10 +53,20 @@ public class PresentationPageHandler : MonoBehaviour
         transform.localPosition = hiddenPos;
     }
 
+    public void ShowUI()
+    {
+        UI.transform.localPosition = uiinit;
+    }
+
+    public void HideUI()
+    {
+        UI.transform.localPosition = uifinal;
+    }
+
     public void PresentationPageButtonClicked()
     {
         // valuePage.SetActive(false);
-        valuePage.GetComponent<ValuePageHandler>().Hide();
+        valuePage.Hide();
 
         // GetComponent<GameObject>().SetActive(true);
         Show();
@@ -64,11 +80,15 @@ public class PresentationPageHandler : MonoBehaviour
             map.anchoredPosition = presMapPos;
             texture.sprite = fullImage;
 
+            HideUI();
+
             presentation = true;
         } else
         {
             map.anchoredPosition = initMapPos;
             texture.sprite = transparentImage;
+
+            ShowUI();
 
             presentation = false;
         }

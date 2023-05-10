@@ -12,7 +12,7 @@ public class ValuePageHandler : MonoBehaviour
 
     // FOR WHEN CHANGING TO PRESENTATION
     public Handler handler;
-    public GameObject presentationPage;
+    public PresentationPageHandler presentationPage;
     public GameObject massValueInputgo;
     public GameObject insertValuesButton;
 
@@ -53,10 +53,10 @@ public class ValuePageHandler : MonoBehaviour
 
     public void ValuePageButtonClicked()
     {
-        presentationPage.GetComponent<PresentationPageHandler>().Hide();
+        presentationPage.Hide();
         Show();
 
-        presentationPage.GetComponent<PresentationPageHandler>().shown = false;
+        presentationPage.shown = false;
     }
 
     public void MassValueInsertionClicked()

@@ -913,6 +913,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1719835713}
+  - {fileID: 384891728}
   - {fileID: 1931254994}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -3993,8 +3994,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1257909840}
-  m_Father: {fileID: 1931254994}
-  m_RootOrder: 0
+  m_Father: {fileID: 101302752}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8340,7 +8341,7 @@ RectTransform:
   - {fileID: 702135929}
   - {fileID: 616975441}
   m_Father: {fileID: 1931254994}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8359,7 +8360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c7d9128420b6074490262471e86ef6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  valuePage: {fileID: 1616650036}
+  valuePage: {fileID: 1616650038}
   UI: {fileID: 1931254993}
   shown: 0
   map: {fileID: 1719835713}
@@ -10551,7 +10552,7 @@ RectTransform:
   m_Children:
   - {fileID: 1490316795}
   m_Father: {fileID: 1931254994}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -14287,7 +14288,7 @@ RectTransform:
   m_Children:
   - {fileID: 1392249166}
   m_Father: {fileID: 1931254994}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -14926,7 +14927,7 @@ RectTransform:
   - {fileID: 1570204601}
   - {fileID: 870058533}
   m_Father: {fileID: 1931254994}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -14946,7 +14947,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handler: {fileID: 1562019149}
-  presentationPage: {fileID: 861385667}
+  presentationPage: {fileID: 861385669}
   massValueInputgo: {fileID: 870058532}
   insertValuesButton: {fileID: 1139508392}
 --- !u!1 &1625165786 stripped
@@ -17669,13 +17670,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 384891728}
   - {fileID: 1547395451}
   - {fileID: 1137158394}
   - {fileID: 1616650037}
   - {fileID: 861385668}
   m_Father: {fileID: 101302752}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
