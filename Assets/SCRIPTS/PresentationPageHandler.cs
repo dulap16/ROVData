@@ -8,9 +8,21 @@ public class PresentationPageHandler : MonoBehaviour
     // CONTROLS THE PRESENTATION PART OF THE APP
 
     public GameObject valuePage;
+    public GameObject UI;
     private Vector3 initialPos;
     private Vector3 hiddenPos;
 
+    public bool shown = false;
+
+    // PRESENTATION MODE
+    public GameObject map;
+    public SpriteRenderer texture;
+    public Sprite fullImage;
+    public Sprite transparentImage;
+    public bool presentation = false;
+
+    private Vector3 initMapPos;
+    private Vector3 presMapPos;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +31,9 @@ public class PresentationPageHandler : MonoBehaviour
         hiddenPos = new Vector3(500, 0, 0);
 
         Hide();
+
+        initMapPos = map.transform.localPosition;
+        presMapPos = new Vector3(827, 293, 2.172865f);
     }
 
     public void Show()
@@ -38,10 +53,23 @@ public class PresentationPageHandler : MonoBehaviour
 
         // GetComponent<GameObject>().SetActive(true);
         Show();
+        shown = true;
     }
 
     public void PresentationMode()
     {
-        ;
+        if(presentation == false)
+        {
+            map.transform.localPosition = presMapPos;
+            texture.sprite = fullImage;
+
+            presentation = true;
+        } else
+        {
+            map.transform.localPosition = initMapPos;
+            texture.sprite = transparentImage;
+
+            presentation = false;
+        }
     }
 }

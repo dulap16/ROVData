@@ -55,6 +55,8 @@ public class ValuePageHandler : MonoBehaviour
     {
         presentationPage.GetComponent<PresentationPageHandler>().Hide();
         Show();
+
+        presentationPage.GetComponent<PresentationPageHandler>().shown = false;
     }
 
     public void MassValueInsertionClicked()
