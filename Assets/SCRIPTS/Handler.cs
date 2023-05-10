@@ -162,12 +162,14 @@ public class Handler : MonoBehaviour
                 if (nr < ll || nr > ul)
                 {
                     childScript.MakeInvisible(0, false);
+                    childScript.ind.HideOutline();
                     childScript.ind.FadeOut();
                 }
                 else
                 {
                     childScript.MakeVisible(childScript.alphaValue, false);
                     childScript.ind.ShowOutline();
+                    childScript.ind.FadeIn();
                 }
 
             }
