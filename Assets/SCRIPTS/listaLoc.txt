@@ -1,0 +1,59 @@
+1	Priponesti
+2	Balasesti
+3	Beresti
+4	Balabanesti
+5	Beresti-meria
+6	Cavadinesti
+7	Brahasesti
+8	Gohor
+9	Ghidigeni
+10	Certesti
+11	Buciumeni
+12	Draguseni
+13	Jorasti
+14	Suceveni
+15	Tepu
+16	Nicoresti
+17	Baneasa
+18	Corod
+19	Munteni
+20	Varlezi
+21	Oancea
+22	Smulti
+23	Targu Bujor
+24	Valea Marului
+25	Corni
+26	Cosmesti
+27	Matca
+28	Tecuci
+29	Vladesti
+30	Fartanesti
+31	Baleni
+32	Draganesti
+33	Mastacani
+34	Cudalbi
+35	Movileni
+36	Barcea
+37	Cuca
+38	Foltesti
+39	Rediu
+40	Umbraresti
+41	Costache Negri
+42	Scanteiesti
+43	Grivita
+44	Frumusita
+45	Pechea
+46	Liesti
+47	Tulucesti
+48	Slobozia Conachi
+49	Smardan
+50	Fundenii Noi
+51	Tudor Vladimirescu
+52	Piscu
+53	Vanatori
+54	Schela
+55	Namoloasa
+56	Galati
+57	Independenta
+58	Sendreni
+59	Branistea
