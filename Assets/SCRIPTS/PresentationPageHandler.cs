@@ -15,7 +15,7 @@ public class PresentationPageHandler : MonoBehaviour
     public bool shown = false;
 
     // PRESENTATION MODE
-    public GameObject map;
+    public RectTransform map;
     public SpriteRenderer texture;
     public Sprite fullImage;
     public Sprite transparentImage;
@@ -32,7 +32,8 @@ public class PresentationPageHandler : MonoBehaviour
 
         Hide();
 
-        initMapPos = map.transform.localPosition;
+        initMapPos = map.anchoredPosition;
+        Debug.Log(initMapPos);
         presMapPos = new Vector3(827, 293, 2.172865f);
     }
 
@@ -60,13 +61,13 @@ public class PresentationPageHandler : MonoBehaviour
     {
         if(presentation == false)
         {
-            map.transform.localPosition = presMapPos;
+            map.anchoredPosition = presMapPos;
             texture.sprite = fullImage;
 
             presentation = true;
         } else
         {
-            map.transform.localPosition = initMapPos;
+            map.anchoredPosition = initMapPos;
             texture.sprite = transparentImage;
 
             presentation = false;
