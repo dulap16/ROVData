@@ -47,6 +47,7 @@ public class PresentationPageHandler : MonoBehaviour
         presMapPos = new Vector3(827, 293, 2.172865f);
 
         targetColor = texture.color;
+        lerpTime = 4.5f;
     }
 
     void Update()

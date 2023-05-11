@@ -91,8 +91,22 @@ public class Handler : MonoBehaviour
         IF.text = dictionary[dd.options[index].text.ToLower()].ToString();
 
         OverlappingRegion optionInd = GameObject.Find(dd.options[index].text.ToString().ToLower()).GetComponent<OverlappingRegion>();
-        Selected(optionInd);
-        if (selectedValuesOnly == false)
+        
+        // COPIED FROM Selected() METHOD
+        if (current)
+        {
+            current.selected = false;
+            current.ind.selected = false;
+            current.ind.OnMouseExit();
+            current.OnMouseExit();
+        }
+
+        current = optionInd;
+        current.selected = true;
+        current.ind.selected = true;
+        // --------------
+
+        if (optionInd.CheckWithinLimits(optionInd.value))
         {
             optionInd.MakeVisible(230, false);
         }
@@ -167,9 +181,16 @@ public class Handler : MonoBehaviour
                 }
                 else
                 {
-                    childScript.MakeVisible(childScript.alphaValue, false);
-                    childScript.ind.ShowOutline();
-                    childScript.ind.FadeIn();
+                    if (current != childScript)
+                    {
+                        childScript.MakeVisible(childScript.alphaValue, false);
+                        childScript.ind.ShowOutline();
+                        childScript.ind.FadeIn();
+                    } else
+                    {
+                        childScript.OnMouseOver();
+                        childScript.OnMouseExit();
+                    }
                 }
 
             }
