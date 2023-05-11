@@ -43,7 +43,7 @@ public class PresentationPageHandler : MonoBehaviour
         Hide();
 
         initMapPos = map.anchoredPosition;
-        Debug.Log(initMapPos);
+        targetPosition = initMapPos;
         presMapPos = new Vector3(827, 293, 2.172865f);
 
         targetColor = texture.color;
