@@ -28,6 +28,7 @@ public class PresentationPageHandler : MonoBehaviour
 
     // smooth movement
     [SerializeField] [Range(1, 10)] float lerpTime = 4;
+    private Color targetColor;
     private Vector2 targetPosition;
 
     // Start is called before the first frame update
@@ -44,6 +45,8 @@ public class PresentationPageHandler : MonoBehaviour
         initMapPos = map.anchoredPosition;
         Debug.Log(initMapPos);
         presMapPos = new Vector3(827, 293, 2.172865f);
+
+        targetColor = texture.color;
     }
 
     void Update()
@@ -51,6 +54,7 @@ public class PresentationPageHandler : MonoBehaviour
         if (map.anchoredPosition != targetPosition)
         {
             map.anchoredPosition = Vector3.Lerp(map.anchoredPosition, targetPosition, lerpTime * Time.deltaTime);
+            texture.color = Color.Lerp(texture.color, targetColor, lerpTime * Time.deltaTime);
         }
     }
 
@@ -89,7 +93,7 @@ public class PresentationPageHandler : MonoBehaviour
         if(presentation == false)
         {
             targetPosition = presMapPos;
-            texture.sprite = fullImage;
+            targetColor.a = 1;
 
             HideUI();
 
@@ -97,7 +101,7 @@ public class PresentationPageHandler : MonoBehaviour
         } else
         {
             targetPosition = initMapPos;
-            texture.sprite = transparentImage;
+            targetColor.a = 0;
 
             ShowUI();
 
