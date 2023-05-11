@@ -26,6 +26,10 @@ public class PresentationPageHandler : MonoBehaviour
     private Vector3 initMapPos;
     private Vector3 presMapPos;
 
+    // smooth movement
+    [SerializeField] [Range(1, 10)] float lerpTime = 4;
+    private Vector2 targetPosition;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +44,14 @@ public class PresentationPageHandler : MonoBehaviour
         initMapPos = map.anchoredPosition;
         Debug.Log(initMapPos);
         presMapPos = new Vector3(827, 293, 2.172865f);
+    }
+
+    void Update()
+    {
+        if (map.anchoredPosition != targetPosition)
+        {
+            map.anchoredPosition = Vector3.Lerp(map.anchoredPosition, targetPosition, lerpTime * Time.deltaTime);
+        }
     }
 
     public void Show()
@@ -76,7 +88,7 @@ public class PresentationPageHandler : MonoBehaviour
     {
         if(presentation == false)
         {
-            map.anchoredPosition = presMapPos;
+            targetPosition = presMapPos;
             texture.sprite = fullImage;
 
             HideUI();
@@ -84,7 +96,7 @@ public class PresentationPageHandler : MonoBehaviour
             presentation = true;
         } else
         {
-            map.anchoredPosition = initMapPos;
+            targetPosition = initMapPos;
             texture.sprite = transparentImage;
 
             ShowUI();
