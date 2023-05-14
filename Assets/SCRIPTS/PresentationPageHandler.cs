@@ -63,7 +63,7 @@ public class PresentationPageHandler : MonoBehaviour
 
     void Update()
     {
-        if (map.anchoredPosition != targetPosition || title.faceColor != targetTextColor)
+        if (map.anchoredPosition != targetPosition || title.faceColor != targetTextColor || title.outlineColor != targetBorderColor)
         {
             map.anchoredPosition = Vector3.Lerp(map.anchoredPosition, targetPosition, lerpTime * Time.deltaTime);
             texture.color = Color.Lerp(texture.color, targetColor, lerpTime * Time.deltaTime);
