@@ -13,6 +13,8 @@ public class PresentationPageHandler : MonoBehaviour
 
     public TMP_InputField titleIF;
     public TMP_Text title;
+    public Color targetTextColor;
+    public Color targetBorderColor;
 
     public GameObject UI;
     private Vector3 uiinit;
@@ -53,15 +55,20 @@ public class PresentationPageHandler : MonoBehaviour
         targetColor = texture.color;
         lerpTime = 4.5f;
 
+        targetTextColor.a = 0;
+        targetBorderColor.a = 0;
+
         titleIF.onValueChanged.AddListener(delegate { ChangeTitle(); });
     }
 
     void Update()
     {
-        if (map.anchoredPosition != targetPosition)
+        if (map.anchoredPosition != targetPosition || title.faceColor != targetTextColor)
         {
             map.anchoredPosition = Vector3.Lerp(map.anchoredPosition, targetPosition, lerpTime * Time.deltaTime);
             texture.color = Color.Lerp(texture.color, targetColor, lerpTime * Time.deltaTime);
+            title.faceColor = Color.Lerp(title.faceColor, targetTextColor, lerpTime * Time.deltaTime);
+            title.outlineColor = Color.Lerp(title.outlineColor, targetBorderColor, lerpTime * Time.deltaTime);
         }
     }
 
@@ -101,6 +108,8 @@ public class PresentationPageHandler : MonoBehaviour
         {
             targetPosition = presMapPos;
             targetColor.a = 1;
+            targetBorderColor.a = 0.5f;
+            targetTextColor.a = 1;
 
             HideUI();
 
@@ -109,6 +118,9 @@ public class PresentationPageHandler : MonoBehaviour
         {
             targetPosition = initMapPos;
             targetColor.a = 0;
+
+            targetBorderColor.a = 0;
+            targetTextColor.a = 0;
 
             ShowUI();
 
