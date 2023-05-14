@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PresentationPageHandler : MonoBehaviour
@@ -9,6 +10,9 @@ public class PresentationPageHandler : MonoBehaviour
     public ValuePageHandler valuePage;
     private Vector3 initialPos;
     private Vector3 hiddenPos;
+
+    public TMP_InputField titleIF;
+    public TMP_Text title;
 
     public GameObject UI;
     private Vector3 uiinit;
@@ -48,6 +52,8 @@ public class PresentationPageHandler : MonoBehaviour
 
         targetColor = texture.color;
         lerpTime = 4.5f;
+
+        titleIF.onValueChanged.AddListener(delegate { ChangeTitle(); });
     }
 
     void Update()
@@ -108,5 +114,11 @@ public class PresentationPageHandler : MonoBehaviour
 
             presentation = false;
         }
+    }
+
+    public void ChangeTitle()
+    {
+        string text = titleIF.text;
+        title.text = text;
     }
 }
