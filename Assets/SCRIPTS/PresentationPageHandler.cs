@@ -37,6 +37,12 @@ public class PresentationPageHandler : MonoBehaviour
     private Color targetColor;
     private Vector2 targetPosition;
 
+    // CADASTRE 
+    public GameObject cadastre;
+    private Vector3 initCadPos;
+    private Vector3 targetCadPos;
+    private bool cadShowing = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +65,11 @@ public class PresentationPageHandler : MonoBehaviour
         targetBorderColor.a = 0;
 
         titleIF.onValueChanged.AddListener(delegate { ChangeTitle(); });
+
+
+        // CADASTRE
+        initCadPos = cadastre.transform.localPosition;
+        targetCadPos = new Vector3(500, 0, 0);
     }
 
     void Update()
@@ -100,6 +111,20 @@ public class PresentationPageHandler : MonoBehaviour
         // GetComponent<GameObject>().SetActive(true);
         Show();
         shown = true;
+    }
+
+    public void ShowCadastrePressed()
+    {
+        if (cadShowing == false)
+        {
+            cadastre.transform.localPosition = initCadPos;
+            cadShowing = true;
+        }
+        else
+        {
+            cadastre.transform.localPosition = targetCadPos;
+            cadShowing = false;
+        }
     }
 
     public void PresentationMode()
