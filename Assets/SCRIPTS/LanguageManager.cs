@@ -30,6 +30,8 @@ public class LanguageManager : MonoBehaviour
 
         ddenglish = new List<string> { "Color", "Symbols", "Point Size" };
         ddromana = new List<string> { "Culoare", "Simboluri", "Puncte" };
+
+        ChangeToRomanian();
     }
 
     public void ChangeToRomanian()
