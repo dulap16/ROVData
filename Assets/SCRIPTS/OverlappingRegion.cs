@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEditor;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -28,7 +29,6 @@ public class OverlappingRegion : MonoBehaviour
     private Color32 c;
 
     private Material uniqueMat;
-    private Renderer rend;
     private Light2D lightObject;
 
     public int value;
@@ -49,21 +49,16 @@ public class OverlappingRegion : MonoBehaviour
     private string etiqueteText;
 
     public CursorFollower cf;
-     
-    /* --BORDER WHEN SELECTED - FAIL
-    public GameObject backgroundGroup;
-    private GameObject background;
-    private float xinitscale;
-    private float yinitscale;
-    private float xfinalscale;
-    private float yfinalscale;
-    private float proportionWhenSmall = 0.9f;
-    private float speed = 1;
-    private float sx;
-    private float sy;
-    private float targetx;
-    private float targety;
-    */
+
+    /// <summary>
+    /// REMAKE SELECTION SYSTEM
+    /// </summary>
+    public float lerpTime;
+
+    private Color targetColor;
+    private Color basicColor;
+    private Color overColor;
+    public Color selectionColor;
 
     // Start is called before the first frame update
     void Start()
@@ -96,18 +91,36 @@ public class OverlappingRegion : MonoBehaviour
         MakeVisible(alphaValue, true);
 
         etiqueteText = regionNameWithCapitals + " : " + value.ToString();
+
+
+        /// REMAKE SELECTION SYSTEM
+        selectionColor = handler.selectionColor;
+        lerpTime = handler.lerpTime;
+
+        basicColor = c;
+        targetColor = basicColor;
+        overColor = basicColor;
+        overColor.a = finalAlpha;
     }
 
     public void FixedUpdate()
     {
-        if (targetAlpha != (int)(GetComponent<Renderer>().material.color.a * 255))
-            ChangeAlpha(ratio);
+        /*if (targetAlpha != (int)(mat.color.a * 255))
+            ChangeAlpha(ratio);*/
+
+        if (targetColor != GetComponent<Renderer>().material.color)
+        {
+            GetComponent<Renderer>().material.color = Color32.Lerp(GetComponent<Renderer>().material.color, targetColor, lerpTime * Time.deltaTime);
+        }
     }
 
     public void OnMouseOver()
     {
         if (CheckWithinLimits(value))
-            MakeVisible(finalAlpha, false);
+        {
+            // MakeVisible(finalAlpha, false);
+            targetColor = overColor;
+        }
 
         if (cf.shown == false)
             cf.MakeVisible();
@@ -119,7 +132,10 @@ public class OverlappingRegion : MonoBehaviour
     public void OnMouseExit()
     {
         if (selected == false && CheckWithinLimits(value))
-            MakeInvisible(initialAlpha, false);
+        {
+            // MakeInvisible(initialAlpha, false);
+            targetColor = basicColor;
+        }
 
         cf.MakeInvisible();
     }
@@ -160,6 +176,10 @@ public class OverlappingRegion : MonoBehaviour
         float alpha = GetComponent<Renderer>().material.color.a;
         c.a = (byte)(alpha * 255);
         GetComponent<Renderer>().material.color = c;
+
+        basicColor = c;
+        overColor = c;
+        overColor.a = 250;
     }
 
     public void MakeVisible(byte alphaValue, bool directly)
@@ -168,6 +188,9 @@ public class OverlappingRegion : MonoBehaviour
         {
             ratio = 10;
             targetAlpha = alphaValue;
+
+            targetColor = GetComponent<Renderer>().material.color;
+            targetColor.a = alphaValue;
         } else
         {
             Color32 c = GetComponent<Renderer>().material.color;
@@ -181,6 +204,9 @@ public class OverlappingRegion : MonoBehaviour
         {
             ratio = -10;
             targetAlpha = alphaValue;
+            
+            targetColor = GetComponent<Renderer>().material.color;
+            targetColor.a = alphaValue;
         }
         else
         {

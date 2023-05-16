@@ -39,20 +39,11 @@ public class Handler : MonoBehaviour
     public SliderManager sm;
 
     public bool colored = true;
+    public Color selectionColor;
+    public float lerpTime = 4;
 
     void Start()
     {
-        /*namesLines = System.IO.File.ReadAllLines(@"C:\Users\tudor\OneDrive\Documents\Unity\TESTARE 2\Assets\SCRIPTS\listaLoc.txt");
-
-        for (int i = 0; i < namesLines.Length; i++)
-        {
-            list = namesLines[i].Split('\t');
-            regions[i] = list[1];
-            dictionary.Add(regions[i], 0);
-
-            Debug.Log(regions[i]);
-        }*/
-
         dictionary = new Dictionary<string, int>();
 
         foreach (Transform child in suntProst.transform)
