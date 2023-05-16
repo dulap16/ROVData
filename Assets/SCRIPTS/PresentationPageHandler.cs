@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PresentationPageHandler : MonoBehaviour
 {
@@ -39,9 +40,13 @@ public class PresentationPageHandler : MonoBehaviour
 
     // CADASTRE 
     public GameObject cadastre;
+    private Material cadMat;
     private Vector3 initCadPos;
     private Vector3 targetCadPos;
     private bool cadShowing = true;
+
+    public Slider cadOpac;
+    public TMP_Text cadOpacNr;
 
     // Start is called before the first frame update
     void Start()
@@ -65,11 +70,13 @@ public class PresentationPageHandler : MonoBehaviour
         targetBorderColor.a = 0;
 
         titleIF.onValueChanged.AddListener(delegate { ChangeTitle(); });
-
+        cadOpac.onValueChanged.AddListener(delegate { SliderSlid(); });
 
         // CADASTRE
         initCadPos = cadastre.transform.localPosition;
         targetCadPos = new Vector3(500, 0, 0);
+
+        cadMat = cadastre.GetComponent<MeshRenderer>().material;
     }
 
     void Update()
@@ -151,6 +158,15 @@ public class PresentationPageHandler : MonoBehaviour
 
             presentation = false;
         }
+    }
+
+    public void SliderSlid()
+    {
+        float value = Mathf.Round(cadOpac.normalizedValue * 100f) / 100f;
+        cadOpacNr.text = value.ToString();
+        Color c = cadMat.color;
+        c.a = value;
+        cadMat.color = c;
     }
 
     public void ChangeTitle()

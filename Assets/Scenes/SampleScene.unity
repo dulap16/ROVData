@@ -2916,7 +2916,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6769,6 +6769,8 @@ MonoBehaviour:
   presentation: 0
   lerpTime: 0
   cadastre: {fileID: 79588102}
+  cadOpac: {fileID: 319260442}
+  cadOpacNr: {fileID: 1278197844}
 --- !u!1 &870058532
 GameObject:
   m_ObjectHideFlags: 0
@@ -10643,7 +10645,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '0
+  m_text: '1
 
 '
   m_isRightToLeft: 0
