@@ -204,8 +204,8 @@ public class Handler : MonoBehaviour
 
         try
         {
-            lowerLimit.text = "";
-            upperLimit.text = "";
+            lowerLimit.text = "0";
+            upperLimit.text = "10000";           // MAX
         }
         catch { }
 
