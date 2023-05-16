@@ -24,6 +24,8 @@ public class SliderManager : MonoBehaviour
     public int minValue;
     public int maxValue = 10000;
 
+    public Handler h;
+
 
     // Update is called once per frame
     void Update()
@@ -35,6 +37,8 @@ public class SliderManager : MonoBehaviour
 
             lowerLimit.text = lowerValue.ToString();
             upperLimit.text = upperValue.ToString();
+
+            h.ValuesClick();
         }
     }
 

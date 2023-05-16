@@ -4745,6 +4745,7 @@ MonoBehaviour:
   upperLimit: {fileID: 1882192923}
   minValue: 0
   maxValue: 10000
+  h: {fileID: 1562019149}
 --- !u!1 &633799399 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2026173471119188459, guid: 4f25bd52ad2800d41985ac0a488c8041, type: 3}
