@@ -27,6 +27,13 @@ public class SliderManager : MonoBehaviour
     public Handler h;
 
 
+    void Start()
+    {
+        lowerLimit.text = "0";
+        upperLimit.text = "10000"; // h.max
+        Reset();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -45,7 +52,7 @@ public class SliderManager : MonoBehaviour
     public void Reset()
     {
         lower.normalizedValue = 0;
-        upper.normalizedValue = 0;
+        upper.normalizedValue = 1;
     }
 
     public void SetLowerValue(int value)
