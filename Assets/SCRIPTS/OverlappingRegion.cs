@@ -26,19 +26,13 @@ public class OverlappingRegion : MonoBehaviour
     public Indicator ind;
     public GameObject indicator;
     private Vector3 center;
-    private Color32 c;
+    private Color c;
 
     private Light2D lightObject;
 
     public int value;
-    public float alphaValue;
     public float initialAlpha = 0.57f;
     public float finalAlpha = 0.9f;
-
-    /// <summary>
-    ///  ANIMATION
-    /// </summary>
-    private int targetAlpha;
 
 
     public bool selected = false;
@@ -81,35 +75,31 @@ public class OverlappingRegion : MonoBehaviour
         handler = GameObject.Find("Handler").GetComponent<Handler>();
         handler.dictionary[name] = value;
 
-        alphaValue = initialAlpha;
-        c = colorHandler.CalculateShade(value, 10000, initialAlpha);
+        c = colorHandler.CalculateShade(value, 10000);
+        c.a = initialAlpha;
         SetColor(c);
 
-        MakeVisible(alphaValue, true);
+        MakeVisible(initialAlpha, false);
 
         etiqueteText = regionNameWithCapitals + " : " + value.ToString();
 
 
         /// REMAKE SELECTION SYSTEM
         selectionColor = handler.selectionColor;
+        selectionColor.a = finalAlpha;
         lerpTime = handler.lerpTime;
 
         basicColor = c;
         basicColor.a = initialAlpha;
-        targetColor = basicColor;
         overColor = basicColor;
         overColor.a = finalAlpha;
     }
 
     public void FixedUpdate()
     {
-        /*if (targetAlpha != (int)(mat.color.a * 255))
-            ChangeAlpha(ratio);*/
-
         if (targetColor != GetComponent<Renderer>().material.color)
         {
             GetComponent<Renderer>().material.color = Color32.Lerp(GetComponent<Renderer>().material.color, targetColor, lerpTime * Time.deltaTime);
-            // Debug.Log(name + targetColor.a);
         }
     }
 
@@ -145,6 +135,11 @@ public class OverlappingRegion : MonoBehaviour
             handler.Selected(this);
     }
 
+    public void Selected()
+    {
+        targetColor = selectionColor;
+    }
+
     private static FieldInfo m_FalloffField = typeof(Light2D).GetField("m_FalloffIntensity", BindingFlags.NonPublic | BindingFlags.Instance);
 
     // ...
@@ -173,7 +168,7 @@ public class OverlappingRegion : MonoBehaviour
         } else
         {
             Color32 c = GetComponent<Renderer>().material.color;
-            GetComponent<Renderer>().material.color = new Color32(c.r, c.g, c.b, (byte)(alphaValue));
+            GetComponent<Renderer>().material.color = new Color32(c.r, c.g, c.b, (byte)(a));
         }
     }
 
@@ -181,8 +176,9 @@ public class OverlappingRegion : MonoBehaviour
     {
         value = newValue;
         if (handler.colored == true)
-            c = colorHandler.CalculateShade(value, 10000, GetComponent<Renderer>().material.color.a);
+            c = colorHandler.CalculateShade(value, 10000);
         else c = colorHandler.CalculateGrayscale(value, 10000, GetComponent<Renderer>().material.color.a);
+        c.a = GetComponent<Renderer>().material.color.a;
         SetColor(c);
         ind.ChangeValue(value);
         etiqueteText = regionNameWithCapitals + " : " + value.ToString();
@@ -196,7 +192,8 @@ public class OverlappingRegion : MonoBehaviour
 
     public void Colored(int value)
     {
-        c = colorHandler.CalculateShade(value, 10000, GetComponent<Renderer>().material.color.a);
+        c = colorHandler.CalculateShade(value, 10000);
+        c.a = GetComponent<Renderer>().material.color.a;
         SetColor(c);
     }
 

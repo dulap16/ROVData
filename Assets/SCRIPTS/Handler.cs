@@ -174,7 +174,7 @@ public class Handler : MonoBehaviour
                 {
                     if (current != childScript)
                     {
-                        childScript.MakeVisible(childScript.alphaValue, false);
+                        childScript.MakeVisible(childScript.initialAlpha, false);
                         childScript.ind.ShowOutline();
                         childScript.ind.FadeIn();
                     } else
@@ -204,7 +204,7 @@ public class Handler : MonoBehaviour
         foreach (Transform child in suntProst.transform)
         {
             OverlappingRegion childScript = child.GetComponent<OverlappingRegion>();
-            childScript.MakeVisible(childScript.alphaValue, false);
+            childScript.MakeVisible(childScript.initialAlpha, false);
             childScript.ind.HideOutline();
             childScript.ind.FadeIn();
         }
@@ -227,7 +227,7 @@ public class Handler : MonoBehaviour
             {
                 if (newValue < ll || newValue > ul)
                     selectedRegion.MakeVisible(0, false);
-                else selectedRegion.MakeVisible(selectedRegion.alphaValue, false);
+                else selectedRegion.MakeVisible(selectedRegion.initialAlpha, false);
             }
         }
         catch (Exception e) { Debug.Log(e); }

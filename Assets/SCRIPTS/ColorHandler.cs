@@ -23,10 +23,9 @@ public class ColorHandler : MonoBehaviour
         }
     }
 
-    public Color CalculateShade(int value, int max, float alpha)
+    public Color CalculateShade(int value, int max)
     {
         Color c = array[array.Length - 1 - (int)(((float)value / (float)max) * array.Length)];
-        c.a = alpha;
         return c;
     }
 
