@@ -101,7 +101,7 @@ public class Indicator : MonoBehaviour
     {
         if (selected == false && h.selectedValuesOnly == false)
         {
-            parentScript.MakeVisible(parentScript.initialAlpha, false);
+            parentScript.MakeVisible(parentScript.initialAlpha);
             HideOutline();
         }
 

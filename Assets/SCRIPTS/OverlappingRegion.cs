@@ -46,7 +46,7 @@ public class OverlappingRegion : MonoBehaviour
     /// </summary>
     public float lerpTime;
 
-    private Color targetColor;
+    [SerializeField] private Color targetColor;
     private Color basicColor;
     private Color overColor;
     public Color selectionColor;
@@ -79,7 +79,7 @@ public class OverlappingRegion : MonoBehaviour
         c.a = initialAlpha;
         SetColor(c);
 
-        MakeVisible(initialAlpha, false);
+        MakeVisible(initialAlpha);
 
         etiqueteText = regionNameWithCapitals + " : " + value.ToString();
 
@@ -97,7 +97,7 @@ public class OverlappingRegion : MonoBehaviour
 
     public void FixedUpdate()
     {
-        if (targetColor != GetComponent<Renderer>().material.color)
+        if (targetColor != GetComponent<Renderer>().material.color || targetColor.a != GetComponent<Renderer>().material.color.a)
         {
             GetComponent<Renderer>().material.color = Color32.Lerp(GetComponent<Renderer>().material.color, targetColor, lerpTime * Time.deltaTime);
         }
@@ -159,17 +159,9 @@ public class OverlappingRegion : MonoBehaviour
         overColor.a = finalAlpha;
     }
 
-    public void MakeVisible(float a, bool directly)
+    public void MakeVisible(float a)
     {
-        if (!directly)
-        {
-            targetColor = GetComponent<Renderer>().material.color;
-            targetColor.a = a;
-        } else
-        {
-            Color32 c = GetComponent<Renderer>().material.color;
-            GetComponent<Renderer>().material.color = new Color32(c.r, c.g, c.b, (byte)(a));
-        }
+        targetColor.a = a;
     }
 
     public void ChangeValue(int newValue)

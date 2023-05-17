@@ -99,7 +99,7 @@ public class Handler : MonoBehaviour
 
         if (optionInd.CheckWithinLimits(optionInd.value))
         {
-            optionInd.MakeVisible(optionInd.finalAlpha, false);
+            optionInd.MakeVisible(optionInd.finalAlpha);
         }
         // optionInd.tag.MakeInvisible();
 
@@ -115,7 +115,7 @@ public class Handler : MonoBehaviour
 
             dictionary[regionName] = value;
             selectedRegion.ChangeValue(value);
-            selectedRegion.MakeVisible(selectedRegion.initialAlpha, true);
+            selectedRegion.MakeVisible(selectedRegion.initialAlpha);
         }
         catch (Exception e)
         {
@@ -166,7 +166,7 @@ public class Handler : MonoBehaviour
                 Debug.Log(nr);
                 if (nr < ll || nr > ul)
                 {
-                    childScript.MakeVisible(0, false);
+                    childScript.MakeVisible(0);
                     childScript.ind.HideOutline();
                     childScript.ind.FadeOut();
                 }
@@ -174,7 +174,7 @@ public class Handler : MonoBehaviour
                 {
                     if (current != childScript)
                     {
-                        childScript.MakeVisible(childScript.initialAlpha, false);
+                        childScript.MakeVisible(childScript.initialAlpha);
                         childScript.ind.ShowOutline();
                         childScript.ind.FadeIn();
                     } else
@@ -204,7 +204,7 @@ public class Handler : MonoBehaviour
         foreach (Transform child in suntProst.transform)
         {
             OverlappingRegion childScript = child.GetComponent<OverlappingRegion>();
-            childScript.MakeVisible(childScript.initialAlpha, false);
+            childScript.MakeVisible(childScript.initialAlpha);
             childScript.ind.HideOutline();
             childScript.ind.FadeIn();
         }
@@ -226,8 +226,8 @@ public class Handler : MonoBehaviour
             if (selectedValuesOnly == true)
             {
                 if (newValue < ll || newValue > ul)
-                    selectedRegion.MakeVisible(0, false);
-                else selectedRegion.MakeVisible(selectedRegion.initialAlpha, false);
+                    selectedRegion.MakeVisible(0);
+                else selectedRegion.MakeVisible(selectedRegion.initialAlpha);
             }
         }
         catch (Exception e) { Debug.Log(e); }
