@@ -32,8 +32,8 @@ public class OverlappingRegion : MonoBehaviour
 
     public int value;
     public float alphaValue;
-    private float initialAlpha = 0.57f;
-    private float finalAlpha = 0.9f;
+    public float initialAlpha = 0.57f;
+    public float finalAlpha = 0.9f;
 
     /// <summary>
     ///  ANIMATION
@@ -164,6 +164,10 @@ public class OverlappingRegion : MonoBehaviour
         basicColor.a = initialAlpha;
         overColor = c;
         overColor.a = finalAlpha;
+
+        if (selected)
+            targetColor = overColor;
+        else targetColor = basicColor;
     }
 
     public void MakeVisible(float a, bool directly)
