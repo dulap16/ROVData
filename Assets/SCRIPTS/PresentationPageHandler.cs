@@ -61,7 +61,7 @@ public class PresentationPageHandler : MonoBehaviour
 
         initMapPos = map.anchoredPosition;
         targetPosition = initMapPos;
-        presMapPos = new Vector3(827, 293, 2.172865f);
+        presMapPos = new Vector3(819, 293, 2.172865f);
 
         targetColor = texture.color;
         lerpTime = 4.5f;
