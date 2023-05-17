@@ -39,20 +39,11 @@ public class Handler : MonoBehaviour
     public SliderManager sm;
 
     public bool colored = true;
+    public Color selectionColor;
+    public float lerpTime = 4;
 
     void Start()
     {
-        /*namesLines = System.IO.File.ReadAllLines(@"C:\Users\tudor\OneDrive\Documents\Unity\TESTARE 2\Assets\SCRIPTS\listaLoc.txt");
-
-        for (int i = 0; i < namesLines.Length; i++)
-        {
-            list = namesLines[i].Split('\t');
-            regions[i] = list[1];
-            dictionary.Add(regions[i], 0);
-
-            Debug.Log(regions[i]);
-        }*/
-
         dictionary = new Dictionary<string, int>();
 
         foreach (Transform child in suntProst.transform)
@@ -65,7 +56,7 @@ public class Handler : MonoBehaviour
             }
 
             n = n.ToLower();
-            Debug.Log(n);
+            // Debug.Log(n);
             dictionary.Add(n, 0);
         }
 
@@ -108,7 +99,7 @@ public class Handler : MonoBehaviour
 
         if (optionInd.CheckWithinLimits(optionInd.value))
         {
-            optionInd.MakeVisible(230, false);
+            optionInd.MakeVisible(optionInd.finalAlpha);
         }
         // optionInd.tag.MakeInvisible();
 
@@ -124,7 +115,7 @@ public class Handler : MonoBehaviour
 
             dictionary[regionName] = value;
             selectedRegion.ChangeValue(value);
-            selectedRegion.MakeVisible(150, true);
+            selectedRegion.MakeVisible(selectedRegion.initialAlpha);
         }
         catch (Exception e)
         {
@@ -175,7 +166,7 @@ public class Handler : MonoBehaviour
                 Debug.Log(nr);
                 if (nr < ll || nr > ul)
                 {
-                    childScript.MakeInvisible(0, false);
+                    childScript.MakeVisible(0);
                     childScript.ind.HideOutline();
                     childScript.ind.FadeOut();
                 }
@@ -183,7 +174,7 @@ public class Handler : MonoBehaviour
                 {
                     if (current != childScript)
                     {
-                        childScript.MakeVisible(childScript.alphaValue, false);
+                        childScript.MakeVisible(childScript.initialAlpha);
                         childScript.ind.ShowOutline();
                         childScript.ind.FadeIn();
                     } else
@@ -213,7 +204,7 @@ public class Handler : MonoBehaviour
         foreach (Transform child in suntProst.transform)
         {
             OverlappingRegion childScript = child.GetComponent<OverlappingRegion>();
-            childScript.MakeVisible(childScript.alphaValue, false);
+            childScript.MakeVisible(childScript.initialAlpha);
             childScript.ind.HideOutline();
             childScript.ind.FadeIn();
         }
@@ -235,8 +226,8 @@ public class Handler : MonoBehaviour
             if (selectedValuesOnly == true)
             {
                 if (newValue < ll || newValue > ul)
-                    selectedRegion.MakeInvisible(0, false);
-                else selectedRegion.MakeVisible(selectedRegion.alphaValue, false);
+                    selectedRegion.MakeVisible(0);
+                else selectedRegion.MakeVisible(selectedRegion.initialAlpha);
             }
         }
         catch (Exception e) { Debug.Log(e); }

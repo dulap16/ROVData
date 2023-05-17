@@ -23,16 +23,15 @@ public class ColorHandler : MonoBehaviour
         }
     }
 
-    public Color32 CalculateShade(int value, int max, byte alpha)
+    public Color CalculateShade(int value, int max)
     {
-        Color32 c = array[array.Length - 1 - (int)(((float)value / (float)max) * array.Length)];
-        c.a = alpha;
+        Color c = array[array.Length - 1 - (int)(((float)value / (float)max) * array.Length)];
         return c;
     }
 
-    public Color32 CalculateGrayscale(int value, int max, byte alpha)
+    public Color CalculateGrayscale(int value, int max, float alpha)
     {
-        byte percentage =  (byte)(255 - ((float)value / (float)max) * 255);
-        return new Color32(percentage, percentage, percentage, alpha);
+        float percentage =  (1 - ((float)value / (float)max));
+        return new Color(percentage, percentage, percentage, alpha);
     }
 }

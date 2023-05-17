@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEditor;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -25,23 +26,13 @@ public class OverlappingRegion : MonoBehaviour
     public Indicator ind;
     public GameObject indicator;
     private Vector3 center;
-    private Color32 c;
+    private Color c;
 
-    private Material uniqueMat;
-    private Renderer rend;
     private Light2D lightObject;
 
     public int value;
-    public byte alphaValue;
-    public byte initialAlpha = 150;
-    public byte finalAlpha = 230;
-    private float radius;
-
-    /// <summary>
-    ///  ANIMATION
-    /// </summary>
-    public int targetAlpha;
-    public int ratio = 10;
+    public float initialAlpha = 0.57f;
+    public float finalAlpha = 0.9f;
 
 
     public bool selected = false;
@@ -49,21 +40,16 @@ public class OverlappingRegion : MonoBehaviour
     private string etiqueteText;
 
     public CursorFollower cf;
-     
-    /* --BORDER WHEN SELECTED - FAIL
-    public GameObject backgroundGroup;
-    private GameObject background;
-    private float xinitscale;
-    private float yinitscale;
-    private float xfinalscale;
-    private float yfinalscale;
-    private float proportionWhenSmall = 0.9f;
-    private float speed = 1;
-    private float sx;
-    private float sy;
-    private float targetx;
-    private float targety;
-    */
+
+    /// <summary>
+    /// REMAKE SELECTION SYSTEM
+    /// </summary>
+    public float lerpTime;
+
+    [SerializeField] private Color targetColor;
+    private Color basicColor;
+    private Color overColor;
+    public Color selectionColor;
 
     // Start is called before the first frame update
     void Start()
@@ -89,25 +75,40 @@ public class OverlappingRegion : MonoBehaviour
         handler = GameObject.Find("Handler").GetComponent<Handler>();
         handler.dictionary[name] = value;
 
-        alphaValue = initialAlpha;
-        c = colorHandler.CalculateShade(value, 10000, initialAlpha);
+        c = colorHandler.CalculateShade(value, 10000);
+        c.a = initialAlpha;
         SetColor(c);
 
-        MakeVisible(alphaValue, true);
+        MakeVisible(initialAlpha);
 
         etiqueteText = regionNameWithCapitals + " : " + value.ToString();
+
+
+        /// REMAKE SELECTION SYSTEM
+        selectionColor = handler.selectionColor;
+        selectionColor.a = finalAlpha;
+        lerpTime = handler.lerpTime;
+
+        basicColor = c;
+        basicColor.a = initialAlpha;
+        overColor = basicColor;
+        overColor.a = finalAlpha;
     }
 
     public void FixedUpdate()
     {
-        if (targetAlpha != (int)(GetComponent<Renderer>().material.color.a * 255))
-            ChangeAlpha(ratio);
+        if (targetColor != GetComponent<Renderer>().material.color || targetColor.a != GetComponent<Renderer>().material.color.a)
+        {
+            GetComponent<Renderer>().material.color = Color32.Lerp(GetComponent<Renderer>().material.color, targetColor, lerpTime * Time.deltaTime);
+        }
     }
 
     public void OnMouseOver()
     {
         if (CheckWithinLimits(value))
-            MakeVisible(finalAlpha, false);
+        {
+            targetColor = overColor;
+        }
 
         if (cf.shown == false)
             cf.MakeVisible();
@@ -119,7 +120,9 @@ public class OverlappingRegion : MonoBehaviour
     public void OnMouseExit()
     {
         if (selected == false && CheckWithinLimits(value))
-            MakeInvisible(initialAlpha, false);
+        {
+            targetColor = basicColor;
+        }
 
         cf.MakeInvisible();
     }
@@ -132,6 +135,11 @@ public class OverlappingRegion : MonoBehaviour
             handler.Selected(this);
     }
 
+    public void Selected()
+    {
+        targetColor = selectionColor;
+    }
+
     private static FieldInfo m_FalloffField = typeof(Light2D).GetField("m_FalloffIntensity", BindingFlags.NonPublic | BindingFlags.Instance);
 
     // ...
@@ -141,60 +149,28 @@ public class OverlappingRegion : MonoBehaviour
         m_FalloffField.SetValue(lightObject, falloff);
     }
 
-    public void ChangeAlpha(int ratio)
+    public void SetColor(Color c)
     {
-        Color32 c = GetComponent<Renderer>().material.color;
-        int newAlpha = c.a + ratio;
+        targetColor = c;
 
-        if (Math.Abs(newAlpha - targetAlpha) < Math.Abs(ratio))
-        {
-            GetComponent<Renderer>().material.color = new Color32(c.r, c.g, c.b, (byte)(targetAlpha));
-            return ;
-        }
-
-        GetComponent<Renderer>().material.color = new Color32(c.r, c.g, c.b, (byte)(newAlpha));
+        basicColor = c;
+        basicColor.a = initialAlpha;
+        overColor = c;
+        overColor.a = finalAlpha;
     }
 
-    public void SetColor(Color32 c)
+    public void MakeVisible(float a)
     {
-        float alpha = GetComponent<Renderer>().material.color.a;
-        c.a = (byte)(alpha * 255);
-        GetComponent<Renderer>().material.color = c;
-    }
-
-    public void MakeVisible(byte alphaValue, bool directly)
-    {
-        if (!directly)
-        {
-            ratio = 10;
-            targetAlpha = alphaValue;
-        } else
-        {
-            Color32 c = GetComponent<Renderer>().material.color;
-            GetComponent<Renderer>().material.color = new Color32(c.r, c.g, c.b, (byte)(alphaValue));
-        }
-    }
-
-    public void MakeInvisible(byte alphaValue, bool directly)
-    {
-        if (!directly)
-        {
-            ratio = -10;
-            targetAlpha = alphaValue;
-        }
-        else
-        {
-            Color32 c = GetComponent<Renderer>().material.color;
-            GetComponent<Renderer>().material.color = new Color32(c.r, c.g, c.b, (byte)(alphaValue));
-        }
+        targetColor.a = a;
     }
 
     public void ChangeValue(int newValue)
     {
         value = newValue;
         if (handler.colored == true)
-            c = colorHandler.CalculateShade(value, 10000, initialAlpha);
-        else c = colorHandler.CalculateGrayscale(value, 10000, initialAlpha);
+            c = colorHandler.CalculateShade(value, 10000);
+        else c = colorHandler.CalculateGrayscale(value, 10000, GetComponent<Renderer>().material.color.a);
+        c.a = GetComponent<Renderer>().material.color.a;
         SetColor(c);
         ind.ChangeValue(value);
         etiqueteText = regionNameWithCapitals + " : " + value.ToString();
@@ -202,13 +178,14 @@ public class OverlappingRegion : MonoBehaviour
 
     public void Grayscale(int value)
     {
-        c = colorHandler.CalculateGrayscale(value, 10000, initialAlpha);
+        c = colorHandler.CalculateGrayscale(value, 10000, GetComponent<Renderer>().material.color.a);
         SetColor(c);
     }
 
     public void Colored(int value)
     {
-        c = colorHandler.CalculateShade(value, 10000, initialAlpha);
+        c = colorHandler.CalculateShade(value, 10000);
+        c.a = GetComponent<Renderer>().material.color.a;
         SetColor(c);
     }
 
