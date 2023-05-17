@@ -255,6 +255,18 @@ public class Handler : MonoBehaviour
         colored = true;
     }
 
+    public string ValuesToText()
+    {
+        string text = "";
+        foreach (Transform child in suntProst.transform)
+        {
+            OverlappingRegion region = child.GetComponent<OverlappingRegion>();
+            text = text + CapitaliseForPreview(region.name) + " " + region.value + '\n';
+        }
+
+        return text;
+    }
+
 
     public void AssignRandomValues()
     {
