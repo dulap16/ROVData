@@ -32,9 +32,9 @@ public class OverlappingRegion : MonoBehaviour
     private Light2D lightObject;
 
     public int value;
-    public byte alphaValue;
-    public byte initialAlpha = 150;
-    public byte finalAlpha = 230;
+    public float alphaValue;
+    public float initialAlpha = 0.57f;
+    public float finalAlpha = 0.9f;
     private float radius;
 
     /// <summary>
@@ -55,9 +55,9 @@ public class OverlappingRegion : MonoBehaviour
     /// </summary>
     public float lerpTime;
 
-    private Color targetColor;
-    private Color basicColor;
-    private Color overColor;
+    public Color targetColor;
+    public Color basicColor;
+    public Color overColor;
     public Color selectionColor;
 
     // Start is called before the first frame update
@@ -98,6 +98,7 @@ public class OverlappingRegion : MonoBehaviour
         lerpTime = handler.lerpTime;
 
         basicColor = c;
+        basicColor.a = initialAlpha;
         targetColor = basicColor;
         overColor = basicColor;
         overColor.a = finalAlpha;
@@ -111,6 +112,7 @@ public class OverlappingRegion : MonoBehaviour
         if (targetColor != GetComponent<Renderer>().material.color)
         {
             GetComponent<Renderer>().material.color = Color32.Lerp(GetComponent<Renderer>().material.color, targetColor, lerpTime * Time.deltaTime);
+            // Debug.Log(name + targetColor.a);
         }
     }
 
@@ -118,7 +120,6 @@ public class OverlappingRegion : MonoBehaviour
     {
         if (CheckWithinLimits(value))
         {
-            // MakeVisible(finalAlpha, false);
             targetColor = overColor;
         }
 
@@ -133,7 +134,6 @@ public class OverlappingRegion : MonoBehaviour
     {
         if (selected == false && CheckWithinLimits(value))
         {
-            // MakeInvisible(initialAlpha, false);
             targetColor = basicColor;
         }
 
@@ -157,58 +157,25 @@ public class OverlappingRegion : MonoBehaviour
         m_FalloffField.SetValue(lightObject, falloff);
     }
 
-    public void ChangeAlpha(int ratio)
-    {
-        Color32 c = GetComponent<Renderer>().material.color;
-        int newAlpha = c.a + ratio;
-
-        if (Math.Abs(newAlpha - targetAlpha) < Math.Abs(ratio))
-        {
-            GetComponent<Renderer>().material.color = new Color32(c.r, c.g, c.b, (byte)(targetAlpha));
-            return ;
-        }
-
-        GetComponent<Renderer>().material.color = new Color32(c.r, c.g, c.b, (byte)(newAlpha));
-    }
-
-    public void SetColor(Color32 c)
+    public void SetColor(Color c)
     {
         float alpha = GetComponent<Renderer>().material.color.a;
-        c.a = (byte)(alpha * 255);
+        c.a = alpha;
         GetComponent<Renderer>().material.color = c;
 
         basicColor = c;
+        basicColor.a = initialAlpha;
         overColor = c;
-        overColor.a = 250;
+        overColor.a = finalAlpha;
     }
 
-    public void MakeVisible(byte alphaValue, bool directly)
+    public void MakeVisible(float a, bool directly)
     {
         if (!directly)
         {
-            ratio = 10;
-            targetAlpha = alphaValue;
-
             targetColor = GetComponent<Renderer>().material.color;
-            targetColor.a = alphaValue;
+            targetColor.a = a;
         } else
-        {
-            Color32 c = GetComponent<Renderer>().material.color;
-            GetComponent<Renderer>().material.color = new Color32(c.r, c.g, c.b, (byte)(alphaValue));
-        }
-    }
-
-    public void MakeInvisible(byte alphaValue, bool directly)
-    {
-        if (!directly)
-        {
-            ratio = -10;
-            targetAlpha = alphaValue;
-            
-            targetColor = GetComponent<Renderer>().material.color;
-            targetColor.a = alphaValue;
-        }
-        else
         {
             Color32 c = GetComponent<Renderer>().material.color;
             GetComponent<Renderer>().material.color = new Color32(c.r, c.g, c.b, (byte)(alphaValue));

@@ -71,7 +71,7 @@ public class Indicator : MonoBehaviour
 
         deselectionColor = new Color32(79, 74, 74, 255);
 
-        Debug.Log(initialColor);
+        // Debug.Log(initialColor);
     }
 
     void Update()
@@ -101,7 +101,7 @@ public class Indicator : MonoBehaviour
     {
         if (selected == false && h.selectedValuesOnly == false)
         {
-            parentScript.MakeInvisible(150, false);
+            parentScript.MakeVisible(parentScript.initialAlpha, false);
             HideOutline();
         }
 

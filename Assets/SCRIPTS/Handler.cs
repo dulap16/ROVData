@@ -56,7 +56,7 @@ public class Handler : MonoBehaviour
             }
 
             n = n.ToLower();
-            Debug.Log(n);
+            // Debug.Log(n);
             dictionary.Add(n, 0);
         }
 
@@ -99,7 +99,7 @@ public class Handler : MonoBehaviour
 
         if (optionInd.CheckWithinLimits(optionInd.value))
         {
-            optionInd.MakeVisible(230, false);
+            optionInd.MakeVisible(optionInd.finalAlpha, false);
         }
         // optionInd.tag.MakeInvisible();
 
@@ -115,7 +115,7 @@ public class Handler : MonoBehaviour
 
             dictionary[regionName] = value;
             selectedRegion.ChangeValue(value);
-            selectedRegion.MakeVisible(150, true);
+            selectedRegion.MakeVisible(selectedRegion.initialAlpha, true);
         }
         catch (Exception e)
         {
@@ -166,7 +166,7 @@ public class Handler : MonoBehaviour
                 Debug.Log(nr);
                 if (nr < ll || nr > ul)
                 {
-                    childScript.MakeInvisible(0, false);
+                    childScript.MakeVisible(0, false);
                     childScript.ind.HideOutline();
                     childScript.ind.FadeOut();
                 }
@@ -226,7 +226,7 @@ public class Handler : MonoBehaviour
             if (selectedValuesOnly == true)
             {
                 if (newValue < ll || newValue > ul)
-                    selectedRegion.MakeInvisible(0, false);
+                    selectedRegion.MakeVisible(0, false);
                 else selectedRegion.MakeVisible(selectedRegion.alphaValue, false);
             }
         }
