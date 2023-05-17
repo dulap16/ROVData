@@ -156,18 +156,12 @@ public class OverlappingRegion : MonoBehaviour
 
     public void SetColor(Color c)
     {
-        float alpha = GetComponent<Renderer>().material.color.a;
-        c.a = alpha;
-        GetComponent<Renderer>().material.color = c;
+        targetColor = c;
 
         basicColor = c;
         basicColor.a = initialAlpha;
         overColor = c;
         overColor.a = finalAlpha;
-
-        if (selected)
-            targetColor = overColor;
-        else targetColor = basicColor;
     }
 
     public void MakeVisible(float a, bool directly)
@@ -187,8 +181,8 @@ public class OverlappingRegion : MonoBehaviour
     {
         value = newValue;
         if (handler.colored == true)
-            c = colorHandler.CalculateShade(value, 10000, initialAlpha);
-        else c = colorHandler.CalculateGrayscale(value, 10000, initialAlpha);
+            c = colorHandler.CalculateShade(value, 10000, GetComponent<Renderer>().material.color.a);
+        else c = colorHandler.CalculateGrayscale(value, 10000, GetComponent<Renderer>().material.color.a);
         SetColor(c);
         ind.ChangeValue(value);
         etiqueteText = regionNameWithCapitals + " : " + value.ToString();
@@ -196,13 +190,13 @@ public class OverlappingRegion : MonoBehaviour
 
     public void Grayscale(int value)
     {
-        c = colorHandler.CalculateGrayscale(value, 10000, initialAlpha);
+        c = colorHandler.CalculateGrayscale(value, 10000, GetComponent<Renderer>().material.color.a);
         SetColor(c);
     }
 
     public void Colored(int value)
     {
-        c = colorHandler.CalculateShade(value, 10000, initialAlpha);
+        c = colorHandler.CalculateShade(value, 10000, GetComponent<Renderer>().material.color.a);
         SetColor(c);
     }
 
