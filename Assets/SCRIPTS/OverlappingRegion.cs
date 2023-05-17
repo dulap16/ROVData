@@ -28,20 +28,17 @@ public class OverlappingRegion : MonoBehaviour
     private Vector3 center;
     private Color32 c;
 
-    private Material uniqueMat;
     private Light2D lightObject;
 
     public int value;
     public float alphaValue;
-    public float initialAlpha = 0.57f;
-    public float finalAlpha = 0.9f;
-    private float radius;
+    private float initialAlpha = 0.57f;
+    private float finalAlpha = 0.9f;
 
     /// <summary>
     ///  ANIMATION
     /// </summary>
-    public int targetAlpha;
-    public int ratio = 10;
+    private int targetAlpha;
 
 
     public bool selected = false;
@@ -55,9 +52,9 @@ public class OverlappingRegion : MonoBehaviour
     /// </summary>
     public float lerpTime;
 
-    public Color targetColor;
-    public Color basicColor;
-    public Color overColor;
+    private Color targetColor;
+    private Color basicColor;
+    private Color overColor;
     public Color selectionColor;
 
     // Start is called before the first frame update
