@@ -14,25 +14,31 @@ public class DatasetHandler : MonoBehaviour
     public Handler h;
     public TMP_Dropdown filePicker;
     private string path;
-    
+
+
+    // SAVING DATASETS  
+    public TMP_InputField titleField;
+    private string savedPath = "C:\\Users\\tudor\\OneDrive\\Documents\\Unity\\Proiect Galati\\Assets\\Saved Datasets";
 
     void Start()
     {
-        path = "C:\\Users\\tudor\\OneDrive\\Documents\\Unity\\Proiect Galati\\Assets\\DataSets\\Romania\\Galati";
+        path = Application.dataPath + "/DataSets/Romania/Galati";
+        savedPath = Application.dataPath + "/Saved Datasets";
         filePicker.ClearOptions();
 
 
-        string[] files = Directory.GetFiles(path);
+        string[] files = Directory.GetFiles(savedPath);
 
         filePicker.options.Add(new TMP_Dropdown.OptionData { text = "Random1" });
         filePicker.options.Add(new TMP_Dropdown.OptionData { text = "Random2" });
+        
         foreach (string file in files)
         {
             if(file.EndsWith(".txt"))
             {
                 string[] tokens = file.Split('\\');
                 string fileName = tokens[tokens.Length - 1];
-                filePicker.options.Add(new TMP_Dropdown.OptionData { text = fileName });
+                filePicker.options.Add(new TMP_Dropdown.OptionData { text = fileName.Substring(0, fileName.Length - 4)});
             }
         }
 
@@ -42,7 +48,8 @@ public class DatasetHandler : MonoBehaviour
     private void ChangeValues()
     {
         int index = filePicker.value;
-        string filePath = path + "\\" + filePicker.options[index].text;
+        // string filePath = path + "\\" + filePicker.options[index].text;
+        string filePath = savedPath + "/" + filePicker.options[index].text + ".txt";
 
         if (filePicker.options[index].text == "Random1" || filePicker.options[index].text == "Random2")
         {
@@ -63,12 +70,23 @@ public class DatasetHandler : MonoBehaviour
                 for (int i = 1; i < tokens.Length - 2; i++)
                     name = name + " " + tokens[i];
 
-                int value = Int32.Parse(tokens[tokens.Length - 2]);
+                int value = Int32.Parse(tokens[tokens.Length - 1]);
 
                 h.ChangeValueOfRegion(name, value);
             }
         }
     }
 
+    public void SaveClicked()
+    {
+        string fileTitle = titleField.text;
+        string fileText = h.ValuesToText();
 
+        string file = fileTitle + ".txt";
+
+        string pathToFile = savedPath + "/" + file;
+        File.WriteAllText(pathToFile, fileText);
+
+        filePicker.options.Add(new TMP_Dropdown.OptionData { text = fileTitle }); 
+    }
 }
