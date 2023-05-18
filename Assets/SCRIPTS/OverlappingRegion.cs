@@ -57,7 +57,7 @@ public class OverlappingRegion : MonoBehaviour
         /// FROM THE REGION SCRIPT
 
         center = GetComponent<Renderer>().bounds.center;
-        ind = ((GameObject)Instantiate(indicator, new Vector3(center.x, center.y, -2), Quaternion.identity, GameObject.Find("Canvas").transform.Find("Map").transform.Find("Points Group"))).GetComponent<Indicator>();
+        ind = ((GameObject)Instantiate(indicator, new Vector3(center.x, center.y, 0), Quaternion.identity, GameObject.Find("Canvas").transform.Find("Map").transform.Find("Points Group"))).GetComponent<Indicator>();
         if (name.Contains("."))
             name = name.Substring(0, name.Length - 4);
         name = name.ToLower();
@@ -105,6 +105,7 @@ public class OverlappingRegion : MonoBehaviour
 
     public void OnMouseOver()
     {
+
         if (CheckWithinLimits(value))
         {
             targetColor = overColor;
