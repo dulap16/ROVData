@@ -13787,6 +13787,7 @@ MonoBehaviour:
   colored: 1
   selectionColor: {r: 1, g: 1, b: 1, a: 1}
   lerpTime: 8.02
+  symbolPrefab: {fileID: 3219570797447108383, guid: 5148e8c4faaea4e4781cce63d1292bd2, type: 3}
 --- !u!4 &1562019150
 Transform:
   m_ObjectHideFlags: 0
@@ -14260,7 +14261,7 @@ GameObject:
   - component: {fileID: 1643476835}
   - component: {fileID: 1643476834}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
