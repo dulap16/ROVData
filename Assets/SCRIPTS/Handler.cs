@@ -76,14 +76,6 @@ public class Handler : MonoBehaviour
 
         current = null;
         colored = true;
-
-
-        // SYMBOLS
-        PoissonDiscSampler sampler = new PoissonDiscSampler(100, 100, 1);
-        foreach(Vector2 sample in sampler.Samples())
-        {
-            Instantiate(symbolPrefab, sample, Quaternion.identity);
-        }
     }
 
     void DropdownItemSelected()
