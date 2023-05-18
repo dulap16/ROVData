@@ -36,7 +36,7 @@ public class DisplayModeHandler : MonoBehaviour
         pointsInitPos = pointsGroup.transform.localPosition;
 
         // SYMBOLS
-        symbolsInitPos = symbolsGroup.transform.localPosition;
+        symbolsInitPos = symbolsGroup.transform.position;
         hiddenPos = new Vector3(200, 200, 0);
 
         changeVisibilityOfColor(true);

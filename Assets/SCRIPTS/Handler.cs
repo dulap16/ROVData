@@ -76,9 +76,6 @@ public class Handler : MonoBehaviour
 
         current = null;
         colored = true;
-
-        // FOR SYMBOLS
-        CalculateBoundsOfGroup();
     }
 
     void DropdownItemSelected()
@@ -261,7 +258,7 @@ public class Handler : MonoBehaviour
         colored = true;
     }
 
-    public void CalculateBoundsOfGroup()
+    public List<float> CalculateBoundsOfGroup()
     {
         float xmin = 1000, ymin = 1000, xmax = -1000, ymax = -1000;
 
@@ -275,7 +272,8 @@ public class Handler : MonoBehaviour
             ymax = Mathf.Max(ymax, mesh.bounds.center.y + mesh.bounds.extents.y);
         }
 
-        Debug.Log(xmin + " " + xmax + " " + ymin + " " + ymax);
+        List<float> l = new List<float> { xmin, xmax, ymin, ymax };
+        return l;
     }
 
     public string ValuesToText()
