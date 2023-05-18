@@ -76,6 +76,9 @@ public class Handler : MonoBehaviour
 
         current = null;
         colored = true;
+
+        // FOR SYMBOLS
+        CalculateBoundsOfGroup();
     }
 
     void DropdownItemSelected()
@@ -256,6 +259,23 @@ public class Handler : MonoBehaviour
         }
 
         colored = true;
+    }
+
+    public void CalculateBoundsOfGroup()
+    {
+        float xmin = 1000, ymin = 1000, xmax = -1000, ymax = -1000;
+
+        foreach(Transform child in suntProst.transform)
+        {
+            Renderer mesh = child.GetComponent<Renderer>();
+
+            xmin = Mathf.Min(xmin, mesh.bounds.center.x - mesh.bounds.extents.x);
+            xmax = Mathf.Max(xmax, mesh.bounds.center.x + mesh.bounds.extents.x);
+            ymin = Mathf.Min(ymin, mesh.bounds.center.y - mesh.bounds.extents.y);
+            ymax = Mathf.Max(ymax, mesh.bounds.center.y + mesh.bounds.extents.y);
+        }
+
+        Debug.Log(xmin + " " + xmax + " " + ymin + " " + ymax);
     }
 
     public string ValuesToText()
