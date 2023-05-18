@@ -29,10 +29,11 @@ public class SymbolManager : MonoBehaviour
         width = xmax - xmin;
         height = ymax - ymin;
 
+        Debug.Log(suntProst.transform.GetChild(1).position.y);
         PoissonDiscSampler sampler = new PoissonDiscSampler(width, height, radius);
         foreach (Vector2 sample in sampler.Samples())
         {
-            Vector2 position = new Vector2(sample.x, sample.y);
+            Vector3 position = new Vector3(sample.x, sample.y, 0);
             Instantiate(symbolPrefab, position, Quaternion.identity, symbolGroup.transform);
         }
         
