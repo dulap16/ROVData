@@ -51,6 +51,11 @@ public class OverlappingRegion : MonoBehaviour
     private Color overColor;
     public Color selectionColor;
 
+
+    // SYMBOLS
+    private List<Symbol> symbols;
+    private int symbolCount;
+
     // Start is called before the first frame update
     void Start()
     {

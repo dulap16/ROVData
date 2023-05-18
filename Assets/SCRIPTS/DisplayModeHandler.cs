@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class DisplayModeHandler : MonoBehaviour
 {
@@ -19,8 +20,9 @@ public class DisplayModeHandler : MonoBehaviour
     private Vector3 pointsInitPos;
 
     // SYMBOLS
-    public GameObject symbolsGroup;
-    private Vector3 symbolsInitPos;
+    public SortingGroup symbolsGroup;
+    private int initLayer;
+    private int hiddenLayer = -1;
 
     private Vector3 hiddenPos;
     public Handler handler;
@@ -36,14 +38,13 @@ public class DisplayModeHandler : MonoBehaviour
         pointsInitPos = pointsGroup.transform.localPosition;
 
         // SYMBOLS
-        symbolsInitPos = symbolsGroup.transform.position;
+        initLayer = symbolsGroup.sortingOrder;
         hiddenPos = new Vector3(200, 200, 0);
 
-        changeVisibilityOfColor(true);
-        changeVisibilityOfPoints(false);
+        modeChanged(0);
     }
 
-    private void modeChanged()
+    public void modeChanged()
     {
         int index = modeSelector.value;
         string option = modeSelector.options[index].text.ToString();
@@ -56,14 +57,35 @@ public class DisplayModeHandler : MonoBehaviour
         } else if(index == 1) // SYMBOLS
         {
             changeVisibilityOfColor(false);
+            changeVisibilityOfPoints(true);
+            changeVisibilityOfSymbols(false);
+        } else if(index == 2) // POINT SIZE
+        {
+            changeVisibilityOfColor(false);
             changeVisibilityOfPoints(false);
             changeVisibilityOfSymbols(true);
+        }
+    }
 
-        } else if(index == 2) // POINT SIZE
+    public void modeChanged(int index)
+    {
+        if (index == 0) // COLOR
+        {
+            changeVisibilityOfColor(true);
+            changeVisibilityOfPoints(false);
+            changeVisibilityOfSymbols(false);
+        }
+        else if (index == 1) // SYMBOLS
         {
             changeVisibilityOfColor(false);
             changeVisibilityOfPoints(true);
             changeVisibilityOfSymbols(false);
+        }
+        else if (index == 2) // POINT SIZE
+        {
+            changeVisibilityOfColor(false);
+            changeVisibilityOfPoints(false);
+            changeVisibilityOfSymbols(true);
         }
     }
 
@@ -87,9 +109,9 @@ public class DisplayModeHandler : MonoBehaviour
     private void changeVisibilityOfSymbols(bool vis)
     {
         if (vis == true)
-            symbolsGroup.transform.localPosition = symbolsInitPos;
+            symbolsGroup.sortingOrder = initLayer;
         else
-            symbolsGroup.transform.localPosition = hiddenPos;
+            symbolsGroup.sortingOrder = hiddenLayer;
     }
 
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 public class SymbolManager : MonoBehaviour
 {
     public Handler handler;
+    public DisplayModeHandler dmh;
 
     public GameObject suntProst;
     public GameObject symbolGroup;
@@ -37,5 +38,6 @@ public class SymbolManager : MonoBehaviour
             Instantiate(symbolPrefab, position, Quaternion.identity, symbolGroup.transform);
         }
 
+        // dmh.modeChanged(0);
     }
 }
