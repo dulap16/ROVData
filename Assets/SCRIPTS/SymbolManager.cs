@@ -24,7 +24,7 @@ public class SymbolManager : MonoBehaviour
     {
         list = handler.CalculateBoundsOfGroup();
         xmin = list[0]; xmax = list[1]; ymin = list[2]; ymax = list[3];
-        symbolGroup.transform.position = new Vector3(xmin, ymin, 0.45f);
+        symbolGroup.transform.position = new Vector3(xmin, ymin, 1f);
 
         width = xmax - xmin;
         height = ymax - ymin;

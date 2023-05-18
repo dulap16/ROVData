@@ -115,6 +115,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55c6b196b63bad5428ca00514809a813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owner: {fileID: 0}
+  colliders: []
+  layersToHit:
+    serializedVersion: 2
+    m_Bits: 256
+  maxDistance: 1
 --- !u!50 &6072203068355506997
 Rigidbody2D:
   serializedVersion: 4
