@@ -53,8 +53,7 @@ public class OverlappingRegion : MonoBehaviour
 
 
     // SYMBOLS
-    private List<Symbol> symbols;
-    private int symbolCount;
+    [SerializeField] private List<Symbol> symbols;
 
     // Start is called before the first frame update
     void Start()
@@ -181,6 +180,13 @@ public class OverlappingRegion : MonoBehaviour
         ind.ChangeValue(value);
         etiqueteText = regionNameWithCapitals + " : " + value.ToString();
     }
+
+    // SYMBOLS
+    public void AddSymbol(Symbol s)
+    {
+        symbols.Add(s);
+    }
+
 
     public void Grayscale(int value)
     {
