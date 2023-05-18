@@ -41,7 +41,6 @@ public class DisplayModeHandler : MonoBehaviour
 
         changeVisibilityOfColor(true);
         changeVisibilityOfPoints(false);
-        changeVisibilityOfSymbols(false);
     }
 
     private void modeChanged()
