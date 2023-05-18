@@ -42,6 +42,9 @@ public class Handler : MonoBehaviour
     public Color selectionColor;
     public float lerpTime = 4;
 
+    // SYMBOLS
+    public GameObject symbolPrefab;
+
     void Start()
     {
         dictionary = new Dictionary<string, int>();
@@ -253,6 +256,24 @@ public class Handler : MonoBehaviour
         }
 
         colored = true;
+    }
+
+    public List<float> CalculateBoundsOfGroup()
+    {
+        float xmin = 1000, ymin = 1000, xmax = -1000, ymax = -1000;
+
+        foreach(Transform child in suntProst.transform)
+        {
+            Renderer mesh = child.GetComponent<Renderer>();
+
+            xmin = Mathf.Min(xmin, mesh.bounds.center.x - mesh.bounds.extents.x);
+            xmax = Mathf.Max(xmax, mesh.bounds.center.x + mesh.bounds.extents.x);
+            ymin = Mathf.Min(ymin, mesh.bounds.center.y - mesh.bounds.extents.y);
+            ymax = Mathf.Max(ymax, mesh.bounds.center.y + mesh.bounds.extents.y);
+        }
+
+        List<float> l = new List<float> { xmin, xmax, ymin, ymax };
+        return l;
     }
 
     public string ValuesToText()
