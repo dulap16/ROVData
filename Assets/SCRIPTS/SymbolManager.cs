@@ -24,7 +24,7 @@ public class SymbolManager : MonoBehaviour
     {
         list = handler.CalculateBoundsOfGroup();
         xmin = list[0]; xmax = list[1]; ymin = list[2]; ymax = list[3];
-        symbolGroup.transform.position = new Vector2(0, 0);
+        symbolGroup.transform.position = new Vector3(xmin, ymin, 0.45f);
 
         width = xmax - xmin;
         height = ymax - ymin;
@@ -33,16 +33,9 @@ public class SymbolManager : MonoBehaviour
         PoissonDiscSampler sampler = new PoissonDiscSampler(width, height, radius);
         foreach (Vector2 sample in sampler.Samples())
         {
-            Vector3 position = new Vector3(sample.x, sample.y, 0);
+            Vector3 position = new Vector3(sample.x + xmin, sample.y + ymin, 0);
             Instantiate(symbolPrefab, position, Quaternion.identity, symbolGroup.transform);
         }
-        
-        symbolGroup.transform.position = new Vector2(xmin, ymin);
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

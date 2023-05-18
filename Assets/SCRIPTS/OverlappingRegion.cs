@@ -105,6 +105,7 @@ public class OverlappingRegion : MonoBehaviour
 
     public void OnMouseOver()
     {
+
         if (CheckWithinLimits(value))
         {
             targetColor = overColor;
