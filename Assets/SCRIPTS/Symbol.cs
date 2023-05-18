@@ -14,8 +14,6 @@ public class Symbol : MonoBehaviour
         Debug.Log("spawned");
         CheckCollision();
 
-        
-
         if (colliders.Count == 0) ;
         // Destroy(this.gameObject);
         else
