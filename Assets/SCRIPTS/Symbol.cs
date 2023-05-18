@@ -59,45 +59,14 @@ public class Symbol : MonoBehaviour
 
     private void CheckCollision()
     {
-        /*
-        colliders = Physics.OverlapSphere(transform.position, 0.5f).ToList<Collider>();
-
-        foreach(Collider coll in colliders)
-        {
-            try
-            {
-                coll.gameObject.GetComponent<OverlappingRegion>();
-            } catch(System.Exception e)
-            {
-                // colliders.Remove(coll);
-            }
-        }
-
-        if (colliders.Count == 0)
-            Destroy(this.gameObject);
-        */
-
-        /*
-        colliders = new List<Collider2D>();
-        namesOfHits = new List<string>();
-
-        // RAYCASTING
-        int numHits = Physics2D.Raycast(transform.position, Vector3.forward, contactFilter, hits);
-
-
-        foreach(RaycastHit2D r in hits)
-        {
-            colliders.Add(r.collider);
-            namesOfHits.Add(r.transform.name);
-        }
-        */
-
-        // another try
-
         if (Physics.Raycast(ray, out RaycastHit hit, maxDistance, layersToHit))
         {
-            owner = hit.transform.gameObject.GetComponent<OverlappingRegion>();
+            OverlappingRegion region = hit.transform.gameObject.GetComponent<OverlappingRegion>();
+            owner = region;
+            region.AddSymbol(this);
         }
         else Destroy(this.gameObject);
     }
+
+
 }
