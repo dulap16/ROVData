@@ -97,6 +97,8 @@ public class OverlappingRegion : MonoBehaviour
         basicColor.a = initialAlpha;
         overColor = basicColor;
         overColor.a = finalAlpha;
+
+        HideAll();
     }
 
     public void FixedUpdate()
@@ -109,7 +111,7 @@ public class OverlappingRegion : MonoBehaviour
 
     public void OnMouseOver()
     {
-
+        ShowAll();
         if (CheckWithinLimits(value))
         {
             targetColor = overColor;
@@ -124,6 +126,7 @@ public class OverlappingRegion : MonoBehaviour
 
     public void OnMouseExit()
     {
+        HideAll();
         if (selected == false && CheckWithinLimits(value))
         {
             targetColor = basicColor;
@@ -187,6 +190,24 @@ public class OverlappingRegion : MonoBehaviour
         symbols.Add(s);
     }
 
+    public void HideAll()
+    {
+        foreach (Symbol s in symbols)
+            s.Hide();
+    }
+
+    public void ShowAll()
+    {
+        foreach (Symbol s in symbols)
+            s.Show();
+    }
+
+    public void ShowSelection()
+    {
+        foreach (Symbol s in symbols)
+            if (s.isInSelection)
+                s.Show();
+    }
 
     public void Grayscale(int value)
     {
