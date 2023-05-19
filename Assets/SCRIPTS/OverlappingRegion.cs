@@ -51,6 +51,10 @@ public class OverlappingRegion : MonoBehaviour
     private Color overColor;
     public Color selectionColor;
 
+
+    // SYMBOLS
+    [SerializeField] private List<Symbol> symbols;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,7 +83,7 @@ public class OverlappingRegion : MonoBehaviour
         c.a = initialAlpha;
         SetColor(c);
 
-        MakeVisible(initialAlpha);
+        SetTargetAlpha(initialAlpha);
 
         etiqueteText = regionNameWithCapitals + " : " + value.ToString();
 
@@ -93,6 +97,8 @@ public class OverlappingRegion : MonoBehaviour
         basicColor.a = initialAlpha;
         overColor = basicColor;
         overColor.a = finalAlpha;
+
+        HideAll();
     }
 
     public void FixedUpdate()
@@ -103,9 +109,8 @@ public class OverlappingRegion : MonoBehaviour
         }
     }
 
-    public void OnMouseOver()
+    public void OnMouseEnter()
     {
-
         if (CheckWithinLimits(value))
         {
             targetColor = overColor;
@@ -117,6 +122,24 @@ public class OverlappingRegion : MonoBehaviour
         if (cf.GetText() != etiqueteText)
             cf.ChangeText(etiqueteText);
     }
+    
+    /*
+    public void OnMouseOver()
+    {
+        SelectSymbols();
+        ShowSelection();
+        if (CheckWithinLimits(value))
+        {
+            targetColor = overColor;
+        }
+
+        if (cf.shown == false)
+            cf.MakeVisible();
+
+        if (cf.GetText() != etiqueteText)
+            cf.ChangeText(etiqueteText);
+    }
+    */
 
     public void OnMouseExit()
     {
@@ -160,9 +183,24 @@ public class OverlappingRegion : MonoBehaviour
         overColor.a = finalAlpha;
     }
 
-    public void MakeVisible(float a)
+    public void SetTargetAlpha(float a)
     {
         targetColor.a = a;
+    }
+
+    public void SetBasicColor(Color c)
+    {
+        basicColor = c;
+    }
+
+    public void SetOverColor(Color c)
+    {
+        overColor = c;
+    }
+
+    public void SetTargetColor(Color c)
+    {
+        targetColor = c;
     }
 
     public void ChangeValue(int newValue)
@@ -175,6 +213,52 @@ public class OverlappingRegion : MonoBehaviour
         SetColor(c);
         ind.ChangeValue(value);
         etiqueteText = regionNameWithCapitals + " : " + value.ToString();
+    }
+
+    // SYMBOLS
+    public void AddSymbol(Symbol s)
+    {
+        symbols.Add(s);
+    }
+
+    public void HideAll()
+    {
+        foreach (Symbol s in symbols)
+            s.Hide();
+    }
+
+    public void ShowAll()
+    {
+        foreach (Symbol s in symbols)
+            s.Show();
+    }
+
+    public void SelectSymbols() // based on value
+    {
+        int howMany = (int)(((float)value / 10000f) * (float)symbols.Count);
+        Debug.Log(howMany);
+
+        for(int i = 0; i < symbols.Count; i++)
+        {
+            Symbol temp = symbols[i];
+            int randomIndex = UnityEngine.Random.Range(i, symbols.Count);
+            symbols[i] = symbols[randomIndex];
+            symbols[randomIndex] = temp;
+        }
+
+        for(int i = 0; i < symbols.Count; i++)
+        {
+            if (i < howMany)
+                symbols[i].isInSelection = true;
+            else symbols[i].isInSelection = false;
+        }
+    }
+
+    public void ShowSelection()
+    {
+        foreach (Symbol s in symbols)
+            if (s.isInSelection)
+                s.Show();
     }
 
     public void Grayscale(int value)

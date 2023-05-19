@@ -6,57 +6,52 @@ using UnityEngine;
 public class Symbol : MonoBehaviour
 {
     public OverlappingRegion owner;
-    public List<Collider> colliders;
+
+    private Ray ray;
+    public LayerMask layersToHit;
+    public float maxDistance = 3;
+
+    public bool isInSelection;
+
+    private Renderer renderer;
 
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("spawned");
-        CheckCollision();
+        renderer = GetComponent<Renderer>();
+        ray = new Ray(transform.position, transform.forward);
 
-        if (colliders.Count == 0) ;
-        // Destroy(this.gameObject);
-        else
-        {
-            owner = colliders[0].GetComponent<OverlappingRegion>();
-        }
+        CheckCollision();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
 
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("Collision");
-        try
-        {
-            OverlappingRegion region = collision.gameObject.GetComponent<OverlappingRegion>();
-            Debug.Log(region.name);
-        } catch(System.Exception e)
-        {
-            Debug.Log("Collided with something else");
-        }
     }
 
     private void CheckCollision()
     {
-        colliders = Physics.OverlapSphere(transform.position, 0.5f).ToList<Collider>();
-
-        foreach(Collider coll in colliders)
+        if (Physics.Raycast(ray, out RaycastHit hit, maxDistance, layersToHit))
         {
-            try
-            {
-                coll.gameObject.GetComponent<OverlappingRegion>();
-            } catch(System.Exception e)
-            {
-                // colliders.Remove(coll);
-            }
+            OverlappingRegion region = hit.transform.gameObject.GetComponent<OverlappingRegion>();
+            owner = region;
+            region.AddSymbol(this);
         }
+        else Destroy(this.gameObject);
+    }
 
-        if (colliders.Count == 0)
-            Destroy(this.gameObject);
+    public void Show()
+    {
+        Color c = renderer.material.color;
+        c.a = 1;
+        renderer.material.color = c;
+    }
+
+    public void Hide()
+    {
+        Color c = renderer.material.color;
+        c.a = 0;
+        renderer.material.color = c;
     }
 }
