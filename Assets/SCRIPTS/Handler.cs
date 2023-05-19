@@ -146,6 +146,7 @@ public class Handler : MonoBehaviour
 
         current = OR;
         current.selected = true;
+        current.OnMouseEnter();
         current.ind.selected = true;
         current.ind.OnMouseOver();
     }
@@ -203,6 +204,7 @@ public class Handler : MonoBehaviour
         }
         catch { }
 
+        Transparent();
         sm.Reset();
         foreach (Transform child in suntProst.transform)
         {
@@ -264,6 +266,7 @@ public class Handler : MonoBehaviour
         {
             OverlappingRegion region = child.GetComponent<OverlappingRegion>();
             region.SetTargetAlpha(0);
+            region.SetBasicColor(new Color(1, 1, 1, 0));
         }
     }    
 
