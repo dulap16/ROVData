@@ -44,14 +44,14 @@ public class Symbol : MonoBehaviour
     public void Show()
     {
         Color c = renderer.material.color;
-        c.a = 0;
+        c.a = 1;
         renderer.material.color = c;
     }
 
     public void Hide()
     {
         Color c = renderer.material.color;
-        c.a = 1;
+        c.a = 0;
         renderer.material.color = c;
     }
 }
