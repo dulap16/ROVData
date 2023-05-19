@@ -202,6 +202,27 @@ public class OverlappingRegion : MonoBehaviour
             s.Show();
     }
 
+    public void SelectSymbols() // based on value
+    {
+        int howMany = (int)(((float)value / 10000f) * (float)symbols.Count);
+        Debug.Log(howMany);
+
+        for(int i = 0; i < symbols.Count; i++)
+        {
+            Symbol temp = symbols[i];
+            int randomIndex = UnityEngine.Random.Range(i, symbols.Count);
+            symbols[i] = symbols[randomIndex];
+            symbols[randomIndex] = temp;
+        }
+
+        for(int i = 0; i < symbols.Count; i++)
+        {
+            if (i < howMany)
+                symbols[i].isInSelection = true;
+            else symbols[i].isInSelection = false;
+        }
+    }
+
     public void ShowSelection()
     {
         foreach (Symbol s in symbols)
