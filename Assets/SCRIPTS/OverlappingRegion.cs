@@ -109,9 +109,8 @@ public class OverlappingRegion : MonoBehaviour
         }
     }
 
-    public void OnMouseOver()
+    public void OnMouseEnter()
     {
-        ShowAll();
         if (CheckWithinLimits(value))
         {
             targetColor = overColor;
@@ -123,10 +122,27 @@ public class OverlappingRegion : MonoBehaviour
         if (cf.GetText() != etiqueteText)
             cf.ChangeText(etiqueteText);
     }
+    
+    /*
+    public void OnMouseOver()
+    {
+        SelectSymbols();
+        ShowSelection();
+        if (CheckWithinLimits(value))
+        {
+            targetColor = overColor;
+        }
+
+        if (cf.shown == false)
+            cf.MakeVisible();
+
+        if (cf.GetText() != etiqueteText)
+            cf.ChangeText(etiqueteText);
+    }
+    */
 
     public void OnMouseExit()
     {
-        HideAll();
         if (selected == false && CheckWithinLimits(value))
         {
             targetColor = basicColor;
