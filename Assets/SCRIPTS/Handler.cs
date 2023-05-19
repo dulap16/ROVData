@@ -30,6 +30,7 @@ public class Handler : MonoBehaviour
     public TMP_InputField upperLimit;
     public Button showLimits;
     public Button resetLimits;
+    public int mode = 0;
 
     public int ratio = 10;
 
@@ -186,6 +187,8 @@ public class Handler : MonoBehaviour
                         childScript.OnMouseEnter();
                         childScript.OnMouseExit();
                     }
+
+                    childScript.SetBasicColor(childScript.GetTargetColor());
                 }
 
             }
@@ -204,7 +207,7 @@ public class Handler : MonoBehaviour
         }
         catch { }
 
-        Transparent();
+        
         sm.Reset();
         foreach (Transform child in suntProst.transform)
         {
@@ -213,6 +216,16 @@ public class Handler : MonoBehaviour
             childScript.ind.HideOutline();
             childScript.ind.FadeIn();
         }
+
+        if(mode != 0)
+            Transparent();
+    }
+
+    public bool isReset()
+    {
+        if (lowerLimit.text == "0" && upperLimit.text == "10000")
+            return true;
+        else return false;
     }
 
     public void ChangeClick()
@@ -265,8 +278,11 @@ public class Handler : MonoBehaviour
         foreach(Transform child in suntProst.transform)
         {
             OverlappingRegion region = child.GetComponent<OverlappingRegion>();
+
+            Color c = region.GetBasicColor();
+            c.a = 0;
+            region.SetBasicColor(c);
             region.SetTargetAlpha(0);
-            region.SetBasicColor(new Color(1, 1, 1, 0));
         }
     }    
 
