@@ -83,7 +83,7 @@ public class OverlappingRegion : MonoBehaviour
         c.a = initialAlpha;
         SetColor(c);
 
-        MakeVisible(initialAlpha);
+        SetTargetAlpha(initialAlpha);
 
         etiqueteText = regionNameWithCapitals + " : " + value.ToString();
 
@@ -183,9 +183,24 @@ public class OverlappingRegion : MonoBehaviour
         overColor.a = finalAlpha;
     }
 
-    public void MakeVisible(float a)
+    public void SetTargetAlpha(float a)
     {
         targetColor.a = a;
+    }
+
+    public void SetBasicColor(Color c)
+    {
+        basicColor = c;
+    }
+
+    public void SetOverColor(Color c)
+    {
+        overColor = c;
+    }
+
+    public void SetTargetColor(Color c)
+    {
+        targetColor = c;
     }
 
     public void ChangeValue(int newValue)
