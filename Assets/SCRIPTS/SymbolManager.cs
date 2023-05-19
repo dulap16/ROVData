@@ -6,6 +6,7 @@ using UnityEngine;
 public class SymbolManager : MonoBehaviour
 {
     public Handler handler;
+    public DisplayModeHandler dmh;
 
     public GameObject suntProst;
     public GameObject symbolGroup;
@@ -19,12 +20,19 @@ public class SymbolManager : MonoBehaviour
     private float height = 30;
     public float radius;
 
+    IEnumerator waiter(float seconds)
+    {
+        yield return new WaitForSecondsRealtime(seconds);
+
+        handler.DelegateSymbols();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         list = handler.CalculateBoundsOfGroup();
         xmin = list[0]; xmax = list[1]; ymin = list[2]; ymax = list[3];
-        symbolGroup.transform.position = new Vector3(xmin, ymin, 0.45f);
+        symbolGroup.transform.position = new Vector3(xmin, ymin, 1f);
 
         width = xmax - xmin;
         height = ymax - ymin;
@@ -37,5 +45,6 @@ public class SymbolManager : MonoBehaviour
             Instantiate(symbolPrefab, position, Quaternion.identity, symbolGroup.transform);
         }
 
+        StartCoroutine(waiter(1));
     }
 }

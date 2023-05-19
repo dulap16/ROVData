@@ -28,8 +28,8 @@ public class LanguageManager : MonoBehaviour
                                 "Folosiți-l prin a lipi aici setul de date în formatul LOC - VAL", "Limita de jos", "Limita de sus", "Arata Cadastrul", "Titlu", "Opacitatea Cadastrului", "Salvează", "Numele setului..."};
         n = tmptexts.Length;
 
-        ddenglish = new List<string> { "Color", "Symbols", "Point Size" };
-        ddromana = new List<string> { "Culoare", "Simboluri", "Puncte" };
+        ddenglish = new List<string> { "Color", "Point Size", "Symbols" };
+        ddromana = new List<string> { "Culoare", "Puncte", "Simboluri" };
 
         ChangeToRomanian();
     }
