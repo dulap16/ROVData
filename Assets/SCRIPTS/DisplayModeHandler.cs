@@ -52,17 +52,11 @@ public class DisplayModeHandler : MonoBehaviour
         if(index == 0) // COLOR
         {
             changeVisibilityOfColor(true);
-            changeVisibilityOfPoints(false);
-            changeVisibilityOfSymbols(false);
         } else if(index == 1) // SYMBOLS
         {
-            changeVisibilityOfColor(false);
             changeVisibilityOfPoints(true);
-            changeVisibilityOfSymbols(false);
         } else if(index == 2) // POINT SIZE
         {
-            changeVisibilityOfColor(false);
-            changeVisibilityOfPoints(false);
             changeVisibilityOfSymbols(true);
         }
     }
@@ -95,14 +89,30 @@ public class DisplayModeHandler : MonoBehaviour
             coloredMap.transform.localPosition = colorInitPos;
         else coloredMap.transform.localPosition = hiddenPos;*/
         if (vis == true)
+        {
+            handler.mode = 0;
+
             handler.Colored();
-        else handler.Transparent();
+            changeVisibilityOfPoints(false);
+            changeVisibilityOfSymbols(false);
+        }
+        else
+        {
+            handler.Grayscale();
+
+            if(handler.isReset())
+                handler.Transparent();
+        }
     }
 
     private void changeVisibilityOfPoints(bool vis)
     {
         if (vis == true) {
+            handler.mode = 1;
+
             pointsGroup.transform.localPosition = pointsInitPos;
+            changeVisibilityOfColor(false);
+            changeVisibilityOfSymbols(false);
         }
         else
             pointsGroup.transform.localPosition = hiddenPos;
@@ -112,7 +122,13 @@ public class DisplayModeHandler : MonoBehaviour
     private void changeVisibilityOfSymbols(bool vis)
     {
         if (vis == true)
+        {
+            handler.mode = 2;
+
             symbolsGroup.sortingOrder = initLayer;
+            changeVisibilityOfColor(false);
+            changeVisibilityOfPoints(false);
+        }
         else
             symbolsGroup.sortingOrder = hiddenLayer;
     }
