@@ -6,55 +6,28 @@ using UnityEngine;
 public class Symbol : MonoBehaviour
 {
     public OverlappingRegion owner;
-    public List<Collider2D> colliders;
 
-
-    // RAYCASTING
-    /*
-    public ContactFilter2D contactFilter;
-    public List<string> namesOfHits;
-    [SerializeField] RaycastHit2D[] hits = new RaycastHit2D[5];
-
-    
-    */
-
-    // another try
     private Ray ray;
     public LayerMask layersToHit;
     public float maxDistance = 3;
 
+    public bool isInSelection;
+
+    private Renderer renderer;
+
     // Start is called before the first frame update
     void Start()
     {
+        renderer = GetComponent<Renderer>();
         ray = new Ray(transform.position, transform.forward);
 
         CheckCollision();
-
-        if (colliders.Count == 0) ;
-        // Destroy(this.gameObject);
-        else
-        {
-            owner = colliders[0].GetComponent<OverlappingRegion>();
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
 
-    }
-
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("Collision");
-        try
-        {
-            OverlappingRegion region = collision.gameObject.GetComponent<OverlappingRegion>();
-            Debug.Log(region.name);
-        } catch(System.Exception e)
-        {
-            Debug.Log("Collided with something else");
-        }
     }
 
     private void CheckCollision()
@@ -68,5 +41,17 @@ public class Symbol : MonoBehaviour
         else Destroy(this.gameObject);
     }
 
+    public void Show()
+    {
+        Color c = renderer.material.color;
+        c.a = 0;
+        renderer.material.color = c;
+    }
 
+    public void Hide()
+    {
+        Color c = renderer.material.color;
+        c.a = 1;
+        renderer.material.color = c;
+    }
 }
