@@ -193,14 +193,29 @@ public class OverlappingRegion : MonoBehaviour
         basicColor = c;
     }
 
+    public Color GetBasicColor()
+    {
+        return basicColor;
+    }
+
     public void SetOverColor(Color c)
     {
         overColor = c;
     }
 
+    public Color GetOverColor(Color c)
+    {
+        return overColor;
+    }
+
     public void SetTargetColor(Color c)
     {
         targetColor = c;
+    }
+
+    public Color GetTargetColor()
+    {
+        return targetColor;
     }
 
     public void ChangeValue(int newValue)
@@ -212,6 +227,10 @@ public class OverlappingRegion : MonoBehaviour
         c.a = GetComponent<Renderer>().material.color.a;
         SetColor(c);
         ind.ChangeValue(value);
+
+        HideAll();
+        SelectSymbols();
+        ShowSelection();
         etiqueteText = regionNameWithCapitals + " : " + value.ToString();
     }
 
@@ -263,15 +282,27 @@ public class OverlappingRegion : MonoBehaviour
 
     public void Grayscale(int value)
     {
-        c = colorHandler.CalculateGrayscale(value, 10000, GetComponent<Renderer>().material.color.a);
+        c = colorHandler.CalculateGrayscale(value, 10000, FigureOutAlpha());
         SetColor(c);
     }
 
     public void Colored(int value)
     {
         c = colorHandler.CalculateShade(value, 10000);
-        c.a = GetComponent<Renderer>().material.color.a;
+        c.a = FigureOutAlpha();
         SetColor(c);
+    }
+
+    public float FigureOutAlpha()
+    {
+        if (CheckWithinLimits(value)) 
+        {
+            if (selected)
+                return finalAlpha;
+            return initialAlpha;
+        }
+
+        return 0;
     }
 
     public bool CheckWithinLimits(int value)
