@@ -20,6 +20,13 @@ public class SymbolManager : MonoBehaviour
     private float height = 30;
     public float radius;
 
+    IEnumerator waiter(float seconds)
+    {
+        yield return new WaitForSecondsRealtime(seconds);
+
+        handler.DelegateSymbols();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +45,6 @@ public class SymbolManager : MonoBehaviour
             Instantiate(symbolPrefab, position, Quaternion.identity, symbolGroup.transform);
         }
 
-        // dmh.modeChanged(0);
+        StartCoroutine(waiter(1));
     }
 }
