@@ -182,7 +182,7 @@ public class Handler : MonoBehaviour
                         childScript.ind.FadeIn();
                     } else
                     {
-                        childScript.OnMouseOver();
+                        childScript.OnMouseEnter();
                         childScript.OnMouseExit();
                     }
                 }
@@ -256,6 +256,18 @@ public class Handler : MonoBehaviour
         }
 
         colored = true;
+    }
+
+    public void DelegateSymbols()
+    {
+        
+        foreach (Transform child in suntProst.transform)
+        {
+            OverlappingRegion region = child.GetComponent<OverlappingRegion>();
+            region.HideAll();
+            region.SelectSymbols();
+            region.ShowSelection();
+        }
     }
 
     public List<float> CalculateBoundsOfGroup()
