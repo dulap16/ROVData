@@ -91,9 +91,12 @@ public class DisplayModeHandler : MonoBehaviour
 
     private void changeVisibilityOfColor(bool vis)
     {
-        if (vis == true)
+        /*if (vis == true)
             coloredMap.transform.localPosition = colorInitPos;
-        else coloredMap.transform.localPosition = hiddenPos;
+        else coloredMap.transform.localPosition = hiddenPos;*/
+        if (vis == true)
+            handler.Colored();
+        else handler.Transparent();
     }
 
     private void changeVisibilityOfPoints(bool vis)
