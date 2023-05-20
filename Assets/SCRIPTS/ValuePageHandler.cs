@@ -78,6 +78,9 @@ public class ValuePageHandler : MonoBehaviour
         string input = massValueInput.text;
         string[] lines = input.Split('\n');
 
+        string[] counties = new string[100];
+        int[] values = new int[100];
+
         foreach (string line in lines)
         {
             try

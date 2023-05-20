@@ -206,7 +206,7 @@ public class Handler : MonoBehaviour
         try
         {
             lowerLimit.text = "0";
-            upperLimit.text = "10000";           // MAX
+            upperLimit.text = max.ToString();           // MAX
         }
         catch { }
 
@@ -226,7 +226,7 @@ public class Handler : MonoBehaviour
 
     public bool isReset()
     {
-        if (lowerLimit.text == "0" && upperLimit.text == "10000")
+        if (lowerLimit.text == "0" && upperLimit.text == max.ToString())
             return true;
         else return false;
     }
