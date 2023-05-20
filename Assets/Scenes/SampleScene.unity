@@ -933,7 +933,7 @@ MonoBehaviour:
   suntProst: {fileID: 1819961093}
   symbolGroup: {fileID: 956905463}
   symbolPrefab: {fileID: 3219570797447108383, guid: 5148e8c4faaea4e4781cce63d1292bd2, type: 3}
-  radius: 0.123
+  radius: 0.15
 --- !u!4 &119121935
 Transform:
   m_ObjectHideFlags: 0
@@ -14415,6 +14415,7 @@ MonoBehaviour:
   upperLimit: {fileID: 1882192923}
   showLimits: {fileID: 1236117302}
   resetLimits: {fileID: 11396747}
+  mode: 0
   ratio: 0
   ll: 0
   ul: 0
