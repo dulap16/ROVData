@@ -26,10 +26,10 @@ public class ColorHandler : MonoBehaviour
     public Color CalculateShade(int value, int max)
     {
         int index = (int)(((float)value / (float)max) * array.Length);
-        if (index < 0)
-            index = 1;
-        if (index > img.width)
-            index = img.width;
+        if (index < 2)
+            index = 2;
+        if (index >= img.width)
+            index = img.width - 1;
 
         Color c = array[array.Length - index];
         return c;
