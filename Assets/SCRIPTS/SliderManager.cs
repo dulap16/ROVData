@@ -21,16 +21,13 @@ public class SliderManager : MonoBehaviour
     public TMP_InputField lowerLimit;
     public TMP_InputField upperLimit;
 
-    public int minValue;
-    public int maxValue = 10000;
-
     public Handler h;
 
 
     void Start()
     {
         lowerLimit.text = "0";
-        upperLimit.text = "10000"; // h.max
+        upperLimit.text = h.max.ToString(); // h.max
         Reset();
     }
 
@@ -39,8 +36,8 @@ public class SliderManager : MonoBehaviour
     {
         if (lowerColl.clicked == true || upperColl.clicked == true)
         {
-            lowerValue = (int)(maxValue * lower.normalizedValue);
-            upperValue = (int)(maxValue * upper.normalizedValue);
+            lowerValue = (int)(h.max * lower.normalizedValue);
+            upperValue = (int)(h.max * upper.normalizedValue);
 
             lowerLimit.text = lowerValue.ToString();
             upperLimit.text = upperValue.ToString();
@@ -57,11 +54,11 @@ public class SliderManager : MonoBehaviour
 
     public void SetLowerValue(int value)
     {
-        lower.normalizedValue = (float)value / (float)maxValue;
+        lower.normalizedValue = (float)value / (float)h.max;
     }
 
     public void SetUpperValue(int value)
     {
-        upper.normalizedValue = (float)value / (float)maxValue;
+        upper.normalizedValue = (float)value / (float)h.max;
     }
 }
