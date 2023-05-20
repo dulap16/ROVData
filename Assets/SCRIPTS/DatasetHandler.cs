@@ -51,6 +51,9 @@ public class DatasetHandler : MonoBehaviour
         // string filePath = path + "\\" + filePicker.options[index].text;
         string filePath = savedPath + "/" + filePicker.options[index].text + ".txt";
 
+        string fileName = filePicker.options[index].text;
+        titleField.text = fileName;
+
         if (filePicker.options[index].text == "Random1" || filePicker.options[index].text == "Random2")
         {
             h.AssignRandomValues();
@@ -118,8 +121,9 @@ public class DatasetHandler : MonoBehaviour
         string file = fileTitle + ".txt";
 
         string pathToFile = savedPath + "/" + file;
-        File.WriteAllText(pathToFile, fileText);
 
-        filePicker.options.Add(new TMP_Dropdown.OptionData { text = fileTitle }); 
+        if(!System.IO.File.Exists(pathToFile))
+            filePicker.options.Add(new TMP_Dropdown.OptionData { text = fileTitle });
+        File.WriteAllText(pathToFile, fileText);
     }
 }
