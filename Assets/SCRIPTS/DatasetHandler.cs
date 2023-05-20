@@ -72,11 +72,29 @@ public class DatasetHandler : MonoBehaviour
 
                 string[] tokens = line.Split(' ');
 
+                string name = "";
+                int value = 0;
+                for(int i = 0; i < tokens.Length; i++)
+                {
+                    string firstChar = tokens[i].Substring(0, 1).ToLower();
+                    if (firstChar[0] >= 'a' && firstChar[0] <= 'z')
+                    {
+                        if (name == "")
+                            name = tokens[i];
+                        else name = name + " " + tokens[i];
+                    }
+                    else if (firstChar[0] >= '1' && firstChar[0] <= '9')
+                        value = Int32.Parse(tokens[i]);
+                }
+
+                /*
                 string name = tokens[0];
                 for (int i = 1; i < tokens.Length - 2; i++)
                     name = name + " " + tokens[i];
+                Debug.Log(name);
 
                 int value = Int32.Parse(tokens[tokens.Length - 1]);
+                */
 
                 counties.Add(name);
                 values.Add(value);
