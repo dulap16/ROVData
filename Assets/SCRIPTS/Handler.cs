@@ -46,6 +46,9 @@ public class Handler : MonoBehaviour
     // SYMBOLS
     public GameObject symbolPrefab;
 
+
+    // MAXIMUM
+    public int max = 10000;
     void Start()
     {
         dictionary = new Dictionary<string, int>();
