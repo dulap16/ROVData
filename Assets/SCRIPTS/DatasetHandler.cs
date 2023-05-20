@@ -59,20 +59,35 @@ public class DatasetHandler : MonoBehaviour
         {
             h.ResetClick();
             string[] lines = System.IO.File.ReadAllLines(filePath);
+
+            List<string> counties = new List<string>();
+            List<int> values = new List<int>();
+
+            h.max = 0;
+
             foreach (string line in lines)
             {
                 if (!(line[0] >= 'A' && line[0] <= 'Z'))
                     continue;
 
                 string[] tokens = line.Split(' ');
-                Debug.Log(tokens.Length);
+
                 string name = tokens[0];
                 for (int i = 1; i < tokens.Length - 2; i++)
                     name = name + " " + tokens[i];
 
                 int value = Int32.Parse(tokens[tokens.Length - 1]);
 
-                h.ChangeValueOfRegion(name, value);
+                counties.Add(name);
+                values.Add(value);
+
+                h.max = Mathf.Max(h.max, value);
+            }
+
+            for(int i = 0; i < counties.Count; i++)
+            {
+                Debug.Log(counties[i]);
+                h.ChangeValueOfRegion(counties[i], values[i]);
             }
         }
     }

@@ -121,12 +121,14 @@ public class Handler : MonoBehaviour
             OverlappingRegion selectedRegion = suntProst.transform.Find(regionName).GetComponent<OverlappingRegion>();
 
             dictionary[regionName] = value;
+            Debug.Log(max);
             selectedRegion.ChangeValue(value);
             selectedRegion.SetTargetAlpha(selectedRegion.initialAlpha);
         }
         catch (Exception e)
         {
             Debug.Log(e);
+            Debug.Log(regionName);
         }
     }
 
