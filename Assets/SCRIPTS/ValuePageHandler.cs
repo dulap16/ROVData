@@ -77,6 +77,10 @@ public class ValuePageHandler : MonoBehaviour
     {
         string input = massValueInput.text;
         string[] lines = input.Split('\n');
+        handler.max = 0;
+
+        List<string> counties = new List<string>();
+        List<int> values = new List<int>();
 
         foreach (string line in lines)
         {
@@ -89,46 +93,66 @@ public class ValuePageHandler : MonoBehaviour
                 {
                     if ((tokens[i][0] >= '0' && tokens[i][0] <= '9') || (tokens[i][0] >= 'A' && tokens[i][0] <= 'z'))
                     {
-                        correctedTokens[l] = tokens[i];
+                        correctedTokens[l] = tokens[i].ToLower();
                         l = l + 1;
                     }
                 }
 
-            
-                int val = int.Parse(correctedTokens[l - 1]);
+                string name = "";
+                int val = 0;
 
-                string countyName = tokens[0];
-                for (int i = 1; i < l - 1; i++)
-                    countyName = countyName + " " + correctedTokens[i];
-                countyName = countyName.ToLower();
-
-                /// implement levenshtein distance
-
-                if (handler.dictionary.ContainsKey(countyName))
-                    handler.ChangeValueOfRegion(countyName, val);
-                else
+                for(int i = 0; i < l; i++)
                 {
-                    Debug.Log(countyName + " not found");
-                    Debug.Log("Searching for closest match");
-
-                    int mini = int.MaxValue;
-                    string closeMatch = "";
-                    foreach (string name in handler.dictionary.Keys)
+                    string firstChar = correctedTokens[i].Substring(0, 1);
+                    if (firstChar[0] >= 'a' && firstChar[0] <= 'z')
                     {
-                        int dist = LevenshteinDistance(countyName, name);
-                        if (mini > dist)
-                        {
-                            mini = dist;
-                            closeMatch = name;
-                        }
+                        if (name == "")
+                            name = correctedTokens[i];
+                        else name = name + " " + correctedTokens[i];
                     }
-
-                    handler.ChangeValueOfRegion(closeMatch, val);
+                    else if (firstChar[0] >= '1' && firstChar[0] <= '9')
+                        val = Int32.Parse(correctedTokens[i]);
                 }
+
+                counties.Add(name);
+                values.Add(val);
+
+                handler.max = Mathf.Max(handler.max, val);
             } catch(Exception e)
             {
                 Debug.Log(e);
+                Debug.Log(line);
                 continue;
+            }
+        }
+
+        for(int i = 0; i < counties.Count; i++)
+        {
+            /// implement levenshtein distance
+
+            string name = counties[i];
+            int val = values[i];
+
+            if (handler.dictionary.ContainsKey(name))
+                handler.ChangeValueOfRegion(name, val);
+            else
+            {
+                Debug.Log(name + " not found");
+                Debug.Log("Searching for closest match");
+
+                int mini = int.MaxValue;
+                string closeMatch = "";
+                foreach (string county in handler.dictionary.Keys)
+                {
+                    int dist = LevenshteinDistance(name, county);
+                    if (mini > dist)
+                    {
+                        mini = dist;
+                        closeMatch = county;
+                    }
+                }
+
+                handler.ChangeValueOfRegion(closeMatch, val);
             }
         }
     }

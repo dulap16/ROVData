@@ -46,6 +46,9 @@ public class Handler : MonoBehaviour
     // SYMBOLS
     public GameObject symbolPrefab;
 
+
+    // MAXIMUM
+    public int max = 10000;
     void Start()
     {
         dictionary = new Dictionary<string, int>();
@@ -118,12 +121,14 @@ public class Handler : MonoBehaviour
             OverlappingRegion selectedRegion = suntProst.transform.Find(regionName).GetComponent<OverlappingRegion>();
 
             dictionary[regionName] = value;
+            Debug.Log(max);
             selectedRegion.ChangeValue(value);
             selectedRegion.SetTargetAlpha(selectedRegion.initialAlpha);
         }
         catch (Exception e)
         {
             Debug.Log(e);
+            Debug.Log(regionName);
         }
     }
 
@@ -203,7 +208,7 @@ public class Handler : MonoBehaviour
         try
         {
             lowerLimit.text = "0";
-            upperLimit.text = "10000";           // MAX
+            upperLimit.text = max.ToString();           // MAX
         }
         catch { }
 
@@ -223,7 +228,7 @@ public class Handler : MonoBehaviour
 
     public bool isReset()
     {
-        if (lowerLimit.text == "0" && upperLimit.text == "10000")
+        if (lowerLimit.text == "0" && upperLimit.text == max.ToString())
             return true;
         else return false;
     }

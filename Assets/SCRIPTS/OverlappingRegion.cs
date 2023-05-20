@@ -74,12 +74,12 @@ public class OverlappingRegion : MonoBehaviour
         ind.transform.GetChild(0).GetChild(0).GetComponent<Canvas>().overrideSorting = true;
 
         /// COLOR AND TRANSPARENCY
-        value = UnityEngine.Random.Range(0, 10000); ind.value = value;
+        value = UnityEngine.Random.Range(0, handler.max); ind.value = value;
 
         handler = GameObject.Find("Handler").GetComponent<Handler>();
         handler.dictionary[name] = value;
 
-        c = colorHandler.CalculateShade(value, 10000);
+        c = colorHandler.CalculateShade(value, handler.max);
         c.a = initialAlpha;
         SetColor(c);
 
@@ -224,8 +224,8 @@ public class OverlappingRegion : MonoBehaviour
     {
         value = newValue;
         if (handler.colored == true)
-            c = colorHandler.CalculateShade(value, 10000);
-        else c = colorHandler.CalculateGrayscale(value, 10000, GetComponent<Renderer>().material.color.a);
+            c = colorHandler.CalculateShade(value, handler.max);
+        else c = colorHandler.CalculateGrayscale(value, handler.max, GetComponent<Renderer>().material.color.a);
         c.a = GetComponent<Renderer>().material.color.a;
         SetColor(c);
         ind.ChangeValue(value);
@@ -256,8 +256,7 @@ public class OverlappingRegion : MonoBehaviour
 
     public void SelectSymbols() // based on value
     {
-        int howMany = (int)(((float)value / 10000f) * (float)symbols.Count);
-        Debug.Log(howMany);
+        int howMany = (int)(((float)value / (float)handler.max) * (float)symbols.Count);
 
         for(int i = 0; i < symbols.Count; i++)
         {
@@ -284,13 +283,13 @@ public class OverlappingRegion : MonoBehaviour
 
     public void Grayscale(int value)
     {
-        c = colorHandler.CalculateGrayscale(value, 10000, FigureOutAlpha());
+        c = colorHandler.CalculateGrayscale(value, handler.max, FigureOutAlpha());
         SetColor(c);
     }
 
     public void Colored(int value)
     {
-        c = colorHandler.CalculateShade(value, 10000);
+        c = colorHandler.CalculateShade(value, handler.max);
         c.a = FigureOutAlpha();
         SetColor(c);
     }

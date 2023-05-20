@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Indicator : MonoBehaviour
@@ -43,6 +44,8 @@ public class Indicator : MonoBehaviour
 
     public Color32 deselectionColor;
 
+    public float lerpTime = 0.1f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -76,9 +79,9 @@ public class Indicator : MonoBehaviour
 
     void Update()
     {
-        if(transform.localScale != targetScale)
+        if(outline.transform.localScale != targetScale)
         {
-            ChangeShadowScale();
+            outline.transform.localScale = Vector3.Lerp(outline.transform.localScale, targetScale, lerpTime * Time.deltaTime);
         }
 
         /*if(renderer.material.color != targetColor)
@@ -108,40 +111,6 @@ public class Indicator : MonoBehaviour
         /*tag.MakeInvisible();*/
 
         cf.MakeInvisible();
-    }
-
-    public void ChangeShadowScale()
-    {
-        if (Mathf.Abs(outline.transform.localScale.x - targetScale.x) < Mathf.Abs(scaleRatio))
-        {
-            outline.transform.localScale = targetScale;
-            return;
-        }   
-
-        if (outline.transform.localScale.x > targetScale.x)
-            scaleRatio = Mathf.Abs(scaleRatio) * -1;
-        else scaleRatio = Mathf.Abs(scaleRatio);
-
-        Vector3 nextScale = new Vector3(outline.transform.localScale.x + scaleRatio, outline.transform.localScale.y + scaleRatio, outline.transform.localScale.z);
-        outline.transform.localScale = nextScale;
-    }
-
-    public void ChangeAlpha()
-    {
-        Color color = renderer.material.color;
-        if(Mathf.Abs(color.a - targetColor.a) < Mathf.Abs(colorRatio))
-        {
-            renderer.material.color = targetColor;
-            return;
-        }
-
-        if (color.a > targetColor.a)
-            colorRatio = Mathf.Abs(colorRatio) * -1;
-        else colorRatio = Mathf.Abs(colorRatio);
-
-        Color nextColor = color;
-        nextColor.a = nextColor.a + colorRatio;
-        renderer.material.color = nextColor;
     }
 
     public void ChangeValue(int newValue)
@@ -181,7 +150,7 @@ public class Indicator : MonoBehaviour
 
     public Vector3 NewScale(int v)
     {
-        float currentScale = ((float)v / 10000f) * (maxScale - minScale) + minScale;
+        float currentScale = ((float)v / h.max) * (maxScale - minScale) + minScale;
         return new Vector3(currentScale, currentScale, 1);
     }
 
