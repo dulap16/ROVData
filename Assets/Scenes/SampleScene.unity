@@ -240,7 +240,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6386330
 MonoBehaviour:
@@ -711,14 +711,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -941,13 +936,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119121933}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.740728, y: 23.62823, z: 2.2740152}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 29.751204, y: 23.59184, z: 2.1217244}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 514100843}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &166777025 stripped
 GameObject:
@@ -966,14 +961,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -1713,14 +1703,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -2557,14 +2542,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -2918,14 +2898,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -3194,14 +3169,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -3244,14 +3214,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -3709,7 +3674,7 @@ Transform:
   m_Children:
   - {fileID: 1179805721}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &419585392
 GameObject:
@@ -3982,14 +3947,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -4015,6 +3975,42 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5401616037173958419, guid: 4f25bd52ad2800d41985ac0a488c8041, type: 3}
+--- !u!1 &514100842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 514100843}
+  m_Layer: 0
+  m_Name: Handlers and Managers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &514100843
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514100842}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.0104754, y: 0.036388725, z: 0.15229076}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1821843139}
+  - {fileID: 1803126779}
+  - {fileID: 1336543741}
+  - {fileID: 1562019150}
+  - {fileID: 119121935}
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &524951370 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5398041852519533344, guid: 4f25bd52ad2800d41985ac0a488c8041, type: 3}
@@ -4032,14 +4028,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -4082,14 +4073,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -4647,14 +4633,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -4736,14 +4717,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -4941,14 +4917,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -5201,14 +5172,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -5385,14 +5351,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -5683,14 +5644,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -5733,14 +5689,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -5783,14 +5734,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -6225,14 +6171,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -6451,14 +6392,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -6501,14 +6437,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -6551,14 +6482,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -7913,14 +7839,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -8368,14 +8289,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -8642,14 +8558,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -9054,14 +8965,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -9104,14 +9010,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -9154,14 +9055,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -9204,14 +9100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -9995,14 +9886,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -10045,14 +9931,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -10270,14 +10151,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -11255,14 +11131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -11305,14 +11176,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -11401,13 +11267,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1336543740}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.59526396, y: 0.059703466, z: -0.41908538}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.6057394, y: 0.02331474, z: -0.57137614}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_Father: {fileID: 514100843}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1336543742
 MonoBehaviour:
@@ -11441,14 +11307,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -13307,14 +13168,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -13394,14 +13250,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -13712,14 +13563,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -13762,14 +13608,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -13947,14 +13788,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -14294,14 +14130,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -14344,14 +14175,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -14470,13 +14296,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1562019148}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.22182688, y: -0.12880227, z: -3.2884796}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7886485, y: -0.165191, z: -3.4407704}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_Father: {fileID: 514100843}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1570204600
 GameObject:
@@ -14764,14 +14590,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -14797,59 +14618,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4395696963471777169, guid: 4f25bd52ad2800d41985ac0a488c8041, type: 3}
---- !u!1 &1632025948
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1632025950}
-  - component: {fileID: 1632025949}
-  m_Layer: 0
-  m_Name: Light Controller
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1632025949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632025948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8841552665e8c1748affd3e2e7567040, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  color:
-    serializedVersion: 2
-    rgba: 4278585087
-  imultiplier: 5
-  ifixedAddition: 0
-  rmultiplier: 1600
-  rfixedAddition: 0
-  falloffIntensity: 1
-  power: 1
---- !u!4 &1632025950
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632025948}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.3778285, y: -0.14108175, z: 0.93023825}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1638821419
 GameObject:
   m_ObjectHideFlags: 0
@@ -15008,7 +14776,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1646211568
 GameObject:
@@ -15358,14 +15126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -15519,14 +15282,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -15569,14 +15327,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -15687,14 +15440,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -15775,13 +15523,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1803126777}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.0504994, y: 0.040252402, z: -0.066366635}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.040024, y: 0.0038636774, z: -0.2186574}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 514100843}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1808748513
 GameObject:
@@ -15837,14 +15585,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -16100,13 +15843,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1821843137}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.74504125, y: -0.0096146315, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.2654341, y: -0.046003357, z: -0.15229076}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 514100843}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1828020552
 GameObject:
@@ -16260,14 +16003,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -16310,14 +16048,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -17253,14 +16986,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -17379,14 +17107,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -17429,14 +17152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -17479,14 +17197,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -17529,14 +17242,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -17579,14 +17287,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -17629,14 +17332,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -17679,14 +17377,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
@@ -17782,14 +17475,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a381fcd9c712a4c8f93dd083f2e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lc: {fileID: 1632025949}
   colorHandler: {fileID: 1821843138}
   handler: {fileID: 1562019149}
   initialMat: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
-  lightMat: {fileID: 2100000, guid: fc0ad3b5530974d439d4e50ec3a6698e, type: 2}
-  light: {fileID: 302030055113332790, guid: 5433ee92cd2bc1246a51e9dd65887a27, type: 3}
-  intensityValue: 0
-  modifiedValue: 0
   ind: {fileID: 0}
   indicator: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   value: 0
