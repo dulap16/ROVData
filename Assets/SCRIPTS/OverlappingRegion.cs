@@ -9,15 +9,13 @@ using UnityEngine.Rendering.Universal;
 
 public class OverlappingRegion : MonoBehaviour
 {
-    public LightController lc;
+    private LightController lc;
     public ColorHandler colorHandler;
     public Handler handler;
 
     public Material initialMat;
     public Material lightMat;
     public GameObject light;
-    public float intensityValue;
-    public float modifiedValue;
 
     /// <summary>
     /// FROM THE REGION SCRIPT
@@ -58,6 +56,12 @@ public class OverlappingRegion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        /// GET NECESSARY OBJCETS
+        lc = GameObject.Find("Light Controller").GetComponent<LightController>();
+        colorHandler = GameObject.Find("ColorHandler").GetComponent<ColorHandler>();
+        handler = GameObject.Find("Handler").GetComponent<Handler>();
+        cf = GameObject.Find("Cursor Tag").GetComponent<CursorFollower>();
+
         /// FROM THE REGION SCRIPT
 
         center = GetComponent<Renderer>().bounds.center;
@@ -166,14 +170,14 @@ public class OverlappingRegion : MonoBehaviour
         targetColor = selectionColor;
     }
 
-    private static FieldInfo m_FalloffField = typeof(Light2D).GetField("m_FalloffIntensity", BindingFlags.NonPublic | BindingFlags.Instance);
+    // private static FieldInfo m_FalloffField = typeof(Light2D).GetField("m_FalloffIntensity", BindingFlags.NonPublic | BindingFlags.Instance);
 
     // ...
 
-    public void SetFalloff(float falloff)
+    /*public void SetFalloff(float falloff)
     {
         m_FalloffField.SetValue(lightObject, falloff);
-    }
+    }*/
 
     public void SetColor(Color c)
     {
