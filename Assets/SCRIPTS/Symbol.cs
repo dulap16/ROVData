@@ -13,7 +13,7 @@ public class Symbol : MonoBehaviour
 
     public bool isInSelection;
 
-    private Renderer renderer;
+    private new Renderer renderer;
 
     // Start is called before the first frame update
     void Start()

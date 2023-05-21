@@ -18,7 +18,7 @@ public class Indicator : MonoBehaviour
 
     private OverlappingRegion parentScript;
     private GameObject overlapMap;
-    public Tag tag;
+    public new Tag tag;
 
     // APPEARANCE BASED ON VALUE
     public float minScale = 0.15f;
@@ -36,7 +36,7 @@ public class Indicator : MonoBehaviour
     public float scaleRatio = 0.05f;
 
     // APPEARANCE CONTROL - COLOR
-    private Renderer renderer;
+    private new Renderer renderer;
     private Color targetColor;
     private Color initialColor;
     private Color finalColor;

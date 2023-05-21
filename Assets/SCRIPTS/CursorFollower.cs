@@ -9,7 +9,8 @@ public class CursorFollower : MonoBehaviour
     private Vector3 pos;
     public float speed = 1f;
     public bool shown;
-    public Tag tag;
+    public new Tag tag;
+
 
     // Start is called before the first frame update
     void Start()
