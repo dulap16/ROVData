@@ -21,7 +21,9 @@ public class Handler : MonoBehaviour
     public TMP_Dropdown dd;
 
     // MAP CONTROL
-    public GameObject suntProst;
+    public GameObject blender;
+    public GameObject judet;
+    public GameObject cadastru;
     public string[] regions;
     public Dictionary<string, int> dictionary;
 
@@ -47,13 +49,22 @@ public class Handler : MonoBehaviour
     public GameObject symbolPrefab;
 
 
+    public GameObject indprefab;
+
     // MAXIMUM
     public int max = 10000;
     void Start()
     {
+        foreach(Transform child in blender.transform)
+        {
+            if (child.name == "Cadastru")
+                cadastru = child.gameObject;
+            else judet = child.gameObject;
+        }
+
         dictionary = new Dictionary<string, int>();
 
-        foreach (Transform child in suntProst.transform)
+        foreach (Transform child in judet.transform)
         {
             string n = child.gameObject.name;
 
@@ -118,7 +129,7 @@ public class Handler : MonoBehaviour
         try
         {
             regionName = regionName.ToLower();
-            OverlappingRegion selectedRegion = suntProst.transform.Find(regionName).GetComponent<OverlappingRegion>();
+            OverlappingRegion selectedRegion = judet.transform.Find(regionName).GetComponent<OverlappingRegion>();
 
             dictionary[regionName] = value;
             Debug.Log(max);
@@ -169,7 +180,7 @@ public class Handler : MonoBehaviour
             sm.SetLowerValue(ll);
             sm.SetUpperValue(ul);
 
-            foreach (Transform child in suntProst.transform)
+            foreach (Transform child in judet.transform)
             {
                 OverlappingRegion childScript = child.GetComponent<OverlappingRegion>();
                 int nr = childScript.value;
@@ -214,7 +225,7 @@ public class Handler : MonoBehaviour
 
         
         sm.Reset();
-        foreach (Transform child in suntProst.transform)
+        foreach (Transform child in judet.transform)
         {
             OverlappingRegion childScript = child.GetComponent<OverlappingRegion>();
             childScript.SetTargetAlpha(childScript.initialAlpha);
@@ -242,7 +253,7 @@ public class Handler : MonoBehaviour
             string region = dd.options[dd.value].text.ToLower();
             dictionary[region] = newValue;
 
-            OverlappingRegion selectedRegion = suntProst.transform.Find(region).GetComponent<OverlappingRegion>();
+            OverlappingRegion selectedRegion = judet.transform.Find(region).GetComponent<OverlappingRegion>();
             selectedRegion.ChangeValue(newValue);
 
 
@@ -258,7 +269,7 @@ public class Handler : MonoBehaviour
 
     public void Grayscale()
     {
-        foreach(Transform child in suntProst.transform)
+        foreach(Transform child in judet.transform)
         {
             OverlappingRegion region = child.GetComponent<OverlappingRegion>();
             region.Grayscale(region.value);
@@ -269,7 +280,7 @@ public class Handler : MonoBehaviour
 
     public void Colored()
     {
-        foreach (Transform child in suntProst.transform)
+        foreach (Transform child in judet.transform)
         {
             OverlappingRegion region = child.GetComponent<OverlappingRegion>();
             region.Colored(region.value);
@@ -280,7 +291,7 @@ public class Handler : MonoBehaviour
 
     public void Transparent()
     {
-        foreach(Transform child in suntProst.transform)
+        foreach(Transform child in judet.transform)
         {
             OverlappingRegion region = child.GetComponent<OverlappingRegion>();
 
@@ -294,7 +305,7 @@ public class Handler : MonoBehaviour
     public void DelegateSymbols()
     {
         
-        foreach (Transform child in suntProst.transform)
+        foreach (Transform child in judet.transform)
         {
             OverlappingRegion region = child.GetComponent<OverlappingRegion>();
             region.HideAll();
@@ -307,7 +318,7 @@ public class Handler : MonoBehaviour
     {
         float xmin = 1000, ymin = 1000, xmax = -1000, ymax = -1000;
 
-        foreach(Transform child in suntProst.transform)
+        foreach(Transform child in judet.transform)
         {
             Renderer mesh = child.GetComponent<Renderer>();
 
@@ -324,7 +335,7 @@ public class Handler : MonoBehaviour
     public string ValuesToText()
     {
         string text = "";
-        foreach (Transform child in suntProst.transform)
+        foreach (Transform child in judet.transform)
         {
             OverlappingRegion region = child.GetComponent<OverlappingRegion>();
             text = text + CapitaliseForPreview(region.name) + " " + region.value + '\n';

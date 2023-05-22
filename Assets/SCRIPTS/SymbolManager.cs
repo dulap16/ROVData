@@ -8,7 +8,7 @@ public class SymbolManager : MonoBehaviour
     public Handler handler;
     public DisplayModeHandler dmh;
 
-    public GameObject suntProst;
+    public GameObject judet;
     public GameObject symbolGroup;
     public GameObject symbolPrefab;
 
@@ -30,6 +30,8 @@ public class SymbolManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        judet = handler.judet;
+
         list = handler.CalculateBoundsOfGroup();
         xmin = list[0]; xmax = list[1]; ymin = list[2]; ymax = list[3];
         symbolGroup.transform.position = new Vector3(xmin, ymin, 1f);
@@ -37,7 +39,7 @@ public class SymbolManager : MonoBehaviour
         width = xmax - xmin;
         height = ymax - ymin;
 
-        Debug.Log(suntProst.transform.GetChild(1).position.y);
+        Debug.Log(judet.transform.GetChild(1).position.y);
         PoissonDiscSampler sampler = new PoissonDiscSampler(width, height, radius);
         foreach (Vector2 sample in sampler.Samples())
         {

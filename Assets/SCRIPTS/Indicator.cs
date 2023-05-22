@@ -17,7 +17,6 @@ public class Indicator : MonoBehaviour
     public int value;
 
     private OverlappingRegion parentScript;
-    private GameObject overlapMap;
     public new Tag tag;
 
     // APPEARANCE BASED ON VALUE
@@ -37,7 +36,7 @@ public class Indicator : MonoBehaviour
 
     // APPEARANCE CONTROL - COLOR
     private new Renderer renderer;
-    private Color targetColor;
+
     private Color initialColor;
     private Color finalColor;
     public float colorRatio = 10;
@@ -68,7 +67,7 @@ public class Indicator : MonoBehaviour
 
         renderer = GetComponent<Renderer>();
         initialColor = renderer.material.color;
-        targetColor = initialColor;
+
         finalColor = initialColor;
         finalColor.a = 0.5f;
 
