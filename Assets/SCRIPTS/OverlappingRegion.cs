@@ -55,6 +55,9 @@ public class OverlappingRegion : MonoBehaviour
         colorHandler = GameObject.Find("ColorHandler").GetComponent<ColorHandler>();
         handler = GameObject.Find("Handler").GetComponent<Handler>();
         cf = GameObject.Find("Cursor Tag").GetComponent<CursorFollower>();
+        handler = GameObject.Find("Handler").GetComponent<Handler>();
+        initialMat = GetComponent<Renderer>().material;
+        indicator = handler.indprefab;
 
         /// FROM THE REGION SCRIPT
 
@@ -74,7 +77,6 @@ public class OverlappingRegion : MonoBehaviour
         /// COLOR AND TRANSPARENCY
         value = UnityEngine.Random.Range(0, handler.max); ind.value = value;
 
-        handler = GameObject.Find("Handler").GetComponent<Handler>();
         handler.dictionary[name] = value;
 
         c = colorHandler.CalculateShade(value, handler.max);
