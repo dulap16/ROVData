@@ -3758,6 +3758,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e4e92d5d182634786602520a421058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  judete:
+  - nume: Galati
+    fbx: {fileID: 919132149155446097, guid: 7e2a0deb79992c542993bf8e28ffb27b, type: 3}
+    poz: {x: 0, y: 0, z: 0}
+    scale: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
 --- !u!1 &441455316
 GameObject:
   m_ObjectHideFlags: 0
