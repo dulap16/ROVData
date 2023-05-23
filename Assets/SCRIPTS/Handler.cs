@@ -48,7 +48,7 @@ public class Handler : MonoBehaviour
     // SYMBOLS
     public GameObject symbolPrefab;
 
-
+    public DropdownScript ds;
     public GameObject indprefab;
 
     // MAXIMUM
@@ -57,7 +57,7 @@ public class Handler : MonoBehaviour
     {
         foreach(Transform child in blender.transform)
         {
-            if (child.name == "Cadastru")
+            if (child.name == "CADASTRU")
                 cadastru = child.gameObject;
             else judet = child.gameObject;
         }
@@ -91,6 +91,41 @@ public class Handler : MonoBehaviour
 
         current = null;
         colored = true;
+    }
+
+    public void JudetChanged()
+    {
+        foreach (Transform child in blender.transform)
+        {
+            if (child.name == "CADASTRU")
+                cadastru = child.gameObject;
+            else judet = child.gameObject;
+        }
+
+        dictionary.Clear();
+
+        foreach (Transform child in judet.transform)
+        {
+            string n = child.gameObject.name;
+
+            if (n.Contains("."))
+            {
+                n = n.Substring(0, n.Length - 4);
+            }
+
+            n = n.ToLower();
+            // Debug.Log(n);
+            dictionary.Add(n, 0);
+        }
+
+        dd.ClearOptions();
+
+        foreach (string key in dictionary.Keys)
+        {
+            dd.options.Add(new TMP_Dropdown.OptionData() { text = CapitaliseForPreview(key) });
+        }
+
+        ds.JudetChanged();
     }
 
     void DropdownItemSelected()
