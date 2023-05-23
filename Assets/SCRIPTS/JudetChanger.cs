@@ -1,10 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Experimental.AI;
 
 public class JudetChanger : MonoBehaviour
 {
+    public TMP_Dropdown dd;
+
     [Serializable]
     public class texture
     {
@@ -30,13 +34,18 @@ public class JudetChanger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(Application.streamingAssetsPath);
-        Debug.Log(Application.persistentDataPath);
+        dd.options.Clear();
+
+        foreach(judet j in judete)
+        {
+            dd.options.Add(new TMP_Dropdown.OptionData() { text = j.nume }) ;
+        }
+
+        dd.onValueChanged.AddListener(delegate { JudetSchimbat(); }) ;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void JudetSchimbat()
     {
-        
+
     }
 }
