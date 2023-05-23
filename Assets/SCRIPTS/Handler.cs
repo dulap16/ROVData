@@ -53,6 +53,9 @@ public class Handler : MonoBehaviour
 
     // MAXIMUM
     public int max = 10000;
+
+
+    public string currentJudet;
     void Start()
     {
         foreach(Transform child in blender.transform)

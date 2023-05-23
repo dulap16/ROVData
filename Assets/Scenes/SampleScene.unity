@@ -12305,8 +12305,10 @@ MonoBehaviour:
   selectionColor: {r: 1, g: 1, b: 1, a: 1}
   lerpTime: 8.02
   symbolPrefab: {fileID: 3219570797447108383, guid: 5148e8c4faaea4e4781cce63d1292bd2, type: 3}
+  ds: {fileID: 0}
   indprefab: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   max: 10000
+  currentJudet: 
 --- !u!4 &1562019150
 Transform:
   m_ObjectHideFlags: 0
@@ -15054,16 +15056,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e4e92d5d182634786602520a421058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dd: {fileID: 1921134891}
-  blender: {fileID: 1262567129}
-  fullTexture: {fileID: 841652181}
-  fadedTexture: {fileID: 183301114}
   judete:
   - nume: Alba
     fbx: {fileID: 919132149155446097, guid: cb69e37092057e04cb49949a91c284dc, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15073,7 +15071,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: d04517fbc376673458ca8f3031c4a147, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15083,7 +15081,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: a5fdc4285cbacf6478ec9642c25e6578, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15093,7 +15091,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: 7de0f2b2947eaef47a1b46846c4baf6f, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15103,7 +15101,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: 6f617a5c7d693c14387de1084891d2f0, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15113,7 +15111,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: bfa6b14a64f644f47919d9f055fbace7, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15123,7 +15121,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: 21abc0c1494187142a8a065e2381aea8, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15133,7 +15131,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: b2b622547cb67444795a646ecd9c8c00, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15143,7 +15141,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: 4a751d086a34dde4fae9b005805e7714, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15153,7 +15151,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: adefa5e36a61fe44ebc4645baa096e96, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15163,7 +15161,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: 44fd7f0a8410d2e448c0fcf1c98f8d35, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15173,7 +15171,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: 9c218b767a178a34884b0bb8d4b59879, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15183,7 +15181,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: 48e77999731439145822f7a902d27119, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15193,7 +15191,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: d0a26edc90ba6c44d8175110f0527e90, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15203,7 +15201,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: 31c81fbb687e6dd41898ff1f4c483ab4, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15213,7 +15211,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: 0954ad2001c27ea4d876cf4cd9cf7a3a, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15223,7 +15221,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: 4c58a6ab88f402341b669ff3c5793955, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15233,7 +15231,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: 7e2a0deb79992c542993bf8e28ffb27b, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15243,7 +15241,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: 24a313e087d0c35498a1a037a72477a9, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15253,7 +15251,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: c7a7b159ce0ff84478ae64e5727fd479, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15263,7 +15261,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: 9d65db10dbc898d46b74c0025c4d8706, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15273,7 +15271,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: 5083f71cb7534b7479e7e00f240a0074, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15283,7 +15281,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: 30c0988d29911cc4a817fdb08534f51b, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15293,7 +15291,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: 918d46da5b8886f42944359bec28b507, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15303,7 +15301,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: ddd1a0002ebd1b54686da827c30bb8c6, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15313,7 +15311,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: b0f81911555ad164295fe13de525fadc, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15323,7 +15321,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: 3f496f6499eaaf14baec02a861c4c384, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15333,7 +15331,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: f512e1bb38a99814091de6a86c2f2bab, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15343,7 +15341,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: 9b43603ea1866f24db13545850b92f2a, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15353,7 +15351,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: 15791bfaacbae42468f326a2cc9d3d10, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15363,7 +15361,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: 2c66184f2e946bd41992c17473c51576, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15373,7 +15371,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: 5f0dcf70a84948e47b2293b57f884c81, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15383,7 +15381,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: 6a5d097860e91824a8ffeba8497a9ce5, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15393,7 +15391,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: 78a0b33b20c136d45a47b3185c289e7d, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15403,7 +15401,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: 7175b655eee27d8498a17a1625fc0d94, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15413,7 +15411,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: a37f1bedeb73be44a86d12b784999cbd, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15423,7 +15421,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: 314755a9dcfd34b418d382daa20dfdf5, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15433,7 +15431,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: 9729870f08f29f640913feca6f59a1ac, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15443,7 +15441,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: 6cca53fc91c1b8b4087342b26dce7b7d, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15453,7 +15451,7 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: 62ea4fe69da1604449f958129f589781, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
@@ -15463,12 +15461,33 @@ MonoBehaviour:
     fbx: {fileID: 919132149155446097, guid: 9c1e1893b82e13d40a1ca86c8c5d04d4, type: 3}
     poz: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
     texture:
       full: {fileID: 0}
       transp: {fileID: 0}
       poz: {x: 0, y: 0, z: 0}
       scale: {x: 0, y: 0, z: 0}
+  dd: {fileID: 1921134891}
+  currInt: 0
+  currString: 
+  currJudet:
+    nume: 
+    fbx: {fileID: 0}
+    poz: {x: 0, y: 0, z: 0}
+    scale: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    texture:
+      full: {fileID: 0}
+      transp: {fileID: 0}
+      poz: {x: 0, y: 0, z: 0}
+      scale: {x: 0, y: 0, z: 0}
+  GAL: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
+  shadow: {fileID: 2100000, guid: 86d4736bdc6f52b4786a38391fef7319, type: 2}
+  phys: {fileID: 13400000, guid: 63d360b5c591aff418c25ecf28123d0b, type: 2}
+  blender: {fileID: 1262567129}
+  fullTexture: {fileID: 841652181}
+  fadedTexture: {fileID: 183301114}
+  h: {fileID: 1562019149}
 --- !u!1 &2090136772
 GameObject:
   m_ObjectHideFlags: 0
@@ -16168,7 +16187,7 @@ Transform:
   m_GameObject: {fileID: 568937718671997348}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5.1079, y: -3.8095, z: 0}
-  m_LocalScale: {x: 0.83226466, y: 0.8716212, z: -0.8169389}
+  m_LocalScale: {x: 0.83226466, y: 0.8716212, z: -0.81693894}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 482046350889827815}
@@ -17525,8 +17544,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5144096076572426858}
   m_LocalRotation: {x: 1, y: -0, z: -0, w: -0.0000000754979}
-  m_LocalPosition: {x: -9.727, y: 2.9879, z: -0.2533}
-  m_LocalScale: {x: -885.0328, y: -1275.3141, z: -81.69391}
+  m_LocalPosition: {x: -9.727001, y: 2.9878995, z: -0.25330004}
+  m_LocalScale: {x: -885.0328, y: -1275.3142, z: -81.69391}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1262567130}
