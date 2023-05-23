@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Experimental.AI;
 
@@ -40,6 +41,7 @@ public class JudetChanger : MonoBehaviour
     // fbx and texture
     public Material GAL;
     public Material shadow;
+    public PhysicMaterial phys;
 
     public GameObject blender;
     public SpriteRenderer fullTexture;
@@ -74,7 +76,7 @@ public class JudetChanger : MonoBehaviour
             Destroy(child.gameObject);
         GameObject newJudet = Instantiate(curent.fbx);
         newJudet.transform.position = curent.poz;
-        newJudet.name = newJudet.name.Substring(0, newJudet.name.Length);
+        newJudet.name = curent.nume;
 
         foreach (Transform child in newJudet.transform)
         {
@@ -87,7 +89,17 @@ public class JudetChanger : MonoBehaviour
         foreach (Transform child in newJudet.transform)
         {
             if (child.name == "CADASTRU")
+            {
                 child.parent = blender.transform;
+                child.GetComponent<Renderer>().material = shadow;
+            } else
+            {
+                // this might be needed to happen later
+                child.AddComponent<OverlappingRegion>();
+                child.AddComponent<MeshCollider>();
+                child.GetComponent<Renderer>().material = GAL;
+                child.GetComponent<MeshCollider>().material = phys;
+            }
         }
 
         // change texture
@@ -95,7 +107,8 @@ public class JudetChanger : MonoBehaviour
         fadedTexture.sprite = curent.texture.transp;
 
         // reset val dropdown
-
+        h.JudetChanged();
+        h.currentJudet = curent.nume;
 
         // reset datasets
 
