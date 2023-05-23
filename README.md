@@ -1,6 +1,6 @@
-# ROVData - Vizualizare Date pentru Romania
+# ROVData - Vizualizare Date pentru România
 
->**ROVData** este o aplicatie prin care oricine poate introduce un set de date pentru un anumit judet, si poate vizualiza date si statistici la o apasare de buton. Interfata este facuta intr-un mod simplu si usor de inteles, fiind in acelasi timp si eficienta.
+>**ROVData** este o aplicație prin care oricine poate introduce un set de date pentru un anumit județ, și poate vizualiza date și statistici la o apăsare de buton. Interfața este facută într-un mod simplu și ușor de ințeles, fiind în același timp și eficientă.
 
 ## Cuprins
 
@@ -13,33 +13,33 @@
 ## Despre mine <a name = "despremine"></a>
 
 Berechet Tudor:
->- clasa a 11-a Mate-Info Intensiv, Colegiul National "Vasile Alecsandri"
->- Olimpic national la matematica si informatica
+>- clasa a 11-a Mate-Info Intensiv, Colegiul Național "Vasile Alecsandri"
+>- Olimpic național la matematicp și informatică
 >- Limbaje: C++, C#, Python, Java, Arduino
 >- Alte proiecte sunt pe [profilul meu de Github](https://github.com/dulap16)
 
 ## Scop <a name = "scop"></a>
 
->Acest proiect este dedicat ocaziilor la care trebuie afisate date, statistici sau procente pe judete sau pe intreaga tara Romania.
->Aceasta afisare a datelor este facuta foarte simplu prin aceasta aplicatie, folosindu-se de o **interfata ajutatoare**, **un mod de a insera date rapid**, si diferite **moduri de prezentare** a datelor.
+>Acest proiect este dedicat ocaziilor la care trebuie afișate date, statistici sau procente pe județe sau pe întreaga țară România.
+>Această afișare a datelor este facută foarte simplu prin această aplicație, folosindu-se de o **interfațp ajutătoare**, **un mod de a insera date rapid**, și diferite **moduri de prezentare** a datelor.
 ## Instalare <a name = "instalare"></a>
 
->Pentru a accesa ultima versiune, descarcati ZIP-ul cu ultimul [Release](https://github.com/dulap16/Proiect-Galati/releases) pentru sistemul vostru de operare(Windows, Max, Linux).
->Apoi, deschideti folderul *Executables*, si apasati pe fisierul executabil.
+>Pentru a accesa ultima versiune, descărcați ZIP-ul cu ultimul [Release](https://github.com/dulap16/Proiect-Galati/releases) pentru sistemul vostru de operare(Windows, Max, Linux).
+>Apoi, deschideți folderul *Executables*, și apăsați pe fișierul executabil.
 ## Folosire <a name = "folosire"></a>
 
-**ROVData** are multiple functionalitati: 
-- *inserarea* unui set de date propriu, cat timp este in formatul potrivit
-- *accesarea* seturilor de date inserate in alte sesiuni
-- *prezentarea* datelor in 3 moduri diferite si reprezentative
-- *selectarea* a doua valori "limite" care actioneaza ca doua margini pentru valorile afisate, astfel incat doar regiunile cu valoarea intre cele doua limite vor fi vizibile
+**ROVData** are multiple funcționalități: 
+- *inserarea* unui set de date propriu, cât timp este în formatul potrivit;
+- *accesarea* seturilor de date inserate în alte sesiuni;
+- *prezentarea* datelor in 3 moduri diferite și reprezentative;
+- *selectarea* a două valori "limite" care acționează ca două margini pentru valorile afișate, astfel încât doar regiunile cu valoarea între cele două limite vor fi vizibile.
 
-Aici este un ghid pentru folosirea tuturor acestor functionalitati:
+Aici este un ghid pentru folosirea tuturor acestor funcționalități:
 
 ### Inserarea datelor
-> Se face prin copierea si alipirea unui set de date in sectiunea *Inserarea valorilor in masa*.
-**SETUL DE DATE TREBUIE SA FIE IN FORMATUL URMATOR: LOC VAL**
->Spre exemplu, pentru Galati un set de date corect si potrivit ar fi: 
+> Se face prin copierea și alipirea unui set de date în secțiunea *Inserarea valorilor în masă*.
+**SETUL DE DATE TREBUIE SĂ FIE ÎN FORMATUL URMĂTOR: LOC VAL**
+>Spre exemplu, pentru Galați un set de date corect și potrivit ar fi: 
 ```
 Priponesti 5355 
 Balasesti 1757 
@@ -103,27 +103,27 @@ Braniste 6882
 
 ```
 
-### Accesarea si salvarea datelor
->Cand setul de date dorit este inserat, tot ce ramane de facut este alegerea unui titlu pentru setul de date, si apasarea pe butonului *Salvare*.
+### Accesarea și salvarea datelor
+>Când setul de date dorit este inserat, tot ce rămâne de făcut este alegerea unui titlu pentru setul de date, și apăsarea pe butonul *Salvare*.
 
->Apoi, setul de date poate fi selectat din lista de deasupra acestui buton, atata timp cat sunteti pe judetul potrivit
+>Apoi, setul de date poate fi selectat din lista de deasupra acestui buton, atâta timp cât sunteți pe județul potrivit
 
 ### Moduri de afisare
 1. Varietate de culori
-2. Marimea punctelor
+2. Mărimea punctelor
 3. Densitatea simbolurilor
 
->Fiecare mod in parte poate fi selectat foarte usor in sectiunea *Prezentare*.
+>Fiecare mod în parte poate fi selectat foarte ușor în secțiunea *Prezentare*.
 
 ### Limite
->Tot in sectiunea *Prezentare*, se afla si limitele. Manipuland sliderele, pe harta vor aparea doar localitatile care au valori intre cele 2 limite selectate. Aceasta functionalitate este perfecta atunci cand trebuie sa scoatem in evidenta valorile de o anumita magnitudine.
+>Tot in secțiunea *Prezentare*, se află și limitele. Manipulând sliderele, pe hartă vor apărea doar localitățile care au valori între cele 2 limite selectate. Această funcționalitate este perfectă atunci când trebuie să scoatem în evidență valorile de o anumită magnitudine.
 
 
 ## Obiective <a name = "obiective"></a>
 
->Misiunea finala si ideala este de a face acest proiect sa functioneze pentru orice regiune din orice tara din toata lumea. Datele acestea sunt la dispozitia publicului prin [GADM](https://gadm.org/). De asemenea, acest proces ar trebui sa fie automat.
+>Misiunea finală și ideală este de a face acest proiect să funcționeze pentru orice regiune din orice țară din toată lumea. Datele acestea sunt la dispoziția publicului prin [GADM](https://gadm.org/). De asemenea, acest proces ar trebui să fie automat.
 
->Insa, deocamdata **ROVDATA** poate afisa doar statistici pe Romania. Prin urmare, un alt obiectiv ar fi raspandirea si implementarea aplicatiei in toata Romania, astfel incat oricine are nevoie de o interfata pentru afisat date pe tara noastra, sa stie de ce sa se foloseasca. 
+>Însă, deocamdată **ROVDATA** poate afișa doar statistici pe România. Prin urmare, un alt obiectiv ar fi răspândirea și implementarea aplicației în toată România, astfel încât oricine are nevoie de o interfață pentru afișat date pe țara noastră, să știe de ce să se folosească. 
 ## Credite <a name = "credite"></a>
 
-Totul a fost facut de Berechet Tudor.
+Totul a fost făcut de Berechet Tudor.
