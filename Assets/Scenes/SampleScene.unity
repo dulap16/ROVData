@@ -15055,6 +15055,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dd: {fileID: 1921134891}
+  blender: {fileID: 1262567129}
+  fullTexture: {fileID: 841652181}
+  fadedTexture: {fileID: 183301114}
   judete:
   - nume: Alba
     fbx: {fileID: 919132149155446097, guid: cb69e37092057e04cb49949a91c284dc, type: 3}

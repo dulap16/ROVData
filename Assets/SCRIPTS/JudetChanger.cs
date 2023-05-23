@@ -8,6 +8,10 @@ using UnityEngine.Experimental.AI;
 public class JudetChanger : MonoBehaviour
 {
     public TMP_Dropdown dd;
+    public GameObject blender;
+    public SpriteRenderer fullTexture;
+    public SpriteRenderer fadedTexture;
+
 
     [Serializable]
     public class texture
@@ -30,6 +34,7 @@ public class JudetChanger : MonoBehaviour
     }
 
     public List<judet> judete;
+    Dictionary<string, judet> dict;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +43,8 @@ public class JudetChanger : MonoBehaviour
 
         foreach(judet j in judete)
         {
+            dict.Add(j.nume, j);
+
             dd.options.Add(new TMP_Dropdown.OptionData() { text = j.nume }) ;
         }
 
@@ -46,6 +53,16 @@ public class JudetChanger : MonoBehaviour
 
     private void JudetSchimbat()
     {
+        string key = dd.options[dd.value].text;
 
+        // change fbx
+        // change texture
+        // reset val dropdown
+        // reset datasets
+        // reset display mode to color
+        // empty points group and symbols group
+        // run symbols again
+        // reset limits
+        // arata cadastru
     }
 }
