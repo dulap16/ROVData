@@ -49,4 +49,12 @@ public class SymbolManager : MonoBehaviour
 
         StartCoroutine(waiter(1));
     }
+
+    public void JudetChanged()
+    {
+        foreach (Transform symbol in symbolGroup.transform)
+            Destroy(symbol.gameObject);
+
+        Start();
+    }
 }
