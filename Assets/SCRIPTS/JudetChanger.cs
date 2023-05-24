@@ -78,6 +78,11 @@ public class JudetChanger : MonoBehaviour
 
     private void JudetSchimbat()
     {
+        // reset display mode to color
+        // empty points group and symbols group
+        dmHandler.modeChanged(0);
+        dmHandler.JudetChanged();
+
         string key = dd.options[dd.value].text;
         currJudet = dict[key];
         currString = currJudet.nume;
@@ -106,7 +111,8 @@ public class JudetChanger : MonoBehaviour
             } else
             {
                 // this might be needed to happen later
-                child.AddComponent<OverlappingRegion>();
+                // child.AddComponent<OverlappingRegion>();
+                child.gameObject.layer = 8;
                 child.AddComponent<MeshCollider>();
                 child.GetComponent<Renderer>().material = GAL;
                 child.GetComponent<MeshCollider>().material = phys;
@@ -118,18 +124,17 @@ public class JudetChanger : MonoBehaviour
         fadedTexture.sprite = currJudet.texture.transp;
 
         // reset val dropdown
+        sm.JudetChanged();
         h.JudetChanged();
         h.curentJudet = currJudet.nume;
 
         // reset datasets
         dh.JudetChanged();
 
-        // reset display mode to color
-        // empty points group and symbols group
-        dmHandler.JudetChanged();
-
         // run symbols again
-        sm.JudetChanged();
+        foreach (Transform child in newJudet.transform)
+            child.AddComponent<OverlappingRegion>();
+        h.DelegateSymbols();
 
         h.AssignRandomValues();
     }

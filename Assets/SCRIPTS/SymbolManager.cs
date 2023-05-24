@@ -30,7 +30,7 @@ public class SymbolManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        judet = handler.judet;
+        judet = handler.judetGO;
 
         list = handler.CalculateBoundsOfGroup();
         xmin = list[0]; xmax = list[1]; ymin = list[2]; ymax = list[3];
@@ -52,9 +52,21 @@ public class SymbolManager : MonoBehaviour
 
     public void JudetChanged()
     {
-        foreach (Transform symbol in symbolGroup.transform)
-            Destroy(symbol.gameObject);
+        judet = handler.judetGO;
 
-        Start();
+        list = handler.CalculateBoundsOfGroup();
+        xmin = list[0]; xmax = list[1]; ymin = list[2]; ymax = list[3];
+        symbolGroup.transform.position = new Vector3(xmin, ymin, 1f);
+
+        width = xmax - xmin;
+        height = ymax - ymin;
+
+        Debug.Log(judet.transform.GetChild(1).position.y);
+        PoissonDiscSampler sampler = new PoissonDiscSampler(width, height, radius);
+        foreach (Vector2 sample in sampler.Samples())
+        {
+            Vector3 position = new Vector3(sample.x + xmin, sample.y + ymin, 0);
+            Instantiate(symbolPrefab, position, Quaternion.identity, symbolGroup.transform);
+        }
     }
 }

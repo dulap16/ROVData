@@ -30,7 +30,7 @@ public class DisplayModeHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {   modeSelector.onValueChanged.AddListener( delegate { modeChanged(); });
-        coloredMap = handler.judet;
+        coloredMap = handler.judetGO;
 
         // COLOR
         colorInitPos = coloredMap.transform.localPosition;
@@ -149,7 +149,5 @@ public class DisplayModeHandler : MonoBehaviour
         {
             Destroy(symbol.gameObject);
         }
-
-        modeChanged(0);
     }
 }
