@@ -22,8 +22,7 @@ public class DatasetHandler : MonoBehaviour
 
     void Start()
     {
-        path = Application.dataPath + "/DataSets/Romania/Galati";
-        savedPath = Application.dataPath + "/TempDatasets";
+        savedPath = Application.dataPath + "/TempDatasets/" + h.judet;
         filePicker.ClearOptions();
 
 
@@ -43,6 +42,28 @@ public class DatasetHandler : MonoBehaviour
         }
 
         filePicker.onValueChanged.AddListener(delegate { ChangeValues(); });
+    }
+
+    public void JudetChanged()
+    {
+        savedPath = Application.dataPath + "/TempDatasets/" + h.judet;
+        filePicker.ClearOptions();
+
+
+        string[] files = Directory.GetFiles(savedPath);
+
+        filePicker.options.Add(new TMP_Dropdown.OptionData { text = "Random1" });
+        filePicker.options.Add(new TMP_Dropdown.OptionData { text = "Random2" });
+
+        foreach (string file in files)
+        {
+            if (file.EndsWith(".txt"))
+            {
+                string[] tokens = file.Split('\\');
+                string fileName = tokens[tokens.Length - 1];
+                filePicker.options.Add(new TMP_Dropdown.OptionData { text = fileName.Substring(0, fileName.Length - 4) });
+            }
+        }
     }
 
     private void ChangeValues()
