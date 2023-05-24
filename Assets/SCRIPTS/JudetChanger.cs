@@ -50,6 +50,8 @@ public class JudetChanger : MonoBehaviour
     // reset when judet changed
     public Handler h;
     public DisplayModeHandler dmHandler;
+    public SymbolManager sm;
+    public DatasetHandler dh;
 
     // Start is called before the first frame update
     void Start()
@@ -112,22 +114,15 @@ public class JudetChanger : MonoBehaviour
         h.currentJudet = curent.nume;
 
         // reset datasets
-        dmHandler.JudetChanged();
+        dh.JudetChanged();
 
         // reset display mode to color
-
-
         // empty points group and symbols group
-
+        dmHandler.JudetChanged();
 
         // run symbols again
+        sm.JudetChanged();
 
-
-        // reset limits
-
-
-        // arata cadastru
-
-
+        h.AssignRandomValues();
     }
 }
