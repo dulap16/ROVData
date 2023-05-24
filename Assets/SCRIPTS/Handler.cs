@@ -48,7 +48,6 @@ public class Handler : MonoBehaviour
     // SYMBOLS
     public GameObject symbolPrefab;
 
-    public DropdownScript ds;
     public GameObject indprefab;
 
     // MAXIMUM
@@ -100,6 +99,8 @@ public class Handler : MonoBehaviour
 
     public void JudetChanged()
     {
+        ResetClick();
+
         // REPEAT HANDLER START()
         foreach (Transform child in blender.transform)
         {
@@ -130,11 +131,6 @@ public class Handler : MonoBehaviour
         {
             dd.options.Add(new TMP_Dropdown.OptionData() { text = CapitaliseForPreview(key) });
         }
-
-        ds.JudetChanged();
-
-        // EMPTY POINTS AND SYMBOLS GROUP
-        
     }
 
     void DropdownItemSelected()

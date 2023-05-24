@@ -12305,7 +12305,6 @@ MonoBehaviour:
   selectionColor: {r: 1, g: 1, b: 1, a: 1}
   lerpTime: 8.02
   symbolPrefab: {fileID: 3219570797447108383, guid: 5148e8c4faaea4e4781cce63d1292bd2, type: 3}
-  ds: {fileID: 0}
   indprefab: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   max: 10000
   currentJudet: 
@@ -15488,7 +15487,9 @@ MonoBehaviour:
   fullTexture: {fileID: 841652181}
   fadedTexture: {fileID: 183301114}
   h: {fileID: 1562019149}
-  dmHandler: {fileID: 0}
+  dmHandler: {fileID: 702135930}
+  sm: {fileID: 119121934}
+  dh: {fileID: 1336543742}
 --- !u!1 &2090136772
 GameObject:
   m_ObjectHideFlags: 0

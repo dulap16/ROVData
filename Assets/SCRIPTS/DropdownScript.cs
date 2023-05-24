@@ -25,6 +25,8 @@ public class DropdownScript : MonoBehaviour
         }
 
         dd.onValueChanged.AddListener(delegate { DropdownItemSelected(dd); });
+
+        Debug.Log(this.name);
     }
 
     void DropdownItemSelected(TMP_Dropdown dropdown)

@@ -24,11 +24,6 @@ public class Symbol : MonoBehaviour
         CheckCollision();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     private void CheckCollision()
     {
