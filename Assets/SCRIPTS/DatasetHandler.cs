@@ -18,12 +18,12 @@ public class DatasetHandler : MonoBehaviour
 
     // SAVING DATASETS  
     public TMP_InputField titleField;
-    private string savedPath = "C:\\Users\\tudor\\OneDrive\\Documents\\Unity\\Proiect Galati\\Assets\\Saved Datasets";
+    private string savedPath;
 
     void Start()
     {
         path = Application.dataPath + "/DataSets/Romania/Galati";
-        savedPath = Application.dataPath + "/Saved Datasets";
+        savedPath = Application.dataPath + "/TempDatasets";
         filePicker.ClearOptions();
 
 

@@ -69,6 +69,7 @@ public class Handler : MonoBehaviour
 
         foreach (Transform child in judet.transform)
         {
+            Debug.Log(child.name);
             string n = child.gameObject.name;
 
             if (n.Contains("."))
@@ -85,6 +86,7 @@ public class Handler : MonoBehaviour
 
         foreach (string key in dictionary.Keys)
         {
+            Debug.Log(key);
             dd.options.Add(new TMP_Dropdown.OptionData() { text = CapitaliseForPreview(key) });
         }
 

@@ -865,7 +865,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handler: {fileID: 1562019149}
   dmh: {fileID: 702135930}
-  judet: {fileID: 0}
+  judet: {fileID: 568937718671997348}
   symbolGroup: {fileID: 956905463}
   symbolPrefab: {fileID: 3219570797447108383, guid: 5148e8c4faaea4e4781cce63d1292bd2, type: 3}
   radius: 0.15
@@ -15488,6 +15488,7 @@ MonoBehaviour:
   fullTexture: {fileID: 841652181}
   fadedTexture: {fileID: 183301114}
   h: {fileID: 1562019149}
+  dmHandler: {fileID: 0}
 --- !u!1 &2090136772
 GameObject:
   m_ObjectHideFlags: 0
@@ -18890,7 +18891,7 @@ GameObject:
   - component: {fileID: 8585327848667666}
   - component: {fileID: 2783374280192789064}
   m_Layer: 0
-  m_Name: Cadastru
+  m_Name: CADASTRU
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
