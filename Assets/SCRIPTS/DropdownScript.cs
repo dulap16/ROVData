@@ -25,6 +25,8 @@ public class DropdownScript : MonoBehaviour
         }
 
         dd.onValueChanged.AddListener(delegate { DropdownItemSelected(dd); });
+
+        Debug.Log(this.name);
     }
 
     void DropdownItemSelected(TMP_Dropdown dropdown)
@@ -33,5 +35,14 @@ public class DropdownScript : MonoBehaviour
 
         IF.text = handler.dictionary[dropdown.options[index].text].ToString();
         Debug.Log(dropdown.options[index].text);
+    }
+
+    public void JudetChanged()
+    {
+        dd.ClearOptions();
+        foreach (string key in handler.dictionary.Keys)
+        {
+            dd.options.Add(new TMP_Dropdown.OptionData() { text = key });
+        }
     }
 }

@@ -1,18 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Experimental.AI;
 
 public class JudetChanger : MonoBehaviour
 {
-    public TMP_Dropdown dd;
-    public GameObject blender;
-    public SpriteRenderer fullTexture;
-    public SpriteRenderer fadedTexture;
-
-
     [Serializable]
     public class texture
     {
@@ -29,16 +25,39 @@ public class JudetChanger : MonoBehaviour
         public GameObject fbx;
         public Vector3 poz;
         public Vector3 scale;
-        public Vector3 rotation;
+        public Quaternion rotation;
         public texture texture;
     }
 
     public List<judet> judete;
     Dictionary<string, judet> dict;
 
+
+    public TMP_Dropdown dd;
+    
+    public int currInt;
+    public string currString;
+    public judet currJudet;
+
+    // fbx and texture
+    public Material GAL;
+    public Material shadow;
+    public PhysicMaterial phys;
+
+    public GameObject blender;
+    public SpriteRenderer fullTexture;
+    public SpriteRenderer fadedTexture;
+
+    // reset when judet changed
+    public Handler h;
+    public DisplayModeHandler dmHandler;
+    public SymbolManager sm;
+    public DatasetHandler dh;
+
     // Start is called before the first frame update
     void Start()
     {
+        dict = new Dictionary<string, judet>();
         dd.options.Clear();
 
         foreach(judet j in judete)
@@ -48,21 +67,80 @@ public class JudetChanger : MonoBehaviour
             dd.options.Add(new TMP_Dropdown.OptionData() { text = j.nume }) ;
         }
 
+        dh.judete = returnJudete();
+
+        currJudet = dict["Galati"];
+        currString = currJudet.nume;
+        h.curentJudet = currString;
+
         dd.onValueChanged.AddListener(delegate { JudetSchimbat(); }) ;
     }
 
     private void JudetSchimbat()
     {
-        string key = dd.options[dd.value].text;
-
-        // change fbx
-        // change texture
-        // reset val dropdown
-        // reset datasets
         // reset display mode to color
         // empty points group and symbols group
+        dmHandler.modeChanged(0);
+        dmHandler.JudetChanged();
+
+        string key = dd.options[dd.value].text;
+        currJudet = dict[key];
+        currString = currJudet.nume;
+
+        // change fbx
+        foreach (Transform child in blender.transform)
+            Destroy(child.gameObject);
+        GameObject newJudet = Instantiate(currJudet.fbx);
+        newJudet.transform.position = currJudet.poz;
+        newJudet.name = currJudet.nume;
+
+        foreach (Transform child in newJudet.transform)
+        {
+            child.transform.localScale = currJudet.scale;
+            if (child.name == "Almas.001" || child.name == "Ghidigeni.001" || child.name == "Insuratei.001")
+                child.name = "CADASTRU";
+        }
+
+        newJudet.transform.parent = blender.transform;
+        foreach (Transform child in newJudet.transform)
+        {
+            if (child.name == "CADASTRU")
+            {
+                child.parent = blender.transform;
+                child.GetComponent<Renderer>().material = shadow;
+            } else
+            {
+                // this might be needed to happen later
+                // child.AddComponent<OverlappingRegion>();
+                child.gameObject.layer = 8;
+                child.AddComponent<MeshCollider>();
+                child.GetComponent<Renderer>().material = GAL;
+                child.GetComponent<MeshCollider>().material = phys;
+            }
+        }
+
+        // change texture
+        fullTexture.sprite = currJudet.texture.full;
+        fadedTexture.sprite = currJudet.texture.transp;
+
+        // reset val dropdown
+        sm.JudetChanged();
+        h.JudetChanged();
+        h.curentJudet = currJudet.nume;
+
+        // reset datasets
+        dh.JudetChanged();
+
         // run symbols again
-        // reset limits
-        // arata cadastru
+        foreach (Transform child in newJudet.transform)
+            child.AddComponent<OverlappingRegion>();
+        h.DelegateSymbols();
+
+        h.AssignRandomValues();
+    }
+
+    public List<string> returnJudete()
+    {
+        return dict.Keys.ToList();
     }
 }

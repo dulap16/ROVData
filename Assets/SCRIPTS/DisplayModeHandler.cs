@@ -30,7 +30,7 @@ public class DisplayModeHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {   modeSelector.onValueChanged.AddListener( delegate { modeChanged(); });
-        coloredMap = handler.judet;
+        coloredMap = handler.judetGO;
 
         // COLOR
         colorInitPos = coloredMap.transform.localPosition;
@@ -82,6 +82,8 @@ public class DisplayModeHandler : MonoBehaviour
             changeVisibilityOfPoints(false);
             changeVisibilityOfSymbols(true);
         }
+
+        modeSelector.value = index;
     }
 
     private void changeVisibilityOfColor(bool vis)
@@ -134,4 +136,18 @@ public class DisplayModeHandler : MonoBehaviour
             symbolsGroup.sortingOrder = hiddenLayer;
     }
 
+    public void JudetChanged()
+    {
+        // reset pointsGroup
+        foreach(Transform point in pointsGroup.transform)
+        {
+            Destroy(point.gameObject);
+        }
+
+        // reset symbolsGroup
+        foreach(Transform symbol in symbolsGroup.transform)
+        {
+            Destroy(symbol.gameObject);
+        }
+    }
 }

@@ -22,7 +22,7 @@ public class Handler : MonoBehaviour
 
     // MAP CONTROL
     public GameObject blender;
-    public GameObject judet;
+    public GameObject judetGO;
     public GameObject cadastru;
     public string[] regions;
     public Dictionary<string, int> dictionary;
@@ -48,23 +48,71 @@ public class Handler : MonoBehaviour
     // SYMBOLS
     public GameObject symbolPrefab;
 
-
     public GameObject indprefab;
 
     // MAXIMUM
     public int max = 10000;
+
+
+    public string curentJudet = "Galati";
+
     void Start()
     {
         foreach(Transform child in blender.transform)
         {
-            if (child.name == "Cadastru")
+            if (child.name == "CADASTRU")
                 cadastru = child.gameObject;
-            else judet = child.gameObject;
+            else judetGO = child.gameObject;
         }
 
         dictionary = new Dictionary<string, int>();
 
-        foreach (Transform child in judet.transform)
+        foreach (Transform child in judetGO.transform)
+        {
+            //  Debug.Log(child.name);
+            string n = child.gameObject.name;
+
+            if (n.Contains("."))
+            {
+                n = n.Substring(0, n.Length - 4);
+            }
+
+            n = n.ToLower();
+            // Debug.Log(n);
+            dictionary.Add(n, 0);
+        }
+
+        dd.ClearOptions();
+
+        foreach (string key in dictionary.Keys)
+        {
+            // Debug.Log(key);
+            dd.options.Add(new TMP_Dropdown.OptionData() { text = CapitaliseForPreview(key) });
+        }
+
+        dd.onValueChanged.AddListener(delegate { DropdownItemSelected(); });
+
+        // IF.onValueChanged.AddListener(delegate { ChangeValueOfRegion(IF); });
+
+        current = null;
+        colored = true;
+    }
+
+    public void JudetChanged()
+    {
+        ResetClick();
+
+        // REPEAT HANDLER START()
+        foreach (Transform child in blender.transform)
+        {
+            if (child.name == "CADASTRU")
+                cadastru = child.gameObject;
+            else judetGO = child.gameObject;
+        }
+
+        dictionary.Clear();
+
+        foreach (Transform child in judetGO.transform)
         {
             string n = child.gameObject.name;
 
@@ -84,13 +132,6 @@ public class Handler : MonoBehaviour
         {
             dd.options.Add(new TMP_Dropdown.OptionData() { text = CapitaliseForPreview(key) });
         }
-
-        dd.onValueChanged.AddListener(delegate { DropdownItemSelected(); });
-
-        // IF.onValueChanged.AddListener(delegate { ChangeValueOfRegion(IF); });
-
-        current = null;
-        colored = true;
     }
 
     void DropdownItemSelected()
@@ -129,7 +170,7 @@ public class Handler : MonoBehaviour
         try
         {
             regionName = regionName.ToLower();
-            OverlappingRegion selectedRegion = judet.transform.Find(regionName).GetComponent<OverlappingRegion>();
+            OverlappingRegion selectedRegion = judetGO.transform.Find(regionName).GetComponent<OverlappingRegion>();
 
             dictionary[regionName] = value;
             Debug.Log(max);
@@ -180,7 +221,7 @@ public class Handler : MonoBehaviour
             sm.SetLowerValue(ll);
             sm.SetUpperValue(ul);
 
-            foreach (Transform child in judet.transform)
+            foreach (Transform child in judetGO.transform)
             {
                 OverlappingRegion childScript = child.GetComponent<OverlappingRegion>();
                 int nr = childScript.value;
@@ -225,7 +266,7 @@ public class Handler : MonoBehaviour
 
         
         sm.Reset();
-        foreach (Transform child in judet.transform)
+        foreach (Transform child in judetGO.transform)
         {
             OverlappingRegion childScript = child.GetComponent<OverlappingRegion>();
             childScript.SetTargetAlpha(childScript.initialAlpha);
@@ -253,7 +294,7 @@ public class Handler : MonoBehaviour
             string region = dd.options[dd.value].text.ToLower();
             dictionary[region] = newValue;
 
-            OverlappingRegion selectedRegion = judet.transform.Find(region).GetComponent<OverlappingRegion>();
+            OverlappingRegion selectedRegion = judetGO.transform.Find(region).GetComponent<OverlappingRegion>();
             selectedRegion.ChangeValue(newValue);
 
 
@@ -269,7 +310,7 @@ public class Handler : MonoBehaviour
 
     public void Grayscale()
     {
-        foreach(Transform child in judet.transform)
+        foreach(Transform child in judetGO.transform)
         {
             OverlappingRegion region = child.GetComponent<OverlappingRegion>();
             region.Grayscale(region.value);
@@ -280,7 +321,7 @@ public class Handler : MonoBehaviour
 
     public void Colored()
     {
-        foreach (Transform child in judet.transform)
+        foreach (Transform child in judetGO.transform)
         {
             OverlappingRegion region = child.GetComponent<OverlappingRegion>();
             region.Colored(region.value);
@@ -291,7 +332,7 @@ public class Handler : MonoBehaviour
 
     public void Transparent()
     {
-        foreach(Transform child in judet.transform)
+        foreach(Transform child in judetGO.transform)
         {
             OverlappingRegion region = child.GetComponent<OverlappingRegion>();
 
@@ -305,7 +346,7 @@ public class Handler : MonoBehaviour
     public void DelegateSymbols()
     {
         
-        foreach (Transform child in judet.transform)
+        foreach (Transform child in judetGO.transform)
         {
             OverlappingRegion region = child.GetComponent<OverlappingRegion>();
             region.HideAll();
@@ -318,7 +359,7 @@ public class Handler : MonoBehaviour
     {
         float xmin = 1000, ymin = 1000, xmax = -1000, ymax = -1000;
 
-        foreach(Transform child in judet.transform)
+        foreach(Transform child in judetGO.transform)
         {
             Renderer mesh = child.GetComponent<Renderer>();
 
@@ -335,7 +376,7 @@ public class Handler : MonoBehaviour
     public string ValuesToText()
     {
         string text = "";
-        foreach (Transform child in judet.transform)
+        foreach (Transform child in judetGO.transform)
         {
             OverlappingRegion region = child.GetComponent<OverlappingRegion>();
             text = text + CapitaliseForPreview(region.name) + " " + region.value + '\n';

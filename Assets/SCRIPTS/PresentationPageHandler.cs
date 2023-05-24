@@ -51,7 +51,8 @@ public class PresentationPageHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cadastre = GameObject.Find("Cadastru");
+        cadastre = GameObject.Find("CADASTRU");
+        cadMat = cadastre.GetComponent<Renderer>().material;
 
         initialPos = transform.localPosition;
         hiddenPos = new Vector3(500, 0, 0);

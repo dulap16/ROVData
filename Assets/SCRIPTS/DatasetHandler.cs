@@ -14,16 +14,24 @@ public class DatasetHandler : MonoBehaviour
     public Handler h;
     public TMP_Dropdown filePicker;
     private string path;
+    public List<string> judete;
 
 
     // SAVING DATASETS  
     public TMP_InputField titleField;
-    private string savedPath = "C:\\Users\\tudor\\OneDrive\\Documents\\Unity\\Proiect Galati\\Assets\\Saved Datasets";
+    private string savedPath;
+
+    private string pathToDatasets;
 
     void Start()
     {
-        path = Application.dataPath + "/DataSets/Romania/Galati";
-        savedPath = Application.dataPath + "/Saved Datasets";
+        pathToDatasets = Path.Join(Application.persistentDataPath, "Datasets");
+
+        if (!Directory.Exists(pathToDatasets))
+            Directory.CreateDirectory(pathToDatasets);
+        Debug.Log(pathToDatasets);
+        CreateFolders();
+        savedPath = Path.Join(pathToDatasets, h.curentJudet);
         filePicker.ClearOptions();
 
 
@@ -43,6 +51,39 @@ public class DatasetHandler : MonoBehaviour
         }
 
         filePicker.onValueChanged.AddListener(delegate { ChangeValues(); });
+    }
+
+    public void JudetChanged()
+    {
+        savedPath = Path.Join(pathToDatasets, h.curentJudet);
+        filePicker.ClearOptions();
+
+
+        string[] files = Directory.GetFiles(savedPath);
+
+        filePicker.options.Add(new TMP_Dropdown.OptionData { text = "Random1" });
+        filePicker.options.Add(new TMP_Dropdown.OptionData { text = "Random2" });
+
+        foreach (string file in files)
+        {
+            if (file.EndsWith(".txt"))
+            {
+                string[] tokens = file.Split('\\');
+                string fileName = tokens[tokens.Length - 1];
+                filePicker.options.Add(new TMP_Dropdown.OptionData { text = fileName.Substring(0, fileName.Length - 4) });
+            }
+        }
+    }
+
+    private void CreateFolders()
+    {
+        foreach(string judet in judete)
+        {
+            Debug.Log(judet);
+            string currentPath = Path.Join(pathToDatasets, judet);
+            if (!Directory.Exists(currentPath))
+                Directory.CreateDirectory(currentPath);
+        }
     }
 
     private void ChangeValues()
