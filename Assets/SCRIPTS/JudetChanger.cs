@@ -14,8 +14,6 @@ public class JudetChanger : MonoBehaviour
     {
         public Sprite full;
         public Sprite transp;
-        public Vector3 poz;
-        public Vector3 scale;
     }
 
     [Serializable]
@@ -80,8 +78,10 @@ public class JudetChanger : MonoBehaviour
     {
         // reset display mode to color
         // empty points group and symbols group
+        
         dmHandler.modeChanged(0);
         dmHandler.JudetChanged();
+        
 
         string key = dd.options[dd.value].text;
         currJudet = dict[key];
@@ -90,13 +90,18 @@ public class JudetChanger : MonoBehaviour
         // change fbx
         foreach (Transform child in blender.transform)
             Destroy(child.gameObject);
+
         GameObject newJudet = Instantiate(currJudet.fbx);
         newJudet.transform.position = currJudet.poz;
+        newJudet.transform.localScale = currJudet.scale;
+        foreach (Transform town in newJudet.transform)
+            town.position = new Vector3(town.position.x, town.position.y, 0);
+
         newJudet.name = currJudet.nume;
 
+        
         foreach (Transform child in newJudet.transform)
         {
-            child.transform.localScale = currJudet.scale;
             if (child.name == "Almas.001" || child.name == "Ghidigeni.001" || child.name == "Insuratei.001")
                 child.name = "CADASTRU";
         }
@@ -137,6 +142,7 @@ public class JudetChanger : MonoBehaviour
         h.DelegateSymbols();
 
         h.AssignRandomValues();
+        
     }
 
     public List<string> returnJudete()
