@@ -14,15 +14,24 @@ public class DatasetHandler : MonoBehaviour
     public Handler h;
     public TMP_Dropdown filePicker;
     private string path;
+    public List<string> judete;
 
 
     // SAVING DATASETS  
     public TMP_InputField titleField;
     private string savedPath;
 
+    private string pathToDatasets;
+
     void Start()
     {
-        savedPath = Application.dataPath + "/TempDatasets/" + h.judet;
+        pathToDatasets = Path.Join(Application.persistentDataPath, "Datasets");
+
+        if (!Directory.Exists(pathToDatasets))
+            Directory.CreateDirectory(pathToDatasets);
+        Debug.Log(pathToDatasets);
+        CreateFolders();
+        savedPath = Path.Join(pathToDatasets, h.curentJudet);
         filePicker.ClearOptions();
 
 
@@ -46,7 +55,7 @@ public class DatasetHandler : MonoBehaviour
 
     public void JudetChanged()
     {
-        savedPath = Application.dataPath + "/TempDatasets/" + h.judet;
+        savedPath = Path.Join(pathToDatasets, h.curentJudet);
         filePicker.ClearOptions();
 
 
@@ -63,6 +72,17 @@ public class DatasetHandler : MonoBehaviour
                 string fileName = tokens[tokens.Length - 1];
                 filePicker.options.Add(new TMP_Dropdown.OptionData { text = fileName.Substring(0, fileName.Length - 4) });
             }
+        }
+    }
+
+    private void CreateFolders()
+    {
+        foreach(string judet in judete)
+        {
+            Debug.Log(judet);
+            string currentPath = Path.Join(pathToDatasets, judet);
+            if (!Directory.Exists(currentPath))
+                Directory.CreateDirectory(currentPath);
         }
     }
 

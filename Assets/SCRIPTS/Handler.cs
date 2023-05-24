@@ -54,7 +54,8 @@ public class Handler : MonoBehaviour
     public int max = 10000;
 
 
-    public string currentJudet;
+    public string curentJudet = "Galati";
+
     void Start()
     {
         foreach(Transform child in blender.transform)
@@ -68,7 +69,7 @@ public class Handler : MonoBehaviour
 
         foreach (Transform child in judet.transform)
         {
-            Debug.Log(child.name);
+            //  Debug.Log(child.name);
             string n = child.gameObject.name;
 
             if (n.Contains("."))
@@ -85,7 +86,7 @@ public class Handler : MonoBehaviour
 
         foreach (string key in dictionary.Keys)
         {
-            Debug.Log(key);
+            // Debug.Log(key);
             dd.options.Add(new TMP_Dropdown.OptionData() { text = CapitaliseForPreview(key) });
         }
 

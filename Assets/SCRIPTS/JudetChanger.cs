@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -66,24 +67,31 @@ public class JudetChanger : MonoBehaviour
             dd.options.Add(new TMP_Dropdown.OptionData() { text = j.nume }) ;
         }
 
+        dh.judete = returnJudete();
+
+        currJudet = dict["Galati"];
+        currString = currJudet.nume;
+        h.curentJudet = currString;
+
         dd.onValueChanged.AddListener(delegate { JudetSchimbat(); }) ;
     }
 
     private void JudetSchimbat()
     {
         string key = dd.options[dd.value].text;
-        judet curent = dict[key];
+        currJudet = dict[key];
+        currString = currJudet.nume;
 
         // change fbx
         foreach (Transform child in blender.transform)
             Destroy(child.gameObject);
-        GameObject newJudet = Instantiate(curent.fbx);
-        newJudet.transform.position = curent.poz;
-        newJudet.name = curent.nume;
+        GameObject newJudet = Instantiate(currJudet.fbx);
+        newJudet.transform.position = currJudet.poz;
+        newJudet.name = currJudet.nume;
 
         foreach (Transform child in newJudet.transform)
         {
-            child.transform.localScale = curent.scale;
+            child.transform.localScale = currJudet.scale;
             if (child.name == "Almas.001" || child.name == "Ghidigeni.001" || child.name == "Insuratei.001")
                 child.name = "CADASTRU";
         }
@@ -106,12 +114,12 @@ public class JudetChanger : MonoBehaviour
         }
 
         // change texture
-        fullTexture.sprite = curent.texture.full;
-        fadedTexture.sprite = curent.texture.transp;
+        fullTexture.sprite = currJudet.texture.full;
+        fadedTexture.sprite = currJudet.texture.transp;
 
         // reset val dropdown
         h.JudetChanged();
-        h.currentJudet = curent.nume;
+        h.curentJudet = currJudet.nume;
 
         // reset datasets
         dh.JudetChanged();
@@ -124,5 +132,10 @@ public class JudetChanger : MonoBehaviour
         sm.JudetChanged();
 
         h.AssignRandomValues();
+    }
+
+    public List<string> returnJudete()
+    {
+        return dict.Keys.ToList();
     }
 }
