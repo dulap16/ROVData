@@ -98,6 +98,7 @@ public class Handler : MonoBehaviour
 
     public void JudetChanged()
     {
+        // REPEAT HANDLER START()
         foreach (Transform child in blender.transform)
         {
             if (child.name == "CADASTRU")
@@ -129,6 +130,9 @@ public class Handler : MonoBehaviour
         }
 
         ds.JudetChanged();
+
+        // EMPTY POINTS AND SYMBOLS GROUP
+        
     }
 
     void DropdownItemSelected()

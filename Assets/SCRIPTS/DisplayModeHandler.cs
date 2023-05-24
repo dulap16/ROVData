@@ -82,6 +82,8 @@ public class DisplayModeHandler : MonoBehaviour
             changeVisibilityOfPoints(false);
             changeVisibilityOfSymbols(true);
         }
+
+        modeSelector.value = index;
     }
 
     private void changeVisibilityOfColor(bool vis)
@@ -134,4 +136,20 @@ public class DisplayModeHandler : MonoBehaviour
             symbolsGroup.sortingOrder = hiddenLayer;
     }
 
+    public void JudetChanged()
+    {
+        // reset pointsGroup
+        foreach(Transform point in pointsGroup.transform)
+        {
+            Destroy(point.gameObject);
+        }
+
+        // reset symbolsGroup
+        foreach(Transform symbol in symbolsGroup.transform)
+        {
+            Destroy(symbol.gameObject);
+        }
+
+        modeChanged(0);
+    }
 }

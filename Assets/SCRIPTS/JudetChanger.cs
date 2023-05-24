@@ -47,8 +47,9 @@ public class JudetChanger : MonoBehaviour
     public SpriteRenderer fullTexture;
     public SpriteRenderer fadedTexture;
 
-    // reset val dropdown
+    // reset when judet changed
     public Handler h;
+    public DisplayModeHandler dmHandler;
 
     // Start is called before the first frame update
     void Start()
@@ -111,7 +112,7 @@ public class JudetChanger : MonoBehaviour
         h.currentJudet = curent.nume;
 
         // reset datasets
-
+        dmHandler.JudetChanged();
 
         // reset display mode to color
 
