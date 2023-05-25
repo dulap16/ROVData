@@ -103,8 +103,9 @@ public class JudetChanger : MonoBehaviour
 
         GameObject newJudet = Instantiate(currJudet.fbx);
         
-        foreach (Transform town in newJudet.transform)
-            town.position = new Vector3(town.position.x, town.position.y, 0);
+        if(currString != "Braila")
+            foreach (Transform town in newJudet.transform)
+                town.position = new Vector3(town.position.x, town.position.y, 0);
 
         newJudet.name = currJudet.nume;
         currJudetGO = newJudet;
