@@ -56,6 +56,7 @@ public class OverlappingRegion : MonoBehaviour
         handler = GameObject.Find("Handler").GetComponent<Handler>();
         cf = GameObject.Find("Cursor Tag").GetComponent<CursorFollower>();
         handler = GameObject.Find("Handler").GetComponent<Handler>();
+        symbols = new List<Symbol>();
         initialMat = GetComponent<Renderer>().material;
         indicator = handler.indprefab;
 
@@ -234,6 +235,7 @@ public class OverlappingRegion : MonoBehaviour
     public void SelectSymbols() // based on value
     {
         int howMany = (int)(((float)value / (float)handler.max) * (float)symbols.Count);
+        Debug.Log(name + " " + handler.max);
 
         for(int i = 0; i < symbols.Count; i++)
         {

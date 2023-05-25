@@ -124,15 +124,15 @@ public class JudetChanger : MonoBehaviour
         }
 
         h.start();
-        // dmHandler.modeChanged(0);
 
-        /*
+        
         h.judetGO = newJudet;
 
         fullTexture.sprite = currJudet.texture.full;
         fadedTexture.sprite = currJudet.texture.transp;
         fullTexture.transform.localPosition = fadedTexture.transform.localPosition = currJudet.texture.position;
 
+        
         sm.Generate();
         while (!sm.generated)
             ;
@@ -140,12 +140,12 @@ public class JudetChanger : MonoBehaviour
         h.DelegateSymbols();
         sm.generated = false;
 
-        foreach(Transform child in newJudet.transform)
+        /*foreach(Transform child in newJudet.transform)
         {
             OverlappingRegion region = child.GetComponent<OverlappingRegion>();
             region.HideAll();
-        }
-        */
+        }*/
+        
     }
 
     private void JudetSchimbat()

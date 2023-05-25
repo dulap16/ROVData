@@ -12,6 +12,7 @@ public class Symbol : MonoBehaviour
     public float maxDistance = 3;
 
     public bool isInSelection;
+    public string regionHit = "";
 
     private new Renderer renderer;
 
@@ -32,6 +33,7 @@ public class Symbol : MonoBehaviour
             OverlappingRegion region = hit.transform.gameObject.GetComponent<OverlappingRegion>();
             owner = region;
             region.AddSymbol(this);
+            regionHit = hit.transform.name;
         }
         else Destroy(this.gameObject);
     }

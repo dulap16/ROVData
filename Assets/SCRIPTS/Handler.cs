@@ -347,6 +347,7 @@ public class Handler : MonoBehaviour
     {
         foreach (Transform child in judetGO.transform)
         {
+            Debug.Log(child.name);
             OverlappingRegion region = child.GetComponent<OverlappingRegion>();
             region.HideAll();
             region.SelectSymbols();
