@@ -12309,6 +12309,7 @@ MonoBehaviour:
   indprefab: {fileID: 3860997624969300924, guid: ad56808163574c045822c2304ff7ec3d, type: 3}
   max: 10000
   curentJudet: 
+  pphandler: {fileID: 861385669}
 --- !u!4 &1562019150
 Transform:
   m_ObjectHideFlags: 0
@@ -15439,6 +15440,7 @@ MonoBehaviour:
       full: {fileID: 0}
       transp: {fileID: 0}
       position: {x: 0, y: 0, z: 0}
+  currJudetGO: {fileID: 0}
   GAL: {fileID: 2100000, guid: 3ef4562bc20162c4494165ea4c44e2f7, type: 2}
   shadow: {fileID: 2100000, guid: 86d4736bdc6f52b4786a38391fef7319, type: 2}
   phys: {fileID: 13400000, guid: 63d360b5c591aff418c25ecf28123d0b, type: 2}

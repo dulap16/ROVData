@@ -54,7 +54,8 @@ public class Handler : MonoBehaviour
     public int max = 10000;
 
 
-    public string curentJudet = "Galati";
+    public string curentJudet = "Alba";
+    public PresentationPageHandler pphandler;
 
     public void start()
     {
@@ -64,6 +65,8 @@ public class Handler : MonoBehaviour
                 cadastru = child.gameObject;
             else judetGO = child.gameObject;
         }
+
+        pphandler.cadastre = cadastru;
 
         dictionary = new Dictionary<string, int>();
 

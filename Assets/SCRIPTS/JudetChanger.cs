@@ -53,6 +53,7 @@ public class JudetChanger : MonoBehaviour
     public DisplayModeHandler dmHandler;
     public SymbolManager sm;
     public DatasetHandler dh;
+    public PresentationPageHandler ppHandler;
 
     public string First;
 
@@ -139,7 +140,7 @@ public class JudetChanger : MonoBehaviour
         }
 
         h.start();
-
+        ppHandler.start();
         
         h.judetGO = newJudet;
 
