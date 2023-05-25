@@ -49,13 +49,14 @@ public class OverlappingRegion : MonoBehaviour
     [SerializeField] private List<Symbol> symbols;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         /// GET NECESSARY OBJCETS
         colorHandler = GameObject.Find("ColorHandler").GetComponent<ColorHandler>();
         handler = GameObject.Find("Handler").GetComponent<Handler>();
         cf = GameObject.Find("Cursor Tag").GetComponent<CursorFollower>();
         handler = GameObject.Find("Handler").GetComponent<Handler>();
+        symbols = new List<Symbol>();
         initialMat = GetComponent<Renderer>().material;
         indicator = handler.indprefab;
 
@@ -73,7 +74,10 @@ public class OverlappingRegion : MonoBehaviour
         regionNameWithCapitals = CapitaliseForPreview(name);
 
         ind.transform.GetChild(0).GetChild(0).GetComponent<Canvas>().overrideSorting = true;
+    }
 
+    void Start()
+    {
         /// COLOR AND TRANSPARENCY
         value = UnityEngine.Random.Range(0, handler.max); ind.value = value;
 
@@ -87,8 +91,6 @@ public class OverlappingRegion : MonoBehaviour
 
         etiqueteText = regionNameWithCapitals + " : " + value.ToString();
 
-
-        /// REMAKE SELECTION SYSTEM
         selectionColor = handler.selectionColor;
         selectionColor.a = finalAlpha;
         lerpTime = handler.lerpTime;
@@ -98,7 +100,7 @@ public class OverlappingRegion : MonoBehaviour
         overColor = basicColor;
         overColor.a = finalAlpha;
 
-        HideAll();
+        // HideAll();
     }
 
     public void FixedUpdate()
@@ -217,6 +219,9 @@ public class OverlappingRegion : MonoBehaviour
 
     public void HideAll()
     {
+        if (symbols.Count == 0)
+            return;
+
         foreach (Symbol s in symbols)
             s.Hide();
     }
@@ -228,8 +233,9 @@ public class OverlappingRegion : MonoBehaviour
     }
 
     public void SelectSymbols() // based on value
-    {
+    {   
         int howMany = (int)(((float)value / (float)handler.max) * (float)symbols.Count);
+        Debug.Log(name + " " + howMany);
 
         for(int i = 0; i < symbols.Count; i++)
         {

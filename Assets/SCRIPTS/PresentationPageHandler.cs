@@ -39,7 +39,7 @@ public class PresentationPageHandler : MonoBehaviour
     private Vector2 targetPosition;
 
     // CADASTRE 
-    public GameObject cadastre;
+    public GameObject cadastre = null;
     private Material cadMat;
     private Vector3 initCadPos;
     private Vector3 targetCadPos;
@@ -47,11 +47,10 @@ public class PresentationPageHandler : MonoBehaviour
 
     public Slider cadOpac;
     public TMP_Text cadOpacNr;
-
+     
     // Start is called before the first frame update
-    void Start()
+    public void start()
     {
-        cadastre = GameObject.Find("CADASTRU");
         cadMat = cadastre.GetComponent<Renderer>().material;
 
         initialPos = transform.localPosition;
@@ -78,8 +77,6 @@ public class PresentationPageHandler : MonoBehaviour
         // CADASTRE
         initCadPos = cadastre.transform.localPosition;
         targetCadPos = new Vector3(500, 0, 0);
-
-        cadMat = cadastre.GetComponent<MeshRenderer>().material;
     }
 
     void Update()

@@ -54,9 +54,10 @@ public class Handler : MonoBehaviour
     public int max = 10000;
 
 
-    public string curentJudet = "Galati";
+    public string curentJudet = "Alba";
+    public PresentationPageHandler pphandler;
 
-    void Start()
+    public void start()
     {
         foreach(Transform child in blender.transform)
         {
@@ -64,6 +65,8 @@ public class Handler : MonoBehaviour
                 cadastru = child.gameObject;
             else judetGO = child.gameObject;
         }
+
+        pphandler.cadastre = cadastru;
 
         dictionary = new Dictionary<string, int>();
 
@@ -345,9 +348,9 @@ public class Handler : MonoBehaviour
 
     public void DelegateSymbols()
     {
-        
         foreach (Transform child in judetGO.transform)
         {
+            Debug.Log(child.name);
             OverlappingRegion region = child.GetComponent<OverlappingRegion>();
             region.HideAll();
             region.SelectSymbols();

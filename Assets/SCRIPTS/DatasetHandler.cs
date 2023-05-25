@@ -79,7 +79,6 @@ public class DatasetHandler : MonoBehaviour
     {
         foreach(string judet in judete)
         {
-            Debug.Log(judet);
             string currentPath = Path.Join(pathToDatasets, judet);
             if (!Directory.Exists(currentPath))
                 Directory.CreateDirectory(currentPath);
