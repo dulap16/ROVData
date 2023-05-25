@@ -22,16 +22,10 @@ public class SymbolManager : MonoBehaviour
 
     public bool generated = false;
 
-    IEnumerator waiter(float seconds)
-    {
-        yield return new WaitForSecondsRealtime(seconds);
-
-        handler.DelegateSymbols();
-    }
-
     // Start is called before the first frame update
     public void Generate()
     {
+        generated = false;
         judet = handler.judetGO;
 
         list = handler.CalculateBoundsOfGroup();

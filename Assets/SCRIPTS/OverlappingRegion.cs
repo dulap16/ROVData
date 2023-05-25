@@ -233,9 +233,9 @@ public class OverlappingRegion : MonoBehaviour
     }
 
     public void SelectSymbols() // based on value
-    {
+    {   
         int howMany = (int)(((float)value / (float)handler.max) * (float)symbols.Count);
-        Debug.Log(name + " " + handler.max);
+        Debug.Log(name + " " + howMany);
 
         for(int i = 0; i < symbols.Count; i++)
         {

@@ -37,6 +37,7 @@ public class JudetChanger : MonoBehaviour
     public int currInt;
     public string currString;
     public judet currJudet;
+    public GameObject currJudetGO;
 
     // fbx and texture
     public Material GAL;
@@ -54,6 +55,20 @@ public class JudetChanger : MonoBehaviour
     public DatasetHandler dh;
 
     public string First;
+
+    IEnumerator waiter(float seconds)
+    {
+        yield return new WaitForSecondsRealtime(seconds);
+
+        h.DelegateSymbols();
+        sm.generated = false;
+
+        /*foreach (Transform child in currJudetGO.transform)
+        {
+            OverlappingRegion region = child.GetComponent<OverlappingRegion>();
+            region.HideAll();
+        }*/
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -91,7 +106,7 @@ public class JudetChanger : MonoBehaviour
             town.position = new Vector3(town.position.x, town.position.y, 0);
 
         newJudet.name = currJudet.nume;
-
+        currJudetGO = newJudet;
 
         foreach (Transform child in newJudet.transform)
         {
@@ -137,14 +152,7 @@ public class JudetChanger : MonoBehaviour
         while (!sm.generated)
             ;
 
-        h.DelegateSymbols();
-        sm.generated = false;
-
-        /*foreach(Transform child in newJudet.transform)
-        {
-            OverlappingRegion region = child.GetComponent<OverlappingRegion>();
-            region.HideAll();
-        }*/
+        StartCoroutine(waiter(1));
         
     }
 
