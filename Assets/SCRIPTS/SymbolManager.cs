@@ -20,6 +20,8 @@ public class SymbolManager : MonoBehaviour
     private float height = 30;
     public float radius;
 
+    public bool generated = false;
+
     IEnumerator waiter(float seconds)
     {
         yield return new WaitForSecondsRealtime(seconds);
@@ -28,7 +30,7 @@ public class SymbolManager : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    public void Generate()
     {
         judet = handler.judetGO;
 
@@ -47,9 +49,10 @@ public class SymbolManager : MonoBehaviour
             Instantiate(symbolPrefab, position, Quaternion.identity, symbolGroup.transform);
         }
 
-        StartCoroutine(waiter(1));
+        generated = true;
     }
 
+    /*
     public void JudetChanged()
     {
         judet = handler.judetGO;
@@ -69,4 +72,5 @@ public class SymbolManager : MonoBehaviour
             Instantiate(symbolPrefab, position, Quaternion.identity, symbolGroup.transform);
         }
     }
+    */
 }

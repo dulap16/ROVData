@@ -14,6 +14,7 @@ public class JudetChanger : MonoBehaviour
     {
         public Sprite full;
         public Sprite transp;
+        public Vector3 position;
     }
 
     [Serializable]
@@ -52,6 +53,8 @@ public class JudetChanger : MonoBehaviour
     public SymbolManager sm;
     public DatasetHandler dh;
 
+    public string First;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,11 +70,82 @@ public class JudetChanger : MonoBehaviour
 
         dh.judete = returnJudete();
 
-        currJudet = dict["Galati"];
-        currString = currJudet.nume;
-        h.curentJudet = currString;
+        FirstJudet(First);
 
         dd.onValueChanged.AddListener(delegate { JudetSchimbat(); }) ;
+    }
+
+    private void FirstJudet(string first)
+    {
+        currJudet = dict[first];
+        currString = first;
+        h.curentJudet = first;
+
+        // copied from JudetSchimbat()
+        foreach (Transform child in blender.transform)
+            Destroy(child.gameObject);
+
+        GameObject newJudet = Instantiate(currJudet.fbx);
+        
+        foreach (Transform town in newJudet.transform)
+            town.position = new Vector3(town.position.x, town.position.y, 0);
+
+        newJudet.name = currJudet.nume;
+
+
+        foreach (Transform child in newJudet.transform)
+        {
+            if (child.name == "Almas.001" || child.name == "Ghidigeni.001" || child.name == "Insuratei.001")
+                child.name = "CADASTRU";
+        }
+
+        newJudet.transform.parent = blender.transform;
+        newJudet.transform.localPosition = currJudet.poz;
+        newJudet.transform.localScale = currJudet.scale;
+        newJudet.transform.rotation = currJudet.rotation;
+
+        Transform cad = newJudet.transform;
+        foreach (Transform child in newJudet.transform)
+            if (child.name == "CADASTRU")
+                cad = child.transform;
+
+        cad.parent = blender.transform;
+        cad.GetComponent<Renderer>().material = shadow;
+
+        foreach (Transform child in newJudet.transform)
+        {
+            Debug.Log(child.name);
+            // this might be needed to happen later
+            child.AddComponent<OverlappingRegion>();
+            child.gameObject.layer = 8;
+            child.AddComponent<MeshCollider>();
+            child.GetComponent<Renderer>().material = GAL;
+            child.GetComponent<MeshCollider>().material = phys;
+        }
+
+        h.start();
+        // dmHandler.modeChanged(0);
+
+        /*
+        h.judetGO = newJudet;
+
+        fullTexture.sprite = currJudet.texture.full;
+        fadedTexture.sprite = currJudet.texture.transp;
+        fullTexture.transform.localPosition = fadedTexture.transform.localPosition = currJudet.texture.position;
+
+        sm.Generate();
+        while (!sm.generated)
+            ;
+
+        h.DelegateSymbols();
+        sm.generated = false;
+
+        foreach(Transform child in newJudet.transform)
+        {
+            OverlappingRegion region = child.GetComponent<OverlappingRegion>();
+            region.HideAll();
+        }
+        */
     }
 
     private void JudetSchimbat()
@@ -79,7 +153,7 @@ public class JudetChanger : MonoBehaviour
         // reset display mode to color
         // empty points group and symbols group
         
-        dmHandler.modeChanged(0);
+        
         dmHandler.JudetChanged();
         
 
@@ -127,9 +201,10 @@ public class JudetChanger : MonoBehaviour
         // change texture
         fullTexture.sprite = currJudet.texture.full;
         fadedTexture.sprite = currJudet.texture.transp;
+        fullTexture.transform.localPosition = fadedTexture.transform.localPosition = currJudet.texture.position;
 
         // reset val dropdown
-        sm.JudetChanged();
+        // sm.JudetChanged();
         h.JudetChanged();
         h.curentJudet = currJudet.nume;
 

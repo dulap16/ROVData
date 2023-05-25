@@ -56,7 +56,7 @@ public class Handler : MonoBehaviour
 
     public string curentJudet = "Galati";
 
-    void Start()
+    public void start()
     {
         foreach(Transform child in blender.transform)
         {
@@ -345,7 +345,6 @@ public class Handler : MonoBehaviour
 
     public void DelegateSymbols()
     {
-        
         foreach (Transform child in judetGO.transform)
         {
             OverlappingRegion region = child.GetComponent<OverlappingRegion>();
