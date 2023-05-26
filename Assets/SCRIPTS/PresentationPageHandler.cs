@@ -47,12 +47,10 @@ public class PresentationPageHandler : MonoBehaviour
 
     public Slider cadOpac;
     public TMP_Text cadOpacNr;
-     
-    // Start is called before the first frame update
-    public void start()
-    {
-        cadMat = cadastre.GetComponent<Renderer>().material;
 
+    // Start is called before the first frame update
+    private void Start()
+    {
         initialPos = transform.localPosition;
         hiddenPos = new Vector3(500, 0, 0);
 
@@ -73,6 +71,12 @@ public class PresentationPageHandler : MonoBehaviour
 
         titleIF.onValueChanged.AddListener(delegate { ChangeTitle(); });
         cadOpac.onValueChanged.AddListener(delegate { SliderSlid(); });
+
+    }
+
+    public void JudetChanged()
+    {
+        cadMat = cadastre.GetComponent<Renderer>().material;
 
         // CADASTRE
         initCadPos = cadastre.transform.localPosition;
