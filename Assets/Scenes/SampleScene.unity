@@ -15452,6 +15452,8 @@ MonoBehaviour:
   sm: {fileID: 119121934}
   dh: {fileID: 1336543742}
   ppHandler: {fileID: 861385669}
+  symbolsGroup: {fileID: 956905463}
+  pointsGroup: {fileID: 1646211568}
   First: Brasov
 --- !u!1 &2090136772
 GameObject:

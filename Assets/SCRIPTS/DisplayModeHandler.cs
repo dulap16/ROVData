@@ -30,7 +30,7 @@ public class DisplayModeHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {   modeSelector.onValueChanged.AddListener( delegate { modeChanged(); });
-        coloredMap = handler.judetGO;
+        coloredMap = handler.blender;
 
         // COLOR
         colorInitPos = coloredMap.transform.localPosition;
@@ -43,6 +43,12 @@ public class DisplayModeHandler : MonoBehaviour
         hiddenPos = new Vector3(200, 200, 0);
 
         modeChanged(0);
+    }
+
+    public void ResetPositions()
+    {
+        coloredMap.transform.localPosition = colorInitPos;
+        pointsGroup.transform.localPosition = pointsInitPos;
     }
 
     public void modeChanged()
