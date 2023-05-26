@@ -285,6 +285,24 @@ public class OverlappingRegion : MonoBehaviour
         return 0;
     }
 
+    public bool formatted = false;
+    public void ToggleNrFormatting()
+    { 
+        if(formatted == false)
+        {
+            formatted = true;
+
+            etiqueteText = regionNameWithCapitals + " : " + handler.NrFormatter(value);
+            ind.ChangeTag(etiqueteText);
+        } else
+        {
+            formatted = false;
+
+            etiqueteText = regionNameWithCapitals + " : " + value;
+            ind.ChangeTag(etiqueteText);
+        }
+    }
+
     public bool CheckWithinLimits(int value)
     {
         return handler.selectedValuesOnly == false || (handler.selectedValuesOnly == true && (value >= handler.ll && value <= handler.ul)); 

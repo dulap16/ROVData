@@ -414,4 +414,45 @@ public class Handler : MonoBehaviour
 
         return new string(newName);
     }
+
+    public bool nrFormattingOn = false;
+    public void ToggleNrFormatting()
+    {
+        if (nrFormattingOn == false)
+        {
+            nrFormattingOn = true;
+
+            foreach(Transform child in judetGO.transform)
+            {
+                OverlappingRegion region = child.GetComponent<OverlappingRegion>();
+                region.ToggleNrFormatting();
+            }
+        } else
+        {
+            nrFormattingOn = false;
+
+            foreach (Transform child in judetGO.transform)
+            {
+                OverlappingRegion region = child.GetComponent<OverlappingRegion>();
+                region.ToggleNrFormatting();
+            }
+        }
+    }
+
+    public string NrFormatter(int nr)
+    {
+        if (nr < 1000)
+            return nr.ToString();
+
+        if(nr < 1000000)
+        {
+            float thousand = (float)nr / 1000f;
+            thousand = Mathf.Round(thousand * 100f) / 100f;
+            return thousand + "K";
+        }
+
+        float million = (float)nr / 1000000f;
+        million = Mathf.Round(million * 100f) / 100f;
+        return million + "M";
+    }
 }
