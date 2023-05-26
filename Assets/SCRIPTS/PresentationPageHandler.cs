@@ -31,7 +31,7 @@ public class PresentationPageHandler : MonoBehaviour
     public bool presentation = false;
 
     private Vector3 initMapPos;
-    private Vector3 presMapPos;
+    public Vector3 presMapPos;
 
     // smooth movement
     [SerializeField] [Range(1, 10)] float lerpTime = 4;
@@ -61,7 +61,7 @@ public class PresentationPageHandler : MonoBehaviour
 
         initMapPos = map.anchoredPosition;
         targetPosition = initMapPos;
-        presMapPos = new Vector3(819, 293, initMapPos.z);
+        presMapPos = new Vector3(750, 293, initMapPos.z);
 
         targetColor = texture.color;
         lerpTime = 4.5f;
