@@ -22,12 +22,12 @@ public class LanguageManager : MonoBehaviour
         english = new string[] {"Value Settings", "Presentation Settings", "Change", "Mass Value Insertion", "Insert Values", 
                                 "Values", "Reset", "Presentation Mode", "Changed Value", "This is for inserting an entiere new data set for the map '\n\n' " +
                                 "Use it by pasting here the set in the format LOC - VAL", "Lower Limit", "Upper Limit", "Show Cadastre", "Title", "Cadastre Opacity", "Save", "Dataset name...",
-                                "Randomise"};
+                                "Randomise", "Format Values"};
 
         romana = new string[] { "Valori", "Prezentare", "Schimbă", "Inserție de valori în masă", "Inserează Valori", "Arată Valori", "Resetează", "Modul de prezentare", 
                                 "Valoarea Schimbată", "Acest câmp este pentru inserarea unui set de date complet nou pentru hartă \n\n " +
                                 "Folosiți-l prin a lipi aici setul de date în formatul LOC - VAL", "Limita de jos", "Limita de sus", "Arata Cadastrul", "Titlu", "Opacitatea Cadastrului", "Salvează", "Numele setului...",
-                                "Aleatoriu"};
+                                "Aleatoriu", "Formateaza valorile"};
         n = tmptexts.Length;
 
         ddenglish = new List<string> { "Color", "Point Size", "Symbols" };

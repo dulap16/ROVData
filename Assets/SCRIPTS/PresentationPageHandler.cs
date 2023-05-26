@@ -8,6 +8,7 @@ public class PresentationPageHandler : MonoBehaviour
 {
     // CONTROLS THE PRESENTATION PART OF THE APP
 
+    public Handler handler;
     public ValuePageHandler valuePage;
     private Vector3 initialPos;
     private Vector3 hiddenPos;
@@ -51,6 +52,8 @@ public class PresentationPageHandler : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        handler = GameObject.Find("Handler").GetComponent<Handler>();
+
         initialPos = transform.localPosition;
         hiddenPos = new Vector3(500, 0, 0);
 
@@ -81,6 +84,9 @@ public class PresentationPageHandler : MonoBehaviour
         // CADASTRE
         initCadPos = cadastre.transform.localPosition;
         targetCadPos = new Vector3(500, 0, 0);
+
+        titleIF.text = handler.curentJudet;
+        title.text = handler.curentJudet;
     }
 
     void Update()
