@@ -54,23 +54,30 @@ public class JudetChanger : MonoBehaviour
     public SymbolManager sm;
     public DatasetHandler dh;
     public PresentationPageHandler ppHandler;
-    public GameObject symbolsGroup;
     public GameObject pointsGroup;
 
     public string First;
 
-    IEnumerator waiter(float seconds)
+    IEnumerator waiter()
     {
-        yield return new WaitForSecondsRealtime(seconds);
-
+        yield return new WaitUntil(() => blender.transform.GetChild(0).name == currString);
+        sm.Generate();
+        yield return new WaitUntil(() => sm.generated == true);
+        
         h.DelegateSymbols();
         sm.generated = false;
 
-        /*foreach (Transform child in currJudetGO.transform)
-        {
-            OverlappingRegion region = child.GetComponent<OverlappingRegion>();
-            region.HideAll();
-        }*/
+        yield return new WaitForSecondsRealtime(1);
+        dh.JudetChanged();
+
+        dmHandler.modeChanged(0);
+    }
+
+    IEnumerator waiter(float seconds)
+    {
+        yield return new WaitForSecondsRealtime(seconds);
+        h.DelegateSymbols();
+        sm.generated = false;
     }
 
     // Start is called before the first frame update
@@ -169,8 +176,6 @@ public class JudetChanger : MonoBehaviour
         currString = currJudet.nume;
         h.curentJudet = currString;
 
-        foreach (Transform child in symbolsGroup.transform)
-            Destroy(child.gameObject);
         foreach (Transform child in pointsGroup.transform)
             Destroy(child.gameObject);
 
@@ -226,16 +231,7 @@ public class JudetChanger : MonoBehaviour
         fadedTexture.sprite = currJudet.texture.transp;
         fullTexture.transform.localPosition = fadedTexture.transform.localPosition = currJudet.texture.position;
 
-
-        sm.Generate();
-        while (!sm.generated)
-            ;
-
-        StartCoroutine(waiter(1));
-
-        dh.JudetChanged();
-
-        dmHandler.modeChanged(0);
+        StartCoroutine(waiter());
     }
 
     public List<string> returnJudete()
