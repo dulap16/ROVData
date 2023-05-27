@@ -20,8 +20,9 @@ Berechet Tudor:
 
 ## Scop <a name = "scop"></a>
 
->Acest proiect este dedicat ocaziilor la care trebuie afișate date, statistici sau procente pe județe sau pe întreaga țară România.
->Această afișare a datelor este facută foarte simplu prin această aplicație, folosindu-se de o **interfațp ajutătoare**, **un mod de a insera date rapid**, și diferite **moduri de prezentare** a datelor.
+>Acest proiect este dedicat ocaziilor la care trebuie afișate date, statistici sau procente pe județe ale Romaniei.
+>Această afișare a datelor este facută foarte simplu prin această aplicație, folosindu-se de o **interfața ajutătoare**, **un mod de a insera date rapid**, și diferite **moduri de prezentare** a datelor.
+
 ## Instalare <a name = "instalare"></a>
 
 >Pentru a accesa ultima versiune, descărcați ZIP-ul cu ultimul [Release](https://github.com/dulap16/Proiect-Galati/releases) pentru sistemul vostru de operare(Windows, Max, Linux).
@@ -125,5 +126,6 @@ Braniste 6882
 
 >Însă, deocamdată **ROVDATA** poate afișa doar statistici pe România. Prin urmare, un alt obiectiv ar fi răspândirea și implementarea aplicației în toată România, astfel încât oricine are nevoie de o interfață pentru afișat date pe țara noastră, să știe de ce să se folosească. 
 ## Credite <a name = "credite"></a>
-
-Totul a fost făcut de Berechet Tudor.
+Shapefile-urile sunt luate de pe site-ul GADM, iar PoissonDiscSampler.cs a fost luat de le [Gregory Schlomoff](http://gregschlom.com/devlog/2014/06/29/Poisson-disc-sampling-Unity.html).
+Pozele din fundalul aplicatiei, cu geografia fiecarui judet in parte, au fost luate de pe Google Earth Pro.
+In rest, tot codul a fost făcut de Berechet Tudor.
