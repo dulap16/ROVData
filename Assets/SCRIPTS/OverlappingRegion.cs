@@ -142,7 +142,7 @@ public class OverlappingRegion : MonoBehaviour
         if (handler.selectedValuesOnly == false)
             handler.Selected(this);
 
-        cf.MakeVisible();
+        // cf.MakeVisible();
     }
 
     public void Selected()
