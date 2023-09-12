@@ -6,23 +6,24 @@ using Assets.SCRIPTS.Start_Page;
 
 public class StartManager : MonoBehaviour
 {
+    [SerializeField] private List<GameObject> objectList;
     [SerializeField] public Dictionary<GameObject, ObjectToBeLerped> lerpedObjects;
-
-    /// GAMEOBJECTS, SPRITE RENDERERS AND COLORS
-    public GameObject lowerCover;
-    public GameObject upperCover;
-    public GameObject graphCover;
-    public GameObject logo;
 
     void Start()
     {
         lerpedObjects = new Dictionary<GameObject, ObjectToBeLerped>();
-        lerpedObjects.Add(lowerCover, lowerCover.GetComponent<ObjectToBeLerped>());
-        lerpedObjects.Add(upperCover, upperCover.GetComponent<ObjectToBeLerped>());
-        lerpedObjects.Add(graphCover, graphCover.GetComponent<ObjectToBeLerped>());
-        lerpedObjects.Add(logo,  logo.GetComponent<ObjectToBeLerped>());
+        AddObjectsToDictionary();
 
         StartLerpingAllObjects();
+    }
+
+    private void AddObjectsToDictionary()
+    {
+        lerpedObjects = new Dictionary<GameObject, ObjectToBeLerped>();
+        foreach (GameObject obj in objectList)
+        {
+            lerpedObjects.Add(obj, obj.GetComponent<ObjectToBeLerped>());
+        }
     }
 
     void Update()
