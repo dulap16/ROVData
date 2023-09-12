@@ -14,19 +14,17 @@ public class StartManager : MonoBehaviour
     public GameObject graphCover;
     public GameObject logo;
 
-    // Start is called before the first frame update
     void Start()
     {
         lerpedObjects = new Dictionary<GameObject, ObjectToBeLerped>();
-        /*lerpedObjects.Add(lowerCover, lowerCover.GetComponent<ObjectToBeLerped>());
+        lerpedObjects.Add(lowerCover, lowerCover.GetComponent<ObjectToBeLerped>());
         lerpedObjects.Add(upperCover, upperCover.GetComponent<ObjectToBeLerped>());
-        lerpedObjects.Add(graphCover, graphCover.GetComponent<ObjectToBeLerped>());*/
+        lerpedObjects.Add(graphCover, graphCover.GetComponent<ObjectToBeLerped>());
         lerpedObjects.Add(logo,  logo.GetComponent<ObjectToBeLerped>());
 
         StartLerpingAllObjects();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown("space"))

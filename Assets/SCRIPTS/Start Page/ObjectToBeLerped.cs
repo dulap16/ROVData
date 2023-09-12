@@ -17,8 +17,6 @@ namespace Assets.SCRIPTS.Start_Page
         public ObjectToBeLerped(GameObject _go)
         {
             go = _go;
-
-            Debug.Log(go);
         }
 
         IEnumerator ApplyDelayToCurrentStage(Lerper l, float delay)
@@ -33,7 +31,6 @@ namespace Assets.SCRIPTS.Start_Page
         {
             if (go == null)
                 go = gameObject;
-
 
             currentStage = stages.getCurrentStage();
             currentStage.setInitIfCase(go.transform.localPosition, go.transform.localScale, go.GetComponent<SpriteRenderer>().color, go.transform.rotation);
