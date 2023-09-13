@@ -679,7 +679,7 @@ MonoBehaviour:
         willLerp: 1
         inheritLast: 1
         speed: 0.3
-        delay: 4
+        delay: 2
         _curve:
           serializedVersion: 2
           m_Curve:
@@ -728,7 +728,7 @@ MonoBehaviour:
         willLerp: 1
         inheritLast: 0
         speed: 0.3
-        delay: 4
+        delay: 2
         _curve:
           serializedVersion: 2
           m_Curve:
@@ -868,7 +868,7 @@ MonoBehaviour:
     - positionLerper:
         willLerp: 1
         inheritLast: 1
-        speed: 0.49
+        speed: 0.25
         delay: 3.3
         _curve:
           serializedVersion: 2
@@ -1249,7 +1249,7 @@ MonoBehaviour:
     - positionLerper:
         willLerp: 1
         inheritLast: 1
-        speed: 0.49
+        speed: 0.25
         delay: 3.3
         _curve:
           serializedVersion: 2
@@ -1516,7 +1516,7 @@ MonoBehaviour:
         willLerp: 1
         inheritLast: 1
         speed: 0.4
-        delay: 11.69
+        delay: 8
         _curve:
           serializedVersion: 2
           m_Curve:
