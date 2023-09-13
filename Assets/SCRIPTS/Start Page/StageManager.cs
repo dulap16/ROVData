@@ -70,6 +70,11 @@ namespace Assets.SCRIPTS.Start_Page
             getStageOfIndex(0).setInitValuesOfStage(pos, scale, color, rotation);
         }
 
+        public bool finishedEntireAnimation()
+        {
+            return isCurrentStageFinished() && (getNumberOfStages() - 1) == getCurrentIndex();
+        }
+
         public void Restart()
         {
             setCurrent(0);
