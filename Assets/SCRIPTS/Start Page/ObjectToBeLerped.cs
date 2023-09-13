@@ -116,5 +116,10 @@ namespace Assets.SCRIPTS.Start_Page
         {
             MakeStageInheritFromLast(stages.getStageOfIndex(stages.getCurrentIndex() - 1), stages.getStageOfIndex(stages.getCurrentIndex()));
         }
+
+        public StageManager getStageManager()
+        {
+            return stages;
+        }
     }
 }

@@ -6,6 +6,7 @@ using Assets.SCRIPTS.Start_Page;
 
 public class StartManager : MonoBehaviour
 {
+    [SerializeField] public ObjectToBeLerped logo;
     [SerializeField] private List<GameObject> objectList;
     [SerializeField] public Dictionary<GameObject, ObjectToBeLerped> lerpedObjects;
 
@@ -30,6 +31,11 @@ public class StartManager : MonoBehaviour
     {
         if(Input.GetKeyDown("space"))
             Restart();
+
+        if (CheckWhetherLogoFinished())
+        {
+            Debug.Log("finished");
+        }
     }
 
     public void StartLerpingObject(GameObject go)
@@ -43,6 +49,11 @@ public class StartManager : MonoBehaviour
         {
             obj.StartLerping();
         }
+    }
+
+    public bool CheckWhetherLogoFinished()
+    {
+        return logo.getStageManager().finishedEntireAnimation();
     }
 
     public void Restart()
