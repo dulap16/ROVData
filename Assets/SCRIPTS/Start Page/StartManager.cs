@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.SCRIPTS.Start_Page;
+using UnityEngine.SceneManagement;
 
 public class StartManager : MonoBehaviour
 {
@@ -34,7 +35,7 @@ public class StartManager : MonoBehaviour
 
         if (CheckWhetherLogoFinished())
         {
-            Debug.Log("finished");
+            SceneManager.LoadScene("Main App");
         }
     }
 
