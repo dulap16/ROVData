@@ -449,12 +449,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3d01cf89d568f4ebd4c18ee7775616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  logo: {fileID: 925046830}
   objectList:
-  - {fileID: 925046827}
   - {fileID: 1816182966}
   - {fileID: 1076926342}
   - {fileID: 420338616}
   - {fileID: 2020870313}
+  - {fileID: 925046827}
 --- !u!4 &430882964
 Transform:
   m_ObjectHideFlags: 0
@@ -819,7 +820,7 @@ MonoBehaviour:
         final: {x: 0, y: 0, z: 0, w: 0}
     - positionLerper:
         willLerp: 0
-        inheritLast: 1
+        inheritLast: 0
         speed: 0.3
         delay: 2
         _curve:
@@ -959,7 +960,7 @@ MonoBehaviour:
           m_RotationOrder: 4
         init: {x: 0, y: 0, z: 0, w: 0}
         final: {x: 0, y: 0, z: 0, w: 0}
-    current: 2
+    current: 0
 --- !u!1 &1076926342
 GameObject:
   m_ObjectHideFlags: 0
