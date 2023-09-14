@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class StartManager : MonoBehaviour
 {
     [SerializeField] public ObjectToBeLerped logo;
+    [SerializeField] bool isStartPage = true;
     [SerializeField] private List<GameObject> objectList;
     [SerializeField] public Dictionary<GameObject, ObjectToBeLerped> lerpedObjects;
 
@@ -33,9 +34,12 @@ public class StartManager : MonoBehaviour
         if(Input.GetKeyDown("space"))
             Restart();
 
-        if (CheckWhetherLogoFinished())
+        if (isStartPage)
         {
-            SceneManager.LoadScene("Main App");
+            if (CheckWhetherLogoFinished())
+            {
+                SceneManager.LoadScene("Main App");
+            }
         }
     }
 
