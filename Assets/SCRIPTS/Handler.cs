@@ -11,6 +11,8 @@ public class Handler : MonoBehaviour
 {
     // HANDLES MOST ELEMENTS OF THE APP
 
+    public NewUIHandler newUIHandler;
+
 
     // SELECTION
     public bool selectedValuesOnly = false;
@@ -157,6 +159,7 @@ public class Handler : MonoBehaviour
         current = optionInd;
         current.selected = true;
         current.ind.selected = true;
+        newUIHandler.SelectedRegionChanged();
         // --------------
 
         if (optionInd.CheckWithinLimits(optionInd.value))
