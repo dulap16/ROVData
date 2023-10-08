@@ -418,6 +418,7 @@ public class Handler : MonoBehaviour
         return new string(newName);
     }
 
+
     public bool nrFormattingOn = false;
     public void ToggleNrFormatting()
     {
