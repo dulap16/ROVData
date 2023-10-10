@@ -142,7 +142,7 @@ namespace Assets.SCRIPTS.Start_Page
                 currentStage.changeOneInitialValue("scale", go.transform.localScale);
 
             if (currentStage.willLerpProperty("color"))
-                currentStage.changeOneInitialValue("color", go.GetComponent<SpriteRenderer>());
+                currentStage.changeOneInitialValue("color", go.GetComponent<SpriteRenderer>().color);
 
             if (currentStage.willLerpProperty("rotation"))
                 currentStage.changeOneInitialValue("rotation", go.transform.rotation);
