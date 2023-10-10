@@ -109,7 +109,7 @@ namespace Assets.SCRIPTS.Start_Page
 
         public void MakeStageInheritFromLast(Stage last, Stage next)
         {
-            next.setInitIfCase(last.getLerper("position").finalVector3(), last.getLerper("scale").finalVector3(), last.getLerper("color").finalColor(), last.getLerper("rotation").finalQuaternion());
+            next.setLastIfCase(last.getLerper("position").finalVector3(), last.getLerper("scale").finalVector3(), last.getLerper("color").finalColor(), last.getLerper("rotation").finalQuaternion());
         }
 
         public void MakeNextStageStartFromLast()

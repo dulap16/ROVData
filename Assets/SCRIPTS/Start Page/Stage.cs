@@ -143,7 +143,7 @@ namespace Assets.SCRIPTS.Start_Page
             rotationLerper.setInit(rotation);
         }
 
-        public void setInitIfCase(Vector3 pos, Vector3 scale, Color color, Quaternion rotation)
+        public void setLastIfCase(Vector3 pos, Vector3 scale, Color color, Quaternion rotation)
         {
             if(positionLerper.willInheritLast())
                 positionLerper.setInit(pos);
