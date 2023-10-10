@@ -85,6 +85,9 @@ namespace Assets.SCRIPTS.Start_Page
             foreach (Lerper l in currentStage.lerperDict.Values)
             {
                 l.GoToBeginning();
+
+                if (coroutines == null)
+                    coroutines = new Dictionary<Lerper, IEnumerator>();
                 coroutines[l] = ApplyDelayToCurrentStage(l, l.delay);
                 StartCoroutine(coroutines[l]);
             }
