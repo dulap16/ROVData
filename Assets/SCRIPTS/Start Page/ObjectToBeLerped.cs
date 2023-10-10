@@ -1,12 +1,14 @@
 ﻿using Assets.SCRIPTS.Start_Page.Lerpers;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using UnityEngine;
 
 namespace Assets.SCRIPTS.Start_Page
 {
     public class ObjectToBeLerped : MonoBehaviour
     {
+        public bool consecutive = true;
         private GameObject go;
 
         [SerializeField] private StageManager stages;
@@ -33,7 +35,7 @@ namespace Assets.SCRIPTS.Start_Page
                 go = gameObject;
 
             currentStage = stages.getCurrentStage();
-            currentStage.setInitIfCase(go.transform.localPosition, go.transform.localScale, go.GetComponent<SpriteRenderer>().color, go.transform.rotation);
+            setInitialValues();
 
             coroutines = new Dictionary<Lerper, IEnumerator>();
         }
@@ -41,18 +43,41 @@ namespace Assets.SCRIPTS.Start_Page
         // Update is called once per frame
         void Update()
         {
-            UpdateLerpingProperties();
-            ModifyAccordingToLerp();
-
-            if (stages.advanceIfCase())
+            if (stages.getNumberOfStages() > 0)
             {
-                ResetCurrentVariables();
+                UpdateLerpingProperties();
+                ModifyAccordingToLerp();
 
-                MakeNextStageStartFromLast();
+                if (stages.advanceIfCase() && consecutive)
+                {
+                    ResetCurrentVariables();
 
-                ResetCurrentVariables();
-                StartLerping();
+                    MakeNextStageStartFromLast();
+
+                    ResetCurrentVariables();
+                    StartLerping();
+                }
             }
+        }
+
+        public void GoToStage(int index)
+        {
+            stages.setCurrent(index);
+            MakeLerpersStartFromCurrent(stages.getCurrentStage());
+            SetCurrent(stages.getCurrentStage());
+        }
+
+        public void GoToStage(string name)
+        {
+            stages.setCurrent(name);
+            MakeLerpersStartFromCurrent(stages.getCurrentStage());
+            SetCurrent(stages.getCurrentStage());
+        }
+
+        public void SetCurrent(Stage s)
+        {
+            currentStage = s;
+            StartLerping();
         }
 
         public void StartLerping()
@@ -60,6 +85,9 @@ namespace Assets.SCRIPTS.Start_Page
             foreach (Lerper l in currentStage.lerperDict.Values)
             {
                 l.GoToBeginning();
+
+                if (coroutines == null)
+                    coroutines = new Dictionary<Lerper, IEnumerator>();
                 coroutines[l] = ApplyDelayToCurrentStage(l, l.delay);
                 StartCoroutine(coroutines[l]);
             }
@@ -92,14 +120,32 @@ namespace Assets.SCRIPTS.Start_Page
 
         public void Restart()
         {
-            foreach (Lerper l in currentStage.lerperDict.Values)
+            if (stages.getNumberOfStages() != 0)
             {
-                StopCoroutine(coroutines[l]);
-            }
+                foreach (Lerper l in currentStage.lerperDict.Values)
+                {
+                    StopCoroutine(coroutines[l]);
+                }
 
-            stages.Restart();
-            ResetCurrentVariables();
-            StartLerping();
+                stages.Restart();
+                ResetCurrentVariables();
+                StartLerping();
+            }
+        }
+
+        public void setInitialValues()
+        {
+            if (currentStage.willLerpProperty("position"))
+                currentStage.changeOneInitialValue("position", go.transform.localPosition);
+
+            if (currentStage.willLerpProperty("scale"))
+                currentStage.changeOneInitialValue("scale", go.transform.localScale);
+
+            if (currentStage.willLerpProperty("color"))
+                currentStage.changeOneInitialValue("color", go.GetComponent<SpriteRenderer>().color);
+
+            if (currentStage.willLerpProperty("rotation"))
+                currentStage.changeOneInitialValue("rotation", go.transform.rotation);
         }
 
         public void UpdateLerpingProperties()
@@ -109,12 +155,32 @@ namespace Assets.SCRIPTS.Start_Page
 
         public void MakeStageInheritFromLast(Stage last, Stage next)
         {
-            next.setInitIfCase(last.getLerper("position").finalVector3(), last.getLerper("scale").finalVector3(), last.getLerper("color").finalColor(), last.getLerper("rotation").finalQuaternion());
+            next.setLastIfCase(last.getLerper("position").finalVector3(), last.getLerper("scale").finalVector3(), last.getLerper("color").finalColor(), last.getLerper("rotation").finalQuaternion());
         }
 
         public void MakeNextStageStartFromLast()
         {
             MakeStageInheritFromLast(stages.getStageOfIndex(stages.getCurrentIndex() - 1), stages.getStageOfIndex(stages.getCurrentIndex()));
+        }
+
+        public void MakeLerpersStartFromCurrent(Stage s)
+        {
+            if (s.getLerper("position").willInheritCurrent())
+                s.changeOneInitialValue("position", go.transform.localPosition);
+
+            if (s.getLerper("scale").willInheritCurrent())
+                s.changeOneInitialValue("scale", go.transform.localScale);
+
+            if (s.getLerper("color").willInheritCurrent())
+                s.changeOneInitialValue("color", go.GetComponent<SpriteRenderer>());
+
+            if (s.getLerper("rotation").willInheritCurrent())
+                s.changeOneInitialValue("rotation", go.transform.rotation);
+        }
+
+        public void ModifyStage(int index, Stage s)
+        {
+            stages.setStage(index, s);
         }
 
         public StageManager getStageManager()

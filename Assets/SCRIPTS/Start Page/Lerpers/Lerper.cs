@@ -11,6 +11,7 @@ namespace Assets.SCRIPTS.Start_Page
     {
         [SerializeField] private bool willLerp = false;
         [SerializeField] private bool inheritLast = false;
+        [SerializeField] private bool inheritCurrent = false;
 
         private float _current = 0;
         private float _target = 0;
@@ -61,6 +62,11 @@ namespace Assets.SCRIPTS.Start_Page
         public bool willInheritLast()
         {
             return inheritLast;
+        }
+
+        public bool willInheritCurrent()
+        {
+            return inheritCurrent;
         }
 
         public Vector3 finalVector3()
