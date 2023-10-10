@@ -450,6 +450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logo: {fileID: 925046830}
+  isStartPage: 1
   objectList:
   - {fileID: 1816182966}
   - {fileID: 1076926342}
