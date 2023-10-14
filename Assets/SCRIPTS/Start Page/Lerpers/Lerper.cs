@@ -9,6 +9,8 @@ namespace Assets.SCRIPTS.Start_Page
     [System.Serializable]
     public class Lerper
     {
+        [SerializeField] private bool useTime = false; // false - 1 true - 2
+
         [SerializeField] private bool willLerp = false;
         [SerializeField] private bool inheritLast = false;
         [SerializeField] private bool inheritCurrent = false;
@@ -16,12 +18,28 @@ namespace Assets.SCRIPTS.Start_Page
         private float _current = 0;
         private float _target = 0;
         [SerializeField] [Range(0, 10)] public float speed;
+        [SerializeField] [Range(0, 10)] public float time;
         [SerializeField] [Range(0, 20)] public float delay;
         [SerializeField] public AnimationCurve _curve;
 
         public void Lerp()
         {
             _current = Mathf.MoveTowards(_current, _target, speed * Time.deltaTime);
+        }
+
+        public bool usesTime()
+        {
+            return useTime;
+        }
+
+        public void TimeToSpeedIfNeeded()
+        {
+            if (useTime) {
+                if (this is Vector3Lerper)
+                    ((Vector3Lerper)this).assignSpeedAsTime();
+                if (this is QuaternionLerper)
+                    ((QuaternionLerper)this).assignSpeedAsTime();
+            }
         }
 
         public float GetCurrent()

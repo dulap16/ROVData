@@ -20,6 +20,12 @@ namespace Assets.SCRIPTS.Start_Page
             stages.Add(stage);
         }
 
+        public void TimeToSpeedWhereNeeded()
+        {
+            foreach(Stage s in stages)
+                s.TimeToSpeedIfNeeded();
+        }
+
         public bool goToNextStage()
         {
             if (current + 1>= stages.Count)

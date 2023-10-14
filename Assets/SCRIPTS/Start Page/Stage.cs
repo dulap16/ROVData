@@ -37,11 +37,19 @@ namespace Assets.SCRIPTS.Start_Page
             lerperDict.Add("scale", scaleLerper);
             lerperDict.Add("color", colorLerper);
             lerperDict.Add("rotation", rotationLerper);
+
+
         }
 
         public Lerper getLerper(String name)
         {
             return lerperDict[name];
+        }
+
+        public void TimeToSpeedIfNeeded()
+        {
+            foreach (Lerper l in lerpers)
+                l.TimeToSpeedIfNeeded();
         }
 
         public void LerpAll()
