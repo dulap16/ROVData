@@ -36,6 +36,7 @@ namespace Assets.SCRIPTS.Start_Page
 
             currentStage = stages.getCurrentStage();
             setInitialValues();
+            TimeToSpeedWhereNeeded();
 
             coroutines = new Dictionary<Lerper, IEnumerator>();
         }
@@ -85,9 +86,6 @@ namespace Assets.SCRIPTS.Start_Page
             foreach (Lerper l in currentStage.lerperDict.Values)
             {
                 l.GoToBeginning();
-
-                if (coroutines == null)
-                    coroutines = new Dictionary<Lerper, IEnumerator>();
                 coroutines[l] = ApplyDelayToCurrentStage(l, l.delay);
                 StartCoroutine(coroutines[l]);
             }
@@ -142,10 +140,15 @@ namespace Assets.SCRIPTS.Start_Page
                 currentStage.changeOneInitialValue("scale", go.transform.localScale);
 
             if (currentStage.willLerpProperty("color"))
-                currentStage.changeOneInitialValue("color", go.GetComponent<SpriteRenderer>().color);
+                currentStage.changeOneInitialValue("color", go.GetComponent<SpriteRenderer>());
 
             if (currentStage.willLerpProperty("rotation"))
                 currentStage.changeOneInitialValue("rotation", go.transform.rotation);
+        }
+
+        public void TimeToSpeedWhereNeeded()
+        {
+            stages.TimeToSpeedWhereNeeded();
         }
 
         public void UpdateLerpingProperties()
