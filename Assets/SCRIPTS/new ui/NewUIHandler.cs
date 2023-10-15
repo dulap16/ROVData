@@ -1,11 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using TMPro;
 using Unity.PlasticSCM.Editor.WebApi;
+using UnityEditor.Search;
 using UnityEngine;
 
 public class NewUIHandler : MonoBehaviour
 {
+    /*Main Page*/
+    public GameObject selectedRegionPanel;
+    public GameObject onTexturePanel;
+    public GameObject backButton;
+
     public OverlappingRegion selectedRegion;
 
     public Handler mainHandler;
