@@ -91,13 +91,15 @@ public class PresentationPageHandler : MonoBehaviour
 
     void Update()
     {
-        if (map.anchoredPosition != targetPosition || title.faceColor != targetTextColor || title.outlineColor != targetBorderColor)
+        // LERPING
+
+        /*if (map.anchoredPosition != targetPosition || title.faceColor != targetTextColor || title.outlineColor != targetBorderColor)
         {
             map.anchoredPosition = Vector3.Lerp(map.anchoredPosition, targetPosition, lerpTime * Time.deltaTime);
             texture.color = Color.Lerp(texture.color, targetColor, lerpTime * Time.deltaTime);
             title.faceColor = Color.Lerp(title.faceColor, targetTextColor, lerpTime * Time.deltaTime);
             title.outlineColor = Color.Lerp(title.outlineColor, targetBorderColor, lerpTime * Time.deltaTime);
-        }
+        }*/
     }
 
     public void Show()
