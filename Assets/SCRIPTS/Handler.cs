@@ -59,7 +59,7 @@ public class Handler : MonoBehaviour
     public string curentJudet = "Alba";
     public PresentationPageHandler pphandler;
 
-    public void start()
+    public void Start()
     {
         foreach(Transform child in blender.transform)
         {
@@ -68,13 +68,12 @@ public class Handler : MonoBehaviour
             else judetGO = child.gameObject;
         }
 
-        pphandler.cadastre = cadastru;
+        /*pphandler.cadastre = cadastru;*/
 
         dictionary = new Dictionary<string, int>();
 
         foreach (Transform child in judetGO.transform)
         {
-            //  Debug.Log(child.name);
             string n = child.gameObject.name;
 
             if (n.Contains("."))
@@ -83,7 +82,6 @@ public class Handler : MonoBehaviour
             }
 
             n = n.ToLower();
-            // Debug.Log(n);
             dictionary.Add(n, 0);
         }
 
@@ -217,6 +215,8 @@ public class Handler : MonoBehaviour
 
     public void ValuesClick()
     {
+        Debug.Log("changed");
+
         try
         {
             selectedValuesOnly = true;
@@ -224,8 +224,8 @@ public class Handler : MonoBehaviour
             ll = Int32.Parse(lowerLimit.text);
             ul = Int32.Parse(upperLimit.text);
 
-            sm.SetLowerValue(ll);
-            sm.SetUpperValue(ul);
+            /*sm.SetLowerValue(ll);
+            sm.SetUpperValue(ul);*/
 
             foreach (Transform child in judetGO.transform)
             {

@@ -149,8 +149,8 @@ public class JudetChanger : MonoBehaviour
             child.GetComponent<MeshCollider>().material = phys;
         }
 
-        h.start();
-        ppHandler.JudetChanged();
+        h.Start();
+        /*ppHandler.JudetChanged();*/
         
         h.judetGO = newJudet;
 
@@ -222,7 +222,7 @@ public class JudetChanger : MonoBehaviour
             child.GetComponent<MeshCollider>().material = phys;
         }
 
-        h.start();
+        h.Start();
         ppHandler.JudetChanged();
 
         h.judetGO = newJudet;
