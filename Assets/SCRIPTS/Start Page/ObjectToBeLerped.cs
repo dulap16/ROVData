@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
+using System.IO;
 using UnityEngine;
 
 namespace Assets.SCRIPTS.Start_Page
@@ -35,7 +36,7 @@ namespace Assets.SCRIPTS.Start_Page
                 go = gameObject;
 
             currentStage = stages.getCurrentStage();
-            setInitialValues();
+            setInitialValuesIfCase();
             TimeToSpeedWhereNeeded();
 
             coroutines = new Dictionary<Lerper, IEnumerator>();
@@ -86,6 +87,10 @@ namespace Assets.SCRIPTS.Start_Page
             foreach (Lerper l in currentStage.lerperDict.Values)
             {
                 l.GoToBeginning();
+
+                if (coroutines == null)
+                    coroutines = new Dictionary<Lerper, IEnumerator>();
+
                 coroutines[l] = ApplyDelayToCurrentStage(l, l.delay);
                 StartCoroutine(coroutines[l]);
             }
@@ -140,9 +145,24 @@ namespace Assets.SCRIPTS.Start_Page
                 currentStage.changeOneInitialValue("scale", go.transform.localScale);
 
             if (currentStage.willLerpProperty("color"))
-                currentStage.changeOneInitialValue("color", go.GetComponent<SpriteRenderer>());
+                currentStage.changeOneInitialValue("color", go.GetComponent<SpriteRenderer>().color);
 
             if (currentStage.willLerpProperty("rotation"))
+                currentStage.changeOneInitialValue("rotation", go.transform.rotation);
+        }
+
+        public void setInitialValuesIfCase()
+        {
+            if (currentStage.getLerper("position").willInheritLast())
+                currentStage.changeOneInitialValue("position", go.transform.localPosition);
+
+            if (currentStage.getLerper("scale").willInheritLast())
+                currentStage.changeOneInitialValue("scale", go.transform.localScale);
+
+            if (currentStage.getLerper("color").willInheritLast())
+                currentStage.changeOneInitialValue("color", go.GetComponent<SpriteRenderer>().color);
+
+            if (currentStage.getLerper("rotation").willInheritLast())
                 currentStage.changeOneInitialValue("rotation", go.transform.rotation);
         }
 
