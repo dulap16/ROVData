@@ -13227,7 +13227,7 @@ MonoBehaviour:
   ratio: 0
   ll: 0
   ul: 0
-  sm: {fileID: 0}
+  limitsManager: {fileID: 0}
   colored: 1
   selectionColor: {r: 1, g: 1, b: 1, a: 1}
   lerpTime: 8.02
@@ -14593,12 +14593,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tmptexts:
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 278587629}
   - {fileID: 1244604041}
   - {fileID: 286826665}
-  - {fileID: 0}
   - {fileID: 999311445}
   - {fileID: 1257909841}
   - {fileID: 555344306}

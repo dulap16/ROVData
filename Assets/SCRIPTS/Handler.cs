@@ -103,7 +103,7 @@ public class Handler : MonoBehaviour
 
     public void JudetChanged()
     {
-        ResetClick();
+        limitsManager.Reset();
 
         // REPEAT HANDLER START()
         foreach (Transform child in blender.transform)
