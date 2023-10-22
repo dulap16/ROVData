@@ -53,7 +53,7 @@ public class JudetChanger : MonoBehaviour
     public DisplayModeHandler dmHandler;
     public SymbolManager sm;
     public DatasetHandler dh;
-    public PresentationPageHandler ppHandler;
+    public VisualsManager visualsManager;
     public GameObject pointsGroup;
 
     public string First;
@@ -150,7 +150,8 @@ public class JudetChanger : MonoBehaviour
         }
 
         h.Start();
-        /*ppHandler.JudetChanged();*/
+        visualsManager.cadastre = cad.gameObject;
+        visualsManager.JudetChanged();
         
         h.judetGO = newJudet;
 
@@ -223,7 +224,7 @@ public class JudetChanger : MonoBehaviour
         }
 
         h.Start();
-        ppHandler.JudetChanged();
+        visualsManager.JudetChanged();
 
         h.judetGO = newJudet;
 
