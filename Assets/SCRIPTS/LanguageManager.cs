@@ -20,13 +20,13 @@ public class LanguageManager : MonoBehaviour
     void Start()
     {
         english = new string[] {"Change", "Mass Value Insertion", "Insert Values", 
-                                "Reset", "Presentation Mode", "Changed Value", "This is for inserting an entiere new data set for the map '\n\n' " +
-                                "Use it by pasting here the set in the format LOC - VAL", "Lower Limit", "Upper Limit", "Show Cadastre", "Title", "Cadastre Opacity", "Save", "Dataset name...",
+                                "Reset", "Presentation Mode", "Changed Value", "This field is for inserting an entiere new data set for the map '\n\n' " +
+                                "Use it by pasting here the set in the format LOC - VAL", "Lower Limit", "Upper Limit", "Title", "Cadastre Opacity", "Save", "Dataset name...",
                                 "Randomise", "Format Values"};
 
         romana = new string[] { "Schimbă", "Inserție de valori în masă", "Inserează Valori", "Resetează", "Modul de prezentare", 
                                 "Valoarea Schimbată", "Acest câmp este pentru inserarea unui set de date complet nou pentru hartă \n\n " +
-                                "Folosiți-l prin a lipi aici setul de date în formatul LOC - VAL", "Limita de jos", "Limita de sus", "Arata Cadastrul", "Titlu", "Opacitatea Cadastrului", "Salvează", "Numele setului...",
+                                "Folosiți-l prin a lipi aici setul de date în formatul LOC - VAL", "Limita de jos", "Limita de sus", "Titlu", "Opacitatea Cadastrului", "Salvează", "Numele setului...",
                                 "Aleatoriu", "Formateaza valorile"};
         n = tmptexts.Length;
 

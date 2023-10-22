@@ -41,24 +41,6 @@ public class ValuePageHandler : MonoBehaviour
         massValueInput = massValueInputgo.transform.Find("InputField").GetComponent<TMP_InputField>();
     }
 
-    public void Show()
-    {
-        transform.localPosition = initialPagePos;
-    }
-
-    public void Hide()
-    {
-        transform.localPosition = hiddenPagePos;
-    }
-
-    public void ValuePageButtonClicked()
-    {
-        presentationPage.Hide();
-        Show();
-
-        presentationPage.shown = false;
-    }
-
     public void MassValueInsertionClicked()
     {
         if (sheetShown)
