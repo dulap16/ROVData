@@ -16,12 +16,8 @@ public class ValuePageHandler : MonoBehaviour
     public GameObject massValueInputgo;
     public GameObject insertValuesButton;
 
-    private Vector3 initialPagePos;
-    private Vector3 hiddenPagePos;
-
 
     // FOR MASS VALUE INPUT
-    private List<string> counties;
     private TMP_InputField massValueInput;
     private bool sheetShown = true;
     private Vector3 initIFPos;
@@ -30,13 +26,10 @@ public class ValuePageHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        initialPagePos = transform.localPosition;
-        hiddenPagePos = new Vector3(500, 0, 0);
 
         initIFPos = massValueInputgo.transform.localPosition;
         hiddIFPos = new Vector3(500, 0, 0);
 
-        counties = handler.dictionary.Keys.ToList<string>();
         MassValueInsertionClicked();
         massValueInput = massValueInputgo.transform.Find("InputField").GetComponent<TMP_InputField>();
     }
