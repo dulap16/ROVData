@@ -4,12 +4,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ValueInsertion : MonoBehaviour
+public class ValueInsertion
 {
-    private Handler handler;
-    private TMP_InputField valueInsertionIF;
-
-    public void InsertValuesClicked()
+    public void InsertValuesClicked(Handler handler, TMP_InputField valueInsertionIF)
     {
         string input = valueInsertionIF.text;
         string[] lines = input.Split('\n');
