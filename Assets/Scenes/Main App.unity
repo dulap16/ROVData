@@ -678,7 +678,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 856, y: 347}
+  m_AnchoredPosition: {x: 248, y: -352}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &29861066
@@ -724,7 +724,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 29861067}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1016920108}
+        m_TargetAssemblyTypeName: MenuHandler, Assembly-CSharp
+        m_MethodName: settingsButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &29861067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8819,10 +8831,10 @@ MonoBehaviour:
         final: {x: 0, y: 0, z: 0}
       colorLerper:
         useTime: 1
-        willLerp: 0
+        willLerp: 1
         inheritLast: 0
         inheritCurrent: 1
-        speed: 0
+        speed: 1.12
         time: 3.4
         delay: 0
         _curve:
@@ -8902,10 +8914,10 @@ MonoBehaviour:
         final: {x: 0, y: 0, z: 0}
       colorLerper:
         useTime: 1
-        willLerp: 0
+        willLerp: 1
         inheritLast: 0
         inheritCurrent: 1
-        speed: 0
+        speed: 1.12
         time: 3.4
         delay: 0
         _curve:
@@ -9550,6 +9562,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1016920107}
+  - component: {fileID: 1016920108}
   m_Layer: 0
   m_Name: Menu Handler
   m_TagString: Untagged
@@ -9572,6 +9585,20 @@ Transform:
   m_Father: {fileID: 1832747982}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1016920108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016920106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cae29d2c2b356164ca10c2dd93bfacd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shade: {fileID: 963943371}
+  Menugo: {fileID: 0}
 --- !u!1 &1023571517
 GameObject:
   m_ObjectHideFlags: 0

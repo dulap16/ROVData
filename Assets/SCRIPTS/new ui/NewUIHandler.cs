@@ -57,12 +57,6 @@ public class NewUIHandler : MonoBehaviour
         InitSegments();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void InitSegments()
     {
         foreach(Segment s in segments)
