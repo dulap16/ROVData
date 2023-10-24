@@ -7,9 +7,18 @@ using UnityEngine;
 public class MenuHandler : MonoBehaviour
 {
     public ObjectToBeLerped shade;
-    public GameObject Menugo;
+    private ObjectToBeLerped menuGo;
+    private ObjectToBeLerped sidePanelGo;
+    private ObjectToBeLerped mapGo;
 
     private bool menuShown = false;
+
+    void Start()
+    {
+        sidePanelGo = GameObject.Find("Side Panel").GetComponent<ObjectToBeLerped>();
+        mapGo = GameObject.Find("Map").GetComponent<ObjectToBeLerped>();
+        menuGo = GameObject.Find("MENU").GetComponent<ObjectToBeLerped>();
+    }
 
     public void settingsButtonPressed()
     {
@@ -20,10 +29,23 @@ public class MenuHandler : MonoBehaviour
     {
         menuShown = b;
 
-        if (menuShown)
-            shade.GoToStage("fadeIn");
-        else shade.GoToStage("fadeOut");
+        moveObjects();
+    }
 
-        Debug.Log(menuShown);
+    public void moveObjects()
+    {
+        if(menuShown)
+        {
+            shade.GoToStage("fadeIn");
+            menuGo.GoToStage("menuOn");
+            mapGo.GoToStage("menuOn");
+            sidePanelGo.GoToStage("menuOn");
+        } else
+        {
+            shade.GoToStage("fadeOut");
+            menuGo.GoToStage("menuOff");
+            mapGo.GoToStage("menuOff");
+            sidePanelGo.GoToStage("menuOff");
+        }
     }
 }

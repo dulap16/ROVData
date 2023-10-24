@@ -423,11 +423,11 @@ RectTransform:
   - {fileID: 1694672803}
   - {fileID: 856651882}
   m_Father: {fileID: 1065663956}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -409, y: -144}
+  m_AnchoredPosition: {x: -26, y: -270}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.49999917, y: 0.49999976}
 --- !u!1 &15438088
@@ -898,11 +898,11 @@ RectTransform:
   m_Children:
   - {fileID: 863445178}
   m_Father: {fileID: 1065663956}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1165, y: -154}
+  m_AnchoredPosition: {x: -208.99982, y: -269.99997}
   m_SizeDelta: {x: 102.8, y: 20.46}
   m_Pivot: {x: 0.5000002, y: 0.5000001}
 --- !u!114 &86575119
@@ -1911,11 +1911,11 @@ RectTransform:
   m_Children:
   - {fileID: 576890743}
   m_Father: {fileID: 1065663956}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -564, y: 312}
+  m_AnchoredPosition: {x: -147.99982, y: -104.999985}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &244579089
@@ -4598,7 +4598,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 11
+  m_SortingOrder: 5
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.22745098, g: 0.1882353, b: 0.1882353, a: 1}
   m_FlipX: 0
@@ -4618,12 +4618,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 495238696}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1421, y: 112, z: -18.8958}
-  m_LocalScale: {x: 293.94937, y: 568.3534, z: 3697.9917}
+  m_LocalPosition: {x: -103, y: -24, z: -18.8958}
+  m_LocalScale: {x: 426.87134, y: 579.72046, z: 3697.9917}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1065663956}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &514100842
 GameObject:
@@ -5782,11 +5782,11 @@ RectTransform:
   m_Children:
   - {fileID: 1561898038}
   m_Father: {fileID: 1065663956}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -594, y: 233}
+  m_AnchoredPosition: {x: -211.99982, y: -135.99998}
   m_SizeDelta: {x: 141.18, y: 27.46}
   m_Pivot: {x: 0.50000036, y: 0.50000036}
 --- !u!114 &689525840
@@ -6751,12 +6751,12 @@ RectTransform:
   m_Children:
   - {fileID: 419585393}
   m_Father: {fileID: 1065663956}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -389, y: 330}
-  m_SizeDelta: {x: 186.83, y: 30.49}
+  m_AnchoredPosition: {x: -219.99982, y: 166.24}
+  m_SizeDelta: {x: 141.82, y: 30.49}
   m_Pivot: {x: 0.5000004, y: 0.5}
 --- !u!114 &810906007
 MonoBehaviour:
@@ -7350,7 +7350,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -502, y: 861}
+  m_AnchoredPosition: {x: -484, y: 861}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &856651881
@@ -9598,7 +9598,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shade: {fileID: 963943371}
-  Menugo: {fileID: 0}
 --- !u!1 &1023571517
 GameObject:
   m_ObjectHideFlags: 0
@@ -9822,6 +9821,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1065663956}
+  - component: {fileID: 1065663957}
   m_Layer: 5
   m_Name: MENU
   m_TagString: Untagged
@@ -9838,26 +9838,208 @@ RectTransform:
   m_GameObject: {fileID: 1065663955}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.95, y: 0.95, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 495238698}
   - {fileID: 13820771}
-  - {fileID: 1837762007}
-  - {fileID: 1300124242}
   - {fileID: 689525839}
   - {fileID: 810906006}
-  - {fileID: 1921134890}
   - {fileID: 230137562}
+  - {fileID: 1837762007}
+  - {fileID: 1300124242}
+  - {fileID: 1921134890}
   - {fileID: 86575118}
-  - {fileID: 495238698}
   m_Father: {fileID: 1371969713}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -830, y: 266}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 434, y: 385}
+  m_SizeDelta: {x: 94.6, y: 104.23}
+  m_Pivot: {x: 0.49999985, y: 0.50000006}
+--- !u!114 &1065663957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065663955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b2b7cd5d45d40548aeee4b118800dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  consecutive: 0
+  stages:
+    stages:
+    - name: menuOn
+      positionLerper:
+        useTime: 1
+        willLerp: 1
+        inheritLast: 0
+        inheritCurrent: 1
+        speed: 0
+        time: 3
+        delay: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 1
+            outSlope: 1
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 1
+            outSlope: 1
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 0
+        init: {x: 0, y: 0, z: 0}
+        final: {x: 32, y: 385, z: 0}
+      scaleLerper:
+        useTime: 0
+        willLerp: 0
+        inheritLast: 0
+        inheritCurrent: 0
+        speed: 0
+        time: 0
+        delay: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        init: {x: 0, y: 0, z: 0}
+        final: {x: 0, y: 0, z: 0}
+      colorLerper:
+        useTime: 0
+        willLerp: 0
+        inheritLast: 0
+        inheritCurrent: 0
+        speed: 0
+        time: 0
+        delay: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        init: {r: 0, g: 0, b: 0, a: 0}
+        final: {r: 0, g: 0, b: 0, a: 0}
+      rotationLerper:
+        useTime: 0
+        willLerp: 0
+        inheritLast: 0
+        inheritCurrent: 0
+        speed: 0
+        time: 0
+        delay: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        init: {x: 0, y: 0, z: 0, w: 0}
+        final: {x: 0, y: 0, z: 0, w: 0}
+    - name: menuOff
+      positionLerper:
+        useTime: 1
+        willLerp: 1
+        inheritLast: 0
+        inheritCurrent: 1
+        speed: 0
+        time: 3
+        delay: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 1
+            outSlope: 1
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 1
+            outSlope: 1
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 0
+        init: {x: 0, y: 0, z: 0}
+        final: {x: 434, y: 385, z: 0}
+      scaleLerper:
+        useTime: 0
+        willLerp: 0
+        inheritLast: 0
+        inheritCurrent: 0
+        speed: 0
+        time: 0
+        delay: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        init: {x: 0, y: 0, z: 0}
+        final: {x: 0, y: 0, z: 0}
+      colorLerper:
+        useTime: 0
+        willLerp: 0
+        inheritLast: 0
+        inheritCurrent: 0
+        speed: 0
+        time: 0
+        delay: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        init: {r: 0, g: 0, b: 0, a: 0}
+        final: {r: 0, g: 0, b: 0, a: 0}
+      rotationLerper:
+        useTime: 0
+        willLerp: 0
+        inheritLast: 0
+        inheritCurrent: 0
+        speed: 0
+        time: 0
+        delay: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        init: {x: 0, y: 0, z: 0, w: 0}
+        final: {x: 0, y: 0, z: 0, w: 0}
+    current: 0
 --- !u!1 &1101405591
 GameObject:
   m_ObjectHideFlags: 0
@@ -11644,13 +11826,13 @@ RectTransform:
   - {fileID: 1370386895}
   - {fileID: 644440629}
   m_Father: {fileID: 1065663956}
-  m_RootOrder: 2
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -878, y: 188}
+  m_AnchoredPosition: {x: 50.000183, y: 24.000015}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.50000006, y: 0.50000006}
+  m_Pivot: {x: 0.4999999, y: 0.5000001}
 --- !u!1 &1336543740
 GameObject:
   m_ObjectHideFlags: 0
@@ -14201,6 +14383,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1687773362}
   - component: {fileID: 1687773361}
+  - component: {fileID: 1687773363}
   m_Layer: 0
   m_Name: Side Panel
   m_TagString: Untagged
@@ -14268,7 +14451,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687773360}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -210.01031, y: -500.5769, z: -18.8958}
+  m_LocalPosition: {x: -210, y: -500, z: -18.8958}
   m_LocalScale: {x: 298.34198, y: 576.17535, z: 3697.9917}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14277,6 +14460,188 @@ Transform:
   m_Father: {fileID: 852226718}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1687773363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687773360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b2b7cd5d45d40548aeee4b118800dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  consecutive: 0
+  stages:
+    stages:
+    - name: menuOn
+      positionLerper:
+        useTime: 1
+        willLerp: 1
+        inheritLast: 0
+        inheritCurrent: 1
+        speed: 0
+        time: 3
+        delay: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 1
+            outSlope: 1
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 1
+            outSlope: 1
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 0
+        init: {x: 0, y: 0, z: 0}
+        final: {x: -509, y: -500, z: 0}
+      scaleLerper:
+        useTime: 0
+        willLerp: 0
+        inheritLast: 0
+        inheritCurrent: 0
+        speed: 0
+        time: 0
+        delay: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        init: {x: 0, y: 0, z: 0}
+        final: {x: 0, y: 0, z: 0}
+      colorLerper:
+        useTime: 0
+        willLerp: 0
+        inheritLast: 0
+        inheritCurrent: 0
+        speed: 0
+        time: 0
+        delay: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        init: {r: 0, g: 0, b: 0, a: 0}
+        final: {r: 0, g: 0, b: 0, a: 0}
+      rotationLerper:
+        useTime: 0
+        willLerp: 0
+        inheritLast: 0
+        inheritCurrent: 0
+        speed: 0
+        time: 0
+        delay: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        init: {x: 0, y: 0, z: 0, w: 0}
+        final: {x: 0, y: 0, z: 0, w: 0}
+    - name: menuOff
+      positionLerper:
+        useTime: 1
+        willLerp: 1
+        inheritLast: 0
+        inheritCurrent: 1
+        speed: 0
+        time: 8.35
+        delay: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 1
+            outSlope: 1
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 1
+            outSlope: 1
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 0
+        init: {x: 0, y: 0, z: 0}
+        final: {x: -210, y: -500, z: 0}
+      scaleLerper:
+        useTime: 0
+        willLerp: 0
+        inheritLast: 0
+        inheritCurrent: 0
+        speed: 0
+        time: 0
+        delay: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        init: {x: 0, y: 0, z: 0}
+        final: {x: 0, y: 0, z: 0}
+      colorLerper:
+        useTime: 0
+        willLerp: 0
+        inheritLast: 0
+        inheritCurrent: 0
+        speed: 0
+        time: 0
+        delay: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        init: {r: 0, g: 0, b: 0, a: 0}
+        final: {r: 0, g: 0, b: 0, a: 0}
+      rotationLerper:
+        useTime: 0
+        willLerp: 0
+        inheritLast: 0
+        inheritCurrent: 0
+        speed: 0
+        time: 0
+        delay: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        init: {x: 0, y: 0, z: 0, w: 0}
+        final: {x: 0, y: 0, z: 0, w: 0}
+    current: 0
 --- !u!1 &1694672802
 GameObject:
   m_ObjectHideFlags: 0
@@ -14457,6 +14822,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1719835713}
+  - component: {fileID: 1719835714}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -14489,6 +14855,188 @@ RectTransform:
   m_AnchoredPosition: {x: 635.8, y: 293}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1719835714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719835712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b2b7cd5d45d40548aeee4b118800dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  consecutive: 0
+  stages:
+    stages:
+    - name: menuOn
+      positionLerper:
+        useTime: 1
+        willLerp: 1
+        inheritLast: 0
+        inheritCurrent: 1
+        speed: 0
+        time: 3
+        delay: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 1
+            outSlope: 1
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 1
+            outSlope: 1
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 0
+        init: {x: 0, y: 0, z: 0}
+        final: {x: 309, y: 293, z: 0}
+      scaleLerper:
+        useTime: 0
+        willLerp: 0
+        inheritLast: 0
+        inheritCurrent: 0
+        speed: 0
+        time: 0
+        delay: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        init: {x: 0, y: 0, z: 0}
+        final: {x: 0, y: 0, z: 0}
+      colorLerper:
+        useTime: 0
+        willLerp: 0
+        inheritLast: 0
+        inheritCurrent: 0
+        speed: 0
+        time: 0
+        delay: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        init: {r: 0, g: 0, b: 0, a: 0}
+        final: {r: 0, g: 0, b: 0, a: 0}
+      rotationLerper:
+        useTime: 0
+        willLerp: 0
+        inheritLast: 0
+        inheritCurrent: 0
+        speed: 0
+        time: 0
+        delay: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        init: {x: 0, y: 0, z: 0, w: 0}
+        final: {x: 0, y: 0, z: 0, w: 0}
+    - name: menuOff
+      positionLerper:
+        useTime: 1
+        willLerp: 1
+        inheritLast: 0
+        inheritCurrent: 1
+        speed: 0
+        time: 3
+        delay: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 1
+            outSlope: 1
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 1
+            outSlope: 1
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 0
+        init: {x: 0, y: 0, z: 0}
+        final: {x: 635.8, y: 293, z: 0}
+      scaleLerper:
+        useTime: 0
+        willLerp: 0
+        inheritLast: 0
+        inheritCurrent: 0
+        speed: 0
+        time: 0
+        delay: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        init: {x: 0, y: 0, z: 0}
+        final: {x: 0, y: 0, z: 0}
+      colorLerper:
+        useTime: 0
+        willLerp: 0
+        inheritLast: 0
+        inheritCurrent: 0
+        speed: 0
+        time: 0
+        delay: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        init: {r: 0, g: 0, b: 0, a: 0}
+        final: {r: 0, g: 0, b: 0, a: 0}
+      rotationLerper:
+        useTime: 0
+        willLerp: 0
+        inheritLast: 0
+        inheritCurrent: 0
+        speed: 0
+        time: 0
+        delay: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        init: {x: 0, y: 0, z: 0, w: 0}
+        final: {x: 0, y: 0, z: 0, w: 0}
+    current: 0
 --- !u!1 &1739758260
 GameObject:
   m_ObjectHideFlags: 0
@@ -15052,11 +15600,11 @@ RectTransform:
   - {fileID: 882216090}
   - {fileID: 1023571518}
   m_Father: {fileID: 1065663956}
-  m_RootOrder: 1
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1149, y: 24}
+  m_AnchoredPosition: {x: -210.39984, y: -28.999985}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1871601810
@@ -15999,11 +16547,11 @@ RectTransform:
   - {fileID: 2117150528}
   - {fileID: 1199913593}
   m_Father: {fileID: 1065663956}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1144, y: 334}
+  m_AnchoredPosition: {x: -219.99982, y: 210.00002}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1921134891
