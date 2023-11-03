@@ -68,6 +68,6 @@ public class NewUIHandler : MonoBehaviour
     public void SelectedRegionChanged()
     {
         selectedRegion = mainHandler.current;
-        selectedRegionTMP.text = selectedRegion.CapitaliseForPreview(selectedRegion.name);
+        mainHandler.Selected(selectedRegion);
     }
 }
