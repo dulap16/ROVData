@@ -191,7 +191,6 @@ public class Handler : MonoBehaviour
     public void ChangeOption(string regionName)
     {
         int index = dd.options.FindIndex((i) => { return i.text.Equals(regionName); });
-        Debug.Log(index);
 
         dd.value = index;
     }
