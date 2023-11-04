@@ -125,7 +125,6 @@ public class PresentationPageHandler : MonoBehaviour
     public void PresentationPageButtonClicked()
     {
         // valuePage.SetActive(false);
-        valuePage.Hide();
 
         // GetComponent<GameObject>().SetActive(true);
         Show();

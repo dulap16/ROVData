@@ -41,7 +41,7 @@ public class Handler : MonoBehaviour
     // LIMIT SLIDERS
     public int ll;
     public int ul;
-    public SliderManager sm;
+    public LimitsManager limitsManager;
 
     public bool colored = true;
     public Color selectionColor;
@@ -103,7 +103,7 @@ public class Handler : MonoBehaviour
 
     public void JudetChanged()
     {
-        ResetClick();
+        limitsManager.Reset();
 
         // REPEAT HANDLER START()
         foreach (Transform child in blender.transform)
@@ -191,7 +191,6 @@ public class Handler : MonoBehaviour
     public void ChangeOption(string regionName)
     {
         int index = dd.options.FindIndex((i) => { return i.text.Equals(regionName); });
-        Debug.Log(index);
 
         dd.value = index;
     }
@@ -259,34 +258,10 @@ public class Handler : MonoBehaviour
         catch { }
     }
 
-    public void ResetClick()
-    {
-        selectedValuesOnly = false;
-
-        try
-        {
-            lowerLimit.text = "0";
-            upperLimit.text = max.ToString();           // MAX
-        }
-        catch { }
-
-        
-        sm.Reset();
-        foreach (Transform child in judetGO.transform)
-        {
-            OverlappingRegion childScript = child.GetComponent<OverlappingRegion>();
-            childScript.SetTargetAlpha(childScript.initialAlpha);
-            childScript.ind.HideOutline();
-            childScript.ind.FadeIn();
-        }
-
-        if(mode != 0)
-            Transparent();
-    }
 
     public bool isReset()
     {
-        if (lowerLimit.text == "0" && upperLimit.text == max.ToString())
+        if (limitsManager._lowerValue == 0 && limitsManager._upperValue == max)
             return true;
         else return false;
     }

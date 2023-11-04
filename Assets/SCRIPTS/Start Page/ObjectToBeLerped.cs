@@ -195,7 +195,7 @@ namespace Assets.SCRIPTS.Start_Page
                 s.changeOneInitialValue("scale", go.transform.localScale);
 
             if (s.getLerper("color").willInheritCurrent())
-                s.changeOneInitialValue("color", go.GetComponent<SpriteRenderer>());
+                s.changeOneInitialValue("color", go.GetComponent<SpriteRenderer>().color);
 
             if (s.getLerper("rotation").willInheritCurrent())
                 s.changeOneInitialValue("rotation", go.transform.rotation);

@@ -57,12 +57,6 @@ public class NewUIHandler : MonoBehaviour
         InitSegments();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void InitSegments()
     {
         foreach(Segment s in segments)
@@ -74,6 +68,6 @@ public class NewUIHandler : MonoBehaviour
     public void SelectedRegionChanged()
     {
         selectedRegion = mainHandler.current;
-        selectedRegionTMP.text = selectedRegion.CapitaliseForPreview(selectedRegion.name);
+        mainHandler.Selected(selectedRegion);
     }
 }
