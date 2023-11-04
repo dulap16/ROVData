@@ -11,8 +11,6 @@ public class VisualsManager : MonoBehaviour
     // CADASTRE SETTINGS
     public GameObject cadastre = null;
     private Material cadMat;
-    private Vector3 initCadPos;
-    private Vector3 targetCadPos;
 
     public Slider cadOpacSlider;
     public TMP_Text cadOpacTag;
@@ -41,10 +39,6 @@ public class VisualsManager : MonoBehaviour
     public void JudetChanged()
     {
         cadMat = cadastre.GetComponent<Renderer>().material;
-
-        // CADASTRE
-        initCadPos = cadastre.transform.localPosition;
-        targetCadPos = new Vector3(500, 0, 0);
 
         titleIF.text = handler.curentJudet;
         title.text = handler.curentJudet;

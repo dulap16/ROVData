@@ -1,0 +1,4 @@
+repository "Proiect Galati - Git@kokoler05@cloud"
+  path "/"
+    br "/main"
+    co "/main"
