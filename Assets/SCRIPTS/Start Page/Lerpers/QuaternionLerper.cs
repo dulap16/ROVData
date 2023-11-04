@@ -22,5 +22,16 @@ namespace Assets.SCRIPTS.Start_Page.Lerpers
         {
             return final;
         }
+
+        public float calculateSpeed(float time)
+        {
+            float distance = Mathf.Abs(init.eulerAngles.z - final.eulerAngles.z);
+            return distance / time;
+        }
+
+        public void assignSpeedAsTime()
+        {
+            speed = calculateSpeed(time);
+        }
     }
 }

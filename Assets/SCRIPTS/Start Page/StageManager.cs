@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.Rendering;
 
 namespace Assets.SCRIPTS.Start_Page
 {
@@ -17,6 +18,12 @@ namespace Assets.SCRIPTS.Start_Page
                 stages = new List<Stage>();
 
             stages.Add(stage);
+        }
+
+        public void TimeToSpeedWhereNeeded()
+        {
+            foreach(Stage s in stages)
+                s.TimeToSpeedIfNeeded();
         }
 
         public bool goToNextStage()
@@ -53,6 +60,32 @@ namespace Assets.SCRIPTS.Start_Page
         public void setCurrent(int x)
         {
             current = x;
+        }
+
+        public void setCurrent(string name)
+        {
+            int index = getIndexOfName(name);
+            if (index != -1)
+                current = index;
+            else Debug.Log("ERROR: name not found: " + name);
+        }
+
+        public int getIndexOfName(string name)
+        {
+            for(int i = 0; i < stages.Count; i++)
+            {
+                if(stages[i].name == name)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
+        public void setStage(int index, Stage s)
+        {
+            stages[index] = s;
         }
 
         public void setStageOfIndex(int i, Stage stage)

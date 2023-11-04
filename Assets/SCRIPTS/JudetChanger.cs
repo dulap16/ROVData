@@ -53,7 +53,7 @@ public class JudetChanger : MonoBehaviour
     public DisplayModeHandler dmHandler;
     public SymbolManager sm;
     public DatasetHandler dh;
-    public PresentationPageHandler ppHandler;
+    public VisualsManager visualsManager;
     public GameObject pointsGroup;
 
     public string First;
@@ -149,8 +149,9 @@ public class JudetChanger : MonoBehaviour
             child.GetComponent<MeshCollider>().material = phys;
         }
 
-        h.start();
-        ppHandler.JudetChanged();
+        h.Start();
+        visualsManager.cadastre = cad.gameObject;
+        visualsManager.JudetChanged();
         
         h.judetGO = newJudet;
 
@@ -222,8 +223,8 @@ public class JudetChanger : MonoBehaviour
             child.GetComponent<MeshCollider>().material = phys;
         }
 
-        h.start();
-        ppHandler.JudetChanged();
+        h.Start();
+        visualsManager.JudetChanged();
 
         h.judetGO = newJudet;
 

@@ -286,11 +286,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b2b7cd5d45d40548aeee4b118800dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  consecutive: 0
   stages:
     stages:
-    - positionLerper:
+    - name: 
+      positionLerper:
         willLerp: 1
         inheritLast: 1
+        inheritCurrent: 0
         speed: 0.2
         delay: 4.7
         _curve:
@@ -331,6 +334,7 @@ MonoBehaviour:
       scaleLerper:
         willLerp: 0
         inheritLast: 0
+        inheritCurrent: 0
         speed: 0
         delay: 0
         _curve:
@@ -344,6 +348,7 @@ MonoBehaviour:
       colorLerper:
         willLerp: 0
         inheritLast: 0
+        inheritCurrent: 0
         speed: 0
         delay: 0
         _curve:
@@ -357,6 +362,7 @@ MonoBehaviour:
       rotationLerper:
         willLerp: 0
         inheritLast: 0
+        inheritCurrent: 0
         speed: 0
         delay: 0
         _curve:
@@ -450,6 +456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logo: {fileID: 925046830}
+  isStartPage: 1
   objectList:
   - {fileID: 1816182966}
   - {fileID: 1076926342}
@@ -568,11 +575,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b2b7cd5d45d40548aeee4b118800dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  consecutive: 1
   stages:
     stages:
-    - positionLerper:
+    - name: 
+      positionLerper:
         willLerp: 1
         inheritLast: 1
+        inheritCurrent: 0
         speed: 0.3
         delay: 2
         _curve:
@@ -604,6 +614,7 @@ MonoBehaviour:
       scaleLerper:
         willLerp: 0
         inheritLast: 0
+        inheritCurrent: 0
         speed: 0.3
         delay: 2.4
         _curve:
@@ -635,6 +646,7 @@ MonoBehaviour:
       colorLerper:
         willLerp: 1
         inheritLast: 0
+        inheritCurrent: 0
         speed: 0.3
         delay: 2
         _curve:
@@ -666,6 +678,7 @@ MonoBehaviour:
       rotationLerper:
         willLerp: 0
         inheritLast: 0
+        inheritCurrent: 0
         speed: 0
         delay: 0
         _curve:
@@ -676,9 +689,11 @@ MonoBehaviour:
           m_RotationOrder: 4
         init: {x: 0, y: 0, z: 0, w: 0}
         final: {x: 0, y: 0, z: 0, w: 0}
-    - positionLerper:
+    - name: 
+      positionLerper:
         willLerp: 1
         inheritLast: 1
+        inheritCurrent: 0
         speed: 0.3
         delay: 2
         _curve:
@@ -728,6 +743,7 @@ MonoBehaviour:
       scaleLerper:
         willLerp: 1
         inheritLast: 0
+        inheritCurrent: 0
         speed: 0.3
         delay: 2
         _curve:
@@ -777,6 +793,7 @@ MonoBehaviour:
       colorLerper:
         willLerp: 0
         inheritLast: 0
+        inheritCurrent: 0
         speed: 0.3
         delay: 2
         _curve:
@@ -808,6 +825,7 @@ MonoBehaviour:
       rotationLerper:
         willLerp: 0
         inheritLast: 0
+        inheritCurrent: 0
         speed: 0
         delay: 0
         _curve:
@@ -818,9 +836,11 @@ MonoBehaviour:
           m_RotationOrder: 4
         init: {x: 0, y: 0, z: 0, w: 0}
         final: {x: 0, y: 0, z: 0, w: 0}
-    - positionLerper:
+    - name: 
+      positionLerper:
         willLerp: 0
         inheritLast: 0
+        inheritCurrent: 0
         speed: 0.3
         delay: 2
         _curve:
@@ -870,6 +890,7 @@ MonoBehaviour:
       scaleLerper:
         willLerp: 0
         inheritLast: 0
+        inheritCurrent: 0
         speed: 0.3
         delay: 2
         _curve:
@@ -919,6 +940,7 @@ MonoBehaviour:
       colorLerper:
         willLerp: 1
         inheritLast: 0
+        inheritCurrent: 0
         speed: 0.4
         delay: 2
         _curve:
@@ -950,6 +972,7 @@ MonoBehaviour:
       rotationLerper:
         willLerp: 0
         inheritLast: 0
+        inheritCurrent: 0
         speed: 0
         delay: 0
         _curve:
@@ -1006,11 +1029,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b2b7cd5d45d40548aeee4b118800dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  consecutive: 0
   stages:
     stages:
-    - positionLerper:
+    - name: 
+      positionLerper:
         willLerp: 1
         inheritLast: 1
+        inheritCurrent: 0
         speed: 0.25
         delay: 3.3
         _curve:
@@ -1051,6 +1077,7 @@ MonoBehaviour:
       scaleLerper:
         willLerp: 0
         inheritLast: 0
+        inheritCurrent: 0
         speed: 0
         delay: 0
         _curve:
@@ -1064,6 +1091,7 @@ MonoBehaviour:
       colorLerper:
         willLerp: 0
         inheritLast: 0
+        inheritCurrent: 0
         speed: 0
         delay: 0
         _curve:
@@ -1077,6 +1105,7 @@ MonoBehaviour:
       rotationLerper:
         willLerp: 0
         inheritLast: 0
+        inheritCurrent: 0
         speed: 0
         delay: 0
         _curve:
@@ -1455,11 +1484,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b2b7cd5d45d40548aeee4b118800dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  consecutive: 0
   stages:
     stages:
-    - positionLerper:
+    - name: 
+      positionLerper:
         willLerp: 1
         inheritLast: 1
+        inheritCurrent: 0
         speed: 0.25
         delay: 3.3
         _curve:
@@ -1500,6 +1532,7 @@ MonoBehaviour:
       scaleLerper:
         willLerp: 0
         inheritLast: 0
+        inheritCurrent: 0
         speed: 0
         delay: 0
         _curve:
@@ -1513,6 +1546,7 @@ MonoBehaviour:
       colorLerper:
         willLerp: 0
         inheritLast: 0
+        inheritCurrent: 0
         speed: 0
         delay: 0
         _curve:
@@ -1526,6 +1560,7 @@ MonoBehaviour:
       rotationLerper:
         willLerp: 0
         inheritLast: 0
+        inheritCurrent: 0
         speed: 0
         delay: 0
         _curve:
@@ -1721,11 +1756,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b2b7cd5d45d40548aeee4b118800dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  consecutive: 0
   stages:
     stages:
-    - positionLerper:
+    - name: 
+      positionLerper:
         willLerp: 1
         inheritLast: 1
+        inheritCurrent: 0
         speed: 0.35
         delay: 7.5
         _curve:
@@ -1766,6 +1804,7 @@ MonoBehaviour:
       scaleLerper:
         willLerp: 0
         inheritLast: 0
+        inheritCurrent: 0
         speed: 0
         delay: 0
         _curve:
@@ -1779,6 +1818,7 @@ MonoBehaviour:
       colorLerper:
         willLerp: 0
         inheritLast: 0
+        inheritCurrent: 0
         speed: 0
         delay: 0
         _curve:
@@ -1792,6 +1832,7 @@ MonoBehaviour:
       rotationLerper:
         willLerp: 0
         inheritLast: 0
+        inheritCurrent: 0
         speed: 0
         delay: 0
         _curve:

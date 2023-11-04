@@ -30,7 +30,6 @@ public class SymbolManager : MonoBehaviour
 
         generated = false;
         judet = handler.judetGO;
-        Debug.Log(judet.name);
 
         list = handler.CalculateBoundsOfGroup();
         xmin = list[0]; xmax = list[1]; ymin = list[2]; ymax = list[3];

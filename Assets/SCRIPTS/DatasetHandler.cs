@@ -89,7 +89,7 @@ public class DatasetHandler : MonoBehaviour
         titleField.text = fileName;
 
 
-        h.ResetClick();
+        h.limitsManager.Reset();
         string[] lines = System.IO.File.ReadAllLines(filePath);
 
         List<string> counties = new List<string>();

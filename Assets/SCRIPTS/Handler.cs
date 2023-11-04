@@ -11,6 +11,8 @@ public class Handler : MonoBehaviour
 {
     // HANDLES MOST ELEMENTS OF THE APP
 
+    public NewUIHandler newUIHandler;
+
 
     // SELECTION
     public bool selectedValuesOnly = false;
@@ -39,7 +41,7 @@ public class Handler : MonoBehaviour
     // LIMIT SLIDERS
     public int ll;
     public int ul;
-    public SliderManager sm;
+    public LimitsManager limitsManager;
 
     public bool colored = true;
     public Color selectionColor;
@@ -57,7 +59,7 @@ public class Handler : MonoBehaviour
     public string curentJudet = "Alba";
     public PresentationPageHandler pphandler;
 
-    public void start()
+    public void Start()
     {
         foreach(Transform child in blender.transform)
         {
@@ -66,13 +68,12 @@ public class Handler : MonoBehaviour
             else judetGO = child.gameObject;
         }
 
-        pphandler.cadastre = cadastru;
+        /*pphandler.cadastre = cadastru;*/
 
         dictionary = new Dictionary<string, int>();
 
         foreach (Transform child in judetGO.transform)
         {
-            //  Debug.Log(child.name);
             string n = child.gameObject.name;
 
             if (n.Contains("."))
@@ -81,7 +82,6 @@ public class Handler : MonoBehaviour
             }
 
             n = n.ToLower();
-            // Debug.Log(n);
             dictionary.Add(n, 0);
         }
 
@@ -103,7 +103,7 @@ public class Handler : MonoBehaviour
 
     public void JudetChanged()
     {
-        ResetClick();
+        limitsManager.Reset();
 
         // REPEAT HANDLER START()
         foreach (Transform child in blender.transform)
@@ -157,6 +157,7 @@ public class Handler : MonoBehaviour
         current = optionInd;
         current.selected = true;
         current.ind.selected = true;
+        newUIHandler.SelectedRegionChanged();
         // --------------
 
         if (optionInd.CheckWithinLimits(optionInd.value))
@@ -190,7 +191,6 @@ public class Handler : MonoBehaviour
     public void ChangeOption(string regionName)
     {
         int index = dd.options.FindIndex((i) => { return i.text.Equals(regionName); });
-        Debug.Log(index);
 
         dd.value = index;
     }
@@ -214,6 +214,8 @@ public class Handler : MonoBehaviour
 
     public void ValuesClick()
     {
+        Debug.Log("changed");
+
         try
         {
             selectedValuesOnly = true;
@@ -221,8 +223,8 @@ public class Handler : MonoBehaviour
             ll = Int32.Parse(lowerLimit.text);
             ul = Int32.Parse(upperLimit.text);
 
-            sm.SetLowerValue(ll);
-            sm.SetUpperValue(ul);
+            /*sm.SetLowerValue(ll);
+            sm.SetUpperValue(ul);*/
 
             foreach (Transform child in judetGO.transform)
             {
@@ -256,34 +258,10 @@ public class Handler : MonoBehaviour
         catch { }
     }
 
-    public void ResetClick()
-    {
-        selectedValuesOnly = false;
-
-        try
-        {
-            lowerLimit.text = "0";
-            upperLimit.text = max.ToString();           // MAX
-        }
-        catch { }
-
-        
-        sm.Reset();
-        foreach (Transform child in judetGO.transform)
-        {
-            OverlappingRegion childScript = child.GetComponent<OverlappingRegion>();
-            childScript.SetTargetAlpha(childScript.initialAlpha);
-            childScript.ind.HideOutline();
-            childScript.ind.FadeIn();
-        }
-
-        if(mode != 0)
-            Transparent();
-    }
 
     public bool isReset()
     {
-        if (lowerLimit.text == "0" && upperLimit.text == max.ToString())
+        if (limitsManager._lowerValue == 0 && limitsManager._upperValue == max)
             return true;
         else return false;
     }
@@ -414,6 +392,7 @@ public class Handler : MonoBehaviour
 
         return new string(newName);
     }
+
 
     public bool nrFormattingOn = false;
     public void ToggleNrFormatting()

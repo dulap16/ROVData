@@ -1,4 +1,5 @@
 using Assets.SCRIPTS.Start_Page;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,14 +24,14 @@ public class Vector3Lerper : Lerper
         return final;
     }
 
-    /*public Lerper ToLerper()
+    public float calculateSpeed(float time)
     {
-        Lerper x = new Lerper();
-        x.speed = speed;
-        x.delay = delay;
-        x._curve = _curve;
-        x.willLerp = willLerp;
+        float distance = Vector3.Distance(init, final);
+        return distance / time;
+    }
 
-        return x;
-    }*/
+    public void assignSpeedAsTime()
+    {
+        speed = calculateSpeed(time);
+    }
 }

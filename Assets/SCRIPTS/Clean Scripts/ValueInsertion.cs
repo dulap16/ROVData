@@ -1,56 +1,14 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
 
-public class ValuePageHandler : MonoBehaviour
+public class ValueInsertion
 {
-    // CONTROLS THE CHANGING OF VALUES
-
-
-    // FOR WHEN CHANGING TO PRESENTATION
-    public Handler handler;
-    public PresentationPageHandler presentationPage;
-    public GameObject massValueInputgo;
-    public GameObject insertValuesButton;
-
-
-    // FOR MASS VALUE INPUT
-    private TMP_InputField massValueInput;
-    private bool sheetShown = true;
-    private Vector3 initIFPos;
-    private Vector3 hiddIFPos;
-
-    // Start is called before the first frame update
-    void Start()
+    public void InsertValuesClicked(Handler handler, TMP_InputField valueInsertionIF)
     {
-
-        initIFPos = massValueInputgo.transform.localPosition;
-        hiddIFPos = new Vector3(500, 0, 0);
-
-        MassValueInsertionClicked();
-        massValueInput = massValueInputgo.transform.Find("InputField").GetComponent<TMP_InputField>();
-    }
-
-    public void MassValueInsertionClicked()
-    {
-        if (sheetShown)
-        {
-            sheetShown = false;
-            massValueInputgo.transform.localPosition = hiddIFPos;
-        }
-        else
-        {
-            sheetShown = true;
-            massValueInputgo.transform.localPosition = initIFPos;
-        }
-    }
-
-    public void InsertValuesClicked()
-    {
-        string input = massValueInput.text;
+        string input = valueInsertionIF.text;
         string[] lines = input.Split('\n');
         handler.max = 0;
 
@@ -76,7 +34,7 @@ public class ValuePageHandler : MonoBehaviour
                 string name = "";
                 int val = 0;
 
-                for(int i = 0; i < l; i++)
+                for (int i = 0; i < l; i++)
                 {
                     string firstChar = correctedTokens[i].Substring(0, 1);
                     if (firstChar[0] >= 'a' && firstChar[0] <= 'z')
@@ -93,7 +51,8 @@ public class ValuePageHandler : MonoBehaviour
                 values.Add(val);
 
                 handler.max = Mathf.Max(handler.max, val);
-            } catch(Exception e)
+            }
+            catch (Exception e)
             {
                 Debug.Log(e);
                 Debug.Log(line);
@@ -101,7 +60,7 @@ public class ValuePageHandler : MonoBehaviour
             }
         }
 
-        for(int i = 0; i < counties.Count; i++)
+        for (int i = 0; i < counties.Count; i++)
         {
             /// implement levenshtein distance
 
@@ -156,9 +115,9 @@ public class ValuePageHandler : MonoBehaviour
             dp[0][i] = i;
         }
 
-        for(int i = 1; i <= l1; i++)
+        for (int i = 1; i <= l1; i++)
         {
-            for(int j = 1; j <= l2; j++)
+            for (int j = 1; j <= l2; j++)
             {
                 dp[i][j] = Mathf.Min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]);
 

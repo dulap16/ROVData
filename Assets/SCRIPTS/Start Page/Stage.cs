@@ -9,6 +9,8 @@ namespace Assets.SCRIPTS.Start_Page
     [Serializable]
     public class Stage
     {
+        [SerializeField] public string name;
+
         [SerializeField] private Vector3Lerper positionLerper;
         [SerializeField] private Vector3Lerper scaleLerper;
         [SerializeField] private ColorLerper colorLerper;
@@ -35,11 +37,19 @@ namespace Assets.SCRIPTS.Start_Page
             lerperDict.Add("scale", scaleLerper);
             lerperDict.Add("color", colorLerper);
             lerperDict.Add("rotation", rotationLerper);
+
+
         }
 
         public Lerper getLerper(String name)
         {
             return lerperDict[name];
+        }
+
+        public void TimeToSpeedIfNeeded()
+        {
+            foreach (Lerper l in lerpers)
+                l.TimeToSpeedIfNeeded();
         }
 
         public void LerpAll()
@@ -121,6 +131,18 @@ namespace Assets.SCRIPTS.Start_Page
             return lerperDict[name].WillLerp();
         }
 
+        public void changeOneInitialValue(String name, object value)
+        {
+            if (name == "position")
+                positionLerper.setInit((Vector3)value);
+            if (name == "scale")
+                positionLerper.setInit((Vector3)value);
+            if (name == "color")
+                colorLerper.setInit((Color)value);
+            if (name == "rotation")
+                rotationLerper.setInit((Quaternion)value);
+        }
+
         public void setInitValuesOfStage(Vector3 pos, Vector3 scale, Color color, Quaternion rotation)
         {
             positionLerper.setInit(pos);
@@ -129,7 +151,7 @@ namespace Assets.SCRIPTS.Start_Page
             rotationLerper.setInit(rotation);
         }
 
-        public void setInitIfCase(Vector3 pos, Vector3 scale, Color color, Quaternion rotation)
+        public void setLastIfCase(Vector3 pos, Vector3 scale, Color color, Quaternion rotation)
         {
             if(positionLerper.willInheritLast())
                 positionLerper.setInit(pos);
@@ -138,6 +160,18 @@ namespace Assets.SCRIPTS.Start_Page
             if (colorLerper.willInheritLast())
                 colorLerper.setInit(color);
             if (rotationLerper.willInheritLast())
+                rotationLerper.setInit(rotation);
+        }
+
+        public void setCurrentIfCase(Vector3 pos, Vector3 scale, Color color, Quaternion rotation)
+        {
+            if (positionLerper.willInheritCurrent())
+                positionLerper.setInit(pos);
+            if (scaleLerper.willInheritCurrent())
+                scaleLerper.setInit(scale);
+            if (colorLerper.willInheritCurrent())
+                colorLerper.setInit(color);
+            if (rotationLerper.willInheritCurrent())
                 rotationLerper.setInit(rotation);
         }
     }
