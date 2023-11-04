@@ -7,7 +7,7 @@ using UnityEngine;
 public class MenuHandler : MonoBehaviour
 {
     public ObjectToBeLerped shade;
-    private ObjectToBeLerped menuGo;
+    private ObjectToBeLerped menuGo; 
     private ObjectToBeLerped sidePanelGo;
     private ObjectToBeLerped mapGo;
 

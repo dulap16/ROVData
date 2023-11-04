@@ -3016,7 +3016,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 20, y: 0}
   m_SizeDelta: {x: 160, y: 326.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &308548145
@@ -7969,9 +7969,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ValuePageHandler, Assembly-CSharp
-        m_MethodName: MassValueInsertionClicked
+      - m_Target: {fileID: 1022124962}
+        m_TargetAssemblyTypeName: ValueInserter, Assembly-CSharp
+        m_MethodName: toggleInsertionField
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9598,6 +9598,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shade: {fileID: 963943371}
+--- !u!1 &1022124960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1022124961}
+  - component: {fileID: 1022124962}
+  m_Layer: 0
+  m_Name: Value Inserter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1022124961
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022124960}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1832747982}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1022124962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022124960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17c17783225a2504cb6c4b5a380ce9df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  valInputField: {fileID: 1023571519}
+  handler: {fileID: 0}
+  isFieldShowing: 0
 --- !u!1 &1023571517
 GameObject:
   m_ObjectHideFlags: 0
@@ -9607,6 +9654,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1023571518}
+  - component: {fileID: 1023571519}
   m_Layer: 5
   m_Name: Input
   m_TagString: Untagged
@@ -9633,9 +9681,200 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 182.2, y: -4.6}
+  m_AnchoredPosition: {x: 652, y: -11}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1023571519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023571517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b2b7cd5d45d40548aeee4b118800dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  consecutive: 0
+  stages:
+    stages:
+    - name: show
+      positionLerper:
+        useTime: 1
+        willLerp: 1
+        inheritLast: 1
+        inheritCurrent: 1
+        speed: 0
+        time: 0.001
+        delay: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 1
+            outSlope: 1
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 1
+            outSlope: 1
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 0
+        init: {x: 0, y: 0, z: 0}
+        final: {x: 182.2, y: -4.6, z: 0}
+      scaleLerper:
+        useTime: 0
+        willLerp: 0
+        inheritLast: 0
+        inheritCurrent: 0
+        speed: 0
+        time: 0
+        delay: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        init: {x: 0, y: 0, z: 0}
+        final: {x: 0, y: 0, z: 0}
+      colorLerper:
+        useTime: 0
+        willLerp: 0
+        inheritLast: 0
+        inheritCurrent: 0
+        speed: 0
+        time: 0
+        delay: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        init: {r: 0, g: 0, b: 0, a: 0}
+        final: {r: 0, g: 0, b: 0, a: 0}
+      rotationLerper:
+        useTime: 0
+        willLerp: 0
+        inheritLast: 0
+        inheritCurrent: 0
+        speed: 0
+        time: 0
+        delay: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        init: {x: 0, y: 0, z: 0, w: 0}
+        final: {x: 0, y: 0, z: 0, w: 0}
+    - name: hide
+      positionLerper:
+        useTime: 1
+        willLerp: 1
+        inheritLast: 0
+        inheritCurrent: 1
+        speed: 0
+        time: 0.001
+        delay: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 0.5386032
+            outSlope: 0.5386032
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.9998806
+            value: 0.5385389
+            inSlope: Infinity
+            outSlope: Infinity
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 1
+            value: 0.99834615
+            inSlope: 3851.366
+            outSlope: 3851.366
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 0
+        init: {x: 0, y: 0, z: 0}
+        final: {x: 600, y: 0, z: 0}
+      scaleLerper:
+        useTime: 0
+        willLerp: 0
+        inheritLast: 0
+        inheritCurrent: 0
+        speed: 0
+        time: 0
+        delay: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        init: {x: 0, y: 0, z: 0}
+        final: {x: 0, y: 0, z: 0}
+      colorLerper:
+        useTime: 0
+        willLerp: 0
+        inheritLast: 0
+        inheritCurrent: 0
+        speed: 0
+        time: 0
+        delay: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        init: {r: 0, g: 0, b: 0, a: 0}
+        final: {r: 0, g: 0, b: 0, a: 0}
+      rotationLerper:
+        useTime: 0
+        willLerp: 0
+        inheritLast: 0
+        inheritCurrent: 0
+        speed: 0
+        time: 0
+        delay: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        init: {x: 0, y: 0, z: 0, w: 0}
+        final: {x: 0, y: 0, z: 0, w: 0}
+    current: 0
 --- !u!1 &1035681316
 GameObject:
   m_ObjectHideFlags: 0
@@ -9873,11 +10112,11 @@ MonoBehaviour:
   consecutive: 0
   stages:
     stages:
-    - name: menuOn
+    - name: menuOff
       positionLerper:
         useTime: 0
         willLerp: 1
-        inheritLast: 0
+        inheritLast: 1
         inheritCurrent: 1
         speed: 5
         time: 3
@@ -9907,7 +10146,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 0
         init: {x: 0, y: 0, z: 0}
-        final: {x: 32, y: 385, z: 0}
+        final: {x: 434, y: 385, z: 0}
       scaleLerper:
         useTime: 0
         willLerp: 0
@@ -9956,7 +10195,7 @@ MonoBehaviour:
           m_RotationOrder: 0
         init: {x: 0, y: 0, z: 0, w: 0}
         final: {x: 0, y: 0, z: 0, w: 0}
-    - name: menuOff
+    - name: menuOn
       positionLerper:
         useTime: 0
         willLerp: 1
@@ -9990,7 +10229,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 0
         init: {x: 0, y: 0, z: 0}
-        final: {x: 434, y: 385, z: 0}
+        final: {x: 32, y: 385, z: 0}
       scaleLerper:
         useTime: 0
         willLerp: 0
@@ -10349,9 +10588,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ValuePageHandler, Assembly-CSharp
-        m_MethodName: InsertValuesClicked
+      - m_Target: {fileID: 1022124962}
+        m_TargetAssemblyTypeName: ValueInserter, Assembly-CSharp
+        m_MethodName: insertValuesClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13562,7 +13801,7 @@ MonoBehaviour:
   ratio: 0
   ll: 0
   ul: 0
-  limitsManager: {fileID: 0}
+  limitsManager: {fileID: 707840099}
   colored: 1
   selectionColor: {r: 1, g: 1, b: 1, a: 1}
   lerpTime: 8.02
@@ -14475,14 +14714,14 @@ MonoBehaviour:
   consecutive: 0
   stages:
     stages:
-    - name: menuOn
+    - name: menuOff
       positionLerper:
         useTime: 0
         willLerp: 1
-        inheritLast: 0
+        inheritLast: 1
         inheritCurrent: 1
         speed: 5
-        time: 3
+        time: 8.35
         delay: 0
         _curve:
           serializedVersion: 2
@@ -14509,7 +14748,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 0
         init: {x: 0, y: 0, z: 0}
-        final: {x: -509, y: -500, z: 0}
+        final: {x: -210, y: -500, z: 0}
       scaleLerper:
         useTime: 0
         willLerp: 0
@@ -14558,14 +14797,14 @@ MonoBehaviour:
           m_RotationOrder: 0
         init: {x: 0, y: 0, z: 0, w: 0}
         final: {x: 0, y: 0, z: 0, w: 0}
-    - name: menuOff
+    - name: menuOn
       positionLerper:
         useTime: 0
         willLerp: 1
         inheritLast: 0
         inheritCurrent: 1
         speed: 5
-        time: 8.35
+        time: 3
         delay: 0
         _curve:
           serializedVersion: 2
@@ -14592,7 +14831,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 0
         init: {x: 0, y: 0, z: 0}
-        final: {x: -210, y: -500, z: 0}
+        final: {x: -509, y: -500, z: 0}
       scaleLerper:
         useTime: 0
         willLerp: 0
@@ -14845,11 +15084,11 @@ MonoBehaviour:
   consecutive: 0
   stages:
     stages:
-    - name: menuOn
+    - name: menuOff
       positionLerper:
         useTime: 0
         willLerp: 1
-        inheritLast: 0
+        inheritLast: 1
         inheritCurrent: 1
         speed: 5
         time: 3
@@ -14879,7 +15118,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 0
         init: {x: 0, y: 0, z: 0}
-        final: {x: -477, y: -12, z: 0}
+        final: {x: -145, y: -12, z: 0}
       scaleLerper:
         useTime: 0
         willLerp: 0
@@ -14928,7 +15167,7 @@ MonoBehaviour:
           m_RotationOrder: 0
         init: {x: 0, y: 0, z: 0, w: 0}
         final: {x: 0, y: 0, z: 0, w: 0}
-    - name: menuOff
+    - name: menuOn
       positionLerper:
         useTime: 0
         willLerp: 1
@@ -14962,7 +15201,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 0
         init: {x: 0, y: 0, z: 0}
-        final: {x: -145, y: -12, z: 0}
+        final: {x: -477, y: -12, z: 0}
       scaleLerper:
         useTime: 0
         willLerp: 0
@@ -15565,6 +15804,7 @@ Transform:
   - {fileID: 2067804190}
   - {fileID: 1016920107}
   - {fileID: 2034727315}
+  - {fileID: 1022124961}
   m_Father: {fileID: 514100843}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16441,8 +16681,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 109.7, y: 21.62}
-  m_SizeDelta: {x: 0, y: 150}
+  m_AnchoredPosition: {x: -104.21001, y: 21.619995}
+  m_SizeDelta: {x: 0.000015258789, y: 150}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1901092882
 MonoBehaviour:
