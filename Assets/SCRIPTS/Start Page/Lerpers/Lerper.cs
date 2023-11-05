@@ -17,9 +17,9 @@ namespace Assets.SCRIPTS.Start_Page
 
         private float _current = 0;
         private float _target = 0;
-        [SerializeField] [Range(0, 10)] public float speed;
-        [SerializeField] [Range(0, 10)] public float time;
-        [SerializeField] [Range(0, 20)] public float delay;
+        [SerializeField] [Range(0, 100)] public float speed;
+        [SerializeField] [Range(0, 100)] public float time;
+        [SerializeField] [Range(0, 200)] public float delay;
         [SerializeField] public AnimationCurve _curve;
 
         public void Lerp()
