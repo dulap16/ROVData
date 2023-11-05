@@ -427,7 +427,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -186, y: -298}
+  m_AnchoredPosition: {x: -29.000134, y: -298}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.49999917, y: 0.49999976}
 --- !u!1 &15438088
@@ -902,7 +902,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -237, y: -236}
+  m_AnchoredPosition: {x: -80.00014, y: -236}
   m_SizeDelta: {x: 102.8, y: 20.46}
   m_Pivot: {x: 0.5000002, y: 0.5000001}
 --- !u!114 &86575119
@@ -1915,7 +1915,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -147.99982, y: -104.999985}
+  m_AnchoredPosition: {x: 9, y: -104.999985}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &244579089
@@ -4472,7 +4472,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 495238696}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -159, y: -25, z: -18.8958}
+  m_LocalPosition: {x: 0, y: -25, z: -18.8958}
   m_LocalScale: {x: 311.6161, y: 608.7065, z: 3697.9917}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5640,7 +5640,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -211.99982, y: -135.99998}
+  m_AnchoredPosition: {x: -54.99995, y: -135.99998}
   m_SizeDelta: {x: 141.18, y: 27.46}
   m_Pivot: {x: 0.50000036, y: 0.50000036}
 --- !u!114 &689525840
@@ -6693,7 +6693,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -72, y: 228.75}
+  m_AnchoredPosition: {x: 84.99986, y: 228.75}
   m_SizeDelta: {x: 114.06, y: 29.175}
   m_Pivot: {x: 0.5000004, y: 0.5}
 --- !u!114 &810906007
@@ -9582,7 +9582,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 555, y: -573}
+  m_AnchoredPosition: {x: -893.00006, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1023571519
@@ -9726,7 +9726,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 0
         init: {x: 0, y: 0, z: 0}
-        final: {x: 555, y: -600, z: 0}
+        final: {x: -893, y: -50, z: 0}
       scaleLerper:
         useTime: 0
         willLerp: 0
@@ -9995,7 +9995,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -966, y: 390}
+  m_AnchoredPosition: {x: -694, y: 974}
   m_SizeDelta: {x: 94.6, y: 104.23}
   m_Pivot: {x: 0.49999988, y: 0.49999988}
 --- !u!114 &1065663957
@@ -10047,7 +10047,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 0
         init: {x: 0, y: 0, z: 0}
-        final: {x: -910, y: 390, z: 0}
+        final: {x: -694, y: 974, z: 0}
       scaleLerper:
         useTime: 0
         willLerp: 0
@@ -10130,7 +10130,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 0
         init: {x: 0, y: 0, z: 0}
-        final: {x: -542, y: 390, z: 0}
+        final: {x: -694, y: 390, z: 0}
       scaleLerper:
         useTime: 0
         willLerp: 0
@@ -10443,7 +10443,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 394, y: -562}
+  m_AnchoredPosition: {x: -893, y: -50}
   m_SizeDelta: {x: 108.41, y: 21.71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1139508394
@@ -10672,7 +10672,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 0
         init: {x: 0, y: 0, z: 0}
-        final: {x: 394, y: -600, z: 0}
+        final: {x: -893, y: -50, z: 0}
       scaleLerper:
         useTime: 0
         willLerp: 0
@@ -10853,41 +10853,41 @@ MonoBehaviour:
   consecutive: 0
   stages:
     stages:
-    - name: menuOn
+    - name: menuOff
       positionLerper:
-        useTime: 0
+        useTime: 1
         willLerp: 1
-        inheritLast: 0
-        inheritCurrent: 1
-        speed: 10
-        time: 5
+        inheritLast: 1
+        inheritCurrent: 0
+        speed: 0
+        time: 90
         delay: 0
         _curve:
           serializedVersion: 2
           m_Curve:
           - serializedVersion: 3
-            time: 0
+            time: -0.0006942749
             value: 0
-            inSlope: 1
-            outSlope: 1
-            tangentMode: 34
+            inSlope: -0.07627555
+            outSlope: -0.07627555
+            tangentMode: 0
             weightedMode: 0
             inWeight: 0
-            outWeight: 0
+            outWeight: 0.040249664
           - serializedVersion: 3
             time: 1
             value: 1
-            inSlope: 1
-            outSlope: 1
-            tangentMode: 34
+            inSlope: -0.13011597
+            outSlope: -0.13011597
+            tangentMode: 0
             weightedMode: 0
-            inWeight: 0
+            inWeight: 0.035416663
             outWeight: 0
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 0
         init: {x: 0, y: 0, z: 0}
-        final: {x: 0, y: 0, z: 0}
+        final: {x: -300, y: 0, z: 0}
       scaleLerper:
         useTime: 0
         willLerp: 0
@@ -10936,14 +10936,14 @@ MonoBehaviour:
           m_RotationOrder: 0
         init: {x: 0, y: 0, z: 0, w: 0}
         final: {x: 0, y: 0, z: 0, w: 0}
-    - name: menuOff
+    - name: menuOn
       positionLerper:
-        useTime: 0
+        useTime: 1
         willLerp: 1
         inheritLast: 0
-        inheritCurrent: 1
-        speed: 10
-        time: 5
+        inheritCurrent: 0
+        speed: 0
+        time: 80
         delay: 0
         _curve:
           serializedVersion: 2
@@ -10951,26 +10951,26 @@ MonoBehaviour:
           - serializedVersion: 3
             time: 0
             value: 0
-            inSlope: 1
-            outSlope: 1
-            tangentMode: 34
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
             weightedMode: 0
             inWeight: 0
             outWeight: 0
           - serializedVersion: 3
             time: 1
             value: 1
-            inSlope: 1
-            outSlope: 1
-            tangentMode: 34
+            inSlope: -0.2211995
+            outSlope: -0.2211995
+            tangentMode: 0
             weightedMode: 0
-            inWeight: 0
+            inWeight: 0.03472221
             outWeight: 0
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 0
-        init: {x: 0, y: 0, z: 0}
-        final: {x: -300, y: 0, z: 0}
+        init: {x: -300, y: 0, z: 0}
+        final: {x: 0, y: 0, z: 0}
       scaleLerper:
         useTime: 0
         willLerp: 0
@@ -12240,7 +12240,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 50.000183, y: 24.000015}
+  m_AnchoredPosition: {x: 207.00005, y: 24.000015}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.4999999, y: 0.5000001}
 --- !u!1 &1336543740
@@ -13007,29 +13007,29 @@ MonoBehaviour:
         willLerp: 1
         inheritLast: 1
         inheritCurrent: 1
-        speed: 10
-        time: 5
+        speed: 0
+        time: 50
         delay: 0
         _curve:
           serializedVersion: 2
           m_Curve:
           - serializedVersion: 3
-            time: 0
+            time: -0.0006942749
             value: 0
-            inSlope: 1
-            outSlope: 1
-            tangentMode: 34
+            inSlope: -0.07627555
+            outSlope: -0.07627555
+            tangentMode: 0
             weightedMode: 0
             inWeight: 0
-            outWeight: 0
+            outWeight: 0.040249664
           - serializedVersion: 3
             time: 1
             value: 1
-            inSlope: 1
-            outSlope: 1
-            tangentMode: 34
+            inSlope: -0.13011597
+            outSlope: -0.13011597
+            tangentMode: 0
             weightedMode: 0
-            inWeight: 0
+            inWeight: 0.035416663
             outWeight: 0
           m_PreInfinity: 2
           m_PostInfinity: 2
@@ -13108,8 +13108,8 @@ MonoBehaviour:
         willLerp: 1
         inheritLast: 0
         inheritCurrent: 1
-        speed: 10
-        time: 5
+        speed: 0
+        time: 50
         delay: 0
         _curve:
           serializedVersion: 2
@@ -13117,20 +13117,20 @@ MonoBehaviour:
           - serializedVersion: 3
             time: 0
             value: 0
-            inSlope: 1
-            outSlope: 1
-            tangentMode: 34
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
             weightedMode: 0
             inWeight: 0
             outWeight: 0
           - serializedVersion: 3
             time: 1
             value: 1
-            inSlope: 1
-            outSlope: 1
-            tangentMode: 34
+            inSlope: -0.2211995
+            outSlope: -0.2211995
+            tangentMode: 0
             weightedMode: 0
-            inWeight: 0
+            inWeight: 0.03472221
             outWeight: 0
           m_PreInfinity: 2
           m_PostInfinity: 2
@@ -15239,7 +15239,7 @@ MonoBehaviour:
     stages:
     - name: settingsOff
       positionLerper:
-        useTime: 0
+        useTime: 1
         willLerp: 1
         inheritLast: 1
         inheritCurrent: 1
@@ -15322,7 +15322,7 @@ MonoBehaviour:
         final: {x: 0, y: 0, z: 0, w: 0}
     - name: settingsOn
       positionLerper:
-        useTime: 0
+        useTime: 1
         willLerp: 1
         inheritLast: 0
         inheritCurrent: 1
@@ -15354,7 +15354,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 0
         init: {x: 0, y: 0, z: 0}
-        final: {x: -1121, y: 361, z: 0}
+        final: {x: -694, y: -223, z: 0}
       scaleLerper:
         useTime: 0
         willLerp: 0
@@ -15607,41 +15607,41 @@ MonoBehaviour:
   consecutive: 0
   stages:
     stages:
-    - name: menuOn
+    - name: menuOff
       positionLerper:
         useTime: 1
         willLerp: 1
         inheritLast: 1
         inheritCurrent: 1
         speed: 5
-        time: 5
+        time: 70
         delay: 0
         _curve:
           serializedVersion: 2
           m_Curve:
           - serializedVersion: 3
-            time: 0
+            time: -0.0006942749
             value: 0
-            inSlope: 1
-            outSlope: 1
-            tangentMode: 34
+            inSlope: -0.07627555
+            outSlope: -0.07627555
+            tangentMode: 0
             weightedMode: 0
             inWeight: 0
-            outWeight: 0
+            outWeight: 0.040249664
           - serializedVersion: 3
             time: 1
             value: 1
-            inSlope: 1
-            outSlope: 1
-            tangentMode: 34
+            inSlope: -0.13011597
+            outSlope: -0.13011597
+            tangentMode: 0
             weightedMode: 0
-            inWeight: 0
+            inWeight: 0.035416663
             outWeight: 0
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 0
         init: {x: 0, y: 0, z: 0}
-        final: {x: -145, y: -12, z: 0}
+        final: {x: -370, y: -12, z: 0}
       scaleLerper:
         useTime: 0
         willLerp: 0
@@ -15690,14 +15690,14 @@ MonoBehaviour:
           m_RotationOrder: 0
         init: {x: 0, y: 0, z: 0, w: 0}
         final: {x: 0, y: 0, z: 0, w: 0}
-    - name: menuOff
+    - name: menuOn
       positionLerper:
         useTime: 1
         willLerp: 1
         inheritLast: 0
         inheritCurrent: 1
         speed: 5
-        time: 5
+        time: 70
         delay: 0
         _curve:
           serializedVersion: 2
@@ -15705,26 +15705,26 @@ MonoBehaviour:
           - serializedVersion: 3
             time: 0
             value: 0
-            inSlope: 1
-            outSlope: 1
-            tangentMode: 34
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
             weightedMode: 0
             inWeight: 0
             outWeight: 0
           - serializedVersion: 3
             time: 1
             value: 1
-            inSlope: 1
-            outSlope: 1
-            tangentMode: 34
+            inSlope: -0.2211995
+            outSlope: -0.2211995
+            tangentMode: 0
             weightedMode: 0
-            inWeight: 0
+            inWeight: 0.03472221
             outWeight: 0
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 0
         init: {x: 0, y: 0, z: 0}
-        final: {x: -370, y: -12, z: 0}
+        final: {x: -145, y: -12, z: 0}
       scaleLerper:
         useTime: 0
         willLerp: 0
@@ -16369,7 +16369,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -210.39984, y: -28.999985}
+  m_AnchoredPosition: {x: -53.399975, y: -28.999985}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1871601810
@@ -17316,7 +17316,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -220, y: 229}
+  m_AnchoredPosition: {x: -63.000134, y: 229}
   m_SizeDelta: {x: 160, y: 28.68}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1921134891
