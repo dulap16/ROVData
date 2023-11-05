@@ -9,7 +9,7 @@ public class DisplayModeHandler : MonoBehaviour
 {
     // CHANGES HOW THE VALUES ARE DISPLAYED
 
-    public TMP_Dropdown modeSelector;
+    /*public TMP_Dropdown modeSelector;*/
 
     // COLOR
     public GameObject coloredMap;
@@ -27,9 +27,12 @@ public class DisplayModeHandler : MonoBehaviour
     private Vector3 hiddenPos;
     public Handler handler;
 
+    /// selecting the display mode
+    
+
     // Start is called before the first frame update
     void Start()
-    {   modeSelector.onValueChanged.AddListener( delegate { modeChanged(); });
+    {   /*modeSelector.onValueChanged.AddListener( delegate { modeChanged(); });*/
         coloredMap = handler.blender;
 
         // COLOR
@@ -50,7 +53,7 @@ public class DisplayModeHandler : MonoBehaviour
         coloredMap.transform.localPosition = colorInitPos;
         pointsGroup.transform.localPosition = pointsInitPos;
     }
-
+/*
     public void modeChanged()
     {
         int index = modeSelector.value;
@@ -66,7 +69,7 @@ public class DisplayModeHandler : MonoBehaviour
         {
             changeVisibilityOfSymbols(true);
         }
-    }
+    }*/
 
     public void modeChanged(int index)
     {
@@ -89,7 +92,7 @@ public class DisplayModeHandler : MonoBehaviour
             changeVisibilityOfSymbols(true);
         }
 
-        modeSelector.value = index;
+        /*modeSelector.value = index;*/
     }
 
     private void changeVisibilityOfColor(bool vis)
