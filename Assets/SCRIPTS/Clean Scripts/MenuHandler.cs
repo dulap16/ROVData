@@ -7,45 +7,74 @@ using UnityEngine;
 public class MenuHandler : MonoBehaviour
 {
     public ObjectToBeLerped shade;
-    private ObjectToBeLerped menuGo; 
-    private ObjectToBeLerped sidePanelGo;
-    private ObjectToBeLerped mapGo;
+    private ObjectToBeLerped settingsOTBL; 
+    private ObjectToBeLerped mainPanelOTBL;
+    private ObjectToBeLerped mapOTBL;
 
-    private bool menuShown = false;
+    private bool settingsShown = false;
+
+
+    // hiding the side panel
+    private ObjectToBeLerped sidePanelOTBL;
+    private ObjectToBeLerped panelToggleOTBL;
+
+    private bool isPresentation = false;
 
     void Start()
     {
-        sidePanelGo = GameObject.Find("Side Panel").GetComponent<ObjectToBeLerped>();
-        mapGo = GameObject.Find("Map").GetComponent<ObjectToBeLerped>();
-        menuGo = GameObject.Find("MENU").GetComponent<ObjectToBeLerped>();
+        mainPanelOTBL = GameObject.Find("Main Panel").GetComponent<ObjectToBeLerped>();
+        mapOTBL = GameObject.Find("Map").GetComponent<ObjectToBeLerped>();
+        settingsOTBL = GameObject.Find("Settings Panel").GetComponent<ObjectToBeLerped>();
+
+        sidePanelOTBL = GameObject.Find("Separate side").GetComponent<ObjectToBeLerped>();
+        panelToggleOTBL = GameObject.Find("Toggle Panel Button").GetComponent<ObjectToBeLerped>();
     }
 
     public void settingsButtonPressed()
     {
-        changeMenuVisibility(!menuShown);
+        changeMenuVisibility(!settingsShown);
     }
 
     public void changeMenuVisibility(bool b)
     {
-        menuShown = b;
+        settingsShown = b;
 
-        moveObjects();
+        moveSettings();
     }
 
-    public void moveObjects()
+    public void moveSettings()
     {
-        if(menuShown)
+        if(settingsShown)
         {
-            shade.GoToStage("fadeIn");
-            menuGo.GoToStage("menuOn");
-            mapGo.GoToStage("menuOn");
-            sidePanelGo.GoToStage("menuOn");
+            settingsOTBL.GoToStage("settingsOn");
+            mainPanelOTBL.GoToStage("settingsOn");
         } else
         {
-            shade.GoToStage("fadeOut");
-            menuGo.GoToStage("menuOff");
-            mapGo.GoToStage("menuOff");
-            sidePanelGo.GoToStage("menuOff");
+            settingsOTBL.GoToStage("settingsOff");
+            mainPanelOTBL.GoToStage("settingsOff");
+        }
+    }
+
+    public void togglePresPressed()
+    {
+        isPresentation = !isPresentation;
+        Debug.Log(isPresentation);
+
+        moveForPresentation();
+    }
+
+    public void moveForPresentation()
+    {
+        if(isPresentation)
+        {
+            mapOTBL.GoToStage("menuOff");
+            panelToggleOTBL.GoToStage("menuOff");
+            sidePanelOTBL.GoToStage("menuOff");
+        } else
+        {
+            mapOTBL.GoToStage("menuOn");
+            panelToggleOTBL.GoToStage("menuOn");
+            sidePanelOTBL.GoToStage("menuOn");
         }
     }
 }
