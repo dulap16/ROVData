@@ -21,6 +21,16 @@ public class ZoomManager : MonoBehaviour
         mapInitScale = map.transform.localScale;
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        float scrolling = Input.mouseScrollDelta.y;
+
+        if (ableToZoom() && scrolling != 0)
+            scrolled(scrolling);
+            
+    }
+
     private void scrolled(float axis)
     {
         if (axis > 0)
