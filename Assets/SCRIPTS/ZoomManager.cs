@@ -21,6 +21,22 @@ public class ZoomManager : MonoBehaviour
         mapInitScale = map.transform.localScale;
     }
 
+    private void scrolled(float axis)
+    {
+        if (axis > 0)
+        {
+            Debug.Log("Zoom in!");
+
+            zoomOnMouse(zoomRatio);
+        }
+        if (axis < 0)
+        {
+            resetToOriginal();
+        }
+
+            timeSinceLastZoom = Time.time;
+    }
+
     private void zoomOnMouse(float ratio)
     {
         zoomOnPosition(getMouse(), ratio);
