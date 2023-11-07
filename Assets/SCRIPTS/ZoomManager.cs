@@ -21,6 +21,11 @@ public class ZoomManager : MonoBehaviour
         mapInitScale = map.transform.localScale;
     }
 
+    private void zoomOnPosition(Vector3 pos, float ratio)
+    {
+        float dist = Vector3.Distance(pos, mapInitCenter);
+    }
+
     private void resetToOriginal()
     {
         map.transform.position = mapInitCenter;
