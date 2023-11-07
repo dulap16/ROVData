@@ -21,4 +21,8 @@ public class ZoomManager : MonoBehaviour
         mapInitScale = map.transform.localScale;
     }
 
+    private bool ableToZoom()
+    {
+        return Time.time - timeSinceLastZoom > timeBetweenZooms;
+    }
 }
