@@ -5,4 +5,14 @@ using UnityEngine;
 
 public class ZoomManager : MonoBehaviour
 {
+    public GameObject map;
+    private Vector3 mapInitCenter;
+    private Vector3 mapInitScale;
+
+    private byte zoomlevel = 0;
+    public float timeBetweenZooms = 2;
+    private float timeSinceLastZoom = 0;
+
+    public float zoomRatio = 2;
+
 }
