@@ -25,4 +25,9 @@ public class ZoomManager : MonoBehaviour
     {
         return Time.time - timeSinceLastZoom > timeBetweenZooms;
     }
+
+    private Vector3 getMouse()
+    {
+        return Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
 }
