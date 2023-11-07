@@ -15,4 +15,10 @@ public class ZoomManager : MonoBehaviour
 
     public float zoomRatio = 2;
 
+    void Start()
+    {
+        mapInitCenter = map.transform.position;
+        mapInitScale = map.transform.localScale;
+    }
+
 }
