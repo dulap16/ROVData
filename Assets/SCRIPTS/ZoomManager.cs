@@ -53,7 +53,14 @@ public class ZoomManager : MonoBehaviour
 
     private void zoomOnPosition(Vector3 pos, float ratio)
     {
-        float dist = Vector3.Distance(pos, mapInitCenter);
+        zoomlevel++;
+        Vector3 currentCenter = map.transform.position;
+
+        Vector3 direction = pos - currentCenter;
+        Vector3 newCenter = currentCenter - direction * (ratio - 1);
+
+        enlargeMapScale(ratio);
+        updateMapCenter(newCenter);
     }
 
     private void resetToOriginal()
