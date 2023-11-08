@@ -61,6 +61,11 @@ public class ZoomManager : MonoBehaviour
     {
         map.transform.position = mapInitCenter;
         map.transform.localScale = mapInitScale;
+    private void enlargeMapScale(float howMuch)
+    {
+        changeMapScale(map.transform.localScale * howMuch);
+    }
+
     private void changeMapScale(Vector3 newScale)
     {
         map.transform.localScale = newScale;
