@@ -61,6 +61,12 @@ public class ZoomManager : MonoBehaviour
     {
         map.transform.position = mapInitCenter;
         map.transform.localScale = mapInitScale;
+    private void updateMapCenter(Vector3 newCenter)
+    {
+        newCenter.z = 1;
+        map.transform.position = newCenter;
+
+        Debug.Log(map.transform.localPosition);
     }
 
     private bool ableToZoom()
