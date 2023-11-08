@@ -13,7 +13,7 @@ public class ZoomManager : MonoBehaviour
     public float timeBetweenZooms = 2;
     private float timeSinceLastZoom = 0;
 
-    public float zoomRatio = 2;
+    public float zoomRatio = 1.25f;
 
     void Start()
     {
@@ -35,16 +35,15 @@ public class ZoomManager : MonoBehaviour
     {
         if (axis > 0)
         {
-            Debug.Log("Zoom in!");
-
-            zoomOnMouse(zoomRatio);
+            if(zoomlevel < 4)
+                zoomOnMouse(zoomRatio);
         }
         if (axis < 0)
         {
             resetToOriginal();
         }
 
-            timeSinceLastZoom = Time.time;
+        timeSinceLastZoom = Time.time;
     }
 
     private void zoomOnMouse(float ratio)
