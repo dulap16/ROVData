@@ -19,6 +19,8 @@ namespace Assets.SCRIPTS.Start_Page
         private List<Lerper> lerpers;
         public Dictionary<String, Lerper> lerperDict;
 
+        public float percentageDone = 0;
+
         public Stage()
         {
             lerpers = new List<Lerper>();
@@ -37,9 +39,9 @@ namespace Assets.SCRIPTS.Start_Page
             lerperDict.Add("scale", scaleLerper);
             lerperDict.Add("color", colorLerper);
             lerperDict.Add("rotation", rotationLerper);
-
-
         }
+
+
 
         public Lerper getLerper(String name)
         {
@@ -50,6 +52,26 @@ namespace Assets.SCRIPTS.Start_Page
         {
             foreach (Lerper l in lerpers)
                 l.TimeToSpeedIfNeeded();
+        }
+
+        public float getPercentageDone()
+        {
+            float maxi = 0;
+            foreach (Lerper l in lerpers)
+            {
+                if(l.WillLerp())
+                    maxi = Math.Max(maxi, l.GetCurrent());
+            }
+
+            if (maxi == 1)
+                maxi = 0;
+            percentageDone = maxi;
+            return percentageDone;
+        }
+
+        public void resetPercentageDone()
+        {
+            percentageDone = 0;
         }
 
         public void LerpAll()
