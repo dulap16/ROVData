@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class ZoomManager : MonoBehaviour
 {
@@ -9,7 +11,7 @@ public class ZoomManager : MonoBehaviour
     private Vector3 mapInitCenter;
     private Vector3 mapInitScale;
 
-    private byte zoomlevel = 0;
+    private byte zoomLevel = 0;
     public float timeBetweenZooms = 2;
     private float timeSinceLastZoom = 0;
 
@@ -83,13 +85,13 @@ public class ZoomManager : MonoBehaviour
 
     private void resetToOriginal()
     {
-        zoomlevel = 0;
+        zoomLevel = 0;
 
         updateMapCenter(mapInitCenter);
         changeMapScale(mapInitScale);
     }
 
-    private void enlargeMapScale(float howMuch)
+    private void multiplyMapScale(float howMuch)
     {
         changeMapScale(map.transform.localScale * howMuch);
     }
@@ -97,14 +99,14 @@ public class ZoomManager : MonoBehaviour
     private void changeMapScale(Vector3 newScale)
     {
         map.transform.localScale = newScale;
+
+        withinBoundryKeeper.mapChangedScale();
     }
 
     private void updateMapCenter(Vector3 newCenter)
     {
         newCenter.z = 1;
         map.transform.position = newCenter;
-
-        Debug.Log(map.transform.localPosition);
     }
 
     private bool ableToZoom()
