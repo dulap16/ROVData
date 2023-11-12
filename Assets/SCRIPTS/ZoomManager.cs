@@ -49,9 +49,13 @@ public class ZoomManager : MonoBehaviour
         timeSinceLastZoom = Time.time;
     }
 
-    private void zoomOnMouse(float ratio)
+    private void zoomInOnMouse(float ratio)
     {
-        zoomOnPosition(getMouse(), ratio);
+        zoomInOnPosition(getMouse(), ratio);
+    }
+    private void zoomOutFromMouse(float ratio)
+    {
+        zoomOutFromPosition(getMouse(), ratio);
     }
 
     private void zoomInOnPosition(Vector3 pos, float ratio)
