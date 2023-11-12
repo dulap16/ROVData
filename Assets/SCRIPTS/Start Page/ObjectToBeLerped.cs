@@ -17,6 +17,8 @@ namespace Assets.SCRIPTS.Start_Page
         private Dictionary<Lerper, IEnumerator> coroutines;
         private Stage currentStage;
 
+        public float stageDonePercent = 0;
+
         public ObjectToBeLerped(GameObject _go)
         {
             go = _go;
@@ -48,18 +50,21 @@ namespace Assets.SCRIPTS.Start_Page
             if (stages.getNumberOfStages() > 0)
             {
                 UpdateLerpingProperties();
-                ModifyAccordingToLerp();
-
-                if (stages.advanceIfCase() && consecutive)
+                if (true) // used to be if(percentageDone != 0)
                 {
-                    ResetCurrentVariables();
+                    ModifyAccordingToLerp();
 
-                    MakeNextStageStartFromLast();
-
-                    ResetCurrentVariables();
-                    StartLerping();
+                    if (stages.advanceIfCase() && consecutive)
+                    {
+                        NextConsecStage();
+                    }
                 }
             }
+        }
+
+        private void FixedUpdate()
+        {
+            stageDonePercent = currentStage.getPercentageDone();
         }
 
         public void GoToStage(int index)
@@ -74,6 +79,16 @@ namespace Assets.SCRIPTS.Start_Page
             stages.setCurrent(name);
             MakeLerpersStartFromCurrent(stages.getCurrentStage());
             SetCurrent(stages.getCurrentStage());
+        }
+
+        public void NextConsecStage()
+        {
+            ResetCurrentVariables();
+
+            MakeNextStageStartFromLast();
+
+            ResetCurrentVariables();
+            StartLerping();
         }
 
         public void SetCurrent(Stage s)
