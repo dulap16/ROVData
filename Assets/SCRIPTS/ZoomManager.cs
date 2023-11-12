@@ -17,6 +17,12 @@ public class ZoomManager : MonoBehaviour
 
     public float zoomRatio = 1.25f;
 
+    public Vector3 prevMousePosition;
+
+    public BoundriesGetter boundriesObj;
+
+    public KeepingTheMapWithinTheBorders withinBoundryKeeper;
+
     void Start()
     {
         mapInitCenter = map.transform.position;
@@ -30,7 +36,19 @@ public class ZoomManager : MonoBehaviour
 
         if (ableToZoom() && scrolling != 0)
             scrolled(scrolling);
-            
+    }
+
+    private void FixedUpdate()
+    {
+        if (Input.GetKey(KeyCode.Mouse2) && zoomLevel > 0)
+        {
+            Vector3 diff = getMouse() - prevMousePosition;
+            diff.z = 0;
+            Vector3 newCenter = new Vector3(diff.x, diff.y, 0) + map.transform.position;
+            updateMapCenter(newCenter);
+        }
+       
+        prevMousePosition = getMouse();
     }
 
     private void scrolled(float axis)
