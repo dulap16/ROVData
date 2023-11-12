@@ -51,15 +51,33 @@ public class ZoomManager : MonoBehaviour
         zoomOnPosition(getMouse(), ratio);
     }
 
-    private void zoomOnPosition(Vector3 pos, float ratio)
+    private void zoomInOnPosition(Vector3 pos, float ratio)
     {
-        zoomlevel++;
+        zoomLevel++;
         Vector3 currentCenter = map.transform.position;
 
         Vector3 direction = pos - currentCenter;
-        Vector3 newCenter = currentCenter - direction * (ratio - 1);
+        Vector3 newCenter = currentCenter + direction * (1 - ratio);
 
-        enlargeMapScale(ratio);
+        multiplyMapScale(ratio);
+        updateMapCenter(newCenter);
+    }
+
+    private void zoomOutFromPosition(Vector3 pos, float ratio)
+    {
+        zoomLevel--;
+
+        if (zoomLevel == 0)
+        {
+            resetToOriginal(); 
+            return;
+        }
+        Vector3 currentCenter = map.transform.position;
+
+        Vector3 direction = pos - currentCenter;
+        Vector3 newCenter = currentCenter + direction * (1 - 1 / ratio);
+
+        multiplyMapScale((1 / ratio));
         updateMapCenter(newCenter);
     }
 
