@@ -118,6 +118,7 @@ namespace Assets.SCRIPTS.Start_Page
         {
             if(isCurrentStageFinished())
             {
+                getCurrentStage().resetPercentageDone();
                 return goToNextStage();
             }
             return false;
