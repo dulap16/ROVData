@@ -37,12 +37,13 @@ public class ZoomManager : MonoBehaviour
     {
         if (axis > 0)
         {
-            if(zoomlevel < 4)
-                zoomOnMouse(zoomRatio);
+            if(zoomLevel < 4)
+                zoomInOnMouse(zoomRatio);
         }
         if (axis < 0)
         {
-            resetToOriginal();
+            if (zoomLevel > 0)
+                zoomOutFromMouse(zoomRatio);
         }
 
         timeSinceLastZoom = Time.time;
