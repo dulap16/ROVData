@@ -315,4 +315,39 @@ public class OverlappingRegion : MonoBehaviour
         SetColor(c);
     }
 
+    public float FigureOutAlpha()
+    {
+        if (handler.mode == 0)
+        {
+            if (handler.isReset() || CheckWithinLimits(value))
+            {
+                if (selected)
+                    return selectedAlpha;
+
+                return defaultAlpha;
+            }
+            else if(!CheckWithinLimits(value))
+            {
+                return 0;
+            }
+
+        } else
+        {
+            if (handler.isReset())
+                return 0;
+            if(CheckWithinLimits(value))
+            {
+                if (selected)
+                    return selectedAlpha;
+
+                return defaultAlpha;
+            }
+
+            return 0;
+        }
+
+        return 0;
+    }
+
+
 }
