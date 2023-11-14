@@ -121,10 +121,33 @@ public class Indicator : MonoBehaviour
         renderer.material.color = initialColor;
     }
 
-    public Vector3 NewScale(int v)
+    // visuals
+    public void Selected()
     {
-        float currentScale = ((float)v / h.max) * (maxScale - minScale) + minScale;
-        return new Vector3(currentScale, currentScale, 1);
+        selected = true;
+
+        if(h.isReset())
+        {
+            ShowOutline();
+        }
+
+        MakeNormalSized();
+    }
+
+    public void Deselected()
+    {
+        selected = false;
+
+        if (h.isReset())
+        {
+            HideOutline();
+        } else
+        {
+            if (!IsWithinLimits())
+                OutsideOfLimits();
+        }
+    }
+
     private void MakeSmallSized()
     {
         changeScale(new Vector3(minScale, minScale, 1));
