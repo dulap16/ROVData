@@ -5,6 +5,7 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UIElements;
 
 public class OverlappingRegion : MonoBehaviour
 {
@@ -63,7 +64,7 @@ public class OverlappingRegion : MonoBehaviour
         /// FROM THE REGION SCRIPT
 
         center = GetComponent<Renderer>().bounds.center;
-        ind = ((GameObject)Instantiate(indicator, new Vector3(center.x, center.y, 0), Quaternion.identity, GameObject.Find("Canvas").transform.Find("Map").transform.Find("Points Group"))).GetComponent<Indicator>();
+        ind = ((GameObject)Instantiate(indicator, new Vector3(center.x, center.y, 0), Quaternion.identity, GameObject.Find("Points Group").transform)).GetComponent<Indicator>();
         if (name.Contains("."))
             name = name.Substring(0, name.Length - 4);
         name = name.ToLower();
@@ -124,27 +125,28 @@ public class OverlappingRegion : MonoBehaviour
 
     public void OnMouseExit()
     {
-        if (selected == false && CheckWithinLimits(value))
-        {
-            targetColor = basicColor;
-        }
+        SetTargetAlpha(FigureOutAlpha());
 
         cf.MakeInvisible();
     }
 
     public void OnMouseDown()
     {
-        handler.ChangeOption(regionNameWithCapitals);
-
-        if (handler.selectedValuesOnly == false)
-            handler.Selected(this);
-
-        // cf.MakeVisible();
+        handler.Selected(this);
     }
 
     public void Selected()
     {
-        targetColor = selectionColor;
+        selected = true;
+        ind.Selected();
+        SetTargetAlpha(selectedAlpha);
+    }
+
+    public void Deselected()
+    {
+        selected = false;
+        ind.Deselected();
+        SetTargetAlpha(FigureOutAlpha());
     }
 
     public void SetColor(Color c)
