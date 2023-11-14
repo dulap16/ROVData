@@ -243,6 +243,25 @@ public class Handler : MonoBehaviour
         catch { }
     }
 
+    public void ChangeToAppropriateColorPreset()
+    {
+        if (mode == 0)
+            Colored();
+        else
+        {
+            Grayscale();
+            Transparent();
+        }
+    }
+
+    public void ChangeToAppropriateIndicatorPreset()
+    {
+        foreach (Transform child in judetGO.transform)
+        {
+            OverlappingRegion childScript = child.GetComponent<OverlappingRegion>();
+            childScript.ind.Standby();
+        }
+    }
 
     public bool isReset()
     {
