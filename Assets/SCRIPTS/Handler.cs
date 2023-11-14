@@ -203,6 +203,14 @@ public class Handler : MonoBehaviour
 
         try
         {
+            if (isReset())
+            {
+                Reset();
+                return;
+            }
+
+
+
             selectedValuesOnly = true;
 
             ll = Int32.Parse(lowerLimit.text);
