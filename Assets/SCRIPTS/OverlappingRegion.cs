@@ -24,8 +24,8 @@ public class OverlappingRegion : MonoBehaviour
 
 
     public int value;
-    public float initialAlpha = 0.57f;
-    public float finalAlpha = 0.9f;
+    public float defaultAlpha = 0.57f;
+    public float selectedAlpha = 0.9f;
 
 
     public bool selected = false;
@@ -84,21 +84,21 @@ public class OverlappingRegion : MonoBehaviour
         handler.dictionary[name] = value;
 
         c = colorHandler.CalculateShade(value, handler.max);
-        c.a = initialAlpha;
+        c.a = defaultAlpha;
         SetColor(c);
 
-        SetTargetAlpha(initialAlpha);
+        SetTargetAlpha(defaultAlpha);
 
         etiqueteText = regionNameWithCapitals + " : " + value.ToString();
 
         selectionColor = handler.selectionColor;
-        selectionColor.a = finalAlpha;
+        selectionColor.a = selectedAlpha;
         lerpTime = handler.lerpTime;
 
         basicColor = c;
-        basicColor.a = initialAlpha;
+        basicColor.a = defaultAlpha;
         overColor = basicColor;
-        overColor.a = finalAlpha;
+        overColor.a = selectedAlpha;
 
         // HideAll();
     }
@@ -113,10 +113,7 @@ public class OverlappingRegion : MonoBehaviour
 
     public void OnMouseEnter()
     {
-        if (CheckWithinLimits(value))
-        {
-            targetColor = overColor;
-        }
+        SetTargetAlpha(selectedAlpha);
 
         if (cf.shown == false)
             cf.MakeVisible();
@@ -155,9 +152,9 @@ public class OverlappingRegion : MonoBehaviour
         targetColor = c;
 
         basicColor = c;
-        basicColor.a = initialAlpha;
+        basicColor.a = defaultAlpha;
         overColor = c;
-        overColor.a = finalAlpha;
+        overColor.a = selectedAlpha;
     }
 
     public void SetTargetAlpha(float a)
