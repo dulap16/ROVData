@@ -167,4 +167,24 @@ public class Indicator : MonoBehaviour
         return parentScript.CheckWithinLimits(value);
     }
 
+    public void Standby()
+    {
+        FadeIn();
+        HideOutline();
+        MakeNormalSized();
+    }
+
+    public void WithinLimits()
+    {
+        FadeIn();
+        ShowOutline();
+        MakeNormalSized();
+    }
+
+    public void OutsideOfLimits()
+    {
+        FadeOut();
+        HideOutline();
+        MakeSmallSized();
+    }
 }
