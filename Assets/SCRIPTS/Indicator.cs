@@ -61,7 +61,7 @@ public class Indicator : MonoBehaviour
         h = GameObject.Find("Handler").GetComponent<Handler>();
 
         selected = false;
-        transform.localScale = NewScale(value);
+        changeScaleAccordingToValue(value);
         initialScale = outline.transform.localScale;
         targetScale = initialScale;
         finalScale = new Vector3(initialScale.x + overflow, initialScale.y + overflow, initialScale.z);
@@ -98,6 +98,7 @@ public class Indicator : MonoBehaviour
     {
         value = newValue;
         tag.ChangeText(regionNameOnTag + " : " + value.ToString());
+        changeScaleAccordingToValue(newValue);
     }
 
     public void HideOutline()
@@ -160,4 +161,10 @@ public class Indicator : MonoBehaviour
 
         return new string(newName);
     }
+
+    public bool IsWithinLimits()
+    {
+        return parentScript.CheckWithinLimits(value);
+    }
+
 }
