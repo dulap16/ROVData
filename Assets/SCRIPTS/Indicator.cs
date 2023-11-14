@@ -20,8 +20,10 @@ public class Indicator : MonoBehaviour
     public new Tag tag;
 
     // APPEARANCE BASED ON VALUE
-    public float minScale = 0.15f;
-    public float maxScale = 0.7f;
+    private float minScale = 0.15f;
+    private float maxScale = 0.7f;
+    private float currentScale;
+
 
     private Handler h;
     public CursorFollower cf;
@@ -72,8 +74,6 @@ public class Indicator : MonoBehaviour
         finalColor.a = 0.5f;
 
         deselectionColor = new Color32(79, 74, 74, 255);
-
-        // Debug.Log(initialColor);
     }
 
     void Update()
@@ -89,29 +89,6 @@ public class Indicator : MonoBehaviour
         }*/
     }
 
-    public void OnMouseOver()
-    {
-        if (h.selectedValuesOnly == false)
-           ShowOutline();
-        if (cf.shown == false)
-            cf.MakeVisible();
-        if (cf.GetText() != tag.GetText())
-            cf.ChangeText(tag.GetText());
-    }
-
-    public void OnMouseExit()
-    {
-        if (selected == false && h.selectedValuesOnly == false)
-        {
-            parentScript.SetTargetAlpha(parentScript.initialAlpha);
-            HideOutline();
-        }
-
-        /*tag.MakeInvisible();*/
-
-        cf.MakeInvisible();
-    }
-
     public void ChangeTag(string t)
     {
         tag.ChangeText(t);
@@ -121,15 +98,6 @@ public class Indicator : MonoBehaviour
     {
         value = newValue;
         tag.ChangeText(regionNameOnTag + " : " + value.ToString());
-        transform.localScale = NewScale(newValue);
-    }
-
-    private void OnMouseDown()
-    {
-        h.ChangeOption(regionNameOnTag);
-
-        if (h.selectedValuesOnly == false)
-            h.Selected(parentScript);
     }
 
     public void HideOutline()
