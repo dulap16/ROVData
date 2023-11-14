@@ -260,31 +260,6 @@ public class OverlappingRegion : MonoBehaviour
                 s.Show();
     }
 
-    public void Grayscale(int value)
-    {
-        c = colorHandler.CalculateGrayscale(value, handler.max, FigureOutAlpha());
-        SetColor(c);
-    }
-
-    public void Colored(int value)
-    {
-        c = colorHandler.CalculateShade(value, handler.max);
-        c.a = FigureOutAlpha();
-        SetColor(c);
-    }
-
-    public float FigureOutAlpha()
-    {
-        if (CheckWithinLimits(value)) 
-        {
-            if (selected)
-                return finalAlpha;
-            return initialAlpha;
-        }
-
-        return 0;
-    }
-
     public bool formatted = false;
     public void ToggleNrFormatting()
     { 
@@ -322,6 +297,22 @@ public class OverlappingRegion : MonoBehaviour
         }
 
         return new string(newName);
+    }
+
+
+    /// CHANGING VISUAL ASPECT
+
+    public void Grayscale(int value)
+    {
+        c = colorHandler.CalculateGrayscale(value, handler.max, FigureOutAlpha());
+        SetColor(c);
+    }
+
+    public void Colored(int value)
+    {
+        c = colorHandler.CalculateShade(value, handler.max);
+        c.a = FigureOutAlpha();
+        SetColor(c);
     }
 
 }
