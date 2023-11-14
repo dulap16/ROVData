@@ -124,6 +124,21 @@ public class Indicator : MonoBehaviour
     {
         float currentScale = ((float)v / h.max) * (maxScale - minScale) + minScale;
         return new Vector3(currentScale, currentScale, 1);
+    private void MakeSmallSized()
+    {
+        changeScale(new Vector3(minScale, minScale, 1));
+    }
+
+    private void MakeNormalSized()
+    {
+        changeScale(new Vector3(currentScale, currentScale, 1));
+    }
+
+    public void changeScale(Vector3 newScale)
+    {
+        transform.localScale = newScale;
+    }
+
     public void changeScaleAccordingToValue(int v)
     {
         currentScale = ((float)v / h.max) * (maxScale - minScale) + minScale;
