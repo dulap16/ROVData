@@ -208,36 +208,28 @@ public class Handler : MonoBehaviour
             ll = Int32.Parse(lowerLimit.text);
             ul = Int32.Parse(upperLimit.text);
 
-            /*sm.SetLowerValue(ll);
-            sm.SetUpperValue(ul);*/
-
             foreach (Transform child in judetGO.transform)
             {
                 OverlappingRegion childScript = child.GetComponent<OverlappingRegion>();
                 int nr = childScript.value;
-                Debug.Log(nr);
                 if (nr < ll || nr > ul)
                 {
+                    childScript.Grayscale(nr);
                     childScript.SetTargetAlpha(0);
-                    childScript.ind.HideOutline();
-                    childScript.ind.FadeOut();
                 }
                 else
                 {
                     if (current != childScript)
                     {
-                        childScript.SetTargetAlpha(childScript.initialAlpha);
-                        childScript.ind.ShowOutline();
-                        childScript.ind.FadeIn();
+                        childScript.SetTargetAlpha(childScript.defaultAlpha);
                     } else
                     {
                         childScript.OnMouseEnter();
                         childScript.OnMouseExit();
                     }
 
-                    childScript.SetBasicColor(childScript.GetTargetColor());
+                    childScript.ind.WithinLimits();
                 }
-
             }
         }
         catch { }
@@ -287,7 +279,7 @@ public class Handler : MonoBehaviour
             {
                 if (newValue < ll || newValue > ul)
                     selectedRegion.SetTargetAlpha(0);
-                else selectedRegion.SetTargetAlpha(selectedRegion.initialAlpha);
+                else selectedRegion.SetTargetAlpha(selectedRegion.defaultAlpha);
             }
         }
         catch (Exception e) { Debug.Log(e); }
@@ -438,4 +430,6 @@ public class Handler : MonoBehaviour
         million = Mathf.Round(million * 100f) / 100f;
         return million + "M";
     }
+
+
 }
