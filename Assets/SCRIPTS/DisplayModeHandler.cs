@@ -9,6 +9,8 @@ public class DisplayModeHandler : MonoBehaviour
 {
     // CHANGES HOW THE VALUES ARE DISPLAYED
 
+    public int currentMode = 0; // 0 - color, 1 - points, 2 - symbols
+
     public TMP_Dropdown modeSelector;
 
     // COLOR
@@ -56,16 +58,7 @@ public class DisplayModeHandler : MonoBehaviour
         int index = modeSelector.value;
         string option = modeSelector.options[index].text.ToString();
 
-        if(index == 0) // COLOR
-        {
-            changeVisibilityOfColor(true);
-        } else if(index == 1) // SYMBOLS
-        {
-            changeVisibilityOfPoints(true);
-        } else if(index == 2) // POINT SIZE
-        {
-            changeVisibilityOfSymbols(true);
-        }
+        modeChanged(index);
     }
 
     public void modeChanged(int index)
@@ -73,22 +66,17 @@ public class DisplayModeHandler : MonoBehaviour
         if (index == 0) // COLOR
         {
             changeVisibilityOfColor(true);
-            changeVisibilityOfPoints(false);
-            changeVisibilityOfSymbols(false);
         }
         else if (index == 1) // SYMBOLS
         {
-            changeVisibilityOfColor(false);
             changeVisibilityOfPoints(true);
-            changeVisibilityOfSymbols(false);
         }
         else if (index == 2) // POINT SIZE
         {
-            changeVisibilityOfColor(false);
-            changeVisibilityOfPoints(false);
             changeVisibilityOfSymbols(true);
         }
 
+        currentMode = index;
         modeSelector.value = index;
     }
 

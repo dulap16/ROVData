@@ -38,7 +38,7 @@ public class VisualsManager : MonoBehaviour
 
     public void JudetChanged()
     {
-        cadMat = cadastre.GetComponent<Renderer>().material;
+        cadMat = handler.cadastru.GetComponent<Renderer>().material;
 
         titleIF.text = handler.curentJudet;
         title.text = handler.curentJudet;

@@ -215,12 +215,14 @@ public class JudetChanger : MonoBehaviour
         foreach (Transform child in newJudet.transform)
         {
             Debug.Log(child.name);
-            // this might be needed to happen later
-            child.AddComponent<OverlappingRegion>();
             child.gameObject.layer = 8;
             child.AddComponent<MeshCollider>();
             child.GetComponent<Renderer>().material = GAL;
             child.GetComponent<MeshCollider>().material = phys;
+
+            // this might be needed to happen later
+            child.AddComponent<OverlappingRegion>();
+            
         }
 
         h.Start();
