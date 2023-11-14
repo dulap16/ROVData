@@ -216,6 +216,7 @@ public class Handler : MonoBehaviour
                 {
                     childScript.Grayscale(nr);
                     childScript.SetTargetAlpha(0);
+                    childScript.ind.OutsideOfLimits();
                 }
                 else
                 {
@@ -233,6 +234,14 @@ public class Handler : MonoBehaviour
             }
         }
         catch { }
+    }
+
+    public void Reset()
+    {
+        selectedValuesOnly = false;
+        
+        ChangeToAppropriateColorPreset();
+        ChangeToAppropriateIndicatorPreset();
     }
 
     public void ChangeToAppropriateColorPreset()
