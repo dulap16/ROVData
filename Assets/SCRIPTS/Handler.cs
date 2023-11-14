@@ -164,7 +164,7 @@ public class Handler : MonoBehaviour
             dictionary[regionName] = value;
             Debug.Log(max);
             selectedRegion.ChangeValue(value);
-            selectedRegion.SetTargetAlpha(selectedRegion.initialAlpha);
+            selectedRegion.SetTargetAlpha(selectedRegion.defaultAlpha);
         }
         catch (Exception e)
         {
@@ -183,24 +183,16 @@ public class Handler : MonoBehaviour
     public void Selected(OverlappingRegion OR)
     {
         if (current)
-        {
-            current.selected = false;
-            current.ind.selected = false;
-            current.ind.OnMouseExit();
-            current.OnMouseExit();
-        }
+            current.Deselected();
 
         current = OR;
-        current.selected = true;
-        current.OnMouseEnter();
-        current.ind.selected = true;
-        current.ind.OnMouseOver();
+        current.Selected();
+
+        ChangeOption(CapitaliseForPreview(current.name));
     }
 
     public void ValuesClick()
     {
-        Debug.Log("changed");
-
         try
         {
             if (isReset())
