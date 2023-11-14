@@ -124,6 +124,10 @@ public class Indicator : MonoBehaviour
     {
         float currentScale = ((float)v / h.max) * (maxScale - minScale) + minScale;
         return new Vector3(currentScale, currentScale, 1);
+    public void changeScaleAccordingToValue(int v)
+    {
+        currentScale = ((float)v / h.max) * (maxScale - minScale) + minScale;
+        changeScale(new Vector3(currentScale, currentScale, 1));
     }
 
     public string CapitaliseForPreview(string name)
