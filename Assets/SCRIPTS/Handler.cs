@@ -12,6 +12,7 @@ public class Handler : MonoBehaviour
     // HANDLES MOST ELEMENTS OF THE APP
 
     public NewUIHandler newUIHandler;
+    public DatasetHandler dh;
 
 
     // SELECTION
@@ -189,6 +190,12 @@ public class Handler : MonoBehaviour
         current.Selected();
 
         ChangeOption(CapitaliseForPreview(current.name));
+    }
+
+    public void DeselectCurrent()
+    {
+        current.Deselected();
+        current = null;
     }
 
     public void ValuesClick()
