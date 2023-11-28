@@ -12,6 +12,7 @@ public class Handler : MonoBehaviour
     // HANDLES MOST ELEMENTS OF THE APP
 
     public NewUIHandler newUIHandler;
+    public DatasetHandler dh;
 
 
     // SELECTION
@@ -54,10 +55,13 @@ public class Handler : MonoBehaviour
 
     // MAXIMUM
     public int max = 10000;
+    public int howManyAreMax = 1;
 
 
     public string curentJudet = "Alba";
     public PresentationPageHandler pphandler;
+
+    public DisplayModeHandler displayModeHandler;
 
     public void Start()
     {
@@ -67,8 +71,6 @@ public class Handler : MonoBehaviour
                 cadastru = child.gameObject;
             else judetGO = child.gameObject;
         }
-
-        /*pphandler.cadastre = cadastru;*/
 
         dictionary = new Dictionary<string, int>();
 
@@ -89,13 +91,10 @@ public class Handler : MonoBehaviour
 
         foreach (string key in dictionary.Keys)
         {
-            // Debug.Log(key);
             dd.options.Add(new TMP_Dropdown.OptionData() { text = CapitaliseForPreview(key) });
         }
 
         dd.onValueChanged.AddListener(delegate { DropdownItemSelected(); });
-
-        // IF.onValueChanged.AddListener(delegate { ChangeValueOfRegion(IF); });
 
         current = null;
         colored = true;
@@ -143,28 +142,11 @@ public class Handler : MonoBehaviour
 
         IF.text = dictionary[dd.options[index].text.ToLower()].ToString();
 
-        OverlappingRegion optionInd = GameObject.Find(dd.options[index].text.ToString().ToLower()).GetComponent<OverlappingRegion>();
-        
+        OverlappingRegion optionOR = GameObject.Find(dd.options[index].text.ToString().ToLower()).GetComponent<OverlappingRegion>();
+
         // COPIED FROM Selected() METHOD
-        if (current)
-        {
-            current.selected = false;
-            current.ind.selected = false;
-            current.ind.OnMouseExit();
-            current.OnMouseExit();
-        }
-
-        current = optionInd;
-        current.selected = true;
-        current.ind.selected = true;
+        Selected(optionOR);
         newUIHandler.SelectedRegionChanged();
-        // --------------
-
-        if (optionInd.CheckWithinLimits(optionInd.value))
-        {
-            optionInd.SetTargetAlpha(optionInd.finalAlpha);
-        }
-        // optionInd.tag.MakeInvisible();
 
         Debug.Log(dd.options[index].text);
     }
@@ -175,11 +157,22 @@ public class Handler : MonoBehaviour
         {
             regionName = regionName.ToLower();
             OverlappingRegion selectedRegion = judetGO.transform.Find(regionName).GetComponent<OverlappingRegion>();
+            
+            
+            if (value > max)
+                changeMax(value, 1);
+            else if(selectedRegion.value == max)
+            {
+                decreaseNrOfMax();
+                if (howManyAreMax == 0) 
+                    findMax();
+            }
 
             dictionary[regionName] = value;
-            Debug.Log(max);
+
             selectedRegion.ChangeValue(value);
-            selectedRegion.SetTargetAlpha(selectedRegion.initialAlpha);
+            selectedRegion.SetTargetAlpha(selectedRegion.defaultAlpha);
+
         }
         catch (Exception e)
         {
@@ -198,66 +191,101 @@ public class Handler : MonoBehaviour
     public void Selected(OverlappingRegion OR)
     {
         if (current)
-        {
-            current.selected = false;
-            current.ind.selected = false;
-            current.ind.OnMouseExit();
-            current.OnMouseExit();
-        }
+            current.Deselected();
 
         current = OR;
-        current.selected = true;
-        current.OnMouseEnter();
-        current.ind.selected = true;
-        current.ind.OnMouseOver();
+        current.Selected();
+
+        ChangeOption(CapitaliseForPreview(current.name));
+    }
+
+    public void DeselectCurrent()
+    {
+        current.Deselected();
+        current = null;
     }
 
     public void ValuesClick()
     {
-        Debug.Log("changed");
-
         try
         {
+            if (isReset())
+            {
+                reset();
+                return;
+            }
+
             selectedValuesOnly = true;
 
             ll = Int32.Parse(lowerLimit.text);
             ul = Int32.Parse(upperLimit.text);
 
-            /*sm.SetLowerValue(ll);
-            sm.SetUpperValue(ul);*/
-
-            foreach (Transform child in judetGO.transform)
-            {
-                OverlappingRegion childScript = child.GetComponent<OverlappingRegion>();
-                int nr = childScript.value;
-                Debug.Log(nr);
-                if (nr < ll || nr > ul)
-                {
-                    childScript.SetTargetAlpha(0);
-                    childScript.ind.HideOutline();
-                    childScript.ind.FadeOut();
-                }
-                else
-                {
-                    if (current != childScript)
-                    {
-                        childScript.SetTargetAlpha(childScript.initialAlpha);
-                        childScript.ind.ShowOutline();
-                        childScript.ind.FadeIn();
-                    } else
-                    {
-                        childScript.OnMouseEnter();
-                        childScript.OnMouseExit();
-                    }
-
-                    childScript.SetBasicColor(childScript.GetTargetColor());
-                }
-
-            }
+            changeRegionAspectBasedOnLimits();
         }
         catch { }
     }
 
+    private void changeRegionAspectBasedOnLimits()
+    {
+        foreach (Transform child in judetGO.transform)
+        {
+            OverlappingRegion childScript = child.GetComponent<OverlappingRegion>();
+            int nr = childScript.value;
+            if (nr < ll || nr > ul)
+            {
+                childScript.Grayscale(nr);
+                if (childScript == current)
+                    childScript.SetTargetAlpha(childScript.selectedAlpha);
+                else childScript.SetTargetAlpha(0);
+                childScript.ind.OutsideOfLimits();
+            }
+            else
+            {
+                childScript.LookBasedOnMode();
+                childScript.SetTargetAlpha(childScript.defaultAlpha);
+                if (childScript == current)
+                    childScript.SetTargetAlpha(childScript.selectedAlpha);
+                else childScript.SetTargetAlpha(childScript.defaultAlpha);
+                childScript.ind.WithinLimits();
+            }
+        }
+    }
+
+    public void reset()
+    {
+        selectedValuesOnly = false;
+        //adjustToNewMax();
+
+        StartCoroutine(Reseter());
+    }
+
+    IEnumerator Reseter()
+    {
+        yield return new WaitForSeconds(0.05f);
+
+        ChangeToAppropriateColorPreset();
+        ChangeToAppropriateIndicatorPreset();
+    }
+
+    public void ChangeToAppropriateColorPreset()
+    {
+        if (mode == 0)
+            ColorBasedOnLimits();
+        else
+        {
+            GrayscaleBasedOnLimits();
+            Transparent();
+        }
+    }
+
+    public void ChangeToAppropriateIndicatorPreset()
+    {
+        foreach (Transform child in judetGO.transform)
+        {
+            OverlappingRegion childScript = child.GetComponent<OverlappingRegion>();
+            childScript.ind.Standby();
+        }
+    }
 
     public bool isReset()
     {
@@ -265,6 +293,52 @@ public class Handler : MonoBehaviour
             return true;
         else return false;
     }
+
+
+
+    public void findMax()
+    {
+        max = 1;
+        foreach(Transform child in judetGO.transform)
+        {
+            OverlappingRegion or = child.GetComponent<OverlappingRegion>();
+
+            if (or.value > max)
+            {
+                max = or.value;
+                howManyAreMax = 1;
+            }
+            else if (or.value == max)
+                howManyAreMax++;
+        }
+
+        adjustToNewMax();
+    }
+
+    public void increaseNrOfMax()
+    {
+        howManyAreMax = howManyAreMax + 1;
+    }
+
+    public void decreaseNrOfMax()
+    {
+        howManyAreMax = howManyAreMax - 1;
+    }
+
+    public void changeMax(int n, int howMany)
+    {
+        max = n;
+        howManyAreMax = howMany;
+
+        adjustToNewMax();
+    }
+
+    public void adjustToNewMax()
+    {
+        limitsManager.Reset();
+    }
+
+
 
     public void ChangeClick()
     {
@@ -276,14 +350,25 @@ public class Handler : MonoBehaviour
             dictionary[region] = newValue;
 
             OverlappingRegion selectedRegion = judetGO.transform.Find(region).GetComponent<OverlappingRegion>();
+            int oldValue = selectedRegion.value;
+
+            if (newValue > max)
+                changeMax(newValue, 1);
+
             selectedRegion.ChangeValue(newValue);
 
+            if (oldValue == max && newValue < max)
+            {
+                decreaseNrOfMax();
+                if (howManyAreMax == 0)
+                    findMax();
+            }
 
             if (selectedValuesOnly == true)
             {
                 if (newValue < ll || newValue > ul)
                     selectedRegion.SetTargetAlpha(0);
-                else selectedRegion.SetTargetAlpha(selectedRegion.initialAlpha);
+                else selectedRegion.SetTargetAlpha(selectedRegion.defaultAlpha);
             }
         }
         catch (Exception e) { Debug.Log(e); }
@@ -298,6 +383,8 @@ public class Handler : MonoBehaviour
         }
 
         colored = false;
+
+        changeRegionAspectBasedOnLimits();
     }
 
     public void Colored()
@@ -310,6 +397,19 @@ public class Handler : MonoBehaviour
 
         colored = true;
     }
+
+    public void ColorBasedOnLimits()
+    {
+        Colored();
+        changeRegionAspectBasedOnLimits();
+    }
+
+    public void GrayscaleBasedOnLimits()
+    {
+        Grayscale();
+        changeRegionAspectBasedOnLimits();
+    }
+
 
     public void Transparent()
     {
@@ -369,11 +469,15 @@ public class Handler : MonoBehaviour
 
     public void AssignRandomValues()
     {
+        dh.NoDatasetSelected();
+
         foreach (string key in dictionary.Keys.ToList<string>())
         {
             int randvalue = UnityEngine.Random.Range(1, 10000);
             ChangeValueOfRegion(key, randvalue);
         }
+
+        findMax();
     }
 
     // COPIED FROM INDICATOR SCRIPT

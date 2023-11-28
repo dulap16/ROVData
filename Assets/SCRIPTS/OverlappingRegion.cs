@@ -5,6 +5,7 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UIElements;
 
 public class OverlappingRegion : MonoBehaviour
 {
@@ -24,8 +25,8 @@ public class OverlappingRegion : MonoBehaviour
 
 
     public int value;
-    public float initialAlpha = 0.57f;
-    public float finalAlpha = 0.9f;
+    public float defaultAlpha = 0.57f;
+    public float selectedAlpha = 0.9f;
 
 
     public bool selected = false;
@@ -63,7 +64,7 @@ public class OverlappingRegion : MonoBehaviour
         /// FROM THE REGION SCRIPT
 
         center = GetComponent<Renderer>().bounds.center;
-        ind = ((GameObject)Instantiate(indicator, new Vector3(center.x, center.y, 0), Quaternion.identity, GameObject.Find("Canvas").transform.Find("Map").transform.Find("Points Group"))).GetComponent<Indicator>();
+        ind = ((GameObject)Instantiate(indicator, new Vector3(center.x, center.y, 0), Quaternion.identity, GameObject.Find("Points Group").transform)).GetComponent<Indicator>();
         if (name.Contains("."))
             name = name.Substring(0, name.Length - 4);
         name = name.ToLower();
@@ -84,21 +85,21 @@ public class OverlappingRegion : MonoBehaviour
         handler.dictionary[name] = value;
 
         c = colorHandler.CalculateShade(value, handler.max);
-        c.a = initialAlpha;
+        c.a = defaultAlpha;
         SetColor(c);
 
-        SetTargetAlpha(initialAlpha);
+        SetTargetAlpha(defaultAlpha);
 
         etiqueteText = regionNameWithCapitals + " : " + value.ToString();
 
         selectionColor = handler.selectionColor;
-        selectionColor.a = finalAlpha;
+        selectionColor.a = selectedAlpha;
         lerpTime = handler.lerpTime;
 
         basicColor = c;
-        basicColor.a = initialAlpha;
+        basicColor.a = defaultAlpha;
         overColor = basicColor;
-        overColor.a = finalAlpha;
+        overColor.a = selectedAlpha;
 
         // HideAll();
     }
@@ -113,10 +114,7 @@ public class OverlappingRegion : MonoBehaviour
 
     public void OnMouseEnter()
     {
-        if (CheckWithinLimits(value))
-        {
-            targetColor = overColor;
-        }
+        SetTargetAlpha(selectedAlpha);
 
         if (cf.shown == false)
             cf.MakeVisible();
@@ -127,27 +125,30 @@ public class OverlappingRegion : MonoBehaviour
 
     public void OnMouseExit()
     {
-        if (selected == false && CheckWithinLimits(value))
-        {
-            targetColor = basicColor;
-        }
+        SetTargetAlpha(FigureOutAlpha());
 
         cf.MakeInvisible();
     }
 
     public void OnMouseDown()
     {
-        handler.ChangeOption(regionNameWithCapitals);
-
-        if (handler.selectedValuesOnly == false)
-            handler.Selected(this);
-
-        // cf.MakeVisible();
+        if (selected == true)
+            handler.DeselectCurrent();
+        else handler.Selected(this);
     }
 
     public void Selected()
     {
-        targetColor = selectionColor;
+        selected = true;
+        ind.Selected();
+        SetTargetAlpha(selectedAlpha);
+    }
+
+    public void Deselected()
+    {
+        selected = false;
+        ind.Deselected();
+        SetTargetAlpha(FigureOutAlpha());
     }
 
     public void SetColor(Color c)
@@ -155,9 +156,9 @@ public class OverlappingRegion : MonoBehaviour
         targetColor = c;
 
         basicColor = c;
-        basicColor.a = initialAlpha;
+        basicColor.a = defaultAlpha;
         overColor = c;
-        overColor.a = finalAlpha;
+        overColor.a = selectedAlpha;
     }
 
     public void SetTargetAlpha(float a)
@@ -260,31 +261,6 @@ public class OverlappingRegion : MonoBehaviour
                 s.Show();
     }
 
-    public void Grayscale(int value)
-    {
-        c = colorHandler.CalculateGrayscale(value, handler.max, FigureOutAlpha());
-        SetColor(c);
-    }
-
-    public void Colored(int value)
-    {
-        c = colorHandler.CalculateShade(value, handler.max);
-        c.a = FigureOutAlpha();
-        SetColor(c);
-    }
-
-    public float FigureOutAlpha()
-    {
-        if (CheckWithinLimits(value)) 
-        {
-            if (selected)
-                return finalAlpha;
-            return initialAlpha;
-        }
-
-        return 0;
-    }
-
     public bool formatted = false;
     public void ToggleNrFormatting()
     { 
@@ -324,4 +300,57 @@ public class OverlappingRegion : MonoBehaviour
         return new string(newName);
     }
 
+
+    /// CHANGING VISUAL ASPECT
+
+    public void LookBasedOnMode()
+    {
+        if (handler.mode == 0)
+            Colored(value);
+        else Grayscale(value);
+    }
+
+    public void Grayscale(int value)
+    {
+        c = colorHandler.CalculateGrayscale(value, handler.max, FigureOutAlpha());
+        SetColor(c);
+    }
+
+    public void Colored(int value)
+    {
+        c = colorHandler.CalculateShade(value, handler.max);
+        c.a = FigureOutAlpha();
+        SetColor(c);
+    }
+
+    public float FigureOutAlpha()
+    {
+        if (selected)
+            return selectedAlpha;
+
+        if (handler.mode == 0)
+        {
+            if (handler.isReset() || CheckWithinLimits(value))
+            {
+                return defaultAlpha;
+            }
+            else if(!CheckWithinLimits(value))
+            {
+                return 0;
+            }
+
+        } else
+        {
+            if (handler.isReset())
+                return 0;
+            if(CheckWithinLimits(value))
+            {
+                return defaultAlpha;
+            }
+
+            return 0;
+        }
+
+        return 0;
+    }
 }

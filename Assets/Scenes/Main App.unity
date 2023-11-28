@@ -1131,7 +1131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handler: {fileID: 1562019149}
-  dmh: {fileID: 702135930}
+  dmh: {fileID: 0}
   judet: {fileID: 0}
   symbolGroup: {fileID: 956905463}
   symbolPrefab: {fileID: 3219570797447108383, guid: 5148e8c4faaea4e4781cce63d1292bd2, type: 3}
@@ -1150,7 +1150,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 514100843}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &167805844
 GameObject:
@@ -1281,9 +1281,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 188.00322, y: 32.81999}
+  m_AnchoredPosition: {x: 3, y: -0.00002670288}
   m_SizeDelta: {x: 0, y: 150}
-  m_Pivot: {x: 0.54080534, y: 1}
+  m_Pivot: {x: 0.49999997, y: 1}
 --- !u!114 &173876795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2695,7 +2695,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 6
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3546,7 +3546,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 6
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4507,6 +4507,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1845321111}
   - {fileID: 1443021851}
   - {fileID: 1821843139}
   - {fileID: 1803126779}
@@ -5747,7 +5748,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 702135929}
-  - component: {fileID: 702135930}
   m_Layer: 5
   m_Name: Display Mode
   m_TagString: Untagged
@@ -5776,26 +5776,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15, y: 399}
+  m_AnchoredPosition: {x: -424, y: 10}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &702135930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 702135928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1b58a48c10685b4283f30ab51348529, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  modeSelector: {fileID: 840773481}
-  coloredMap: {fileID: 0}
-  pointsGroup: {fileID: 1646211568}
-  symbolsGroup: {fileID: 956905465}
-  handler: {fileID: 1562019149}
 --- !u!1 &707840097
 GameObject:
   m_ObjectHideFlags: 0
@@ -5900,7 +5883,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.2501173, y: 0.25018716}
+  m_Offset: {x: 2.2096024, y: 0.25018692}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5911,7 +5894,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 20.148195, y: 11.340073}
+  m_Size: {x: 18.229225, y: 11.340073}
   m_EdgeRadius: 0
 --- !u!114 &712023400
 MonoBehaviour:
@@ -5928,9 +5911,9 @@ MonoBehaviour:
   coll: {fileID: 712023399}
   boundries:
     north: 13.12879
-    east: 22.791092
+    east: 21.614319
     south: -13.121212
-    west: -26.630943
+    west: -23.100624
 --- !u!1 &722440466
 GameObject:
   m_ObjectHideFlags: 0
@@ -6091,7 +6074,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 732425320}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 6200000, guid: c5bc964ac90dc6241a48edcd29da6e4c, type: 2}
   m_IsTrigger: 0
@@ -6194,10 +6177,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coll: {fileID: 732425323}
   boundries:
-    north: 12.8700695
-    east: 11.779936
-    south: -12.830069
-    west: -19.899803
+    north: 0
+    east: 0
+    south: 0
+    west: 0
 --- !u!1 &749079903
 GameObject:
   m_ObjectHideFlags: 0
@@ -8866,7 +8849,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.269, y: 0.197}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!210 &956905465
@@ -12527,7 +12510,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 514100843}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1336543742
 MonoBehaviour:
@@ -12727,7 +12710,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 2.9577065, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -12738,7 +12721,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 158.32, y: 23.59}
+  m_Size: {x: 135.6445, y: 23.59}
   m_EdgeRadius: 0
 --- !u!114 &1342084603
 MonoBehaviour:
@@ -13918,7 +13901,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 63.4, y: 0}
+  m_AnchoredPosition: {x: 59.485, y: -0.000011444}
   m_SizeDelta: {x: 121.58, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1437009289
@@ -13985,7 +13968,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.98588943, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -13996,7 +13979,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 163.96, y: 17.82}
+  m_Size: {x: 140.29868, y: 17.82}
   m_EdgeRadius: 0
 --- !u!114 &1437009291
 MonoBehaviour:
@@ -14042,7 +14025,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 514100843}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1443021852
 MonoBehaviour:
@@ -14274,7 +14257,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 6
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -14615,6 +14598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newUIHandler: {fileID: 2034727316}
+  dh: {fileID: 1336543742}
   selectedValuesOnly: 0
   current: {fileID: 0}
   IF: {fileID: 985963600}
@@ -14640,6 +14624,7 @@ MonoBehaviour:
   max: 10000
   curentJudet: 
   pphandler: {fileID: 0}
+  displayModeHandler: {fileID: 1845321112}
   nrFormattingOn: 0
 --- !u!4 &1562019150
 Transform:
@@ -14654,7 +14639,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 514100843}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1570204600
 GameObject:
@@ -15226,7 +15211,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1646211568}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.294255, y: 0.6702516, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16330,7 +16315,52 @@ MonoBehaviour:
   - {fileID: 1561898039}
   displayMode: {fileID: 840773481}
   tl:
-    list: []
+    list:
+    - obj: {fileID: 278587629}
+      romanian: "Schimb\u0103"
+      english: Change
+    - obj: {fileID: 1244604041}
+      romanian: "Inser\u021Bie de valori \xEEn mas\u0103"
+      english: Mass Value Insertion
+    - obj: {fileID: 286826665}
+      romanian: "Insereaz\u0103 valori"
+      english: Insert values
+    - obj: {fileID: 999311445}
+      romanian: "Reseteaz\u0103"
+      english: Reset
+    - obj: {fileID: 555344306}
+      romanian: "Selecta\u021Bi valoarea"
+      english: Select value
+    - obj: {fileID: 2108573472}
+      romanian: "Acest c\xE2mp este pentru inserarea unui set de date complet nou
+        pentru hart\u0103 \\n\\n Folosi\u021Bi-l prin a lipi aici setul de date \xEEn
+        formatul LOC - VAL "
+      english: This field is for inserting an entiere new data set for the map '\n\n' 
+        Use it by pasting here the set in the format LOC - VAL
+    - obj: {fileID: 785287902}
+      romanian: Limita de jos
+      english: Lower limit
+    - obj: {fileID: 531666352}
+      romanian: Limita de sus
+      english: Upper limit
+    - obj: {fileID: 1359517986}
+      romanian: Titlu
+      english: Title
+    - obj: {fileID: 878350037}
+      romanian: Opacitatea cadastrului
+      english: Cadastre Opacity
+    - obj: {fileID: 1446504457}
+      romanian: "Salveaz\u0103"
+      english: Save
+    - obj: {fileID: 1428513231}
+      romanian: Numele setului...
+      english: Dataset name...
+    - obj: {fileID: 863445179}
+      romanian: Aleatoriu
+      english: Randomise
+    - obj: {fileID: 1561898039}
+      romanian: "Formata\u021Bi valorile"
+      english: Format values
 --- !u!4 &1803126779
 Transform:
   m_ObjectHideFlags: 0
@@ -16344,7 +16374,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 514100843}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1808748513
 GameObject:
@@ -16464,7 +16494,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 514100843}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1828020552
 GameObject:
@@ -16635,7 +16665,7 @@ Transform:
   - {fileID: 2034727315}
   - {fileID: 1022124961}
   m_Father: {fileID: 514100843}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1837762006
 GameObject:
@@ -16676,6 +16706,56 @@ RectTransform:
   m_AnchoredPosition: {x: -53.399975, y: -28.999985}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1845321110
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1845321111}
+  - component: {fileID: 1845321112}
+  m_Layer: 0
+  m_Name: Display Mode Handler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1845321111
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845321110}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 514100843}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1845321112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845321110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1b58a48c10685b4283f30ab51348529, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentMode: 0
+  modeSelector: {fileID: 840773481}
+  coloredMap: {fileID: 0}
+  pointsGroup: {fileID: 1646211568}
+  symbolsGroup: {fileID: 956905465}
+  handler: {fileID: 1562019149}
 --- !u!1 &1871601810
 GameObject:
   m_ObjectHideFlags: 0
@@ -17747,7 +17827,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 514100843}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1989897549
 MonoBehaviour:
@@ -18100,7 +18180,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 514100843}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2072121493
 MonoBehaviour:
@@ -18505,7 +18585,7 @@ MonoBehaviour:
   fullTexture: {fileID: 841652181}
   fadedTexture: {fileID: 183301114}
   h: {fileID: 1562019149}
-  dmHandler: {fileID: 702135930}
+  dmHandler: {fileID: 1845321112}
   sm: {fileID: 119121934}
   dh: {fileID: 1336543742}
   visualsManager: {fileID: 2067804191}

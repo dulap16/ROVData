@@ -34,11 +34,6 @@ public class LimitsManager : MonoBehaviour
     {
         if (lowerColl.clicked == true || upperColl.clicked == true)
         {
-            /*lowerSliderMoved();
-            upperSliderMoved();
-
-            equalizeValues();
-            h.ValuesClick();*/
             // WON'T CALL METHODS HERE AS IT IS TOO INEFFICIENT
 
             _lowerValue = (int)(h.max * lower.normalizedValue);
@@ -64,7 +59,7 @@ public class LimitsManager : MonoBehaviour
         _upperValue = val;
 
         equalizeValues();
-        h.ValuesClick();
+        // h.ValuesClick();
     }
 
 

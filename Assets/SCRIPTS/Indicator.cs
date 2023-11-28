@@ -20,8 +20,10 @@ public class Indicator : MonoBehaviour
     public new Tag tag;
 
     // APPEARANCE BASED ON VALUE
-    public float minScale = 0.15f;
-    public float maxScale = 0.7f;
+    private float minScale = 0.15f;
+    private float maxScale = 0.7f;
+    private float currentScale;
+
 
     private Handler h;
     public CursorFollower cf;
@@ -59,7 +61,7 @@ public class Indicator : MonoBehaviour
         h = GameObject.Find("Handler").GetComponent<Handler>();
 
         selected = false;
-        transform.localScale = NewScale(value);
+        changeScaleAccordingToValue(value);
         initialScale = outline.transform.localScale;
         targetScale = initialScale;
         finalScale = new Vector3(initialScale.x + overflow, initialScale.y + overflow, initialScale.z);
@@ -72,8 +74,6 @@ public class Indicator : MonoBehaviour
         finalColor.a = 0.5f;
 
         deselectionColor = new Color32(79, 74, 74, 255);
-
-        // Debug.Log(initialColor);
     }
 
     void Update()
@@ -89,29 +89,6 @@ public class Indicator : MonoBehaviour
         }*/
     }
 
-    public void OnMouseOver()
-    {
-        if (h.selectedValuesOnly == false)
-           ShowOutline();
-        if (cf.shown == false)
-            cf.MakeVisible();
-        if (cf.GetText() != tag.GetText())
-            cf.ChangeText(tag.GetText());
-    }
-
-    public void OnMouseExit()
-    {
-        if (selected == false && h.selectedValuesOnly == false)
-        {
-            parentScript.SetTargetAlpha(parentScript.initialAlpha);
-            HideOutline();
-        }
-
-        /*tag.MakeInvisible();*/
-
-        cf.MakeInvisible();
-    }
-
     public void ChangeTag(string t)
     {
         tag.ChangeText(t);
@@ -121,15 +98,7 @@ public class Indicator : MonoBehaviour
     {
         value = newValue;
         tag.ChangeText(regionNameOnTag + " : " + value.ToString());
-        transform.localScale = NewScale(newValue);
-    }
-
-    private void OnMouseDown()
-    {
-        h.ChangeOption(regionNameOnTag);
-
-        if (h.selectedValuesOnly == false)
-            h.Selected(parentScript);
+        changeScaleAccordingToValue(newValue);
     }
 
     public void HideOutline()
@@ -152,10 +121,52 @@ public class Indicator : MonoBehaviour
         renderer.material.color = initialColor;
     }
 
-    public Vector3 NewScale(int v)
+    // visuals
+    public void Selected()
     {
-        float currentScale = ((float)v / h.max) * (maxScale - minScale) + minScale;
-        return new Vector3(currentScale, currentScale, 1);
+        selected = true;
+
+        if(h.isReset())
+        {
+            ShowOutline();
+        }
+
+        MakeNormalSized();
+    }
+
+    public void Deselected()
+    {
+        selected = false;
+
+        if (h.isReset())
+        {
+            HideOutline();
+        } else
+        {
+            if (!IsWithinLimits())
+                OutsideOfLimits();
+        }
+    }
+
+    private void MakeSmallSized()
+    {
+        changeScale(new Vector3(minScale, minScale, 1));
+    }
+
+    private void MakeNormalSized()
+    {
+        changeScale(new Vector3(currentScale, currentScale, 1));
+    }
+
+    public void changeScale(Vector3 newScale)
+    {
+        transform.localScale = newScale;
+    }
+
+    public void changeScaleAccordingToValue(int v)
+    {
+        currentScale = ((float)v / h.max) * (maxScale - minScale) + minScale;
+        changeScale(new Vector3(currentScale, currentScale, 1));
     }
 
     public string CapitaliseForPreview(string name)
@@ -172,5 +183,31 @@ public class Indicator : MonoBehaviour
         }
 
         return new string(newName);
+    }
+
+    public bool IsWithinLimits()
+    {
+        return parentScript.CheckWithinLimits(value);
+    }
+
+    public void Standby()
+    {
+        FadeIn();
+        HideOutline();
+        MakeNormalSized();
+    }
+
+    public void WithinLimits()
+    {
+        FadeIn();
+        ShowOutline();
+        MakeNormalSized();
+    }
+
+    public void OutsideOfLimits()
+    {
+        FadeOut();
+        HideOutline();
+        MakeSmallSized();
     }
 }

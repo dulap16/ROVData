@@ -32,9 +32,9 @@ public class DatasetHandler : MonoBehaviour
         // Debug.Log(pathToDatasets);
         CreateFolders();
         savedPath = Path.Join(pathToDatasets, h.curentJudet);
-        filePicker.ClearOptions();
 
-
+        reset();
+        
         string[] files = Directory.GetFiles(savedPath);
         
         foreach (string file in files)
@@ -47,14 +47,15 @@ public class DatasetHandler : MonoBehaviour
             }
         }
 
+
         filePicker.onValueChanged.AddListener(delegate { ChangeValues(); });
     }
 
     public void JudetChanged()
     {
         savedPath = Path.Join(pathToDatasets, h.curentJudet);
-        filePicker.ClearOptions();
 
+        reset();
 
         string[] files = Directory.GetFiles(savedPath);
 
@@ -82,6 +83,13 @@ public class DatasetHandler : MonoBehaviour
     private void ChangeValues()
     {
         int index = filePicker.value;
+
+        if (index == 0)
+        {
+            titleField.text = "";
+            return;
+        }
+
         // string filePath = path + "\\" + filePicker.options[index].text;
         string filePath = savedPath + "/" + filePicker.options[index].text + ".txt";
 
@@ -119,20 +127,13 @@ public class DatasetHandler : MonoBehaviour
                     value = Int32.Parse(tokens[i]);
             }
 
-            /*
-            string name = tokens[0];
-            for (int i = 1; i < tokens.Length - 2; i++)
-                name = name + " " + tokens[i];
-            Debug.Log(name);
-
-            int value = Int32.Parse(tokens[tokens.Length - 1]);
-            */
 
             counties.Add(name);
             values.Add(value);
-
-            h.max = Mathf.Max(h.max, value);
         }
+
+        h.findMax();
+        h.adjustToNewMax();
 
         for(int i = 0; i < counties.Count; i++)
         {
@@ -154,5 +155,19 @@ public class DatasetHandler : MonoBehaviour
         if(!System.IO.File.Exists(pathToFile))
             filePicker.options.Add(new TMP_Dropdown.OptionData { text = fileTitle });
         File.WriteAllText(pathToFile, fileText);
+    }
+
+    public void NoDatasetSelected()
+    {
+        filePicker.value = 0;
+        titleField.text = "";
+    }
+
+    public void reset()
+    {
+        filePicker.ClearOptions();
+        filePicker.options.Add(new TMP_Dropdown.OptionData { text = "No dataset selected" });
+
+        NoDatasetSelected();
     }
 }

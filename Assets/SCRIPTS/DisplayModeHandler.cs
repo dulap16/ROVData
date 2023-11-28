@@ -9,6 +9,8 @@ public class DisplayModeHandler : MonoBehaviour
 {
     // CHANGES HOW THE VALUES ARE DISPLAYED
 
+    public int currentMode = 0; // 0 - color, 1 - points, 2 - symbols
+
     public TMP_Dropdown modeSelector;
 
     // COLOR
@@ -29,7 +31,9 @@ public class DisplayModeHandler : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {   modeSelector.onValueChanged.AddListener( delegate { modeChanged(); });
+    {
+
+        modeSelector.onValueChanged.AddListener( delegate { modeChanged(); });
         coloredMap = handler.blender;
 
         // COLOR
@@ -56,16 +60,7 @@ public class DisplayModeHandler : MonoBehaviour
         int index = modeSelector.value;
         string option = modeSelector.options[index].text.ToString();
 
-        if(index == 0) // COLOR
-        {
-            changeVisibilityOfColor(true);
-        } else if(index == 1) // SYMBOLS
-        {
-            changeVisibilityOfPoints(true);
-        } else if(index == 2) // POINT SIZE
-        {
-            changeVisibilityOfSymbols(true);
-        }
+        modeChanged(index);
     }
 
     public void modeChanged(int index)
@@ -73,43 +68,40 @@ public class DisplayModeHandler : MonoBehaviour
         if (index == 0) // COLOR
         {
             changeVisibilityOfColor(true);
-            changeVisibilityOfPoints(false);
-            changeVisibilityOfSymbols(false);
         }
         else if (index == 1) // SYMBOLS
         {
-            changeVisibilityOfColor(false);
             changeVisibilityOfPoints(true);
-            changeVisibilityOfSymbols(false);
         }
         else if (index == 2) // POINT SIZE
         {
-            changeVisibilityOfColor(false);
-            changeVisibilityOfPoints(false);
             changeVisibilityOfSymbols(true);
         }
 
+        currentMode = index;
         modeSelector.value = index;
     }
 
     private void changeVisibilityOfColor(bool vis)
     {
-        /*if (vis == true)
-            coloredMap.transform.localPosition = colorInitPos;
-        else coloredMap.transform.localPosition = hiddenPos;*/
         if (vis == true)
         {
             handler.mode = 0;
 
-            handler.Colored();
+            if (Time.time > 1)
+                handler.ColorBasedOnLimits();
+            else handler.Colored();
+
             changeVisibilityOfPoints(false);
             changeVisibilityOfSymbols(false);
         }
         else
         {
-            handler.Grayscale();
+            if (Time.time > 1)
+                handler.GrayscaleBasedOnLimits();
+            else handler.Grayscale();
 
-            if(handler.isReset())
+            if (handler.isReset())
                 handler.Transparent();
         }
     }
