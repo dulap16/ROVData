@@ -18910,8 +18910,8 @@ MonoBehaviour:
   dh: {fileID: 1336543742}
   visualsManager: {fileID: 2067804191}
   pointsGroup: {fileID: 1646211568}
-  First: Brasov
-  tt: {fileID: 0}
+  First: Galati
+  tt: {fileID: 426776661}
 --- !u!1 &2090136772
 GameObject:
   m_ObjectHideFlags: 0
