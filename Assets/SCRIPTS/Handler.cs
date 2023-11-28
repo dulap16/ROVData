@@ -443,6 +443,8 @@ public class Handler : MonoBehaviour
 
     public void AssignRandomValues()
     {
+        dh.NoDatasetSelected();
+
         foreach (string key in dictionary.Keys.ToList<string>())
         {
             int randvalue = UnityEngine.Random.Range(1, 10000);
