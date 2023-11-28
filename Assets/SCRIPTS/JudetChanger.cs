@@ -73,6 +73,8 @@ public class JudetChanger : MonoBehaviour
         dh.JudetChanged();
 
         dmHandler.modeChanged(0);
+
+        h.changeRegionAspectBasedOnLimits();
     }
 
     IEnumerator waiter(float seconds)
@@ -152,6 +154,7 @@ public class JudetChanger : MonoBehaviour
         }
 
         h.Start();
+        
         visualsManager.cadastre = cad.gameObject;
         visualsManager.JudetChanged();
         
@@ -228,6 +231,7 @@ public class JudetChanger : MonoBehaviour
         }
 
         h.Start();
+        h.updateLimitVariables();
         visualsManager.JudetChanged();
 
         h.judetGO = newJudet;
