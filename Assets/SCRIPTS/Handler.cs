@@ -211,7 +211,7 @@ public class Handler : MonoBehaviour
         {
             if (isReset())
             {
-                Reset();
+                reset();
                 return;
             }
 
