@@ -31,7 +31,9 @@ public class DisplayModeHandler : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {   modeSelector.onValueChanged.AddListener( delegate { modeChanged(); });
+    {
+
+        modeSelector.onValueChanged.AddListener( delegate { modeChanged(); });
         coloredMap = handler.blender;
 
         // COLOR
@@ -82,22 +84,24 @@ public class DisplayModeHandler : MonoBehaviour
 
     private void changeVisibilityOfColor(bool vis)
     {
-        /*if (vis == true)
-            coloredMap.transform.localPosition = colorInitPos;
-        else coloredMap.transform.localPosition = hiddenPos;*/
         if (vis == true)
         {
             handler.mode = 0;
 
-            handler.Colored();
+            if (Time.time > 1)
+                handler.ColorBasedOnLimits();
+            else handler.Colored();
+
             changeVisibilityOfPoints(false);
             changeVisibilityOfSymbols(false);
         }
         else
         {
-            handler.Grayscale();
+            if (Time.time > 1)
+                handler.GrayscaleBasedOnLimits();
+            else handler.Grayscale();
 
-            if(handler.isReset())
+            if (handler.isReset())
                 handler.Transparent();
         }
     }
