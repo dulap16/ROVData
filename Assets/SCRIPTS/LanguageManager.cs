@@ -84,23 +84,21 @@ public class LanguageManager : MonoBehaviour
 
     public void ChangeToRomanian()
     {
-        for(int i = 0; i < n; i++)
-        {
-            tmptexts[i].text = romana[i];
-        }
+        tl.toRomanian();
 
+        int current = displayMode.value;
         displayMode.ClearOptions();
         displayMode.AddOptions(ddromana);
+        displayMode.value = current;
     }
 
     public void ChangeToEnglish()
     {
-        for (int i = 0; i < n; i++)
-        {
-            tmptexts[i].text = english[i];
-        }
+        tl.toEnglish();
 
+        int current = displayMode.value;
         displayMode.ClearOptions();
         displayMode.AddOptions(ddenglish);
+        displayMode.value = current;
     }
 }
