@@ -220,35 +220,37 @@ public class Handler : MonoBehaviour
             ll = Int32.Parse(lowerLimit.text);
             ul = Int32.Parse(upperLimit.text);
 
-            foreach (Transform child in judetGO.transform)
-            {
-                OverlappingRegion childScript = child.GetComponent<OverlappingRegion>();
-                int nr = childScript.value;
-                if (nr < ll || nr > ul)
-                {
-                    childScript.Grayscale(nr);
-                    childScript.SetTargetAlpha(0);
-                    childScript.ind.OutsideOfLimits();
-                }
-                else
-                {
-                    if (current != childScript)
-                    {
-                        childScript.SetTargetAlpha(childScript.defaultAlpha);
-                    } else
-                    {
-                        childScript.OnMouseEnter();
-                        childScript.OnMouseExit();
-                    }
-
-                    childScript.ind.WithinLimits();
-                }
-            }
+            changeRegionAspectBasedOnLimits();
         }
         catch { }
     }
 
-    public void Reset()
+    private void changeRegionAspectBasedOnLimits()
+    {
+        foreach (Transform child in judetGO.transform)
+        {
+            OverlappingRegion childScript = child.GetComponent<OverlappingRegion>();
+            int nr = childScript.value;
+            if (nr < ll || nr > ul)
+            {
+                childScript.Grayscale(nr);
+                if (childScript == current)
+                    childScript.SetTargetAlpha(childScript.selectedAlpha);
+                else childScript.SetTargetAlpha(0);
+                childScript.ind.OutsideOfLimits();
+            }
+            else
+            {
+                childScript.LookBasedOnMode();
+                childScript.SetTargetAlpha(childScript.defaultAlpha);
+                if (childScript == current)
+                    childScript.SetTargetAlpha(childScript.selectedAlpha);
+                else childScript.SetTargetAlpha(childScript.defaultAlpha);
+                childScript.ind.WithinLimits();
+            }
+        }
+    }
+
     public void reset()
     {
         selectedValuesOnly = false;
