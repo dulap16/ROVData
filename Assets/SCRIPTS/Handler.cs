@@ -448,6 +448,8 @@ public class Handler : MonoBehaviour
             int randvalue = UnityEngine.Random.Range(1, 10000);
             ChangeValueOfRegion(key, randvalue);
         }
+
+        findMax();
     }
 
     // COPIED FROM INDICATOR SCRIPT
