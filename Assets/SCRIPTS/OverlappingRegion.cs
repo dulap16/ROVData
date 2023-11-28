@@ -132,7 +132,9 @@ public class OverlappingRegion : MonoBehaviour
 
     public void OnMouseDown()
     {
-        handler.Selected(this);
+        if (selected == true)
+            handler.DeselectCurrent();
+        else handler.Selected(this);
     }
 
     public void Selected()
@@ -301,6 +303,13 @@ public class OverlappingRegion : MonoBehaviour
 
     /// CHANGING VISUAL ASPECT
 
+    public void LookBasedOnMode()
+    {
+        if (handler.mode == 0)
+            Colored(value);
+        else Grayscale(value);
+    }
+
     public void Grayscale(int value)
     {
         c = colorHandler.CalculateGrayscale(value, handler.max, FigureOutAlpha());
@@ -316,13 +325,13 @@ public class OverlappingRegion : MonoBehaviour
 
     public float FigureOutAlpha()
     {
+        if (selected)
+            return selectedAlpha;
+
         if (handler.mode == 0)
         {
             if (handler.isReset() || CheckWithinLimits(value))
             {
-                if (selected)
-                    return selectedAlpha;
-
                 return defaultAlpha;
             }
             else if(!CheckWithinLimits(value))
@@ -336,9 +345,6 @@ public class OverlappingRegion : MonoBehaviour
                 return 0;
             if(CheckWithinLimits(value))
             {
-                if (selected)
-                    return selectedAlpha;
-
                 return defaultAlpha;
             }
 
@@ -347,6 +353,4 @@ public class OverlappingRegion : MonoBehaviour
 
         return 0;
     }
-
-
 }
