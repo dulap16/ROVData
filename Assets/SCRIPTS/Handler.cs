@@ -270,10 +270,10 @@ public class Handler : MonoBehaviour
     public void ChangeToAppropriateColorPreset()
     {
         if (mode == 0)
-            Colored();
+            ColorBasedOnLimits();
         else
         {
-            Grayscale();
+            GrayscaleBasedOnLimits();
             Transparent();
         }
     }
@@ -383,6 +383,8 @@ public class Handler : MonoBehaviour
         }
 
         colored = false;
+
+        changeRegionAspectBasedOnLimits();
     }
 
     public void Colored()
