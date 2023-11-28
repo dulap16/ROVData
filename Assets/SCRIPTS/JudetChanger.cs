@@ -58,6 +58,8 @@ public class JudetChanger : MonoBehaviour
 
     public string First;
 
+    public TextureToggle tt;
+
     IEnumerator waiter()
     {
         yield return new WaitUntil(() => blender.transform.GetChild(0).name == currString);
@@ -233,6 +235,8 @@ public class JudetChanger : MonoBehaviour
         fullTexture.sprite = currJudet.texture.full;
         fadedTexture.sprite = currJudet.texture.transp;
         fullTexture.transform.localPosition = fadedTexture.transform.localPosition = currJudet.texture.position;
+
+        tt.changeTexture(fullTexture);
 
         StartCoroutine(waiter());
     }
