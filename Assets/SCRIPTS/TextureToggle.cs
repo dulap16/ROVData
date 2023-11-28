@@ -37,5 +37,8 @@ public class TextureToggle : MonoBehaviour
     public void changeTexture(SpriteRenderer newTexture)
     {
         texture = newTexture;
+
+        if (!isTextureVisible)
+            makeTextureInvisible();
     }
 }
