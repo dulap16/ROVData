@@ -249,9 +249,18 @@ public class Handler : MonoBehaviour
     }
 
     public void Reset()
+    public void reset()
     {
         selectedValuesOnly = false;
-        
+        //adjustToNewMax();
+
+        StartCoroutine(Reseter());
+    }
+
+    IEnumerator Reseter()
+    {
+        yield return new WaitForSeconds(0.05f);
+
         ChangeToAppropriateColorPreset();
         ChangeToAppropriateIndicatorPreset();
     }
