@@ -59,7 +59,7 @@ public class LimitsManager : MonoBehaviour
         _upperValue = val;
 
         equalizeValues();
-        h.ValuesClick();
+        // h.ValuesClick();
     }
 
 
