@@ -162,4 +162,11 @@ public class DatasetHandler : MonoBehaviour
         titleField.text = "";
     }
 
+    public void reset()
+    {
+        filePicker.ClearOptions();
+        filePicker.options.Add(new TMP_Dropdown.OptionData { text = "No dataset selected" });
+
+        NoDatasetSelected();
+    }
 }
