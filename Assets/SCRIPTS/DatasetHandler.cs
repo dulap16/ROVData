@@ -155,4 +155,11 @@ public class DatasetHandler : MonoBehaviour
             filePicker.options.Add(new TMP_Dropdown.OptionData { text = fileTitle });
         File.WriteAllText(pathToFile, fileText);
     }
+
+    public void NoDatasetSelected()
+    {
+        filePicker.value = 0;
+        titleField.text = "";
+    }
+
 }
