@@ -396,6 +396,19 @@ public class Handler : MonoBehaviour
         colored = true;
     }
 
+    public void ColorBasedOnLimits()
+    {
+        Colored();
+        changeRegionAspectBasedOnLimits();
+    }
+
+    public void GrayscaleBasedOnLimits()
+    {
+        Grayscale();
+        changeRegionAspectBasedOnLimits();
+    }
+
+
     public void Transparent()
     {
         foreach(Transform child in judetGO.transform)
@@ -523,6 +536,4 @@ public class Handler : MonoBehaviour
         million = Mathf.Round(million * 100f) / 100f;
         return million + "M";
     }
-
-
 }
