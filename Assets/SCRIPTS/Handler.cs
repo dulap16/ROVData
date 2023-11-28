@@ -217,15 +217,20 @@ public class Handler : MonoBehaviour
 
             selectedValuesOnly = true;
 
-            ll = Int32.Parse(lowerLimit.text);
-            ul = Int32.Parse(upperLimit.text);
+            updateLimitVariables();
 
             changeRegionAspectBasedOnLimits();
         }
         catch { }
     }
 
-    private void changeRegionAspectBasedOnLimits()
+    public void updateLimitVariables()
+    {
+        ll = Int32.Parse(lowerLimit.text);
+        ul = Int32.Parse(upperLimit.text);
+    }
+
+    public void changeRegionAspectBasedOnLimits()
     {
         foreach (Transform child in judetGO.transform)
         {
