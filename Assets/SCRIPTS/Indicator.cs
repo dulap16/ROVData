@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -47,6 +48,8 @@ public class Indicator : MonoBehaviour
 
     public float lerpTime = 0.1f;
 
+    public TMP_Text insideText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -74,6 +77,8 @@ public class Indicator : MonoBehaviour
         finalColor.a = 0.5f;
 
         deselectionColor = new Color32(79, 74, 74, 255);
+
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
     }
 
     void Update()
