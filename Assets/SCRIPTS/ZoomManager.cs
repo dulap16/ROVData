@@ -19,10 +19,6 @@ public class ZoomManager : MonoBehaviour
 
     public Vector3 prevMousePosition;
 
-    public BoundriesGetter boundriesObj;
-
-    public KeepingTheMapWithinTheBorders withinBoundryKeeper;
-
     void Start()
     {
         mapInitCenter = map.transform.position;
@@ -122,8 +118,6 @@ public class ZoomManager : MonoBehaviour
     private void changeMapScale(Vector3 newScale)
     {
         map.transform.localScale = newScale;
-
-        withinBoundryKeeper.mapChangedScale();
     }
 
     private void updateMapCenter(Vector3 newCenter)
