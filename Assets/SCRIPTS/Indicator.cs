@@ -60,6 +60,7 @@ public class Indicator : MonoBehaviour
         regionNameOnTag = CapitaliseForPreview(regionsName);
         tag.ChangeText(regionNameOnTag + " : " + value.ToString());
         changeInsideText(FormatValue(value));
+        visibleInsideText();
         tag.MakeInvisible();
 
         h = GameObject.Find("Handler").GetComponent<Handler>();
@@ -244,4 +245,21 @@ public class Indicator : MonoBehaviour
         insideText.text = newText;
     }
 
+    private void visibleInsideText()
+    {
+        isInsideTextVisible = true;
+        insideText.gameObject.SetActive(isInsideTextVisible);
+    }
+
+    private void invisibleInsideText()
+    {
+        isInsideTextVisible = false;
+        insideText.gameObject.SetActive(isInsideTextVisible);
+    }
+
+    public void toggleInsideText()
+    {
+        isInsideTextVisible = !isInsideTextVisible;
+        insideText.gameObject.SetActive(isInsideTextVisible);
+    }
 }
