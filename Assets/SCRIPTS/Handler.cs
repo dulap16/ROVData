@@ -65,7 +65,9 @@ public class Handler : MonoBehaviour
 
     public void Start()
     {
-        foreach(Transform child in blender.transform)
+        updateLimitVariables();
+
+        foreach (Transform child in blender.transform)
         {
             if (child.name == "CADASTRU")
                 cadastru = child.gameObject;
@@ -232,6 +234,9 @@ public class Handler : MonoBehaviour
 
     public void changeRegionAspectBasedOnLimits()
     {
+        if (isReset())
+            return;
+
         foreach (Transform child in judetGO.transform)
         {
             OverlappingRegion childScript = child.GetComponent<OverlappingRegion>();
