@@ -59,6 +59,7 @@ public class Indicator : MonoBehaviour
 
         regionNameOnTag = CapitaliseForPreview(regionsName);
         tag.ChangeText(regionNameOnTag + " : " + value.ToString());
+        changeInsideText(FormatValue(value));
         tag.MakeInvisible();
 
         h = GameObject.Find("Handler").GetComponent<Handler>();
@@ -98,6 +99,7 @@ public class Indicator : MonoBehaviour
     {
         value = newValue;
         ChangeTag(regionNameOnTag + " : " + value.ToString());
+        changeInsideText(FormatValue(newValue));
         changeScaleAccordingToValue(newValue);
     }
 
