@@ -236,4 +236,10 @@ public class Indicator : MonoBehaviour
         million = Mathf.Round(million * 100f) / 100f;
         return million + "M";
     }
+
+    private void changeInsideText(string newText)
+    {
+        insideText.text = newText;
+    }
+
 }
