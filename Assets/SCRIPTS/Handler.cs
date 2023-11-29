@@ -65,7 +65,9 @@ public class Handler : MonoBehaviour
 
     public void Start()
     {
-        foreach(Transform child in blender.transform)
+        updateLimitVariables();
+
+        foreach (Transform child in blender.transform)
         {
             if (child.name == "CADASTRU")
                 cadastru = child.gameObject;
@@ -217,16 +219,24 @@ public class Handler : MonoBehaviour
 
             selectedValuesOnly = true;
 
-            ll = Int32.Parse(lowerLimit.text);
-            ul = Int32.Parse(upperLimit.text);
+            updateLimitVariables();
 
             changeRegionAspectBasedOnLimits();
         }
         catch { }
     }
 
-    private void changeRegionAspectBasedOnLimits()
+    public void updateLimitVariables()
     {
+        ll = Int32.Parse(lowerLimit.text);
+        ul = Int32.Parse(upperLimit.text);
+    }
+
+    public void changeRegionAspectBasedOnLimits()
+    {
+        if (isReset())
+            return;
+
         foreach (Transform child in judetGO.transform)
         {
             OverlappingRegion childScript = child.GetComponent<OverlappingRegion>();
@@ -497,6 +507,14 @@ public class Handler : MonoBehaviour
         return new string(newName);
     }
 
+    public void ToggleInsideIndicatorText()
+    {
+        foreach(Transform child in judetGO.transform)
+        {
+            OverlappingRegion OR = child.GetComponent<OverlappingRegion>();
+            OR.ToggleInsideIndicatorText();
+        }
+    }
 
     public bool nrFormattingOn = false;
     public void ToggleNrFormatting()

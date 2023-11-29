@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -47,6 +48,8 @@ public class Indicator : MonoBehaviour
 
     public float lerpTime = 0.1f;
 
+    public TMP_Text insideText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +59,8 @@ public class Indicator : MonoBehaviour
 
         regionNameOnTag = CapitaliseForPreview(regionsName);
         tag.ChangeText(regionNameOnTag + " : " + value.ToString());
+        changeInsideText(FormatValue(value));
+        visibleInsideText();
         tag.MakeInvisible();
 
         h = GameObject.Find("Handler").GetComponent<Handler>();
@@ -74,6 +79,8 @@ public class Indicator : MonoBehaviour
         finalColor.a = 0.5f;
 
         deselectionColor = new Color32(79, 74, 74, 255);
+
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
     }
 
     void Update()
@@ -82,11 +89,6 @@ public class Indicator : MonoBehaviour
         {
             outline.transform.localScale = Vector3.Lerp(outline.transform.localScale, targetScale, lerpTime * Time.deltaTime);
         }
-
-        /*if(renderer.material.color != targetColor)
-        {
-            ChangeAlpha();
-        }*/
     }
 
     public void ChangeTag(string t)
@@ -97,7 +99,8 @@ public class Indicator : MonoBehaviour
     public void ChangeValue(int newValue)
     {
         value = newValue;
-        tag.ChangeText(regionNameOnTag + " : " + value.ToString());
+        ChangeTag(regionNameOnTag + " : " + value.ToString());
+        changeInsideText(FormatValue(newValue));
         changeScaleAccordingToValue(newValue);
     }
 
@@ -209,5 +212,54 @@ public class Indicator : MonoBehaviour
         FadeOut();
         HideOutline();
         MakeSmallSized();
+    }
+
+
+    // INSIDE TEXT
+
+    private bool isInsideTextVisible = true;
+    private string FormatValue(int value)
+    {
+        return NrFormatter(value);
+    }
+
+    private string NrFormatter(int nr)
+    {
+        if (nr < 1000)
+            return nr.ToString();
+
+        if (nr < 1000000)
+        {
+            float thousand = (float)nr / 1000f;
+            thousand = Mathf.Round(thousand * 100f) / 100f;
+            return thousand + "K";
+        }
+
+        float million = (float)nr / 1000000f;
+        million = Mathf.Round(million * 100f) / 100f;
+        return million + "M";
+    }
+
+    private void changeInsideText(string newText)
+    {
+        insideText.text = newText;
+    }
+
+    private void visibleInsideText()
+    {
+        isInsideTextVisible = true;
+        insideText.gameObject.SetActive(isInsideTextVisible);
+    }
+
+    private void invisibleInsideText()
+    {
+        isInsideTextVisible = false;
+        insideText.gameObject.SetActive(isInsideTextVisible);
+    }
+
+    public void toggleInsideText()
+    {
+        isInsideTextVisible = !isInsideTextVisible;
+        insideText.gameObject.SetActive(isInsideTextVisible);
     }
 }
