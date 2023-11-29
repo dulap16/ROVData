@@ -502,6 +502,14 @@ public class Handler : MonoBehaviour
         return new string(newName);
     }
 
+    public void ToggleInsideIndicatorText()
+    {
+        foreach(Transform child in judetGO.transform)
+        {
+            OverlappingRegion OR = child.GetComponent<OverlappingRegion>();
+            OR.ToggleInsideIndicatorText();
+        }
+    }
 
     public bool nrFormattingOn = false;
     public void ToggleNrFormatting()
