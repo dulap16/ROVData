@@ -353,4 +353,9 @@ public class OverlappingRegion : MonoBehaviour
 
         return 0;
     }
+
+    public void ToggleInsideIndicatorText()
+    {
+        ind.toggleInsideText();
+    }
 }
