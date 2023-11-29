@@ -210,4 +210,20 @@ public class Indicator : MonoBehaviour
         HideOutline();
         MakeSmallSized();
     }
+    private string NrFormatter(int nr)
+    {
+        if (nr < 1000)
+            return nr.ToString();
+
+        if (nr < 1000000)
+        {
+            float thousand = (float)nr / 1000f;
+            thousand = Mathf.Round(thousand * 100f) / 100f;
+            return thousand + "K";
+        }
+
+        float million = (float)nr / 1000000f;
+        million = Mathf.Round(million * 100f) / 100f;
+        return million + "M";
+    }
 }
