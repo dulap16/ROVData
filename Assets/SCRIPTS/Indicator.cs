@@ -87,11 +87,6 @@ public class Indicator : MonoBehaviour
         {
             outline.transform.localScale = Vector3.Lerp(outline.transform.localScale, targetScale, lerpTime * Time.deltaTime);
         }
-
-        /*if(renderer.material.color != targetColor)
-        {
-            ChangeAlpha();
-        }*/
     }
 
     public void ChangeTag(string t)
@@ -102,7 +97,7 @@ public class Indicator : MonoBehaviour
     public void ChangeValue(int newValue)
     {
         value = newValue;
-        tag.ChangeText(regionNameOnTag + " : " + value.ToString());
+        ChangeTag(regionNameOnTag + " : " + value.ToString());
         changeScaleAccordingToValue(newValue);
     }
 
