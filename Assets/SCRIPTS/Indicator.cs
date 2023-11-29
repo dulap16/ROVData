@@ -210,6 +210,16 @@ public class Indicator : MonoBehaviour
         HideOutline();
         MakeSmallSized();
     }
+
+
+    // INSIDE TEXT
+
+    private bool isInsideTextVisible = true;
+    private string FormatValue(int value)
+    {
+        return NrFormatter(value);
+    }
+
     private string NrFormatter(int nr)
     {
         if (nr < 1000)
