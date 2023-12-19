@@ -31,8 +31,6 @@ public class StartManager : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown("space"))
-            Restart();
 
         if (isStartPage)
         {
