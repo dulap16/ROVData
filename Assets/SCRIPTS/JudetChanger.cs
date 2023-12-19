@@ -159,6 +159,9 @@ public class JudetChanger : MonoBehaviour
             child.AddComponent<MeshCollider>();
             child.GetComponent<Renderer>().material = GAL;
             child.GetComponent<MeshCollider>().material = phys;
+
+            child.GetComponent<OverlappingRegion>().isg = newGroup.GetComponent<IndividualSymbolGroup>();
+            newGroup.GetComponent<IndividualSymbolGroup>().setMyRegion(child.GetComponent<OverlappingRegion>());
         }
 
         h.Start();
@@ -171,19 +174,13 @@ public class JudetChanger : MonoBehaviour
         fullTexture.sprite = currJudet.texture.full;
         fadedTexture.sprite = currJudet.texture.transp;
         fullTexture.transform.localPosition = fadedTexture.transform.localPosition = currJudet.texture.position;
-
-        
-        sm.Generate();
-        while (!sm.generated)
-            ;
-
-        StartCoroutine(waiter(1));
-        
     }
 
     private void JudetSchimbat()
     {
         dmHandler.ResetPositions();
+        h.limitsManager.Reset();
+        h.zm.resetToOriginal();
 
         string key = dd.options[dd.value].text;
         currJudet = dict[key];
@@ -194,6 +191,9 @@ public class JudetChanger : MonoBehaviour
             Destroy(child.gameObject);
 
         // copied from JudetSchimbat()
+        foreach (Transform child in individualSymbolGroup.transform)
+            Destroy(child.gameObject);
+
         foreach (Transform child in blender.transform)
             Destroy(child.gameObject);
 
@@ -227,7 +227,16 @@ public class JudetChanger : MonoBehaviour
 
         foreach (Transform child in newJudet.transform)
         {
-            Debug.Log(child.name);
+            string Name = child.name;
+            if (Name.Contains("."))
+                Name = Name.Substring(0, Name.Length - 4);
+            Name = Name.ToLower();
+
+            GameObject newGroup = new GameObject(Name);
+            newGroup.transform.parent = individualSymbolGroup.transform;
+            newGroup.AddComponent<IndividualSymbolGroup>();
+
+            
             child.gameObject.layer = 8;
             child.AddComponent<MeshCollider>();
             child.GetComponent<Renderer>().material = GAL;
