@@ -244,8 +244,12 @@ public class JudetChanger : MonoBehaviour
 
             // this might be needed to happen later
             child.AddComponent<OverlappingRegion>();
-            
+
+            child.GetComponent<OverlappingRegion>().isg = newGroup.GetComponent<IndividualSymbolGroup>();
+            newGroup.GetComponent<IndividualSymbolGroup>().setMyRegion(child.GetComponent<OverlappingRegion>());
         }
+
+        
 
         h.Start();
         h.updateLimitVariables();
