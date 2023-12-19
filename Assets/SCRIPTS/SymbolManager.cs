@@ -10,6 +10,7 @@ public class SymbolManager : MonoBehaviour
 
     public GameObject judet;
     public GameObject symbolGroup;
+    public GameObject individualSymbolGroup;
     public GameObject symbolPrefab;
 
     /// Town bounds
@@ -19,6 +20,9 @@ public class SymbolManager : MonoBehaviour
     private float width = 30;
     private float height = 30;
     public float radius;
+
+    public float maxRadius, minRadius;
+    public AnimationCurve _curve;
 
     public bool generated = false;
 
@@ -38,7 +42,6 @@ public class SymbolManager : MonoBehaviour
         width = xmax - xmin;
         height = ymax - ymin;
 
-        // Debug.Log(judet.transform.GetChild(1).position.y);
         PoissonDiscSampler sampler = new PoissonDiscSampler(width, height, radius);
         foreach (Vector2 sample in sampler.Samples())
         {
@@ -48,4 +51,34 @@ public class SymbolManager : MonoBehaviour
 
         generated = true;
     }
+
+    public void GenerateForOneRegion(OverlappingRegion region)
+    {
+        float Radius = maxRadius - ((float)region.value / (float)handler.max) * (maxRadius - minRadius);
+
+        judet = handler.judetGO;
+        list = region.CalculateBoundsOfRegion();
+        IndividualSymbolGroup sg = individualSymbolGroup.transform.Find(region.name).GetComponent<IndividualSymbolGroup>();
+
+        var Xmin = list[0];
+        var Xmax = list[1];
+        var Ymin = list[2];
+        var Ymax = list[3];
+
+        sg.showingPosition = new Vector3(Xmin, Ymin, 1f);
+        sg.Show();
+
+        var Width = Xmax - Xmin;
+        var Height = Ymax - Ymin;
+
+        PoissonDiscSampler sampler = new PoissonDiscSampler(Width, Height, Radius);
+        foreach (Vector2 sample in sampler.Samples())
+        {
+            Vector3 position = new Vector3(sample.x + Xmin, sample.y + Ymin, 0);
+            Symbol symbol = Instantiate(symbolPrefab, position, Quaternion.identity, sg.transform).GetComponent<Symbol>();
+
+            symbol.setTarget(region);
+        }
+    }
+
 }
