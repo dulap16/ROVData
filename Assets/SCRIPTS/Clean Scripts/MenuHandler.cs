@@ -20,12 +20,22 @@ public class MenuHandler : MonoBehaviour
 
     private bool isPresentation = false;
 
+    public GameObject westCameraBoundries;
+
+    public ZoomManager zm;
+
+    public Vector3 noPresCenter;
+    public Vector3 presCenter;
+
     void Start()
     {
         mainPanelOTBL = GameObject.Find("Main Panel").GetComponent<ObjectToBeLerped>();
         mapOTBL = GameObject.Find("Map").GetComponent<ObjectToBeLerped>();
         settingsOTBL = GameObject.Find("Settings Panel").GetComponent<ObjectToBeLerped>();
 
+        noPresCenter = mapOTBL.transform.TransformPoint(noPresCenter);
+        presCenter = mapOTBL.transform.TransformPoint(presCenter);
+            
         sidePanelOTBL = GameObject.Find("Separate side").GetComponent<ObjectToBeLerped>();
         panelToggleOTBL = GameObject.Find("Toggle Panel Button").GetComponent<ObjectToBeLerped>();
     }
@@ -58,7 +68,6 @@ public class MenuHandler : MonoBehaviour
     public void togglePresPressed()
     {
         isPresentation = !isPresentation;
-        Debug.Log(isPresentation);
 
         moveForPresentation();
     }
@@ -70,11 +79,17 @@ public class MenuHandler : MonoBehaviour
             mapOTBL.GoToStage("menuOff");
             panelToggleOTBL.GoToStage("menuOff");
             sidePanelOTBL.GoToStage("menuOff");
+
+            zm.presentationModeActivated();
+            zm.setWestCameraBoundries(-18.88f);
         } else
         {
             mapOTBL.GoToStage("menuOn");
             panelToggleOTBL.GoToStage("menuOn");
             sidePanelOTBL.GoToStage("menuOn");
+
+            zm.presentaionModeDeactivated();
+            zm.setWestCameraBoundries(-12);
         }
     }
 }
