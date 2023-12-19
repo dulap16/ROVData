@@ -230,6 +230,22 @@ public class OverlappingRegion : MonoBehaviour
         return l;
     }
 
+    public void ResetSymbols()
+    {
+        DestroyAllSymbols();
+
+        handler.sm.GenerateForOneRegion(this);
+    }
+
+    public void DestroyAllSymbols()
+    {
+        foreach(Symbol symbol in symbols)
+        {
+            Destroy(symbol.gameObject);
+        }
+        symbols.Clear();
+    }
+
     public void AddSymbol(Symbol s)
     {
         symbols.Add(s);
