@@ -1,9 +1,11 @@
+using Assets.SCRIPTS.Start_Page;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Serialization;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -50,6 +52,7 @@ public class Handler : MonoBehaviour
 
     // SYMBOLS
     public GameObject symbolPrefab;
+    public SymbolManager sm;
 
     public GameObject indprefab;
 
@@ -62,6 +65,7 @@ public class Handler : MonoBehaviour
     public PresentationPageHandler pphandler;
 
     public DisplayModeHandler displayModeHandler;
+    public ZoomManager zm;
 
     public void Start()
     {
@@ -100,6 +104,14 @@ public class Handler : MonoBehaviour
 
         current = null;
         colored = true;
+
+        zm.resetToOriginal();
+
+        foreach(Transform child in judetGO.transform)
+        {
+            OverlappingRegion OR = child.GetComponent<OverlappingRegion>();
+            OR.value = 1;
+        }
     }
 
     public void JudetChanged()
