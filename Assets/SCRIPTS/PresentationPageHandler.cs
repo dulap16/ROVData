@@ -30,6 +30,7 @@ public class PresentationPageHandler : MonoBehaviour
     public Sprite fullImage;
     public Sprite transparentImage;
     public bool presentation = false;
+    public GameObject westCameraBoundries;
 
     private Vector3 initMapPos;
     public Vector3 presMapPos;
@@ -153,6 +154,7 @@ public class PresentationPageHandler : MonoBehaviour
             targetColor.a = 1;
             targetBorderColor.a = 0.5f;
             targetTextColor.a = 1;
+            westCameraBoundries.transform.localPosition = new Vector3(-12, westCameraBoundries.transform.localPosition.y, 0);
 
             HideUI();
 
