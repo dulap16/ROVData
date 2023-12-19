@@ -143,7 +143,16 @@ public class JudetChanger : MonoBehaviour
 
         foreach (Transform child in newJudet.transform)
         {
-            Debug.Log(child.name);
+            string Name = child.name;
+            if (Name.Contains("."))
+                Name = Name.Substring(0, Name.Length - 4);
+            Name = Name.ToLower();
+
+            GameObject newGroup = new GameObject(Name);
+            newGroup.transform.parent = individualSymbolGroup.transform;
+            newGroup.AddComponent<IndividualSymbolGroup>();
+
+            
             // this might be needed to happen later
             child.AddComponent<OverlappingRegion>();
             child.gameObject.layer = 8;
