@@ -456,6 +456,15 @@ public class Handler : MonoBehaviour
         }
     }    
 
+    public void makeSymbolsForEveryone()
+    {
+        foreach (Transform child in judetGO.transform)
+        {
+            OverlappingRegion region = child.GetComponent<OverlappingRegion>();
+            sm.GenerateForOneRegion(region);
+        }
+    }
+
     public void DelegateSymbols()
     {
         foreach (Transform child in judetGO.transform)
