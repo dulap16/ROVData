@@ -3,8 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using TMPro;
-using Unity.PlasticSCM.Editor.WebApi;
-using UnityEditor.Search;
 using UnityEngine;
 
 public class NewUIHandler : MonoBehaviour
