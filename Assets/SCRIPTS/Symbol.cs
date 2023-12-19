@@ -6,6 +6,7 @@ using UnityEngine;
 public class Symbol : MonoBehaviour
 {
     public OverlappingRegion owner;
+    private OverlappingRegion target = null;
 
     private Ray ray;
     public LayerMask layersToHit;
@@ -31,9 +32,16 @@ public class Symbol : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit, maxDistance, layersToHit))
         {
             OverlappingRegion region = hit.transform.gameObject.GetComponent<OverlappingRegion>();
+
+            if (region != target && target != null)
+            {
+                Destroy(this.gameObject);
+                return;
+            }
             owner = region;
             region.AddSymbol(this);
             regionHit = hit.transform.name;
+            Show();
         }
         else Destroy(this.gameObject);
     }
