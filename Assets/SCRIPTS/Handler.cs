@@ -508,6 +508,22 @@ public class Handler : MonoBehaviour
     }
 
 
+    public bool isLegendOn = false;
+    public ObjectToBeLerped legend;
+    public void toggleLegend()
+    {
+        if (isLegendOn) 
+        {
+            isLegendOn = false;
+            legend.GoToStage("off");
+        } else
+        {
+            isLegendOn = true;
+            legend.GoToStage("on");
+        }
+    }
+
+
     public void AssignRandomValues()
     {
         dh.NoDatasetSelected();
