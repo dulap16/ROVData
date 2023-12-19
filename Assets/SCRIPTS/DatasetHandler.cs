@@ -29,7 +29,7 @@ public class DatasetHandler : MonoBehaviour
 
         if (!Directory.Exists(pathToDatasets))
             Directory.CreateDirectory(pathToDatasets);
-        // Debug.Log(pathToDatasets);
+        Debug.Log(pathToDatasets);
         CreateFolders();
         savedPath = Path.Join(pathToDatasets, h.curentJudet);
 
