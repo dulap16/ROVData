@@ -51,6 +51,10 @@ public class Symbol : MonoBehaviour
     {
         GetComponent<SpriteRenderer>().color = newColor;
     }
+
+    public void setTarget(OverlappingRegion region)
+    {
+        target = region;
     }
 
     public void Show()
