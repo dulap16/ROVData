@@ -6,6 +6,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Experimental.AI;
+using UnityEngine.SceneManagement;
 
 public class JudetChanger : MonoBehaviour
 {
@@ -55,6 +56,8 @@ public class JudetChanger : MonoBehaviour
     public DatasetHandler dh;
     public VisualsManager visualsManager;
     public GameObject pointsGroup;
+    public GameObject individualSymbolGroup;
+    public ZoomManager zm;
 
     public string First;
 
@@ -62,26 +65,17 @@ public class JudetChanger : MonoBehaviour
 
     IEnumerator waiter()
     {
-        yield return new WaitUntil(() => blender.transform.GetChild(0).name == currString);
-        sm.Generate();
-        yield return new WaitUntil(() => sm.generated == true);
-        
-        h.DelegateSymbols();
-        sm.generated = false;
+        yield return new WaitForSeconds(1f);
 
-        yield return new WaitForSecondsRealtime(1);
+        h.makeSymbolsForEveryone();
+
         dh.JudetChanged();
 
         dmHandler.modeChanged(0);
 
         h.changeRegionAspectBasedOnLimits();
-    }
 
-    IEnumerator waiter(float seconds)
-    {
-        yield return new WaitForSecondsRealtime(seconds);
-        h.DelegateSymbols();
-        sm.generated = false;
+        h.EmptySamples();
     }
 
     // Start is called before the first frame update
