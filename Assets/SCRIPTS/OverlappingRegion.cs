@@ -46,12 +46,16 @@ public class OverlappingRegion : MonoBehaviour
     public Color selectionColor;
 
 
+    public IndividualSymbolGroup isg;
+
     // SYMBOLS
     [SerializeField] private List<Symbol> symbols;
 
     // Start is called before the first frame update
     void Awake()
     {
+        
+
         /// GET NECESSARY OBJCETS
         colorHandler = GameObject.Find("ColorHandler").GetComponent<ColorHandler>();
         handler = GameObject.Find("Handler").GetComponent<Handler>();
@@ -101,7 +105,7 @@ public class OverlappingRegion : MonoBehaviour
         overColor = basicColor;
         overColor.a = selectedAlpha;
 
-        // HideAll();
+        ResetSymbols();
     }
 
     public void FixedUpdate()
@@ -206,13 +210,26 @@ public class OverlappingRegion : MonoBehaviour
         SetColor(c);
         ind.ChangeValue(value);
 
-        HideAll();
-        SelectSymbols();
-        ShowSelection();
+        ResetSymbols();
         etiqueteText = regionNameWithCapitals + " : " + value.ToString();
     }
 
     // SYMBOLS
+
+    public List<float> CalculateBoundsOfRegion()
+    {
+        float xmin = 1000, ymin = 1000, xmax = -1000, ymax = -1000;
+        Renderer mesh = GetComponent<Renderer>();
+
+        xmin = Mathf.Min(xmin, mesh.bounds.center.x - mesh.bounds.extents.x);
+        xmax = Mathf.Max(xmax, mesh.bounds.center.x + mesh.bounds.extents.x);
+        ymin = Mathf.Min(ymin, mesh.bounds.center.y - mesh.bounds.extents.y);
+        ymax = Mathf.Max(ymax, mesh.bounds.center.y + mesh.bounds.extents.y);
+
+        List<float> l = new List<float> { xmin, xmax, ymin, ymax };
+        return l;
+    }
+
     public void AddSymbol(Symbol s)
     {
         symbols.Add(s);
