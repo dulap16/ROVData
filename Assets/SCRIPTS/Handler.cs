@@ -360,7 +360,17 @@ public class Handler : MonoBehaviour
         limitsManager.Reset();
     }
 
+    public void EmptySamples()
+    {
+        foreach(Transform child in judetGO.transform)
+        {
+            OverlappingRegion OR = child.GetComponent<OverlappingRegion>();
 
+            ChangeValueOfRegion(OR.name, 0);
+        }
+
+        limitsManager.setLowerValue(1);
+    }
 
     public void ChangeClick()
     {
