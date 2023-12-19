@@ -44,6 +44,13 @@ public class Symbol : MonoBehaviour
             Show();
         }
         else Destroy(this.gameObject);
+
+    }
+
+    public void changeColor(Color newColor)
+    {
+        GetComponent<SpriteRenderer>().color = newColor;
+    }
     }
 
     public void Show()
