@@ -100,11 +100,16 @@ public class JudetChanger : MonoBehaviour
 
     private void FirstJudet(string first)
     {
+        dd.value = dd.options.IndexOf(new TMP_Dropdown.OptionData(First));
+
         currJudet = dict[first];
         currString = first;
         h.curentJudet = first;
 
         // copied from JudetSchimbat()
+        foreach (Transform child in individualSymbolGroup.transform)
+            Destroy(child.gameObject);
+
         foreach (Transform child in blender.transform)
             Destroy(child.gameObject);
 
